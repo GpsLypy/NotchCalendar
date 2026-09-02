@@ -33,18 +33,23 @@ final class CalendarManager: ObservableObject {
     deinit { if let databaseObserver { NotificationCenter.default.removeObserver(databaseObserver) } }
 
     func requestAccess() {
-        store.requestFullAccessToEvents { [weak self] granted, error in
-            Task { @MainActor [weak self] in
+        // EventKit invokes this completion on its CalendarAgent XPC queue.
+        // Giving the callback an explicit Sendable type prevents it from
+        // inheriting MainActor isolation from this method before we hop back.
+        let completion: @Sendable (Bool, Error?) -> Void = { [weak self] granted, error in
+            let errorMessage = error?.localizedDescription
+            Task { @MainActor [weak self, errorMessage] in
                 guard let self else { return }
                 if granted {
                     self.authorizationMessage = nil
                     self.refresh()
                 } else {
-                    self.authorizationMessage = error?.localizedDescription
+                    self.authorizationMessage = errorMessage
                         ?? "Allow Calendar access in System Settings to show your agenda."
                 }
             }
         }
+        store.requestFullAccessToEvents(completion: completion)
     }
 
     func refresh() { loadEvents(from: Date().startOfDay, to: Date().endOfDay) }
