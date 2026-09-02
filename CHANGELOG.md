@@ -2,6 +2,12 @@
 
 All notable changes to Notch Calendar are documented here.
 
+## [0.1.8] - 2026-09-02
+
+### Added
+
+- Live download percentage, transferred size, total size, and a determinate progress bar for in-app DMG updates.
+
 ## [0.1.7] - 2026-09-02
 
 ### Fixed

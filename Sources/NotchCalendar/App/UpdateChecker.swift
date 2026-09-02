@@ -10,9 +10,23 @@ enum UpdateStatus: Equatable {
 
 enum UpdateDownloadStatus: Equatable {
     case idle
-    case downloading
+    case downloading(UpdateDownloadProgress)
     case downloaded(URL)
     case failed(String)
+}
+
+struct UpdateDownloadProgress: Equatable {
+    let bytesReceived: Int64
+    let totalBytes: Int64?
+
+    var fraction: Double? {
+        guard let totalBytes, totalBytes > 0 else { return nil }
+        return min(max(Double(bytesReceived) / Double(totalBytes), 0), 1)
+    }
+
+    var percentage: Int? {
+        fraction.map { Int(($0 * 100).rounded()) }
+    }
 }
 
 @MainActor
@@ -21,6 +35,10 @@ final class UpdateChecker: ObservableObject {
     @Published private(set) var downloadStatus: UpdateDownloadStatus = .idle
 
     var canCheckForUpdates: Bool { UpdateConfiguration.releasesAPIURL != nil }
+    var isDownloading: Bool {
+        if case .downloading = downloadStatus { return true }
+        return false
+    }
 
     func checkForUpdates() async {
         guard let url = UpdateConfiguration.releasesAPIURL else {
@@ -69,23 +87,27 @@ final class UpdateChecker: ObservableObject {
             return nil
         }
 
-        downloadStatus = .downloading
+        downloadStatus = .downloading(
+            UpdateDownloadProgress(bytesReceived: 0, totalBytes: nil)
+        )
 
         do {
             var request = URLRequest(url: downloadURL)
             request.setValue("NotchCalendar", forHTTPHeaderField: "User-Agent")
             request.timeoutInterval = 120
 
-            let (temporaryURL, response) = try await URLSession.shared.download(for: request)
-            guard let response = response as? HTTPURLResponse,
-                  (200..<300).contains(response.statusCode) else {
-                throw UpdateError.invalidResponse
+            let operation = UpdateDownloadOperation { [weak self] bytesReceived, totalBytes in
+                Task { @MainActor [weak self] in
+                    guard let self, self.isDownloading else { return }
+                    self.downloadStatus = .downloading(
+                        UpdateDownloadProgress(
+                            bytesReceived: bytesReceived,
+                            totalBytes: totalBytes
+                        )
+                    )
+                }
             }
-
-            let proposedName = response.suggestedFilename ?? downloadURL.lastPathComponent
-            let fileName = URL(fileURLWithPath: proposedName).lastPathComponent
-            let destinationURL = try Self.availableDownloadURL(for: fileName)
-            try FileManager.default.moveItem(at: temporaryURL, to: destinationURL)
+            let destinationURL = try await operation.download(request)
             downloadStatus = .downloaded(destinationURL)
             return destinationURL
         } catch {
@@ -110,8 +132,99 @@ final class UpdateChecker: ObservableObject {
     private static func versionComponents(_ version: String) -> [Int] {
         version.split(whereSeparator: { !$0.isNumber }).compactMap { Int($0) }
     }
+}
 
-    private static func availableDownloadURL(for fileName: String) throws -> URL {
+private final class UpdateDownloadOperation: NSObject, URLSessionDownloadDelegate, @unchecked Sendable {
+    typealias ProgressHandler = @Sendable (_ bytesReceived: Int64, _ totalBytes: Int64?) -> Void
+
+    private let progressHandler: ProgressHandler
+    private let lock = NSLock()
+    private var continuation: CheckedContinuation<URL, Error>?
+    private var session: URLSession?
+
+    init(progressHandler: @escaping ProgressHandler) {
+        self.progressHandler = progressHandler
+    }
+
+    func download(_ request: URLRequest) async throws -> URL {
+        try await withCheckedThrowingContinuation { continuation in
+            let session = URLSession(
+                configuration: .ephemeral,
+                delegate: self,
+                delegateQueue: nil
+            )
+
+            lock.lock()
+            self.continuation = continuation
+            self.session = session
+            lock.unlock()
+
+            session.downloadTask(with: request).resume()
+        }
+    }
+
+    func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didWriteData bytesWritten: Int64,
+        totalBytesWritten: Int64,
+        totalBytesExpectedToWrite: Int64
+    ) {
+        let totalBytes = totalBytesExpectedToWrite > 0 ? totalBytesExpectedToWrite : nil
+        progressHandler(totalBytesWritten, totalBytes)
+    }
+
+    func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didFinishDownloadingTo location: URL
+    ) {
+        do {
+            guard let response = downloadTask.response as? HTTPURLResponse,
+                  (200..<300).contains(response.statusCode) else {
+                throw UpdateError.invalidResponse
+            }
+
+            let proposedName = response.suggestedFilename
+                ?? downloadTask.originalRequest?.url?.lastPathComponent
+                ?? "NotchCalendar-update.dmg"
+            let fileName = URL(fileURLWithPath: proposedName).lastPathComponent
+            let destinationURL = try UpdateDownloadDestination.availableURL(for: fileName)
+            try FileManager.default.moveItem(at: location, to: destinationURL)
+            finish(with: .success(destinationURL))
+        } catch {
+            finish(with: .failure(error))
+        }
+    }
+
+    func urlSession(
+        _ session: URLSession,
+        task: URLSessionTask,
+        didCompleteWithError error: Error?
+    ) {
+        if let error {
+            finish(with: .failure(error))
+        }
+    }
+
+    private func finish(with result: Result<URL, Error>) {
+        lock.lock()
+        guard let continuation else {
+            lock.unlock()
+            return
+        }
+        self.continuation = nil
+        let activeSession = session
+        session = nil
+        lock.unlock()
+
+        continuation.resume(with: result)
+        activeSession?.finishTasksAndInvalidate()
+    }
+}
+
+private enum UpdateDownloadDestination {
+    static func availableURL(for fileName: String) throws -> URL {
         guard let downloadsDirectory = FileManager.default.urls(
             for: .downloadsDirectory,
             in: .userDomainMask
