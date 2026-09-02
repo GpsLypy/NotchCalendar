@@ -47,4 +47,11 @@ enum UpcomingEventEngine {
         }
         return String(format: "%02d:%02d", minutes, seconds)
     }
+
+    static func progress(now: Date, event: CalendarEvent) -> Double {
+        let duration = event.endDate.timeIntervalSince(event.startDate)
+        guard duration > 0 else { return 0 }
+        let elapsed = now.timeIntervalSince(event.startDate)
+        return min(max(elapsed / duration, 0), 1)
+    }
 }

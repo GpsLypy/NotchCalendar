@@ -71,19 +71,34 @@ struct ExpandedCalendarView: View {
     @ViewBuilder private func nextCard(status: EventStatus) -> some View {
         switch status {
         case let .active(event, secondsRemaining):
-            eventCard("NOW", event, "\(UpcomingEventEngine.countdown(secondsRemaining)) left", AlcovePalette.accent)
+            eventCard(
+                "NOW",
+                event,
+                "\(UpcomingEventEngine.countdown(secondsRemaining)) left",
+                AlcovePalette.accent,
+                showsProgress: true
+            )
         case let .upcoming(event, secondsUntilStart):
             eventCard("NEXT", event, "in \(UpcomingEventEngine.countdown(secondsUntilStart))", AlcovePalette.accent)
         case .idle: EmptyView()
         }
     }
 
-    private func eventCard(_ title: String, _ event: CalendarEvent, _ suffix: String, _ color: Color) -> some View {
+    private func eventCard(
+        _ title: String,
+        _ event: CalendarEvent,
+        _ suffix: String,
+        _ color: Color,
+        showsProgress: Bool = false
+    ) -> some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(title).font(.system(size: 10, weight: .bold)).tracking(1.3).foregroundStyle(color)
             HStack {
                 Text(event.title).font(.system(size: 15, weight: .semibold)).lineLimit(1)
                 Spacer()
+                if showsProgress {
+                    MeetingProgressRing(event: event, now: now)
+                }
                 Text(suffix)
                     .font(.system(size: 12, design: .monospaced))
                     .monospacedDigit()

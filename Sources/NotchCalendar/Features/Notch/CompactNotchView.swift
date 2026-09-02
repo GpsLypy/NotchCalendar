@@ -10,7 +10,7 @@ struct CompactNotchView: View {
         HStack(spacing: 10) {
             switch status {
             case let .active(event, secondsRemaining):
-                statusDot(AlcovePalette.accent)
+                MeetingProgressRing(event: event, now: now, size: 10, lineWidth: 2)
                 Text(event.title).lineLimit(1)
                 countdownLabel(UpcomingEventEngine.countdown(secondsRemaining), suffix: "left")
             case let .upcoming(event, secondsUntilStart):

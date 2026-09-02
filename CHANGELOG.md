@@ -2,6 +2,12 @@
 
 All notable changes to Notch Calendar are documented here.
 
+## [0.1.3] - 2026-09-02
+
+### Added
+
+- A live meeting progress ring in the compact notch and expanded event card.
+
 ## [0.1.2] - 2026-09-02
 
 ### Added
