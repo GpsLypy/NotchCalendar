@@ -37,10 +37,10 @@ final class CalendarManager: ObservableObject {
             Task { @MainActor [weak self] in
                 guard let self else { return }
                 if granted {
-                    authorizationMessage = nil
-                    refresh()
+                    self.authorizationMessage = nil
+                    self.refresh()
                 } else {
-                    authorizationMessage = error?.localizedDescription
+                    self.authorizationMessage = error?.localizedDescription
                         ?? "Allow Calendar access in System Settings to show your agenda."
                 }
             }

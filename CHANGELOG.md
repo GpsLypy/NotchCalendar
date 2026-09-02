@@ -2,6 +2,12 @@
 
 All notable changes to Notch Calendar are documented here.
 
+## [0.1.5] - 2026-09-02
+
+### Fixed
+
+- Explicit actor-isolated state access for compatibility with Xcode 16 release builds.
+
 ## [0.1.4] - 2026-09-02
 
 ### Fixed
