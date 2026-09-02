@@ -14,6 +14,7 @@ APP_DIR="$DIST_DIR/Notch Calendar.app"
 ARCHIVE_PATH="$DIST_DIR/NotchCalendar-${VERSION}-macos.zip"
 DMG_PATH="$DIST_DIR/NotchCalendar-${VERSION}-macos.dmg"
 INFO_PLIST="$APP_DIR/Contents/Info.plist"
+SIGNING_IDENTITY="${DEVELOPER_ID_APPLICATION:--}"
 
 cd "$ROOT_DIR"
 swift build -c release
@@ -25,12 +26,21 @@ cp "$ROOT_DIR/Support/Info.plist" "$INFO_PLIST"
 cp "$ROOT_DIR/Resources/AppIcon.icns" "$APP_DIR/Contents/Resources/"
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "$INFO_PLIST"
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $VERSION" "$INFO_PLIST"
-codesign --force --sign - "$APP_DIR"
+
+if [[ "$SIGNING_IDENTITY" == "-" ]]; then
+  print "Warning: no Developer ID certificate found; creating an ad-hoc signed development build."
+  print "Set DEVELOPER_ID_APPLICATION to distribute outside your own Mac."
+  codesign --force --sign - "$APP_DIR"
+else
+  codesign --force --sign "$SIGNING_IDENTITY" --options runtime --timestamp "$APP_DIR"
+fi
+codesign --verify --deep --strict --verbose=2 "$APP_DIR"
 
 rm -f "$ARCHIVE_PATH"
 ditto -c -k --keepParent "$APP_DIR" "$ARCHIVE_PATH"
 rm -f "$DMG_PATH"
 hdiutil create -volname "Notch Calendar" -srcfolder "$APP_DIR" -ov -format UDZO "$DMG_PATH"
+hdiutil verify "$DMG_PATH"
 
 print "Created $ARCHIVE_PATH"
 print "Created $DMG_PATH"
