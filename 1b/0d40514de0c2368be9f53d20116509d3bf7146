@@ -1,0 +1,23 @@
+Sources/NotchCalendar/Calendar/CalendarManager.swift
+  s_82e9070e2add04::t_c5d3de59ceb93e 1,36-38,43-44,46
+Support/Info.plist
+  s_82e9070e2add04::t_c5d3de59ceb93e 18,20
+CHANGELOG.md
+  s_82e9070e2add04::t_c5d3de59ceb93e 5-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "1b0d40514de0c2368be9f53d20116509d3bf7146",
+  "prompts": {},
+  "sessions": {
+    "s_82e9070e2add04": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0612e-7058-7d32-9a24-42d1cc3319d4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}
