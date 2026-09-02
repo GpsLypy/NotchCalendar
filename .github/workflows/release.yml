@@ -16,7 +16,8 @@ permissions:
 
 jobs:
   release:
-    runs-on: macos-14
+    # Swift tools 6.0 requires Xcode 16 or newer, which is provided by macos-15.
+    runs-on: macos-15
     env:
       RELEASE_VERSION: ${{ inputs.version || github.ref_name }}
     steps:
