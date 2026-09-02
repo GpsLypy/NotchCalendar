@@ -1,4 +1,4 @@
-import EventKit
+@preconcurrency import EventKit
 import SwiftUI
 
 @MainActor
@@ -33,16 +33,17 @@ final class CalendarManager: ObservableObject {
     deinit { if let databaseObserver { NotificationCenter.default.removeObserver(databaseObserver) } }
 
     func requestAccess() {
-        Task {
-            do {
-                let granted = try await store.requestFullAccessToEvents()
+        store.requestFullAccessToEvents { [weak self] granted, error in
+            Task { @MainActor [weak self] in
+                guard let self else { return }
                 if granted {
                     authorizationMessage = nil
                     refresh()
                 } else {
-                    authorizationMessage = "Allow Calendar access in System Settings to show your agenda."
+                    authorizationMessage = error?.localizedDescription
+                        ?? "Allow Calendar access in System Settings to show your agenda."
                 }
-            } catch { authorizationMessage = error.localizedDescription }
+            }
         }
     }
 

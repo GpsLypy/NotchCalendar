@@ -2,6 +2,12 @@
 
 All notable changes to Notch Calendar are documented here.
 
+## [0.1.4] - 2026-09-02
+
+### Fixed
+
+- Calendar authorization now builds cleanly with the Swift 6 toolchain used by GitHub Actions.
+
 ## [0.1.3] - 2026-09-02
 
 ### Added
