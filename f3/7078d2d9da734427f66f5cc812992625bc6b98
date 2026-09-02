@@ -1,0 +1,19 @@
+.github/workflows/release.yml
+  s_82e9070e2add04::t_6ef94ed0dfafb1 19-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "f37078d2d9da734427f66f5cc812992625bc6b98",
+  "prompts": {},
+  "sessions": {
+    "s_82e9070e2add04": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0612e-7058-7d32-9a24-42d1cc3319d4",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}
