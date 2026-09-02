@@ -2,6 +2,13 @@
 
 All notable changes to Notch Calendar are documented here.
 
+## [0.1.6] - 2026-09-02
+
+### Added
+
+- Direct DMG downloads from the in-app update screen, saved to Downloads and revealed in Finder.
+- An Applications shortcut in the DMG for standard drag-to-install behavior.
+
 ## [0.1.5] - 2026-09-02
 
 ### Fixed

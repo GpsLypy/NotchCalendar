@@ -4,13 +4,21 @@ enum UpdateStatus: Equatable {
     case ready
     case checking
     case upToDate
-    case updateAvailable(version: String, releaseURL: URL)
+    case updateAvailable(version: String, releaseURL: URL, downloadURL: URL?)
     case unavailable(String)
+}
+
+enum UpdateDownloadStatus: Equatable {
+    case idle
+    case downloading
+    case downloaded(URL)
+    case failed(String)
 }
 
 @MainActor
 final class UpdateChecker: ObservableObject {
     @Published private(set) var status: UpdateStatus = .ready
+    @Published private(set) var downloadStatus: UpdateDownloadStatus = .idle
 
     var canCheckForUpdates: Bool { UpdateConfiguration.releasesAPIURL != nil }
 
@@ -21,6 +29,7 @@ final class UpdateChecker: ObservableObject {
         }
 
         status = .checking
+        downloadStatus = .idle
         do {
             var request = URLRequest(url: url)
             request.setValue("NotchCalendar", forHTTPHeaderField: "User-Agent")
@@ -35,13 +44,53 @@ final class UpdateChecker: ObservableObject {
                 throw UpdateError.invalidResponse
             }
 
+            let downloadURL = release.assets
+                .first(where: { $0.name.lowercased().hasSuffix(".dmg") })
+                .flatMap { URL(string: $0.browserDownloadURL) }
+
             if Self.isNewer(release.tagName, than: UpdateConfiguration.currentVersion) {
-                status = .updateAvailable(version: release.tagName, releaseURL: releaseURL)
+                status = .updateAvailable(
+                    version: release.tagName,
+                    releaseURL: releaseURL,
+                    downloadURL: downloadURL
+                )
             } else {
                 status = .upToDate
             }
         } catch {
             status = .unavailable("Could not check for updates. Try again later.")
+        }
+    }
+
+    func downloadUpdate() async -> URL? {
+        guard case let .updateAvailable(_, _, downloadURL) = status,
+              let downloadURL else {
+            downloadStatus = .failed("This release does not include a DMG download.")
+            return nil
+        }
+
+        downloadStatus = .downloading
+
+        do {
+            var request = URLRequest(url: downloadURL)
+            request.setValue("NotchCalendar", forHTTPHeaderField: "User-Agent")
+            request.timeoutInterval = 120
+
+            let (temporaryURL, response) = try await URLSession.shared.download(for: request)
+            guard let response = response as? HTTPURLResponse,
+                  (200..<300).contains(response.statusCode) else {
+                throw UpdateError.invalidResponse
+            }
+
+            let proposedName = response.suggestedFilename ?? downloadURL.lastPathComponent
+            let fileName = URL(fileURLWithPath: proposedName).lastPathComponent
+            let destinationURL = try Self.availableDownloadURL(for: fileName)
+            try FileManager.default.moveItem(at: temporaryURL, to: destinationURL)
+            downloadStatus = .downloaded(destinationURL)
+            return destinationURL
+        } catch {
+            downloadStatus = .failed("The download failed. Try again or open the release page.")
+            return nil
         }
     }
 
@@ -60,6 +109,33 @@ final class UpdateChecker: ObservableObject {
 
     private static func versionComponents(_ version: String) -> [Int] {
         version.split(whereSeparator: { !$0.isNumber }).compactMap { Int($0) }
+    }
+
+    private static func availableDownloadURL(for fileName: String) throws -> URL {
+        guard let downloadsDirectory = FileManager.default.urls(
+            for: .downloadsDirectory,
+            in: .userDomainMask
+        ).first else {
+            throw UpdateError.downloadsDirectoryUnavailable
+        }
+
+        let fallbackName = "NotchCalendar-update.dmg"
+        let safeName = fileName.isEmpty ? fallbackName : fileName
+        let sourceURL = URL(fileURLWithPath: safeName)
+        let stem = sourceURL.deletingPathExtension().lastPathComponent
+        let fileExtension = sourceURL.pathExtension
+        var destinationURL = downloadsDirectory.appendingPathComponent(safeName)
+        var suffix = 2
+
+        while FileManager.default.fileExists(atPath: destinationURL.path) {
+            let candidateName = fileExtension.isEmpty
+                ? "\(stem)-\(suffix)"
+                : "\(stem)-\(suffix).\(fileExtension)"
+            destinationURL = downloadsDirectory.appendingPathComponent(candidateName)
+            suffix += 1
+        }
+
+        return destinationURL
     }
 }
 
@@ -89,13 +165,26 @@ private enum UpdateConfiguration {
 private struct GitHubRelease: Decodable {
     let tagName: String
     let htmlURL: String
+    let assets: [GitHubReleaseAsset]
 
     enum CodingKeys: String, CodingKey {
         case tagName = "tag_name"
         case htmlURL = "html_url"
+        case assets
+    }
+}
+
+private struct GitHubReleaseAsset: Decodable {
+    let name: String
+    let browserDownloadURL: String
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case browserDownloadURL = "browser_download_url"
     }
 }
 
 private enum UpdateError: Error {
     case invalidResponse
+    case downloadsDirectoryUnavailable
 }

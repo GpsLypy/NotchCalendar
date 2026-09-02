@@ -25,23 +25,40 @@ struct SettingsView: View {
                         Link("GitHub", destination: githubURL)
                     }
 
+                    Spacer()
+
                     Button {
                         Task { await updateChecker.checkForUpdates() }
                     } label: {
                         Label("Check for Updates", systemImage: "arrow.triangle.2.circlepath")
                     }
                     .disabled(!updateChecker.canCheckForUpdates || updateChecker.status == .checking)
+                }
 
-                    if case let .updateAvailable(_, releaseURL) = updateChecker.status {
-                        Button("View Release") { NSWorkspace.shared.open(releaseURL) }
+                if case let .updateAvailable(version, releaseURL, downloadURL) = updateChecker.status {
+                    HStack(spacing: 10) {
+                        Button {
+                            Task {
+                                if let downloadedURL = await updateChecker.downloadUpdate() {
+                                    NSWorkspace.shared.activateFileViewerSelecting([downloadedURL])
+                                }
+                            }
+                        } label: {
+                            Label("Download \(version) DMG", systemImage: "arrow.down.circle.fill")
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .disabled(downloadURL == nil || updateChecker.downloadStatus == .downloading)
+
+                        Button("Release Notes") { NSWorkspace.shared.open(releaseURL) }
                     }
                 }
 
                 updateStatus
+                downloadStatus
             }
         }
         .formStyle(.grouped)
-        .frame(width: 440, height: 270)
+        .frame(width: 440, height: 320)
     }
 
     @ViewBuilder private var updateStatus: some View {
@@ -59,11 +76,34 @@ struct SettingsView: View {
         case .upToDate:
             Label("You’re up to date.", systemImage: "checkmark.circle.fill")
                 .foregroundStyle(.green)
-        case let .updateAvailable(version, _):
+        case let .updateAvailable(version, _, downloadURL):
             Label("Version \(version) is available.", systemImage: "arrow.down.circle.fill")
                 .foregroundStyle(Color.accentColor)
+            if downloadURL == nil {
+                Text("This release does not include a DMG. Open the release notes to download another format.")
+                    .foregroundStyle(.secondary)
+            }
         case let .unavailable(message):
             Text(message).foregroundStyle(.secondary)
+        }
+    }
+
+    @ViewBuilder private var downloadStatus: some View {
+        switch updateChecker.downloadStatus {
+        case .idle:
+            EmptyView()
+        case .downloading:
+            HStack(spacing: 6) {
+                ProgressView().controlSize(.small)
+                Text("Downloading to your Downloads folder…")
+                    .foregroundStyle(.secondary)
+            }
+        case .downloaded:
+            Label("Downloaded and revealed in Finder.", systemImage: "checkmark.circle.fill")
+                .foregroundStyle(.green)
+        case let .failed(message):
+            Label(message, systemImage: "exclamationmark.triangle.fill")
+                .foregroundStyle(.orange)
         }
     }
 
