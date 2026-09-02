@@ -1,0 +1,33 @@
+Scripts/create_release.sh
+  s_82e9070e2add04::t_13152270712d1b 1-31
+README.md
+  s_82e9070e2add04::t_8b2a4f03d98059 1-34
+Support/Info.plist
+  s_82e9070e2add04::t_8b2a4f03d98059 1-32
+Package.swift
+  s_dc76b276a4a014::t_afebb0abf40337 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "d7e59a4f1a97275769252df2955fa4719c234d2f",
+  "prompts": {},
+  "sessions": {
+    "s_82e9070e2add04": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0612e-7058-7d32-9a24-42d1cc3319d4",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    },
+    "s_dc76b276a4a014": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "fef80a9f-a5e1-4227-bb01-b9423c87b30a",
+        "model": "copilot/gpt-5.6-terra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}
