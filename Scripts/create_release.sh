@@ -12,6 +12,7 @@ BUILD_DIR="$ROOT_DIR/.build/release"
 DIST_DIR="$ROOT_DIR/dist"
 APP_DIR="$DIST_DIR/Notch Calendar.app"
 ARCHIVE_PATH="$DIST_DIR/NotchCalendar-${VERSION}-macos.zip"
+DMG_PATH="$DIST_DIR/NotchCalendar-${VERSION}-macos.dmg"
 INFO_PLIST="$APP_DIR/Contents/Info.plist"
 
 cd "$ROOT_DIR"
@@ -28,4 +29,8 @@ codesign --force --sign - "$APP_DIR"
 
 rm -f "$ARCHIVE_PATH"
 ditto -c -k --keepParent "$APP_DIR" "$ARCHIVE_PATH"
+rm -f "$DMG_PATH"
+hdiutil create -volname "Notch Calendar" -srcfolder "$APP_DIR" -ov -format UDZO "$DMG_PATH"
+
 print "Created $ARCHIVE_PATH"
+print "Created $DMG_PATH"

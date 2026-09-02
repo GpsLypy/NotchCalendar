@@ -4,6 +4,12 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release, for example 0.1.2"
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -11,15 +17,18 @@ permissions:
 jobs:
   release:
     runs-on: macos-14
+    env:
+      RELEASE_VERSION: ${{ inputs.version || github.ref_name }}
     steps:
       - uses: actions/checkout@v4
       - name: Build release archive
-        run: Scripts/create_release.sh "${GITHUB_REF_NAME#v}"
+        run: Scripts/create_release.sh "${RELEASE_VERSION#v}"
       - name: Publish GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" \
-            "dist/NotchCalendar-${GITHUB_REF_NAME#v}-macos.zip" \
+          gh release create "v${RELEASE_VERSION#v}" \
+            "dist/NotchCalendar-${RELEASE_VERSION#v}-macos.zip" \
+            "dist/NotchCalendar-${RELEASE_VERSION#v}-macos.dmg" \
             --generate-notes \
-            --title "Notch Calendar ${GITHUB_REF_NAME}"
+            --title "Notch Calendar v${RELEASE_VERSION#v}"
