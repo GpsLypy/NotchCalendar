@@ -4,7 +4,10 @@ import PackageDescription
 let package = Package(
     name: "NotchCalendar",
     platforms: [.macOS(.v15)],
-    products: [.executable(name: "NotchCalendar", targets: ["NotchCalendar"])],
+    products: [
+        .executable(name: "NotchCalendar", targets: ["NotchCalendar"]),
+        .executable(name: "NotchCalendarUpdater", targets: ["NotchCalendarUpdater"])
+    ],
     targets: [
         .executableTarget(
             name: "NotchCalendar",
@@ -16,6 +19,9 @@ let package = Package(
                     "-Xlinker", "Support/Info.plist"
                 ])
             ]
+        ),
+        .executableTarget(
+            name: "NotchCalendarUpdater"
         ),
         .testTarget(
             name: "NotchCalendarTests",

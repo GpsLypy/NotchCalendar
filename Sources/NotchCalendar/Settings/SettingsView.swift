@@ -33,33 +33,93 @@ struct SettingsView: View {
                     } label: {
                         Label("Check for Updates", systemImage: "arrow.triangle.2.circlepath")
                     }
-                    .disabled(!updateChecker.canCheckForUpdates || updateChecker.status == .checking)
+                    .disabled(
+                        !updateChecker.canCheckForUpdates
+                            || updateChecker.status == .checking
+                            || updateChecker.isDownloading
+                            || updateChecker.isInstalling
+                            || updateChecker.isCheckingInstallCapability
+                    )
                 }
 
                 if case let .updateAvailable(version, releaseURL, downloadURL) = updateChecker.status {
                     HStack(spacing: 10) {
-                        Button {
-                            Task {
-                                if let downloadedURL = await updateChecker.downloadUpdate() {
-                                    NSWorkspace.shared.activateFileViewerSelecting([downloadedURL])
+                        if updateChecker.downloadedUpdateURL == nil {
+                            Button {
+                                Task {
+                                    _ = await updateChecker.downloadUpdate()
                                 }
+                            } label: {
+                                downloadButtonLabel(version: version)
                             }
-                        } label: {
-                            downloadButtonLabel(version: version)
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .disabled(downloadURL == nil || updateChecker.isDownloading)
+                            .buttonStyle(.borderedProminent)
+                            .disabled(downloadURL == nil || updateChecker.isDownloading)
+                        } else {
+                            switch updateChecker.automaticInstallCapability {
+                            case .supported:
+                                Button {
+                                    Task { await updateChecker.installAndRelaunch() }
+                                } label: {
+                                    Label("Install and Relaunch", systemImage: "arrow.triangle.2.circlepath")
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .disabled(!updateChecker.canInstallDownloadedUpdate)
 
-                        Button("Release Notes") { NSWorkspace.shared.open(releaseURL) }
+                                Button {
+                                    updateChecker.openDMGAndQuit()
+                                } label: {
+                                    Label("Open DMG & Quit", systemImage: "rectangle.portrait.and.arrow.right")
+                                }
+                                .disabled(updateChecker.isInstalling)
+                            case .checking:
+                                Button("Checking Install Support…") {}
+                                    .buttonStyle(.borderedProminent)
+                                    .disabled(true)
+                            case .unknown, .manualOnly:
+                                Button {
+                                    updateChecker.openDMGAndQuit()
+                                } label: {
+                                    Label("Open DMG & Quit", systemImage: "rectangle.portrait.and.arrow.right")
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .disabled(updateChecker.isInstalling)
+                            }
+                        }
+
+                        Link("Release Notes", destination: releaseURL)
                     }
                 }
 
                 updateStatus
                 downloadStatus
+                automaticInstallStatus
+                installationStatus
+
+                if updateChecker.isRunningFromReadOnlyVolume {
+                    if let installedVersion = updateChecker.installedApplicationsVersion {
+                        HStack(spacing: 8) {
+                            Label(
+                                "Running from a disk image. Version \(installedVersion) is already in Applications.",
+                                systemImage: "externaldrive.fill"
+                            )
+                            .foregroundStyle(.secondary)
+                            Spacer()
+                            Button("Open Applications Copy & Quit") {
+                                updateChecker.openInstalledApplicationsCopyAndQuit()
+                            }
+                        }
+                    } else {
+                        Label(
+                            "Running from a disk image. Move the app to Applications for reliable updates.",
+                            systemImage: "externaldrive.fill"
+                        )
+                        .foregroundStyle(.secondary)
+                    }
+                }
             }
         }
         .formStyle(.grouped)
-        .frame(width: 440, height: 320)
+        .frame(width: 520, height: 410)
     }
 
     @ViewBuilder private var updateStatus: some View {
@@ -118,11 +178,54 @@ struct SettingsView: View {
                 }
             }
         case .downloaded:
-            Label("Downloaded and revealed in Finder.", systemImage: "checkmark.circle.fill")
-                .foregroundStyle(.green)
+            HStack(spacing: 8) {
+                Label("Download complete. Use the action above to continue.", systemImage: "checkmark.circle.fill")
+                    .foregroundStyle(.green)
+                Spacer()
+                Button("Show in Finder") { updateChecker.revealDownloadedUpdate() }
+                    .buttonStyle(.link)
+            }
         case let .failed(message):
             Label(message, systemImage: "exclamationmark.triangle.fill")
                 .foregroundStyle(.orange)
+        }
+    }
+
+    @ViewBuilder private var installationStatus: some View {
+        switch updateChecker.installationStatus {
+        case .idle:
+            EmptyView()
+        case .preparing:
+            HStack(spacing: 6) {
+                ProgressView().controlSize(.small)
+                Text("Verifying the DMG, app identity, and signing certificate…")
+                    .foregroundStyle(.secondary)
+            }
+        case .relaunching:
+            HStack(spacing: 6) {
+                ProgressView().controlSize(.small)
+                Text("Installing and relaunching…")
+                    .foregroundStyle(.secondary)
+            }
+        case let .failed(message):
+            Label(message, systemImage: "exclamationmark.shield.fill")
+                .foregroundStyle(.orange)
+        }
+    }
+
+    @ViewBuilder private var automaticInstallStatus: some View {
+        switch updateChecker.automaticInstallCapability {
+        case .unknown, .supported:
+            EmptyView()
+        case .checking:
+            HStack(spacing: 6) {
+                ProgressView().controlSize(.small)
+                Text("Checking whether this build supports secure automatic installation…")
+                    .foregroundStyle(.secondary)
+            }
+        case let .manualOnly(message):
+            Label(message, systemImage: "hand.raised.fill")
+                .foregroundStyle(.secondary)
         }
     }
 

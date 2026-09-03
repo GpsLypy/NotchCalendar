@@ -2,6 +2,23 @@
 
 All notable changes to Notch Calendar are documented here.
 
+## [0.2.1] - 2026-09-03
+
+### Added
+
+- A signed update-helper foundation for future automatic replacement; automatic app replacement remains disabled in this release until interrupted transactions can be recovered durably.
+- Clear recovery actions when the app is launched from a read-only disk image, including opening the installed Applications copy after quitting.
+
+### Improved
+
+- Ad-hoc builds now make the safe manual path explicit: open the downloaded DMG and quit the running copy before installation.
+- Update downloads require the exact GitHub release asset and verify GitHub's published SHA-256 digest; missing or mismatched digests never enable automatic installation.
+
+### Fixed
+
+- Expanded calendar controls now stay below the camera housing and menu bar even when macOS does not report auxiliary notch rectangles.
+- Update relaunch handoff now uses the correct application lock and avoids reopening an older copy from a mounted DMG.
+
 ## [0.2.0] - 2026-09-03
 
 ### Added

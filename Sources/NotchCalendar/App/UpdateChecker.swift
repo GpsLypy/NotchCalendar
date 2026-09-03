@@ -1,3 +1,4 @@
+import AppKit
 import Foundation
 
 enum UpdateStatus: Equatable {
@@ -12,6 +13,13 @@ enum UpdateDownloadStatus: Equatable {
     case idle
     case downloading(UpdateDownloadProgress)
     case downloaded(URL)
+    case failed(String)
+}
+
+enum UpdateInstallationStatus: Equatable {
+    case idle
+    case preparing
+    case relaunching
     case failed(String)
 }
 
@@ -33,13 +41,58 @@ struct UpdateDownloadProgress: Equatable {
 final class UpdateChecker: ObservableObject {
     @Published private(set) var status: UpdateStatus = .ready
     @Published private(set) var downloadStatus: UpdateDownloadStatus = .idle
+    @Published private(set) var installationStatus: UpdateInstallationStatus = .idle
+    @Published private(set) var automaticInstallCapability: AutomaticInstallCapability = .unknown
+    @Published private(set) var installedApplicationsVersion: String?
+
+    private var availableUpdate: AvailableUpdate?
+    private var downloadedArtifact: DownloadedUpdateArtifact?
+
+    init() {
+        let currentBundleURL = Bundle.main.bundleURL
+        let rawVersion = UpdateConfiguration.currentVersion
+        let bundleIdentifier = Bundle.main.bundleIdentifier
+        Task { [weak self] in
+            guard let currentVersion = AppVersion(rawVersion),
+                  let bundleIdentifier else { return }
+            let installedVersion = await Task.detached(priority: .utility) {
+                UpdateInstaller.verifiedInstalledApplicationsCopyVersion(
+                    currentBundleURL: currentBundleURL,
+                    currentVersion: currentVersion,
+                    bundleIdentifier: bundleIdentifier
+                )
+            }.value
+            self?.installedApplicationsVersion = installedVersion
+        }
+    }
 
     var canCheckForUpdates: Bool { UpdateConfiguration.releasesAPIURL != nil }
     var isDownloading: Bool {
         if case .downloading = downloadStatus { return true }
         return false
     }
-
+    var isInstalling: Bool {
+        switch installationStatus {
+        case .preparing, .relaunching: true
+        case .idle, .failed: false
+        }
+    }
+    var downloadedUpdateURL: URL? {
+        guard case let .downloaded(url) = downloadStatus else { return nil }
+        return url
+    }
+    var canInstallDownloadedUpdate: Bool {
+        downloadedArtifact != nil
+            && automaticInstallCapability == .supported
+            && !isInstalling
+    }
+    var isCheckingInstallCapability: Bool {
+        automaticInstallCapability == .checking
+    }
+    var isRunningFromReadOnlyVolume: Bool {
+        (try? Bundle.main.bundleURL.resourceValues(forKeys: [.volumeIsReadOnlyKey]))?
+            .volumeIsReadOnly == true
+    }
     func checkForUpdates() async {
         guard let url = UpdateConfiguration.releasesAPIURL else {
             status = .unavailable("The release source has not been configured yet.")
@@ -48,9 +101,15 @@ final class UpdateChecker: ObservableObject {
 
         status = .checking
         downloadStatus = .idle
+        installationStatus = .idle
+        automaticInstallCapability = .unknown
+        availableUpdate = nil
+        downloadedArtifact = nil
         do {
             var request = URLRequest(url: url)
             request.setValue("NotchCalendar", forHTTPHeaderField: "User-Agent")
+            request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
+            request.setValue("2022-11-28", forHTTPHeaderField: "X-GitHub-Api-Version")
             request.timeoutInterval = 12
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -62,15 +121,41 @@ final class UpdateChecker: ObservableObject {
                 throw UpdateError.invalidResponse
             }
 
-            let downloadURL = release.assets
-                .first(where: { $0.name.lowercased().hasSuffix(".dmg") })
-                .flatMap { URL(string: $0.browserDownloadURL) }
+            guard let remoteVersion = AppVersion(release.tagName),
+                  let currentVersion = AppVersion(UpdateConfiguration.currentVersion) else {
+                throw UpdateError.invalidVersion
+            }
 
-            if Self.isNewer(release.tagName, than: UpdateConfiguration.currentVersion) {
+            let trustedAssets = release.assets.compactMap { asset -> (GitHubReleaseAsset, URL)? in
+                guard let downloadURL = URL(string: asset.browserDownloadURL),
+                      ReleaseAssetSelector.trustedDMGURL(
+                        assetName: asset.name,
+                        downloadURL: downloadURL,
+                        releaseTag: release.tagName,
+                        repository: UpdateConfiguration.githubRepository ?? ""
+                      ) != nil else {
+                    return nil
+                }
+                return (asset, downloadURL)
+            }
+            let trustedAsset = trustedAssets.count == 1 ? trustedAssets[0] : nil
+
+            if currentVersion < remoteVersion {
+                if let trustedAsset {
+                    availableUpdate = AvailableUpdate(
+                        version: remoteVersion,
+                        releaseTag: release.tagName,
+                        assetName: trustedAsset.0.name,
+                        downloadURL: trustedAsset.1,
+                        expectedSHA256: UpdateFileDigest.parseGitHubSHA256(
+                            trustedAsset.0.digest
+                        )
+                    )
+                }
                 status = .updateAvailable(
-                    version: release.tagName,
+                    version: remoteVersion.description,
                     releaseURL: releaseURL,
-                    downloadURL: downloadURL
+                    downloadURL: trustedAsset?.1
                 )
             } else {
                 status = .upToDate
@@ -81,9 +166,8 @@ final class UpdateChecker: ObservableObject {
     }
 
     func downloadUpdate() async -> URL? {
-        guard case let .updateAvailable(_, _, downloadURL) = status,
-              let downloadURL else {
-            downloadStatus = .failed("This release does not include a DMG download.")
+        guard let availableUpdate else {
+            downloadStatus = .failed("This release does not include the expected repository DMG.")
             return nil
         }
 
@@ -92,7 +176,7 @@ final class UpdateChecker: ObservableObject {
         )
 
         do {
-            var request = URLRequest(url: downloadURL)
+            var request = URLRequest(url: availableUpdate.downloadURL)
             request.setValue("NotchCalendar", forHTTPHeaderField: "User-Agent")
             request.timeoutInterval = 120
 
@@ -107,31 +191,154 @@ final class UpdateChecker: ObservableObject {
                     )
                 }
             }
-            let destinationURL = try await operation.download(request)
+            let destinationURL = try await operation.download(
+                request,
+                fileName: availableUpdate.assetName
+            )
+            let digest = try await Task.detached(priority: .userInitiated) {
+                try UpdateFileDigest.sha256(of: destinationURL)
+            }.value
+            if let expectedSHA256 = availableUpdate.expectedSHA256 {
+                guard digest == expectedSHA256 else {
+                    try? FileManager.default.removeItem(at: destinationURL)
+                    throw UpdateError.digestMismatch
+                }
+                downloadedArtifact = DownloadedUpdateArtifact(
+                    fileURL: destinationURL,
+                    sourceURL: availableUpdate.downloadURL,
+                    assetName: availableUpdate.assetName,
+                    releaseTag: availableUpdate.releaseTag,
+                    version: availableUpdate.version,
+                    expectedSHA256: expectedSHA256
+                )
+                installationStatus = .idle
+                automaticInstallCapability = .checking
+            } else {
+                downloadedArtifact = nil
+                automaticInstallCapability = .manualOnly(
+                    "This release does not publish a valid SHA-256 digest. Open the DMG to install it manually."
+                )
+            }
             downloadStatus = .downloaded(destinationURL)
+            if downloadedArtifact != nil {
+                if let bundleIdentifier = Bundle.main.bundleIdentifier {
+                    let currentBundleURL = Bundle.main.bundleURL
+                    automaticInstallCapability = await Task.detached(priority: .utility) {
+                        UpdateInstaller.automaticInstallationCapability(
+                            currentBundleURL: currentBundleURL,
+                            bundleIdentifier: bundleIdentifier
+                        )
+                    }.value
+                } else {
+                    automaticInstallCapability = .manualOnly(
+                        "This build has no application identifier, so it must be installed manually."
+                    )
+                }
+            }
             return destinationURL
+        } catch UpdateError.digestMismatch {
+            downloadedArtifact = nil
+            automaticInstallCapability = .manualOnly(
+                "The DMG did not match GitHub’s published SHA-256 digest. Download it again."
+            )
+            downloadStatus = .failed(
+                "The DMG failed its SHA-256 check and was removed."
+            )
+            return nil
         } catch {
             downloadStatus = .failed("The download failed. Try again or open the release page.")
             return nil
         }
     }
 
-    private static func isNewer(_ remoteVersion: String, than localVersion: String) -> Bool {
-        let remote = versionComponents(remoteVersion)
-        let local = versionComponents(localVersion)
-        let count = max(remote.count, local.count)
-
-        for index in 0..<count {
-            let remotePart = index < remote.count ? remote[index] : 0
-            let localPart = index < local.count ? local[index] : 0
-            if remotePart != localPart { return remotePart > localPart }
+    func installAndRelaunch() async {
+        guard let artifact = downloadedArtifact,
+              let repository = UpdateConfiguration.githubRepository,
+              let currentVersion = AppVersion(UpdateConfiguration.currentVersion),
+              let bundleIdentifier = Bundle.main.bundleIdentifier else {
+            installationStatus = .failed("The downloaded update is no longer available. Download it again.")
+            return
         }
-        return false
+
+        installationStatus = .preparing
+        let request = UpdateInstallRequest(
+            artifact: artifact,
+            repository: repository,
+            currentVersion: currentVersion,
+            currentBundleURL: Bundle.main.bundleURL,
+            bundleIdentifier: bundleIdentifier
+        )
+
+        do {
+            let prepared = try await Task.detached(priority: .userInitiated) {
+                try UpdateInstaller.prepare(request)
+            }.value
+            do {
+                try await Task.detached(priority: .userInitiated) {
+                    try UpdateInstaller.launchHelper(prepared)
+                }.value
+            } catch {
+                UpdateInstaller.discard(prepared)
+                throw error
+            }
+            installationStatus = .relaunching
+            NSApp.terminate(nil)
+        } catch {
+            installationStatus = .failed(
+                (error as? LocalizedError)?.errorDescription
+                    ?? "The update could not be prepared. This app was not changed."
+            )
+        }
     }
 
-    private static func versionComponents(_ version: String) -> [Int] {
-        version.split(whereSeparator: { !$0.isNumber }).compactMap { Int($0) }
+    func revealDownloadedUpdate() {
+        guard let downloadedUpdateURL else { return }
+        NSWorkspace.shared.activateFileViewerSelecting([downloadedUpdateURL])
     }
+
+    func openDMGAndQuit() {
+        guard let downloadedUpdateURL else { return }
+        NSWorkspace.shared.open(
+            downloadedUpdateURL,
+            configuration: NSWorkspace.OpenConfiguration()
+        ) { _, error in
+            Task { @MainActor [weak self] in
+                if let error {
+                    self?.installationStatus = .failed(
+                        "The DMG could not be opened: \(error.localizedDescription)"
+                    )
+                } else {
+                    NSApp.terminate(nil)
+                }
+            }
+        }
+    }
+
+    func openInstalledApplicationsCopyAndQuit() {
+        guard let currentVersion = AppVersion(UpdateConfiguration.currentVersion),
+              let bundleIdentifier = Bundle.main.bundleIdentifier else { return }
+        do {
+            try UpdateInstaller.launchInstalledApplicationsCopyAfterCurrentProcessExits(
+                currentBundleURL: Bundle.main.bundleURL,
+                currentVersion: currentVersion,
+                bundleIdentifier: bundleIdentifier
+            )
+            NSApp.terminate(nil)
+        } catch {
+            installationStatus = .failed(
+                (error as? LocalizedError)?.errorDescription
+                    ?? "The Applications copy could not be opened."
+            )
+        }
+    }
+}
+
+private struct AvailableUpdate {
+    let version: AppVersion
+    let releaseTag: String
+    let assetName: String
+    let downloadURL: URL
+    let expectedSHA256: String?
 }
 
 private final class UpdateDownloadOperation: NSObject, URLSessionDownloadDelegate, @unchecked Sendable {
@@ -141,12 +348,13 @@ private final class UpdateDownloadOperation: NSObject, URLSessionDownloadDelegat
     private let lock = NSLock()
     private var continuation: CheckedContinuation<URL, Error>?
     private var session: URLSession?
+    private var destinationFileName = "NotchCalendar-update.dmg"
 
     init(progressHandler: @escaping ProgressHandler) {
         self.progressHandler = progressHandler
     }
 
-    func download(_ request: URLRequest) async throws -> URL {
+    func download(_ request: URLRequest, fileName: String) async throws -> URL {
         try await withCheckedThrowingContinuation { continuation in
             let session = URLSession(
                 configuration: .ephemeral,
@@ -157,6 +365,7 @@ private final class UpdateDownloadOperation: NSObject, URLSessionDownloadDelegat
             lock.lock()
             self.continuation = continuation
             self.session = session
+            destinationFileName = fileName
             lock.unlock()
 
             session.downloadTask(with: request).resume()
@@ -170,6 +379,12 @@ private final class UpdateDownloadOperation: NSObject, URLSessionDownloadDelegat
         totalBytesWritten: Int64,
         totalBytesExpectedToWrite: Int64
     ) {
+        if totalBytesWritten > UpdateInstaller.maximumDMGSize
+            || totalBytesExpectedToWrite > UpdateInstaller.maximumDMGSize {
+            downloadTask.cancel()
+            finish(with: .failure(UpdateError.downloadTooLarge))
+            return
+        }
         let totalBytes = totalBytesExpectedToWrite > 0 ? totalBytesExpectedToWrite : nil
         progressHandler(totalBytesWritten, totalBytes)
     }
@@ -185,11 +400,9 @@ private final class UpdateDownloadOperation: NSObject, URLSessionDownloadDelegat
                 throw UpdateError.invalidResponse
             }
 
-            let proposedName = response.suggestedFilename
-                ?? downloadTask.originalRequest?.url?.lastPathComponent
-                ?? "NotchCalendar-update.dmg"
-            let fileName = URL(fileURLWithPath: proposedName).lastPathComponent
-            let destinationURL = try UpdateDownloadDestination.availableURL(for: fileName)
+            let destinationURL = try UpdateDownloadDestination.availableURL(
+                for: destinationFileName
+            )
             try FileManager.default.moveItem(at: location, to: destinationURL)
             finish(with: .success(destinationURL))
         } catch {
@@ -253,7 +466,9 @@ private enum UpdateDownloadDestination {
 }
 
 private enum UpdateConfiguration {
-    static let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.0.0"
+    static var currentVersion: String {
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.0.0"
+    }
 
     static let githubRepository: String? = {
         guard let repository = Bundle.main.object(forInfoDictionaryKey: "NotchCalendarGitHubRepository") as? String else {
@@ -290,14 +505,19 @@ private struct GitHubRelease: Decodable {
 private struct GitHubReleaseAsset: Decodable {
     let name: String
     let browserDownloadURL: String
+    let digest: String?
 
     enum CodingKeys: String, CodingKey {
         case name
         case browserDownloadURL = "browser_download_url"
+        case digest
     }
 }
 
 private enum UpdateError: Error {
     case invalidResponse
+    case invalidVersion
+    case downloadTooLarge
+    case digestMismatch
     case downloadsDirectoryUnavailable
 }

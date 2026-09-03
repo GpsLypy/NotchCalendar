@@ -29,9 +29,11 @@ On first launch, allow Calendar access in the system prompt. The app falls back 
 2. If you fork the project, replace `GpsLypy/NotchCalendar` in `Support/Info.plist` with the fork’s `owner/name` value.
 3. Create and push a version tag, for example `v0.1.3`.
 
-The included GitHub Actions workflow creates both a macOS DMG installer and ZIP archive, then publishes them as a GitHub Release. It can be triggered by pushing a version tag or manually from the **Actions** tab. The app’s **Check for Updates** button reads that release feed and downloads the latest DMG directly to the Downloads folder when a newer version exists. The DMG includes an Applications shortcut for standard drag-to-install behavior.
+The included GitHub Actions workflow creates both a macOS DMG installer and ZIP archive, then publishes them as a GitHub Release. It can be triggered by pushing a version tag or manually from the **Actions** tab. The app’s **Check for Updates** button reads that release feed, selects the exact versioned DMG, and verifies GitHub’s published SHA-256 digest. The DMG includes an Applications shortcut for standard drag-to-install behavior.
 
-Release archives without a signing certificate are ad-hoc signed for local development only. To distribute outside your own Mac, set `DEVELOPER_ID_APPLICATION` to a valid Apple Developer ID Application certificate and notarize the DMG before uploading it. This prevents macOS Gatekeeper from treating the download as untrusted or damaged.
+Version 0.2.1 keeps automatic app replacement disabled while retaining the signed-helper and validation foundation for a future crash-recoverable installer. The update screen uses the manual path instead: **Open DMG & Quit** closes the running version before you drag the replacement into Applications. For Developer ID-signed builds, Settings can also verify and open an equal or newer Applications copy when the app is running from a mounted disk image.
+
+Release archives without a signing certificate are ad-hoc signed for local development only. For Developer ID distribution, set `DEVELOPER_ID_APPLICATION` to a valid Apple Developer ID Application certificate and `NOTARYTOOL_PROFILE` to a configured `notarytool` keychain profile before running the release script. This allows the script to enable hardened runtime, notarize the app, and staple the result before packaging it.
 
 ## License
 
