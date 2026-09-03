@@ -5,6 +5,7 @@ import Darwin
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private let state = AppState()
     private var controller: NotchWindowController?
+    private var mainWindowController: MainCalendarWindowController?
     private var instanceLockFileDescriptors: [Int32] = []
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -20,7 +21,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.setActivationPolicy(.regular)
         controller = NotchWindowController(state: state)
         controller?.show()
+        mainWindowController = MainCalendarWindowController(calendar: state.calendar)
+        mainWindowController?.reveal()
         confirmSuccessfulUpdateLaunchIfNeeded()
+    }
+
+    func applicationShouldHandleReopen(
+        _ sender: NSApplication,
+        hasVisibleWindows flag: Bool
+    ) -> Bool {
+        mainWindowController?.reveal()
+        return false
+    }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        false
     }
 
     func applicationWillTerminate(_ notification: Notification) {

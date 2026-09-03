@@ -4,23 +4,49 @@ import SwiftUI
 struct ExpandedCalendarView: View {
     @ObservedObject var state: AppState
     let contentTopInset: CGFloat
+
+    var body: some View {
+        CalendarDashboardView(
+            calendar: state.calendar,
+            selectedDate: $state.selectedDate,
+            contentTopInset: contentTopInset,
+            surface: .notch,
+            isActive: true,
+            onClose: { state.isExpanded = false }
+        )
+    }
+}
+
+enum CalendarDashboardSurface {
+    case notch
+    case window
+}
+
+struct CalendarDashboardView: View {
+    @ObservedObject var calendar: CalendarManager
+    @Binding var selectedDate: Date
+    let contentTopInset: CGFloat
+    let surface: CalendarDashboardSurface
+    let isActive: Bool
+    let onClose: (() -> Void)?
     @State private var now = Date()
     @State private var dayEvents: [CalendarEvent] = []
     @State private var monthEvents: [CalendarEvent] = []
+    @State private var reloadTask: Task<Void, Never>?
 
     var body: some View {
-        let status = UpcomingEventEngine.status(now: now, events: state.calendar.todayEvents)
-        let featuredEventID = Calendar.current.isDateInToday(state.selectedDate)
+        let status = UpcomingEventEngine.status(now: now, events: calendar.todayEvents)
+        let featuredEventID = Calendar.current.isDateInToday(selectedDate)
             ? featuredEventID(in: status)
             : nil
         let agendaEvents = relevantAgendaEvents(featuredEventID: featuredEventID)
         HStack(alignment: .top, spacing: 28) {
             VStack(alignment: .leading, spacing: 0) {
                 header
-                if let authorizationMessage = state.calendar.authorizationMessage {
+                if let authorizationMessage = calendar.authorizationMessage {
                     permissionCard(authorizationMessage)
                 } else {
-                    if Calendar.current.isDateInToday(state.selectedDate) {
+                    if Calendar.current.isDateInToday(selectedDate) {
                         nextCard(status: status)
                     }
                     AgendaView(events: Array(agendaEvents.prefix(2)))
@@ -36,7 +62,7 @@ struct ExpandedCalendarView: View {
             .frame(width: 292, alignment: .topLeading)
 
             MonthCalendarView(
-                selectedDate: $state.selectedDate,
+                selectedDate: $selectedDate,
                 events: monthEvents,
                 alcoveStyle: true
             )
@@ -46,40 +72,78 @@ struct ExpandedCalendarView: View {
         .padding(.horizontal, 28)
         .padding(.bottom, 24)
         .foregroundStyle(.white)
-        .background(.black.opacity(0.97), in: NotchAttachedCardShape(cornerRadius: 30))
-        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { now = $0 }
-        .onReceive(state.calendar.objectWillChange) { _ in
-            DispatchQueue.main.async { reloadEvents() }
+        .background { dashboardBackground }
+        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { newNow in
+            guard isActive else { return }
+            advanceClock(to: newNow)
         }
-        .onChange(of: state.selectedDate) { _, _ in reloadEvents() }
-        .onAppear(perform: reloadEvents)
+        .onReceive(calendar.objectWillChange) { _ in
+            guard isActive else { return }
+            scheduleReloadEvents()
+        }
+        .onChange(of: selectedDate) { _, _ in
+            guard isActive else { return }
+            scheduleReloadEvents()
+        }
+        .onChange(of: isActive) { _, active in
+            reloadTask?.cancel()
+            guard active else { return }
+            if !advanceClock(to: Date()) {
+                scheduleReloadEvents()
+            }
+        }
+        .onAppear {
+            guard isActive else { return }
+            if !advanceClock(to: Date()) {
+                scheduleReloadEvents()
+            }
+        }
+        .onDisappear { reloadTask?.cancel() }
+    }
+
+    @ViewBuilder private var dashboardBackground: some View {
+        switch surface {
+        case .notch:
+            Color.black.opacity(0.97)
+                .clipShape(NotchAttachedCardShape(cornerRadius: 30))
+        case .window:
+            ZStack {
+                Color(red: 0.025, green: 0.025, blue: 0.03)
+                RadialGradient(
+                    colors: [AlcovePalette.accent.opacity(0.10), .clear],
+                    center: .topTrailing,
+                    startRadius: 10,
+                    endRadius: 330
+                )
+            }
+        }
     }
 
     private var header: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 3) {
-                Text(state.selectedDate.formatted(.dateTime.weekday(.wide)))
+                Text(selectedDate.formatted(.dateTime.weekday(.wide)))
                     .font(.system(size: 23, weight: .bold, design: .rounded))
-                Text(state.selectedDate.formatted(.dateTime.year().month().day()))
+                Text(selectedDate.formatted(.dateTime.year().month().day()))
                     .font(.system(size: 13, weight: .medium, design: .rounded))
                     .foregroundStyle(AlcovePalette.secondaryText)
             }
             Spacer(minLength: 8)
-            Button("Today") { state.selectedDate = Date() }
+            Button("Today") { selectedDate = Date() }
                 .buttonStyle(.plain)
                 .foregroundStyle(AlcovePalette.accent)
                 .font(.system(size: 12, weight: .bold, design: .rounded))
                 .padding(.top, 4)
-            Button {
-                state.isExpanded = false
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.system(size: 10, weight: .bold))
-                    .frame(width: 24, height: 24)
-                    .background(.white.opacity(0.12), in: Circle())
+            if let onClose {
+                Button(action: onClose) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 10, weight: .bold))
+                        .frame(width: 24, height: 24)
+                        .background(.white.opacity(0.12), in: Circle())
+                }
+                .buttonStyle(.plain)
+                .padding(.leading, 8)
             }
-            .buttonStyle(.plain)
-            .padding(.leading, 8)
         }
         .padding(.horizontal, 22)
     }
@@ -198,13 +262,35 @@ struct ExpandedCalendarView: View {
     private func relevantAgendaEvents(featuredEventID: String?) -> [CalendarEvent] {
         dayEvents.filter { event in
             guard event.id != featuredEventID else { return false }
-            guard Calendar.current.isDateInToday(state.selectedDate) else { return true }
+            guard Calendar.current.isDateInToday(selectedDate) else { return true }
             return event.isAllDay || event.endDate > now
         }
     }
 
     private func reloadEvents() {
-        dayEvents = state.calendar.events(for: state.selectedDate)
-        monthEvents = state.calendar.events(inMonthContaining: state.selectedDate)
+        dayEvents = calendar.events(for: selectedDate)
+        monthEvents = calendar.events(inMonthContaining: selectedDate)
+    }
+
+    private func scheduleReloadEvents() {
+        reloadTask?.cancel()
+        reloadTask = Task { @MainActor in
+            await Task.yield()
+            guard !Task.isCancelled else { return }
+            reloadEvents()
+        }
+    }
+
+    @discardableResult
+    private func advanceClock(to newNow: Date) -> Bool {
+        let calendar = Calendar.current
+        let wasFollowingToday = calendar.isDate(selectedDate, inSameDayAs: now)
+        let crossedDayBoundary = !calendar.isDate(now, inSameDayAs: newNow)
+        now = newNow
+        if wasFollowingToday, crossedDayBoundary {
+            selectedDate = newNow
+            return true
+        }
+        return false
     }
 }
