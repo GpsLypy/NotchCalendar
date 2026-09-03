@@ -1,6 +1,9 @@
 import AppKit
 
 enum ScreenGeometry {
+    private static let defaultExpandedTopInset: CGFloat = 24
+    private static let cameraHousingClearance: CGFloat = 12
+
     struct NotchBounds {
         let centerX: CGFloat
         let width: CGFloat
@@ -45,11 +48,31 @@ enum ScreenGeometry {
         return compactFrame.insetBy(dx: -18, dy: -10).intersection(screen.frame)
     }
 
-    /// Keeps controls below the physical camera housing. The extra 12pt gives
-    /// buttons a reliable click target instead of placing them under the notch.
+    /// Keeps controls below every top-edge obstruction reported by AppKit. The
+    /// visible frame accounts for an external display's menu bar even when its
+    /// safe-area inset is zero, so this must not depend on notch detection alone.
     static func expandedContentTopInset(on screen: NSScreen) -> CGFloat {
-        guard let notch = notchBounds(on: screen) else { return 24 }
-        let housingDepth = screen.frame.maxY - notch.bottomY
-        return max(24, housingDepth + 12)
+        let housingDepth = notchBounds(on: screen).map {
+            max(0, screen.frame.maxY - $0.bottomY)
+        }
+        return expandedContentTopInset(
+            safeAreaTopInset: screen.safeAreaInsets.top,
+            visibleFrameTopObstruction: max(0, screen.frame.maxY - screen.visibleFrame.maxY),
+            cameraHousingDepth: housingDepth
+        )
+    }
+
+    /// Pure counterpart used to verify notched and unobscured display layouts.
+    static func expandedContentTopInset(
+        safeAreaTopInset: CGFloat,
+        visibleFrameTopObstruction: CGFloat,
+        cameraHousingDepth: CGFloat?
+    ) -> CGFloat {
+        let obstructionDepth = max(
+            max(max(0, safeAreaTopInset), max(0, visibleFrameTopObstruction)),
+            max(0, cameraHousingDepth ?? 0)
+        )
+        guard obstructionDepth > 0 else { return defaultExpandedTopInset }
+        return max(defaultExpandedTopInset, obstructionDepth + cameraHousingClearance)
     }
 }

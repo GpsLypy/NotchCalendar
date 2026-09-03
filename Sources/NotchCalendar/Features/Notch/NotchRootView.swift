@@ -1,5 +1,14 @@
 import SwiftUI
 
+@MainActor
+final class NotchLayoutMetrics: ObservableObject {
+    @Published var expandedContentTopInset: CGFloat
+
+    init(expandedContentTopInset: CGFloat) {
+        self.expandedContentTopInset = expandedContentTopInset
+    }
+}
+
 private struct ExpandedCardHeightKey: PreferenceKey {
     static let defaultValue: CGFloat = 0
 
@@ -10,13 +19,16 @@ private struct ExpandedCardHeightKey: PreferenceKey {
 
 struct NotchRootView: View {
     @ObservedObject var state: AppState
-    let expandedContentTopInset: CGFloat
+    @ObservedObject var layoutMetrics: NotchLayoutMetrics
     let onExpandedCardHeightChange: (CGFloat) -> Void
 
     var body: some View {
         Group {
             if state.isPresentationExpanded {
-                ExpandedCalendarView(state: state, contentTopInset: expandedContentTopInset)
+                ExpandedCalendarView(
+                    state: state,
+                    contentTopInset: layoutMetrics.expandedContentTopInset
+                )
                     // The panel reserves room for calendars with an event card,
                     // but the drawn card is shorter on quiet days. Report the
                     // actual visual height so transparent reserved space does not

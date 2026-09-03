@@ -7,6 +7,7 @@ import Darwin
 final class NotchWindowController: NSObject, ObservableObject {
     private let state: AppState
     private let panel: NotchPanel
+    private let layoutMetrics: NotchLayoutMetrics
     private nonisolated(unsafe) var stateObserver: AnyCancellable?
     private nonisolated(unsafe) var globalMouseMonitor: Any?
     private nonisolated(unsafe) var localMouseMonitor: Any?
@@ -21,12 +22,15 @@ final class NotchWindowController: NSObject, ObservableObject {
     init(state: AppState) {
         self.state = state
         let screen = NSScreen.main ?? NSScreen.screens[0]
+        layoutMetrics = NotchLayoutMetrics(
+            expandedContentTopInset: ScreenGeometry.expandedContentTopInset(on: screen)
+        )
         panel = NotchPanel(contentRect: ScreenGeometry.panelFrame(on: screen, size: Self.compactSize(on: screen), expanded: false))
         super.init()
         let hostingView = NSHostingView(
             rootView: NotchRootView(
                 state: state,
-                expandedContentTopInset: ScreenGeometry.expandedContentTopInset(on: screen)
+                layoutMetrics: layoutMetrics
             ) { [weak self] height in
                 self?.updateExpandedCardHeight(height)
             }
@@ -192,6 +196,7 @@ final class NotchWindowController: NSObject, ObservableObject {
             return
         }
         guard let screen = panel.screen ?? NSScreen.main else { return }
+        layoutMetrics.expandedContentTopInset = ScreenGeometry.expandedContentTopInset(on: screen)
         let newFrame = ScreenGeometry.panelFrame(
             on: screen,
             size: expanded ? expandedSize : Self.compactSize(on: screen),
