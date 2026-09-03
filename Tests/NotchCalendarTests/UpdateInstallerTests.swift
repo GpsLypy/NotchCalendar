@@ -10,7 +10,7 @@ final class UpdateInstallerTests: XCTestCase {
         )
 
         guard case let .manualOnly(message) = capability else {
-            return XCTFail("Automatic replacement must stay disabled in v0.2.1")
+            return XCTFail("Automatic replacement must stay disabled in this release")
         }
         XCTAssertTrue(message.contains("not enabled"))
     }

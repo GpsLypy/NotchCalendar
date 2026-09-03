@@ -66,7 +66,7 @@ if [[ "$SIGNING_IDENTITY" == "-" ]]; then
   print "Warning: no Developer ID certificate found; creating an ad-hoc signed development build."
   print "Automatic update installation will stay disabled for this build."
   print "Developer ID signing and notarization prepare future secure distribution;"
-  print "automatic replacement remains disabled in 0.2.1."
+  print "automatic replacement remains disabled in this release."
   codesign --force --sign - --identifier com.codex.notch-calendar.updater \
     "$APP_DIR/Contents/Helpers/NotchCalendarUpdater"
   codesign --force --sign - "$APP_DIR"

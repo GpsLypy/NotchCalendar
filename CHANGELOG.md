@@ -2,6 +2,18 @@
 
 All notable changes to Notch Calendar are documented here.
 
+## [0.2.2] - 2026-09-03
+
+### Added
+
+- A full desktop calendar window that opens at launch and serves as the Dock icon's primary destination.
+
+### Improved
+
+- Closing the desktop window leaves the notch calendar running, while clicking the Dock icon restores and focuses the same window without creating duplicates.
+- The desktop window shares live calendar data with the notch while keeping its browsed date independent.
+- The release workflow now uses a Node 24-based checkout action to avoid the Node 20 deprecation warning.
+
 ## [0.2.1] - 2026-09-03
 
 ### Added
