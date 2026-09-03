@@ -16,6 +16,10 @@ let package = Package(
                     "-Xlinker", "Support/Info.plist"
                 ])
             ]
+        ),
+        .testTarget(
+            name: "NotchCalendarTests",
+            dependencies: ["NotchCalendar"]
         )
     ]
 )

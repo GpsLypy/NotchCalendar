@@ -22,6 +22,8 @@ jobs:
       RELEASE_VERSION: ${{ inputs.version || github.ref_name }}
     steps:
       - uses: actions/checkout@v4
+      - name: Run tests
+        run: swift test
       - name: Build release archive
         run: Scripts/create_release.sh "${RELEASE_VERSION#v}"
       - name: Publish GitHub Release

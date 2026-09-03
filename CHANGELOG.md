@@ -2,6 +2,25 @@
 
 All notable changes to Notch Calendar are documented here.
 
+## [0.2.0] - 2026-09-03
+
+### Added
+
+- Smart Join buttons for current, upcoming, and agenda events using Zoom, Google Meet, Microsoft Teams, Webex, Around, or Whereby, plus an Open link action for other structured event URLs.
+- Previous and next month navigation in the expanded calendar.
+- Unit coverage for safe meeting-link resolution and locale-aware month layouts.
+
+### Improved
+
+- The agenda now prioritizes remaining events, avoids duplicating the highlighted meeting, and uses each calendar's source color.
+- Calendar queries are cached while the second-by-second meeting countdown updates.
+- Calendar permission errors are surfaced in the expanded view, and the compact view has proper button semantics.
+
+### Fixed
+
+- Weekday headings now respect the locale's first weekday and no longer collapse English labels to seven identical letters.
+- The hover panel now collapses when the pointer leaves the visible card instead of lingering over transparent reserved space.
+
 ## [0.1.8] - 2026-09-02
 
 ### Added

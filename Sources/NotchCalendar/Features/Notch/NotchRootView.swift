@@ -27,9 +27,14 @@ struct NotchRootView: View {
                         }
                     )
             } else {
-                CompactNotchView(events: state.calendar.todayEvents)
-                    .contentShape(Rectangle())
-                    .onTapGesture { state.isExpanded = true }
+                Button {
+                    state.isExpanded = true
+                } label: {
+                    CompactNotchView(events: state.calendar.todayEvents)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityHint("Shows today's agenda and month calendar")
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

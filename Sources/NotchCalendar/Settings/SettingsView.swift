@@ -8,7 +8,8 @@ struct SettingsView: View {
         Form {
             Section("Notch Calendar") {
                 Text("Click the compact notch calendar to open today's agenda.")
-                Text("Calendar access is requested only when you choose to enable it.").foregroundStyle(.secondary)
+                Text("Calendar access is requested on first launch and your event data stays on this Mac.")
+                    .foregroundStyle(.secondary)
             }
 
             Section("Software Update") {

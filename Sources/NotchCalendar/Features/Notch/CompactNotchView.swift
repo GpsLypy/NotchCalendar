@@ -12,10 +12,12 @@ struct CompactNotchView: View {
             case let .active(event, secondsRemaining):
                 MeetingProgressRing(event: event, now: now, size: 10, lineWidth: 2)
                 Text(event.title).lineLimit(1)
+                meetingLinkIndicator(for: event)
                 countdownLabel(UpcomingEventEngine.countdown(secondsRemaining), suffix: "left")
             case let .upcoming(event, secondsUntilStart):
                 statusDot(AlcovePalette.accent)
                 Text(event.title).lineLimit(1)
+                meetingLinkIndicator(for: event)
                 countdownLabel(UpcomingEventEngine.countdown(secondsUntilStart), prefix: "in")
             case .idle:
                 Text(now.formatted(.dateTime.weekday(.abbreviated).month(.abbreviated).day()))
@@ -29,10 +31,20 @@ struct CompactNotchView: View {
         .padding(.horizontal, 18)
         .frame(height: 36)
         .background(.black.opacity(0.94), in: NotchAttachedCardShape())
+        .accessibilityElement(children: .combine)
         .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { now = $0 }
     }
 
     private func statusDot(_ color: Color) -> some View { Circle().fill(color).frame(width: 6, height: 6) }
+
+    @ViewBuilder private func meetingLinkIndicator(for event: CalendarEvent) -> some View {
+        if let meetingLink = event.meetingLink {
+            Image(systemName: meetingLink.provider.actionSystemImage)
+                .font(.system(size: 8, weight: .bold))
+                .foregroundStyle(AlcovePalette.accent)
+                .accessibilityLabel(meetingLink.provider.availabilityDescription)
+        }
+    }
 
     private func countdownLabel(_ countdown: String, prefix: String? = nil, suffix: String? = nil) -> some View {
         HStack(spacing: 3) {

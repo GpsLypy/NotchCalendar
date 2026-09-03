@@ -12,7 +12,7 @@ final class NotchWindowController: NSObject, ObservableObject {
     private nonisolated(unsafe) var localMouseMonitor: Any?
     // Alcove-like glanceable layout: wide enough for agenda + month, but shallow
     // enough to feel attached to the camera housing rather than a modal window.
-    private let expandedSize = NSSize(width: 600, height: 290)
+    private let expandedSize = NSSize(width: 600, height: 390)
     private var expandTask: Task<Void, Never>?
     private var collapseTask: Task<Void, Never>?
     private var expandedCardHeight: CGFloat?
@@ -177,7 +177,7 @@ final class NotchWindowController: NSObject, ObservableObject {
             try? await Task.sleep(for: .milliseconds(30))
             guard let self, !Task.isCancelled else { return }
             self.collapseTask = nil
-            guard self.state.isExpanded, !self.panel.frame.contains(NSEvent.mouseLocation) else { return }
+            guard self.state.isExpanded, !self.expandedHoverFrame().contains(NSEvent.mouseLocation) else { return }
             self.trace("collapse confirmed")
             self.state.isExpanded = false
         }

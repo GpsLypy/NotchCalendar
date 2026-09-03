@@ -1,13 +1,17 @@
 # Notch Calendar
 
-A native macOS 15+ calendar that lives beside the notch. It shows today’s agenda, a month view, and a live countdown for your next meeting or the one currently in progress.
+A native macOS 15+ calendar that lives beside the notch. It shows today’s agenda, a browsable month view, and a live countdown for your next meeting or the one currently in progress.
 
 ## Features
 
 - Compact notch view with a live `MM:SS` / `H:MM:SS` meeting countdown.
 - Expanded agenda and month calendar on hover.
+- One-click Smart Join for Zoom, Google Meet, Microsoft Teams, Webex, Around, and Whereby, plus an Open link action for other structured event URLs.
+- Previous and next month navigation with locale-aware weekday ordering.
 - Calendar access via EventKit; data stays on the device.
 - Optional update checks through GitHub Releases.
+
+Smart Join resolves the event’s structured URL first, then looks for known conferencing domains in its location and notes. Link detection happens locally, and ordinary links in free-form text are ignored to reduce accidental opens.
 
 ## Run from source
 

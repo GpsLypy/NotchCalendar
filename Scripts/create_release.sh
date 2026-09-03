@@ -26,7 +26,6 @@ cp "$BUILD_DIR/NotchCalendar" "$APP_DIR/Contents/MacOS/"
 cp "$ROOT_DIR/Support/Info.plist" "$INFO_PLIST"
 cp "$ROOT_DIR/Resources/AppIcon.icns" "$APP_DIR/Contents/Resources/"
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "$INFO_PLIST"
-/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $VERSION" "$INFO_PLIST"
 
 if [[ "$SIGNING_IDENTITY" == "-" ]]; then
   print "Warning: no Developer ID certificate found; creating an ad-hoc signed development build."

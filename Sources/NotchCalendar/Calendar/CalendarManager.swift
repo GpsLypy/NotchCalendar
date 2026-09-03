@@ -52,7 +52,15 @@ final class CalendarManager: ObservableObject {
         store.requestFullAccessToEvents(completion: completion)
     }
 
-    func refresh() { loadEvents(from: Date().startOfDay, to: Date().endOfDay) }
+    func refresh() {
+        guard hasCalendarAccess else {
+            todayEvents = []
+            authorizationMessage = "Allow Calendar access in System Settings to show your agenda."
+            return
+        }
+        authorizationMessage = nil
+        loadEvents(from: Date().startOfDay, to: Date().endOfDay)
+    }
 
     func events(for date: Date) -> [CalendarEvent] {
         events(from: date.startOfDay, to: date.endOfDay)
@@ -80,9 +88,16 @@ final class CalendarManager: ObservableObject {
     }
 
     private func makeEvent(_ event: EKEvent) -> CalendarEvent {
-        CalendarEvent(id: event.eventIdentifier ?? UUID().uuidString, title: event.title ?? "Untitled event",
+        let fallbackID = "\(event.calendarItemIdentifier)|\(event.startDate.timeIntervalSinceReferenceDate)"
+        return CalendarEvent(id: event.eventIdentifier ?? fallbackID, title: event.title ?? "Untitled event",
                       startDate: event.startDate, endDate: event.endDate,
                       calendarName: event.calendar.title, calendarColor: NSColor(cgColor: event.calendar.cgColor),
-                      location: event.location, isAllDay: event.isAllDay)
+                      location: event.location,
+                      meetingLink: MeetingLinkResolver.resolve(
+                          eventURL: event.url,
+                          location: event.location,
+                          notes: event.notes
+                      ),
+                      isAllDay: event.isAllDay)
     }
 }

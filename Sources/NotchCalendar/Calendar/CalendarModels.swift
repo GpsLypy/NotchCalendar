@@ -8,7 +8,14 @@ struct CalendarEvent: Identifiable {
     let calendarName: String
     let calendarColor: NSColor?
     let location: String?
+    let meetingLink: MeetingLink?
     let isAllDay: Bool
+
+    func occurs(on date: Date, calendar: Calendar = .current) -> Bool {
+        let dayStart = calendar.startOfDay(for: date)
+        guard let dayEnd = calendar.date(byAdding: .day, value: 1, to: dayStart) else { return false }
+        return startDate < dayEnd && endDate > dayStart
+    }
 }
 
 enum EventStatus {
