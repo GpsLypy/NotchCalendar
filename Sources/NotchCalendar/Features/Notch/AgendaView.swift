@@ -3,12 +3,13 @@ import AppKit
 
 struct AgendaView: View {
     let events: [CalendarEvent]
+    @Environment(\.appLanguage) private var appLanguage
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("AGENDA").font(.system(size: 10, weight: .bold)).tracking(1.3).foregroundStyle(AlcovePalette.secondaryText)
+            Text(t("AGENDA")).font(.system(size: 10, weight: .bold)).tracking(1.3).foregroundStyle(AlcovePalette.secondaryText)
             if events.isEmpty {
-                Text("Nothing else on your calendar.").font(.system(size: 13)).foregroundStyle(AlcovePalette.secondaryText).padding(.vertical, 8)
+                Text(t("Nothing else on your calendar.")).font(.system(size: 13)).foregroundStyle(AlcovePalette.secondaryText).padding(.vertical, 8)
             } else {
                 ForEach(events.prefix(4)) { event in
                     HStack(alignment: .center, spacing: 8) {
@@ -27,8 +28,8 @@ struct AgendaView: View {
                                     .background(AlcovePalette.accent, in: Circle())
                             }
                             .buttonStyle(.plain)
-                            .accessibilityLabel(meetingLink.provider.actionTitle)
-                            .help(meetingLink.provider.actionTitle)
+                            .accessibilityLabel(meetingLink.provider.actionTitle(language: appLanguage))
+                            .help(meetingLink.provider.actionTitle(language: appLanguage))
                         }
                     }
                 }
@@ -44,7 +45,7 @@ struct AgendaView: View {
                 .frame(width: 3)
                 .frame(minHeight: 39)
             VStack(alignment: .leading, spacing: 2) {
-                Text(event.title)
+                Text(event.displayTitle(language: appLanguage))
                     .font(.system(size: 13, weight: .semibold, design: .rounded))
                     .lineLimit(1)
                 Text(timeDescription(for: event))
@@ -70,7 +71,7 @@ struct AgendaView: View {
         }
         .contentShape(Rectangle())
         .accessibilityElement(children: .combine)
-        .accessibilityHint("Opens Calendar")
+        .accessibilityHint(t("Opens Calendar"))
     }
 
     private func openInCalendar() {
@@ -82,6 +83,12 @@ struct AgendaView: View {
     }
 
     private func timeDescription(for event: CalendarEvent) -> String {
-        event.isAllDay ? "All day" : "\(event.startDate.shortTime)–\(event.endDate.shortTime)"
+        event.isAllDay
+            ? t("All day")
+            : "\(event.startDate.shortTime(locale: appLanguage.locale))–\(event.endDate.shortTime(locale: appLanguage.locale))"
+    }
+
+    private func t(_ key: String, _ arguments: CVarArg...) -> String {
+        L10n.string(key, language: appLanguage, arguments: arguments)
     }
 }

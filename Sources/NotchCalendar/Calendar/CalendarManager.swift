@@ -1,4 +1,5 @@
 @preconcurrency import EventKit
+import AppKit
 import SwiftUI
 
 @MainActor
@@ -62,6 +63,13 @@ final class CalendarManager: ObservableObject {
         loadEvents(from: Date().startOfDay, to: Date().endOfDay)
     }
 
+    func openPrivacySettings() {
+        guard let url = URL(
+            string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Calendars"
+        ) else { return }
+        NSWorkspace.shared.open(url)
+    }
+
     func events(for date: Date) -> [CalendarEvent] {
         events(from: date.startOfDay, to: date.endOfDay)
     }
@@ -89,7 +97,7 @@ final class CalendarManager: ObservableObject {
 
     private func makeEvent(_ event: EKEvent) -> CalendarEvent {
         let fallbackID = "\(event.calendarItemIdentifier)|\(event.startDate.timeIntervalSinceReferenceDate)"
-        return CalendarEvent(id: event.eventIdentifier ?? fallbackID, title: event.title ?? "Untitled event",
+        return CalendarEvent(id: event.eventIdentifier ?? fallbackID, title: event.title ?? "",
                       startDate: event.startDate, endDate: event.endDate,
                       calendarName: event.calendar.title, calendarColor: NSColor(cgColor: event.calendar.cgColor),
                       location: event.location,

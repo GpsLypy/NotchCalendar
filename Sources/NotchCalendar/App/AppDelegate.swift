@@ -3,7 +3,7 @@ import Darwin
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
-    private let state = AppState()
+    let state = AppState()
     private var controller: NotchWindowController?
     private var mainWindowController: MainCalendarWindowController?
     private var instanceLockFileDescriptors: [Int32] = []
@@ -21,8 +21,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.setActivationPolicy(.regular)
         controller = NotchWindowController(state: state)
         controller?.show()
-        mainWindowController = MainCalendarWindowController(calendar: state.calendar)
+        mainWindowController = MainCalendarWindowController(
+            calendar: state.calendar,
+            updateChecker: state.updateChecker
+        )
         mainWindowController?.reveal()
+        Task { await state.updateChecker.checkForUpdates() }
         confirmSuccessfulUpdateLaunchIfNeeded()
     }
 

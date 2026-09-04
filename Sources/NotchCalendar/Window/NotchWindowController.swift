@@ -28,11 +28,13 @@ final class NotchWindowController: NSObject, ObservableObject {
         panel = NotchPanel(contentRect: ScreenGeometry.panelFrame(on: screen, size: Self.compactSize(on: screen), expanded: false))
         super.init()
         let hostingView = NSHostingView(
-            rootView: NotchRootView(
-                state: state,
-                layoutMetrics: layoutMetrics
-            ) { [weak self] height in
-                self?.updateExpandedCardHeight(height)
+            rootView: AppLanguageHost {
+                NotchRootView(
+                    state: state,
+                    layoutMetrics: layoutMetrics
+                ) { [weak self] height in
+                    self?.updateExpandedCardHeight(height)
+                }
             }
         )
         hostingView.wantsLayer = true
@@ -150,7 +152,7 @@ final class NotchWindowController: NSObject, ObservableObject {
     private func updateExpandedCardHeight(_ height: CGFloat) {
         // Preference removal reports zero as the compact view replaces the card;
         // retain the last expanded measurement until the next expansion reports.
-        guard height > 36 else { return }
+        guard height > ScreenGeometry.compactPanelHeight else { return }
         expandedCardHeight = height
     }
 
@@ -230,7 +232,7 @@ final class NotchWindowController: NSObject, ObservableObject {
         // On a notched Mac, match the hardware width exactly so the card reads as
         // one continuous shape. The date/time layout fits within M3 Pro's cutout.
         let notchWidth = ScreenGeometry.notchBounds(on: screen)?.width ?? 226
-        return NSSize(width: notchWidth, height: 36)
+        return NSSize(width: notchWidth, height: ScreenGeometry.compactPanelHeight)
     }
 
     private func trace(_ message: String) {

@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "NotchCalendar",
+    defaultLocalization: "en",
     platforms: [.macOS(.v15)],
     products: [
         .executable(name: "NotchCalendar", targets: ["NotchCalendar"]),
@@ -11,6 +12,9 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "NotchCalendar",
+            resources: [
+                .process("Resources")
+            ],
             linkerSettings: [
                 .unsafeFlags([
                     "-Xlinker", "-sectcreate",

@@ -37,6 +37,163 @@ struct UpdateDownloadProgress: Equatable {
     }
 }
 
+enum UpdateReleaseNoteCategory: String, CaseIterable, Identifiable, Sendable {
+    case added
+    case improved
+    case fixed
+
+    var id: String { rawValue }
+
+    var titleKey: String {
+        switch self {
+        case .added: "Added"
+        case .improved: "Improved"
+        case .fixed: "Fixed"
+        }
+    }
+
+    var systemImage: String {
+        switch self {
+        case .added: "plus.circle.fill"
+        case .improved: "sparkles"
+        case .fixed: "wrench.and.screwdriver.fill"
+        }
+    }
+}
+
+struct UpdateReleaseNoteSection: Identifiable, Equatable, Sendable {
+    let category: UpdateReleaseNoteCategory
+    let items: [String]
+
+    var id: UpdateReleaseNoteCategory { category }
+}
+
+struct UpdateReleaseSummary: Equatable, Sendable {
+    let version: String
+    let releaseURL: URL
+    let publishedAt: Date?
+    let sections: [UpdateReleaseNoteSection]
+    let fallbackText: String?
+}
+
+enum UpdateReleaseNotesParser {
+    private static let maximumBodyLength = 50_000
+    private static let maximumItemsPerSection = 12
+    private static let maximumItemLength = 320
+    private static let maximumFallbackLength = 1_600
+
+    static func sections(from markdown: String) -> [UpdateReleaseNoteSection] {
+        var itemsByCategory: [UpdateReleaseNoteCategory: [String]] = [:]
+        var activeCategory: UpdateReleaseNoteCategory?
+
+        for rawLine in markdown.prefix(maximumBodyLength).split(
+            omittingEmptySubsequences: false,
+            whereSeparator: \.isNewline
+        ) {
+            let line = rawLine.trimmingCharacters(in: .whitespaces)
+            if line.hasPrefix("#") {
+                activeCategory = category(for: line)
+                continue
+            }
+            guard let activeCategory,
+                  var item = listItem(from: line),
+                  itemsByCategory[activeCategory, default: []].count < maximumItemsPerSection else {
+                continue
+            }
+            if item.count > maximumItemLength {
+                item = String(item.prefix(maximumItemLength)) + "…"
+            }
+            itemsByCategory[activeCategory, default: []].append(item)
+        }
+
+        return UpdateReleaseNoteCategory.allCases.compactMap { category in
+            guard let items = itemsByCategory[category], !items.isEmpty else { return nil }
+            return UpdateReleaseNoteSection(category: category, items: items)
+        }
+    }
+
+    static func fallbackText(from markdown: String) -> String? {
+        let lines = markdown.prefix(maximumBodyLength).split(
+            omittingEmptySubsequences: false,
+            whereSeparator: \.isNewline
+        )
+        var cleanedLines: [String] = []
+
+        for rawLine in lines {
+            var line = rawLine.trimmingCharacters(in: .whitespaces)
+            let searchableLine = stripBasicMarkdown(from: line)
+            guard !searchableLine.localizedCaseInsensitiveContains("Full Changelog"),
+                  !searchableLine.contains("完整变更日志") else { continue }
+
+            if line.hasPrefix("#") {
+                line = line.trimmingCharacters(in: CharacterSet(charactersIn: "# "))
+            } else if let item = listItem(from: line) {
+                line = "• \(item)"
+            } else {
+                line = stripBasicMarkdown(from: line)
+            }
+
+            if line.isEmpty, cleanedLines.last?.isEmpty != false {
+                continue
+            }
+            cleanedLines.append(line)
+        }
+
+        let cleaned = cleanedLines
+            .drop(while: \.isEmpty)
+            .reversed()
+            .drop(while: \.isEmpty)
+            .reversed()
+            .joined(separator: "\n")
+        guard !cleaned.isEmpty else { return nil }
+        guard cleaned.count > maximumFallbackLength else { return cleaned }
+        return String(cleaned.prefix(maximumFallbackLength)) + "…"
+    }
+
+    private static func category(for heading: String) -> UpdateReleaseNoteCategory? {
+        let normalized = heading
+            .trimmingCharacters(in: CharacterSet(charactersIn: "# "))
+            .lowercased()
+        if normalized.contains("added") || normalized.contains("new") || normalized.contains("新增") {
+            return .added
+        }
+        if normalized.contains("improved") || normalized.contains("changed")
+            || normalized.contains("优化") || normalized.contains("改进") {
+            return .improved
+        }
+        if normalized.contains("fixed") || normalized.contains("fixes") || normalized.contains("修复") {
+            return .fixed
+        }
+        return nil
+    }
+
+    private static func listItem(from line: String) -> String? {
+        let unorderedPrefixes = ["- ", "* ", "+ ", "• "]
+        let content: Substring
+        if let prefix = unorderedPrefixes.first(where: line.hasPrefix) {
+            content = line.dropFirst(prefix.count)
+        } else if let dotIndex = line.firstIndex(of: "."),
+                  dotIndex != line.startIndex,
+                  line[..<dotIndex].allSatisfy(\.isNumber) {
+            let contentStart = line.index(after: dotIndex)
+            guard contentStart < line.endIndex, line[contentStart].isWhitespace else { return nil }
+            content = line[contentStart...]
+        } else {
+            return nil
+        }
+        let item = stripBasicMarkdown(from: String(content))
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        return item.isEmpty ? nil : item
+    }
+
+    private static func stripBasicMarkdown(from value: String) -> String {
+        value
+            .replacingOccurrences(of: "**", with: "")
+            .replacingOccurrences(of: "__", with: "")
+            .replacingOccurrences(of: "`", with: "")
+    }
+}
+
 @MainActor
 final class UpdateChecker: ObservableObject {
     @Published private(set) var status: UpdateStatus = .ready
@@ -44,6 +201,7 @@ final class UpdateChecker: ObservableObject {
     @Published private(set) var installationStatus: UpdateInstallationStatus = .idle
     @Published private(set) var automaticInstallCapability: AutomaticInstallCapability = .unknown
     @Published private(set) var installedApplicationsVersion: String?
+    @Published private(set) var latestRelease: UpdateReleaseSummary?
 
     private var availableUpdate: AvailableUpdate?
     private var downloadedArtifact: DownloadedUpdateArtifact?
@@ -94,12 +252,17 @@ final class UpdateChecker: ObservableObject {
             .volumeIsReadOnly == true
     }
     func checkForUpdates() async {
+        guard status != .checking,
+              !isDownloading,
+              !isInstalling,
+              downloadedUpdateURL == nil else { return }
         guard let url = UpdateConfiguration.releasesAPIURL else {
             status = .unavailable("The release source has not been configured yet.")
             return
         }
 
         status = .checking
+        latestRelease = nil
         downloadStatus = .idle
         installationStatus = .idle
         automaticInstallCapability = .unknown
@@ -125,6 +288,17 @@ final class UpdateChecker: ObservableObject {
                   let currentVersion = AppVersion(UpdateConfiguration.currentVersion) else {
                 throw UpdateError.invalidVersion
             }
+
+            let releaseSections = UpdateReleaseNotesParser.sections(from: release.body ?? "")
+            latestRelease = UpdateReleaseSummary(
+                version: remoteVersion.description,
+                releaseURL: releaseURL,
+                publishedAt: release.publishedAt.flatMap(parseGitHubDate),
+                sections: releaseSections,
+                fallbackText: releaseSections.isEmpty
+                    ? UpdateReleaseNotesParser.fallbackText(from: release.body ?? "")
+                    : nil
+            )
 
             let trustedAssets = release.assets.compactMap { asset -> (GitHubReleaseAsset, URL)? in
                 guard let downloadURL = URL(string: asset.browserDownloadURL),
@@ -331,6 +505,10 @@ final class UpdateChecker: ObservableObject {
             )
         }
     }
+
+    private func parseGitHubDate(_ value: String) -> Date? {
+        ISO8601DateFormatter().date(from: value)
+    }
 }
 
 private struct AvailableUpdate {
@@ -493,11 +671,15 @@ private enum UpdateConfiguration {
 private struct GitHubRelease: Decodable {
     let tagName: String
     let htmlURL: String
+    let body: String?
+    let publishedAt: String?
     let assets: [GitHubReleaseAsset]
 
     enum CodingKeys: String, CodingKey {
         case tagName = "tag_name"
         case htmlURL = "html_url"
+        case body
+        case publishedAt = "published_at"
         case assets
     }
 }

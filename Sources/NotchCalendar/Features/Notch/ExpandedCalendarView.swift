@@ -33,6 +33,7 @@ struct CalendarDashboardView: View {
     @State private var dayEvents: [CalendarEvent] = []
     @State private var monthEvents: [CalendarEvent] = []
     @State private var reloadTask: Task<Void, Never>?
+    @Environment(\.appLanguage) private var appLanguage
 
     var body: some View {
         let status = UpcomingEventEngine.status(now: now, events: calendar.todayEvents)
@@ -51,7 +52,7 @@ struct CalendarDashboardView: View {
                     }
                     AgendaView(events: Array(agendaEvents.prefix(2)))
                     if agendaEvents.count > 2 {
-                        Text("+ \(agendaEvents.count - 2) later")
+                        Text(t("+ %@ later", "\(agendaEvents.count - 2)"))
                             .font(.system(size: 11, weight: .semibold, design: .rounded))
                             .foregroundStyle(AlcovePalette.accent)
                             .padding(.leading, 22)
@@ -122,14 +123,14 @@ struct CalendarDashboardView: View {
     private var header: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 3) {
-                Text(selectedDate.formatted(.dateTime.weekday(.wide)))
+                Text(selectedDate.formatted(.dateTime.weekday(.wide).locale(appLanguage.locale)))
                     .font(.system(size: 23, weight: .bold, design: .rounded))
-                Text(selectedDate.formatted(.dateTime.year().month().day()))
+                Text(selectedDate.formatted(.dateTime.year().month().day().locale(appLanguage.locale)))
                     .font(.system(size: 13, weight: .medium, design: .rounded))
                     .foregroundStyle(AlcovePalette.secondaryText)
             }
             Spacer(minLength: 8)
-            Button("Today") { selectedDate = Date() }
+            Button(t("Today")) { selectedDate = Date() }
                 .buttonStyle(.plain)
                 .foregroundStyle(AlcovePalette.accent)
                 .font(.system(size: 12, weight: .bold, design: .rounded))
@@ -143,6 +144,8 @@ struct CalendarDashboardView: View {
                 }
                 .buttonStyle(.plain)
                 .padding(.leading, 8)
+                .accessibilityLabel(t("Close"))
+                .help(t("Close"))
             }
         }
         .padding(.horizontal, 22)
@@ -152,14 +155,19 @@ struct CalendarDashboardView: View {
         switch status {
         case let .active(event, secondsRemaining):
             eventCard(
-                "NOW",
+                t("NOW"),
                 event,
-                "\(UpcomingEventEngine.countdown(secondsRemaining)) left",
+                t("%@ left", UpcomingEventEngine.countdown(secondsRemaining)),
                 AlcovePalette.accent,
                 showsProgress: true
             )
         case let .upcoming(event, secondsUntilStart):
-            eventCard("NEXT", event, "in \(UpcomingEventEngine.countdown(secondsUntilStart))", AlcovePalette.accent)
+            eventCard(
+                t("NEXT"),
+                event,
+                t("in %@", UpcomingEventEngine.countdown(secondsUntilStart)),
+                AlcovePalette.accent
+            )
         case .idle: EmptyView()
         }
     }
@@ -181,7 +189,7 @@ struct CalendarDashboardView: View {
                 if let meetingLink = event.meetingLink {
                     Button { openMeeting(meetingLink) } label: {
                         Label(
-                            meetingLink.provider.actionTitle,
+                            meetingLink.provider.actionTitle(language: appLanguage),
                             systemImage: meetingLink.provider.actionSystemImage
                         )
                         .font(.system(size: 10, weight: .bold, design: .rounded))
@@ -191,11 +199,16 @@ struct CalendarDashboardView: View {
                         .background(color, in: Capsule())
                     }
                     .buttonStyle(.plain)
-                    .accessibilityHint("Opens the meeting link")
-                    .help("\(meetingLink.provider.actionTitle) in your default app")
+                    .accessibilityHint(t("Opens the meeting link"))
+                    .help(
+                        t(
+                            "%@ in your default app",
+                            meetingLink.provider.actionTitle(language: appLanguage)
+                        )
+                    )
                 } else {
                     Button { openCalendar() } label: {
-                        Label("Calendar", systemImage: "calendar")
+                        Label(t("Calendar"), systemImage: "calendar")
                             .font(.system(size: 10, weight: .bold, design: .rounded))
                             .foregroundStyle(AlcovePalette.secondaryText)
                             .padding(.horizontal, 9)
@@ -203,12 +216,14 @@ struct CalendarDashboardView: View {
                             .background(.white.opacity(0.08), in: Capsule())
                     }
                     .buttonStyle(.plain)
-                    .accessibilityHint("Opens the Calendar app")
-                    .help("Open Calendar")
+                    .accessibilityHint(t("Opens the Calendar app"))
+                    .help(t("Open Calendar"))
                 }
             }
             HStack(spacing: 8) {
-                Text(event.title).font(.system(size: 15, weight: .semibold)).lineLimit(1)
+                Text(event.displayTitle(language: appLanguage))
+                    .font(.system(size: 15, weight: .semibold))
+                    .lineLimit(1)
                 Spacer(minLength: 0)
                 if showsProgress {
                     MeetingProgressRing(event: event, now: now)
@@ -230,14 +245,22 @@ struct CalendarDashboardView: View {
     }
 
     private func permissionCard(_ message: String) -> some View {
-        Label(message, systemImage: "calendar.badge.exclamationmark")
-            .font(.system(size: 12, weight: .medium, design: .rounded))
-            .foregroundStyle(AlcovePalette.secondaryText)
-            .padding(12)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(.white.opacity(0.07), in: RoundedRectangle(cornerRadius: 12))
-            .padding(.horizontal, 22)
-            .padding(.top, 17)
+        VStack(alignment: .leading, spacing: 9) {
+            Label(t(message), systemImage: "calendar.badge.exclamationmark")
+                .font(.system(size: 12, weight: .medium, design: .rounded))
+                .foregroundStyle(AlcovePalette.secondaryText)
+            Button(t("Open System Settings")) {
+                calendar.openPrivacySettings()
+            }
+            .buttonStyle(.plain)
+            .font(.system(size: 11, weight: .semibold, design: .rounded))
+            .foregroundStyle(AlcovePalette.accent)
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(.white.opacity(0.07), in: RoundedRectangle(cornerRadius: 12))
+        .padding(.horizontal, 22)
+        .padding(.top, 17)
     }
 
     private func openMeeting(_ meetingLink: MeetingLink) {
@@ -292,5 +315,9 @@ struct CalendarDashboardView: View {
             return true
         }
         return false
+    }
+
+    private func t(_ key: String, _ arguments: CVarArg...) -> String {
+        L10n.string(key, language: appLanguage, arguments: arguments)
     }
 }

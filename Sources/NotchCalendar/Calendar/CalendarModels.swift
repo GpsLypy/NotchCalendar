@@ -11,6 +11,13 @@ struct CalendarEvent: Identifiable {
     let meetingLink: MeetingLink?
     let isAllDay: Bool
 
+    func displayTitle(language: AppLanguage) -> String {
+        guard !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return L10n.string("Untitled event", language: language)
+        }
+        return title
+    }
+
     func occurs(on date: Date, calendar: Calendar = .current) -> Bool {
         let dayStart = calendar.startOfDay(for: date)
         guard let dayEnd = calendar.date(byAdding: .day, value: 1, to: dayStart) else { return false }

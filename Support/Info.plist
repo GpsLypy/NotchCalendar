@@ -4,6 +4,8 @@
 <dict>
     <key>CFBundleDisplayName</key>
     <string>Notch Calendar</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>NotchCalendar</string>
 	<key>CFBundleIconFile</key>
@@ -15,9 +17,14 @@
     <key>CFBundleName</key>
     <string>Notch Calendar</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.2.2</string>
+	<string>0.3.0</string>
 	<key>CFBundleVersion</key>
-	<string>12</string>
+	<string>13</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>zh-Hans</string>
+	</array>
 	<key>NotchCalendarGitHubRepository</key>
 	<string>GpsLypy/NotchCalendar</string>
 	<key>LSUIElement</key>

@@ -59,6 +59,10 @@ cp "$BUILD_DIR/NotchCalendar" "$APP_DIR/Contents/MacOS/"
 cp "$BUILD_DIR/NotchCalendarUpdater" "$APP_DIR/Contents/Helpers/"
 cp "$ROOT_DIR/Support/Info.plist" "$INFO_PLIST"
 cp "$ROOT_DIR/Resources/AppIcon.icns" "$APP_DIR/Contents/Resources/"
+ditto "$ROOT_DIR/Sources/NotchCalendar/Resources/en.lproj" \
+  "$APP_DIR/Contents/Resources/en.lproj"
+ditto "$ROOT_DIR/Sources/NotchCalendar/Resources/zh-Hans.lproj" \
+  "$APP_DIR/Contents/Resources/zh-Hans.lproj"
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "$INFO_PLIST"
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "$INFO_PLIST"
 

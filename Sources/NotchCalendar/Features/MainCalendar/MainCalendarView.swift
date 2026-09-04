@@ -6,18 +6,17 @@ import SwiftUI
 struct MainCalendarView: View {
     @ObservedObject var calendar: CalendarManager
     @ObservedObject var presentation: MainCalendarPresentation
-    @State private var selectedDate = Date()
+    @Binding var selectedDate: Date
 
     var body: some View {
         CalendarDashboardView(
             calendar: calendar,
             selectedDate: $selectedDate,
-            contentTopInset: 28,
+            contentTopInset: 52,
             surface: .window,
             isActive: presentation.isActive,
             onClose: nil
         )
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .preferredColorScheme(.dark)
     }
 }

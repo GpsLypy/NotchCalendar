@@ -5,6 +5,7 @@ struct MeetingProgressRing: View {
     let now: Date
     var size: CGFloat = 22
     var lineWidth: CGFloat = 2.5
+    @Environment(\.appLanguage) private var appLanguage
 
     private var progress: Double {
         UpcomingEventEngine.progress(now: now, event: event)
@@ -25,8 +26,16 @@ struct MeetingProgressRing: View {
         .frame(width: size, height: size)
         .animation(.linear(duration: 1), value: progress)
         .accessibilityElement()
-        .accessibilityLabel("Meeting progress")
-        .accessibilityValue("\(Int((progress * 100).rounded())) percent")
-        .help("Meeting progress: \(Int((progress * 100).rounded()))%")
+        .accessibilityLabel(t("Meeting progress"))
+        .accessibilityValue(t("%@ percent", "\(percentage)"))
+        .help(t("Meeting progress: %@", "\(percentage)%"))
+    }
+
+    private var percentage: Int {
+        Int((progress * 100).rounded())
+    }
+
+    private func t(_ key: String, _ arguments: CVarArg...) -> String {
+        L10n.string(key, language: appLanguage, arguments: arguments)
     }
 }

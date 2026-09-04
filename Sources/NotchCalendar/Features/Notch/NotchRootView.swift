@@ -21,6 +21,7 @@ struct NotchRootView: View {
     @ObservedObject var state: AppState
     @ObservedObject var layoutMetrics: NotchLayoutMetrics
     let onExpandedCardHeightChange: (CGFloat) -> Void
+    @Environment(\.appLanguage) private var appLanguage
 
     var body: some View {
         Group {
@@ -46,7 +47,12 @@ struct NotchRootView: View {
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .accessibilityHint("Shows today's agenda and month calendar")
+                .accessibilityHint(
+                    L10n.string(
+                        "Shows today's agenda and month calendar",
+                        language: appLanguage
+                    )
+                )
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

@@ -11,14 +11,16 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
     private static let frameAutosaveName = "NotchCalendarMainWindow"
     private let presentation = MainCalendarPresentation()
 
-    init(calendar: CalendarManager) {
+    init(calendar: CalendarManager, updateChecker: UpdateChecker) {
         let window = NSWindow(
             contentRect: .zero,
-            styleMask: [.titled, .closable, .miniaturizable, .resizable],
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
             backing: .buffered,
             defer: false
         )
         window.title = "Notch Calendar"
+        window.titleVisibility = .hidden
+        window.titlebarAppearsTransparent = true
         window.appearance = NSAppearance(named: .darkAqua)
         window.backgroundColor = NSColor(
             calibratedRed: 0.025,
@@ -26,11 +28,18 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
             blue: 0.03,
             alpha: 1
         )
-        window.contentViewController = NSHostingController(
-            rootView: MainCalendarView(calendar: calendar, presentation: presentation)
+        let workspaceView = MainWorkspaceView(
+            calendar: calendar,
+            updateChecker: updateChecker,
+            presentation: presentation
         )
-        window.setContentSize(NSSize(width: 700, height: 460))
-        window.contentMinSize = NSSize(width: 640, height: 420)
+        window.contentViewController = NSHostingController(
+            rootView: AppLanguageHost {
+                workspaceView
+            }
+        )
+        window.setContentSize(NSSize(width: 980, height: 620))
+        window.contentMinSize = NSSize(width: 860, height: 520)
         window.isReleasedWhenClosed = false
         window.tabbingMode = .disallowed
         window.animationBehavior = .documentWindow

@@ -4,6 +4,7 @@ import Combine
 @MainActor
 final class AppState: ObservableObject {
     @Published var calendar = CalendarManager()
+    let updateChecker = UpdateChecker()
     @Published var selectedDate = Date()
     /// Desired hover state. The controller may keep the visual expanded briefly
     /// while its shrink animation completes.

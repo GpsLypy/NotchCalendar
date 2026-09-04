@@ -4,8 +4,14 @@ struct MonthCalendarView: View {
     @Binding var selectedDate: Date
     let events: [CalendarEvent]
     var alcoveStyle = false
-    private let calendar = Calendar.current
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 2), count: 7)
+    @Environment(\.appLanguage) private var appLanguage
+
+    private var calendar: Calendar {
+        var calendar = Calendar.current
+        calendar.locale = appLanguage.locale
+        return calendar
+    }
 
     var body: some View {
         VStack(spacing: alcoveStyle ? 9 : 7) {
@@ -31,7 +37,16 @@ struct MonthCalendarView: View {
                             }
                         }
                         .buttonStyle(.plain)
-                        .accessibilityLabel(date.formatted(.dateTime.weekday(.wide).month(.wide).day().year()))
+                        .accessibilityLabel(
+                            date.formatted(
+                                .dateTime
+                                    .weekday(.wide)
+                                    .month(.wide)
+                                    .day()
+                                    .year()
+                                    .locale(appLanguage.locale)
+                            )
+                        )
                         .accessibilityValue(accessibilityValue(hasEvent: dateHasEvent, isSelected: isSelected))
                     } else {
                         Color.clear.frame(height: alcoveStyle ? 25 : 24)
@@ -44,13 +59,13 @@ struct MonthCalendarView: View {
     private var monthHeader: some View {
         HStack(spacing: 5) {
             Spacer(minLength: 0)
-            monthButton(systemImage: "chevron.left", label: "Previous month", offset: -1)
-            Text(selectedDate.formatted(.dateTime.month(.wide).year()))
+            monthButton(systemImage: "chevron.left", label: t("Previous month"), offset: -1)
+            Text(selectedDate.formatted(.dateTime.month(.wide).year().locale(appLanguage.locale)))
                 .font(.system(size: alcoveStyle ? 11 : 12, weight: .bold, design: .rounded))
                 .foregroundStyle(alcoveStyle ? AlcovePalette.accent : .primary)
                 .frame(minWidth: 112)
                 .accessibilityAddTraits(.isHeader)
-            monthButton(systemImage: "chevron.right", label: "Next month", offset: 1)
+            monthButton(systemImage: "chevron.right", label: t("Next month"), offset: 1)
         }
     }
 
@@ -83,10 +98,14 @@ struct MonthCalendarView: View {
 
     private func accessibilityValue(hasEvent: Bool, isSelected: Bool) -> String {
         switch (hasEvent, isSelected) {
-        case (true, true): "Selected, has events"
-        case (true, false): "Has events"
-        case (false, true): "Selected, no events"
-        case (false, false): "No events"
+        case (true, true): t("Selected, has events")
+        case (true, false): t("Has events")
+        case (false, true): t("Selected, no events")
+        case (false, false): t("No events")
         }
+    }
+
+    private func t(_ key: String, _ arguments: CVarArg...) -> String {
+        L10n.string(key, language: appLanguage, arguments: arguments)
     }
 }

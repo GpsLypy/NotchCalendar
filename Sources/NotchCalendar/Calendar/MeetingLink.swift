@@ -30,12 +30,32 @@ enum MeetingProvider: String, CaseIterable, Sendable {
         }
     }
 
+    func actionTitle(language: AppLanguage) -> String {
+        switch self {
+        case .googleMeet:
+            L10n.string("Join Meet", language: language)
+        case .microsoftTeams:
+            L10n.string("Join Teams", language: language)
+        case .other:
+            L10n.string("Open link", language: language)
+        default:
+            L10n.string("Join %@", language: language, displayName)
+        }
+    }
+
     var actionSystemImage: String {
         self == .other ? "arrow.up.right" : "video.fill"
     }
 
     var availabilityDescription: String {
         self == .other ? "Event link available" : "\(displayName) link available"
+    }
+
+    func availabilityDescription(language: AppLanguage) -> String {
+        if self == .other {
+            return L10n.string("Event link available", language: language)
+        }
+        return L10n.string("%@ link available", language: language, displayName)
     }
 }
 

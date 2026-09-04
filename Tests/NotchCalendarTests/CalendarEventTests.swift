@@ -3,6 +3,23 @@ import XCTest
 @testable import NotchCalendar
 
 final class CalendarEventTests: XCTestCase {
+    func testUntitledEventUsesSelectedAppLanguage() {
+        let event = CalendarEvent(
+            id: "untitled",
+            title: "  ",
+            startDate: .distantPast,
+            endDate: .distantFuture,
+            calendarName: "Work",
+            calendarColor: nil,
+            location: nil,
+            meetingLink: nil,
+            isAllDay: false
+        )
+
+        XCTAssertEqual(event.displayTitle(language: .english), "Untitled event")
+        XCTAssertEqual(event.displayTitle(language: .simplifiedChinese), "未命名日程")
+    }
+
     func testMultiDayEventOccursOnEveryOverlappingDate() throws {
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = try XCTUnwrap(TimeZone(secondsFromGMT: 0))
