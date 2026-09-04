@@ -1,7 +1,8 @@
 import AppKit
 
 enum ScreenGeometry {
-    static let compactPanelHeight: CGFloat = 34
+    static let compactPanelHeight: CGFloat = 30
+    static let compactPanelCornerRadius: CGFloat = 9
     private static let defaultExpandedTopInset: CGFloat = 24
     private static let cameraHousingClearance: CGFloat = 12
 

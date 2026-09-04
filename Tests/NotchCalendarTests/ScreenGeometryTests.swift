@@ -2,6 +2,11 @@ import XCTest
 @testable import NotchCalendar
 
 final class ScreenGeometryTests: XCTestCase {
+    func testCompactPanelKeepsShortVisualHeight() {
+        XCTAssertEqual(ScreenGeometry.compactPanelHeight, 30)
+        XCTAssertEqual(ScreenGeometry.compactPanelCornerRadius, 9)
+    }
+
     func testExpandedContentUsesBaselineInsetOnUnobscuredDisplay() {
         XCTAssertEqual(
             ScreenGeometry.expandedContentTopInset(

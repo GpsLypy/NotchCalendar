@@ -4,6 +4,16 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-09-04
+
+### Added / 新增功能
+
+- No new features in this maintenance release. / 本次维护版本无新增功能。
+
+### Fixed / 问题修复
+
+- Reduced the compact notch height from 34 to 30 points and tightened its lower corners, removing the remaining excess chin while preserving the notch width, typography, and 10-point hover buffer. / 将紧凑刘海高度从 34 点进一步缩短到 30 点并收紧底部圆角，在保留原有宽度、字体和 10 点悬停容错边距的同时去除剩余的下巴。
+
 ## [0.3.0] - 2026-09-04
 
 ### Added / 新增功能

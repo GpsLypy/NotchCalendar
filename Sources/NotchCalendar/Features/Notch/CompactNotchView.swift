@@ -43,7 +43,10 @@ struct CompactNotchView: View {
         .foregroundStyle(.white.opacity(0.92))
         .padding(.horizontal, 18)
         .frame(height: ScreenGeometry.compactPanelHeight)
-        .background(.black.opacity(0.94), in: NotchAttachedCardShape(cornerRadius: 11))
+        .background(
+            .black.opacity(0.94),
+            in: NotchAttachedCardShape(cornerRadius: ScreenGeometry.compactPanelCornerRadius)
+        )
         .accessibilityElement(children: .combine)
         .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { now = $0 }
     }

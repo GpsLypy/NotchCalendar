@@ -229,10 +229,13 @@ final class NotchWindowController: NSObject, ObservableObject {
     }
 
     private static func compactSize(on screen: NSScreen) -> NSSize {
-        // On a notched Mac, match the hardware width exactly so the card reads as
-        // one continuous shape. The date/time layout fits within M3 Pro's cutout.
+        // Match the hardware width while keeping the visible surface slightly
+        // shallower than the reported safe area so it does not grow a chin.
         let notchWidth = ScreenGeometry.notchBounds(on: screen)?.width ?? 226
-        return NSSize(width: notchWidth, height: ScreenGeometry.compactPanelHeight)
+        return NSSize(
+            width: notchWidth,
+            height: ScreenGeometry.compactPanelHeight
+        )
     }
 
     private func trace(_ message: String) {
