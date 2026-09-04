@@ -7,11 +7,13 @@ let package = Package(
     platforms: [.macOS(.v15)],
     products: [
         .executable(name: "NotchCalendar", targets: ["NotchCalendar"]),
-        .executable(name: "NotchCalendarUpdater", targets: ["NotchCalendarUpdater"])
+        .executable(name: "NotchCalendarUpdater", targets: ["NotchCalendarUpdater"]),
+        .executable(name: "NotchCalendarWidgets", targets: ["NotchCalendarWidgets"])
     ],
     targets: [
         .executableTarget(
             name: "NotchCalendar",
+            dependencies: ["NotchCalendarShared"],
             resources: [
                 .process("Resources")
             ],
@@ -27,9 +29,27 @@ let package = Package(
         .executableTarget(
             name: "NotchCalendarUpdater"
         ),
+        .target(
+            name: "NotchCalendarShared"
+        ),
+        .executableTarget(
+            name: "NotchCalendarWidgets",
+            dependencies: ["NotchCalendarShared"],
+            swiftSettings: [
+                .unsafeFlags(["-application-extension"])
+            ],
+            linkerSettings: [
+                .unsafeFlags([
+                    "-Xlinker", "-e",
+                    "-Xlinker", "_NSExtensionMain",
+                    "-Xlinker", "-u",
+                    "-Xlinker", "_main"
+                ])
+            ]
+        ),
         .testTarget(
             name: "NotchCalendarTests",
-            dependencies: ["NotchCalendar"]
+            dependencies: ["NotchCalendar", "NotchCalendarShared"]
         )
     ]
 )

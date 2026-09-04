@@ -4,6 +4,7 @@ import SwiftUI
 @MainActor
 final class MainCalendarPresentation: ObservableObject {
     @Published var isActive = false
+    @Published var selectedDestination = WorkspaceDestination.calendar
 }
 
 @MainActor
@@ -11,7 +12,11 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
     private static let frameAutosaveName = "NotchCalendarMainWindow"
     private let presentation = MainCalendarPresentation()
 
-    init(calendar: CalendarManager, updateChecker: UpdateChecker) {
+    init(
+        calendar: CalendarManager,
+        focusTimer: FocusTimerModel,
+        updateChecker: UpdateChecker
+    ) {
         let window = NSWindow(
             contentRect: .zero,
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -30,6 +35,7 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
         )
         let workspaceView = MainWorkspaceView(
             calendar: calendar,
+            focusTimer: focusTimer,
             updateChecker: updateChecker,
             presentation: presentation
         )
@@ -59,7 +65,10 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func reveal() {
+    func reveal(destination: WorkspaceDestination? = nil) {
+        if let destination {
+            presentation.selectedDestination = destination
+        }
         presentation.isActive = true
         if window?.isMiniaturized == true {
             window?.deminiaturize(nil)

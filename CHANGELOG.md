@@ -4,6 +4,24 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-09-04
+
+### Added / 新增功能
+
+- Three WidgetKit desktop widgets now provide a month calendar with event markers, a live focus progress ring, and today's next three agenda items. Each widget opens the matching page in Notch Calendar and includes clear bilingual setup, empty, and permission states. / 新增三个 WidgetKit 桌面组件，分别显示带日程标记的月历、实时专注进度环，以及今天接下来的三项日程；点击组件可打开 Notch Calendar 对应页面，并提供清晰的双语同步、空日程和权限提示。
+
+### Improved / 功能优化
+
+- The compact view on notched Macs now keeps the calendar icon and meeting title on the left shoulder, with a live progress ring on the right, so no status content sits behind the camera housing or crowds nearby menu-bar items. Displays without a notch retain the original centered pill. / 刘海屏上的紧凑视图现将日历图标与会议标题放在左侧安全区、实时进度环放在右侧安全区，避免状态内容被摄像头外壳遮挡或挤占相邻菜单栏项目；无刘海外接屏继续保留原有居中胶囊。
+- The compact window now matches the hardware notch width while idle. Only when a timed meeting starts does it expand into the left and right shoulders to show the title and progress ring, then shrink back immediately when the event ends; the ring also respects Reduce Motion. / 空闲时收起窗口现在严格贴合实体刘海宽度；仅在定时会议开始后才向左右两侧展开并显示标题与进度环，日程结束时立即缩回，同时进度环支持“减少动态效果”。
+- The compact surface now follows the exact notch depth reported for each MacBook model, eliminating the visible seam between the black surface and the hardware housing. / 收起态现在会跟随不同 MacBook 型号由系统报告的实际刘海深度，消除黑色区域与实体刘海边缘之间的可见缝隙。
+- Widget data is prepared by the main app from its existing calendar permission and saved focus state, so the desktop surfaces stay read-only and never show a blank card while waiting for data. / 桌面组件的数据由主应用使用既有日历权限和专注状态准备，组件本身保持只读，并在等待数据时始终显示明确提示而非空白卡片。
+
+### Fixed / 问题修复
+
+- Fixed the widget extension launch entry point so Month, Focus, and Today appear correctly in the macOS desktop widget gallery. / 修复小组件扩展的启动入口，使月历、专注和今日日程能够正常出现在 macOS 桌面小组件图库中。
+- Prevented active meeting details and remaining time from being hidden behind the camera housing, and allowed nearby menu-bar controls to remain clickable while the notch view is collapsed. / 修复活动会议信息和剩余时间被摄像头外壳遮挡的问题，并让刘海视图收起时相邻菜单栏控件保持可点击。
+
 ## [0.3.1] - 2026-09-04
 
 ### Added / 新增功能

@@ -4,11 +4,10 @@ import SwiftUI
 /// continues to present the compact calendar surface on its own.
 struct MainWorkspaceView: View {
     @ObservedObject var calendar: CalendarManager
+    @ObservedObject var focusTimer: FocusTimerModel
     @ObservedObject var updateChecker: UpdateChecker
     @ObservedObject var presentation: MainCalendarPresentation
 
-    @StateObject private var focusTimer = FocusTimerModel()
-    @State private var selection = WorkspaceDestination.calendar
     @State private var selectedCalendarDate = Date()
     @State private var calendarFollowsToday = true
     @State private var now = Date()
@@ -17,7 +16,7 @@ struct MainWorkspaceView: View {
     var body: some View {
         HStack(spacing: 0) {
             WorkspaceSidebar(
-                selection: $selection,
+                selection: $presentation.selectedDestination,
                 calendar: calendar,
                 focusTimer: focusTimer,
                 updateChecker: updateChecker
@@ -30,13 +29,16 @@ struct MainWorkspaceView: View {
 
             pageContent
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .id(selection)
+                .id(presentation.selectedDestination)
                 .transition(.opacity)
         }
         .background(WorkspacePalette.canvas)
         .ignoresSafeArea()
         .preferredColorScheme(.dark)
-        .animation(reduceMotion ? nil : .easeOut(duration: 0.16), value: selection)
+        .animation(
+            reduceMotion ? nil : .easeOut(duration: 0.16),
+            value: presentation.selectedDestination
+        )
         .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { date in
             guard presentation.isActive else { return }
             synchronizeWorkspace(to: date)
@@ -48,7 +50,7 @@ struct MainWorkspaceView: View {
     }
 
     @ViewBuilder private var pageContent: some View {
-        switch selection {
+        switch presentation.selectedDestination {
         case .today:
             TodayWorkspaceView(
                 calendar: calendar,
@@ -70,7 +72,7 @@ struct MainWorkspaceView: View {
     }
 
     private func navigate(to destination: WorkspaceDestination) {
-        selection = destination
+        presentation.selectedDestination = destination
     }
 
     private func synchronizeWorkspace(to date: Date) {

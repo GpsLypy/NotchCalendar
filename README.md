@@ -4,9 +4,10 @@ A local-first macOS 15+ personal workspace built around the calendar beside your
 
 ## Features
 
-- Compact notch view with a live `MM:SS` / `H:MM:SS` meeting countdown.
+- Compact notch view that stays clean when idle, then shows live progress only while a meeting is active.
 - Expanded agenda and month calendar on hover.
 - A Codex-inspired desktop workspace with a persistent sidebar, Today overview, calendar, focus timer, and scratchpad.
+- Three matching desktop widgets for the month calendar, live focus progress, and today's agenda. Control-click the desktop, choose **Edit Widgets**, then search for **Notch Calendar**.
 - A full desktop calendar window on launch, restored by clicking the Dock icon after it is closed or minimized.
 - Drift-resistant 5, 25, and 50 minute timers that keep their place while you switch tools or the Mac sleeps.
 - A local scratchpad with automatic saving, timestamps, and one-click copy.

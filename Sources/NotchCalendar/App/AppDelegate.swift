@@ -7,6 +7,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var controller: NotchWindowController?
     private var mainWindowController: MainCalendarWindowController?
     private var instanceLockFileDescriptors: [Int32] = []
+    private var pendingWidgetDestination: WorkspaceDestination?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         guard acquireSingleInstanceLock() else {
@@ -23,9 +24,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         controller?.show()
         mainWindowController = MainCalendarWindowController(
             calendar: state.calendar,
+            focusTimer: state.focusTimer,
             updateChecker: state.updateChecker
         )
-        mainWindowController?.reveal()
+        mainWindowController?.reveal(destination: pendingWidgetDestination)
+        pendingWidgetDestination = nil
         Task { await state.updateChecker.checkForUpdates() }
         confirmSuccessfulUpdateLaunchIfNeeded()
     }
@@ -36,6 +39,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     ) -> Bool {
         mainWindowController?.reveal()
         return false
+    }
+
+    func application(_ application: NSApplication, open urls: [URL]) {
+        guard let destination = urls.lazy.compactMap(widgetDestination).first else { return }
+        if let mainWindowController {
+            mainWindowController.reveal(destination: destination)
+        } else {
+            pendingWidgetDestination = destination
+        }
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
@@ -121,5 +133,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         unsetenv("NOTCH_CALENDAR_UPDATE_READY_FILE")
         unsetenv("NOTCH_CALENDAR_UPDATE_TOKEN")
         unsetenv("NOTCH_CALENDAR_UPDATE_VERSION")
+    }
+
+    private func widgetDestination(for url: URL) -> WorkspaceDestination? {
+        guard url.scheme?.lowercased() == "notchcalendar" else { return nil }
+        let route = url.host?.lowercased()
+            ?? url.pathComponents.dropFirst().first?.lowercased()
+        guard let route else { return nil }
+        return WorkspaceDestination(rawValue: route)
     }
 }

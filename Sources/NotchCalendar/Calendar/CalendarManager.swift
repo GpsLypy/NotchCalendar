@@ -13,6 +13,8 @@ final class CalendarManager: ObservableObject {
         EKEventStore.authorizationStatus(for: .event) == .fullAccess
     }
 
+    var isCalendarAccessGranted: Bool { hasCalendarAccess }
+
     init() {
         databaseObserver = NotificationCenter.default.addObserver(
             forName: .EKEventStoreChanged, object: store, queue: .main

@@ -9,8 +9,11 @@
 "Changes apply immediately across the app." = "更改会立即应用到整个应用。";
 
 /* General settings */
-"Click the compact notch calendar to open today's agenda." = "点击刘海处的紧凑日历即可查看今天的日程。";
+"Move the pointer to the compact notch calendar to open today's agenda." = "将指针移到刘海旁的紧凑日历上，即可查看今天的日程。";
 "Calendar access is requested on first launch and your event data stays on this Mac." = "首次启动时会请求日历权限，日程数据只保留在这台 Mac 上。";
+"Desktop Widgets" = "桌面组件";
+"Month Calendar, Focus Timer, and Today's Agenda are available as desktop widgets." = "月历、专注计时和今日日程现可作为桌面组件使用。";
+"Control-click the desktop, choose Edit Widgets, then add Notch Calendar." = "按住 Control 点按桌面，选择“编辑小组件”，然后添加 Notch Calendar。";
 "Software Update" = "软件更新";
 "Version" = "版本";
 "Check for Updates" = "检查更新";

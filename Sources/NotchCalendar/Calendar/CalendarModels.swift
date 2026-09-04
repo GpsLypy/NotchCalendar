@@ -29,6 +29,11 @@ enum EventStatus {
     case active(CalendarEvent, secondsRemaining: Int)
     case upcoming(CalendarEvent, secondsUntilStart: Int)
     case idle
+
+    var isActive: Bool {
+        if case .active = self { return true }
+        return false
+    }
 }
 
 enum UpcomingEventEngine {

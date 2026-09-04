@@ -23,8 +23,17 @@ struct SettingsView: View {
             }
 
             Section("Notch Calendar") {
-                Text(t("Click the compact notch calendar to open today's agenda."))
+                Text(t("Move the pointer to the compact notch calendar to open today's agenda."))
                 Text(t("Calendar access is requested on first launch and your event data stays on this Mac."))
+                    .foregroundStyle(.secondary)
+            }
+
+            Section(t("Desktop Widgets")) {
+                Label(
+                    t("Month Calendar, Focus Timer, and Today's Agenda are available as desktop widgets."),
+                    systemImage: "square.grid.2x2"
+                )
+                Text(t("Control-click the desktop, choose Edit Widgets, then add Notch Calendar."))
                     .foregroundStyle(.secondary)
             }
 
@@ -143,7 +152,7 @@ struct SettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .frame(width: 540, height: 570)
+        .frame(width: 540, height: 620)
         .onAppear { revealUpdateDetailsIfNeeded(for: updateChecker.status) }
         .onChange(of: updateChecker.status) { _, status in
             revealUpdateDetailsIfNeeded(for: status)

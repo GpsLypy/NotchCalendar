@@ -5,7 +5,9 @@ struct MeetingProgressRing: View {
     let now: Date
     var size: CGFloat = 22
     var lineWidth: CGFloat = 2.5
+    var trackColor: Color = .white.opacity(0.14)
     @Environment(\.appLanguage) private var appLanguage
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     private var progress: Double {
         UpcomingEventEngine.progress(now: now, event: event)
@@ -14,7 +16,7 @@ struct MeetingProgressRing: View {
     var body: some View {
         ZStack {
             Circle()
-                .stroke(.white.opacity(0.14), lineWidth: lineWidth)
+                .stroke(trackColor, lineWidth: lineWidth)
             Circle()
                 .trim(from: 0, to: progress)
                 .stroke(
@@ -24,7 +26,7 @@ struct MeetingProgressRing: View {
                 .rotationEffect(.degrees(-90))
         }
         .frame(width: size, height: size)
-        .animation(.linear(duration: 1), value: progress)
+        .animation(reduceMotion ? nil : .linear(duration: 1), value: progress)
         .accessibilityElement()
         .accessibilityLabel(t("Meeting progress"))
         .accessibilityValue(t("%@ percent", "\(percentage)"))

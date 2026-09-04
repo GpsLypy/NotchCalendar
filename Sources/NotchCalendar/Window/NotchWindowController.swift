@@ -18,14 +18,32 @@ final class NotchWindowController: NSObject, ObservableObject {
     private var collapseTask: Task<Void, Never>?
     private var expandedCardHeight: CGFloat?
     private var pointerEvaluationQueued = false
+    private var compactMeetingIsActive: Bool
 
     init(state: AppState) {
         self.state = state
         let screen = NSScreen.main ?? NSScreen.screens[0]
+        let notchBounds = ScreenGeometry.notchBounds(on: screen)
+        let compactMeetingIsActive = UpcomingEventEngine.status(
+            now: Date(),
+            events: state.calendar.todayEvents
+        ).isActive
+        self.compactMeetingIsActive = compactMeetingIsActive
         layoutMetrics = NotchLayoutMetrics(
-            expandedContentTopInset: ScreenGeometry.expandedContentTopInset(on: screen)
+            expandedContentTopInset: ScreenGeometry.expandedContentTopInset(on: screen),
+            compactNotchWidth: notchBounds?.width,
+            compactNotchDepth: notchBounds?.depth
         )
-        panel = NotchPanel(contentRect: ScreenGeometry.panelFrame(on: screen, size: Self.compactSize(on: screen), expanded: false))
+        panel = NotchPanel(
+            contentRect: ScreenGeometry.panelFrame(
+                on: screen,
+                size: Self.compactSize(
+                    on: screen,
+                    showsMeetingStatus: compactMeetingIsActive
+                ),
+                expanded: false
+            )
+        )
         super.init()
         let hostingView = NSHostingView(
             rootView: AppLanguageHost {
@@ -34,6 +52,8 @@ final class NotchWindowController: NSObject, ObservableObject {
                     layoutMetrics: layoutMetrics
                 ) { [weak self] height in
                     self?.updateExpandedCardHeight(height)
+                } onCompactMeetingActivityChange: { [weak self] isActive in
+                    self?.updateCompactMeetingActivity(isActive)
                 }
             }
         )
@@ -58,6 +78,10 @@ final class NotchWindowController: NSObject, ObservableObject {
         globalMouseMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved]) { [weak self] _ in
             Task { @MainActor in self?.queuePointerEvaluation() }
         }
+        // Compact shoulder content is hover-driven. Let menu-bar controls beneath
+        // the transparent panel keep receiving clicks while the global monitor is
+        // available; if monitor registration fails, preserve click-to-expand.
+        applyCompactMousePassthrough()
         localMouseMonitor = NSEvent.addLocalMonitorForEvents(
             matching: [.mouseMoved, .mouseEntered, .mouseExited]
         ) { [weak self] event in
@@ -96,7 +120,10 @@ final class NotchWindowController: NSObject, ObservableObject {
         } else {
             let triggerFrame = ScreenGeometry.hoverTriggerFrame(
                 on: screen,
-                compactSize: Self.compactSize(on: screen)
+                compactSize: Self.compactSize(
+                    on: screen,
+                    showsMeetingStatus: compactMeetingIsActive
+                )
             )
             if triggerFrame.contains(pointer) {
                 expandTask?.cancel()
@@ -120,7 +147,10 @@ final class NotchWindowController: NSObject, ObservableObject {
             guard let screen = self.panel.screen ?? NSScreen.main,
                   ScreenGeometry.hoverTriggerFrame(
                     on: screen,
-                    compactSize: Self.compactSize(on: screen)
+                    compactSize: Self.compactSize(
+                        on: screen,
+                        showsMeetingStatus: self.compactMeetingIsActive
+                    )
                   ).contains(pointer) else { return }
             self.trace("expand confirmed at (\(Int(pointer.x)), \(Int(pointer.y)))")
             self.state.isExpanded = true
@@ -154,6 +184,13 @@ final class NotchWindowController: NSObject, ObservableObject {
         // retain the last expanded measurement until the next expansion reports.
         guard height > ScreenGeometry.compactPanelHeight else { return }
         expandedCardHeight = height
+    }
+
+    private func updateCompactMeetingActivity(_ isActive: Bool) {
+        guard compactMeetingIsActive != isActive else { return }
+        compactMeetingIsActive = isActive
+        guard !state.isExpanded else { return }
+        resize(expanded: false)
     }
 
     private func expandedHoverFrame() -> NSRect {
@@ -198,12 +235,29 @@ final class NotchWindowController: NSObject, ObservableObject {
             return
         }
         guard let screen = panel.screen ?? NSScreen.main else { return }
+        let notchBounds = ScreenGeometry.notchBounds(on: screen)
+        if !expanded {
+            compactMeetingIsActive = UpcomingEventEngine.status(
+                now: Date(),
+                events: state.calendar.todayEvents
+            ).isActive
+        }
         layoutMetrics.expandedContentTopInset = ScreenGeometry.expandedContentTopInset(on: screen)
+        layoutMetrics.compactNotchWidth = notchBounds?.width
+        layoutMetrics.compactNotchDepth = notchBounds?.depth
         let newFrame = ScreenGeometry.panelFrame(
             on: screen,
-            size: expanded ? expandedSize : Self.compactSize(on: screen),
+            size: expanded
+                ? expandedSize
+                : Self.compactSize(
+                    on: screen,
+                    showsMeetingStatus: compactMeetingIsActive
+                ),
             expanded: expanded
         )
+        if expanded {
+            panel.ignoresMouseEvents = false
+        }
         trace("animate \(expanded ? "expand" : "collapse") to \(Int(newFrame.width))×\(Int(newFrame.height))")
         if animated {
             NSAnimationContext.runAnimationGroup { context in
@@ -217,25 +271,40 @@ final class NotchWindowController: NSObject, ObservableObject {
                         Task { @MainActor in
                             guard let self, !self.state.isExpanded else { return }
                             self.state.isPresentationExpanded = false
+                            self.applyCompactMousePassthrough()
                         }
                     }
                 }
             }
         } else {
             panel.setFrame(newFrame, display: true)
-            if !expanded { state.isPresentationExpanded = false }
+            if !expanded {
+                state.isPresentationExpanded = false
+                applyCompactMousePassthrough()
+            }
         }
         DispatchQueue.main.async { [weak self] in self?.evaluatePointer() }
     }
 
-    private static func compactSize(on screen: NSScreen) -> NSSize {
-        // Match the hardware width while keeping the visible surface slightly
-        // shallower than the reported safe area so it does not grow a chin.
-        let notchWidth = ScreenGeometry.notchBounds(on: screen)?.width ?? 226
+    private static func compactSize(
+        on screen: NSScreen,
+        showsMeetingStatus: Bool
+    ) -> NSSize {
+        let notchBounds = ScreenGeometry.notchBounds(on: screen)
         return NSSize(
-            width: notchWidth,
-            height: ScreenGeometry.compactPanelHeight
+            width: min(
+                ScreenGeometry.compactPanelWidth(
+                    notchWidth: notchBounds?.width,
+                    showsMeetingStatus: showsMeetingStatus
+                ),
+                screen.frame.width
+            ),
+            height: ScreenGeometry.compactPanelHeight(notchDepth: notchBounds?.depth)
         )
+    }
+
+    private func applyCompactMousePassthrough() {
+        panel.ignoresMouseEvents = globalMouseMonitor != nil
     }
 
     private func trace(_ message: String) {

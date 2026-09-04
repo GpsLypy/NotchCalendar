@@ -3,6 +3,8 @@ import AppKit
 enum ScreenGeometry {
     static let compactPanelHeight: CGFloat = 30
     static let compactPanelCornerRadius: CGFloat = 9
+    static let compactShoulderWidth: CGFloat = 70
+    static let fallbackCompactPanelWidth: CGFloat = 226
     private static let defaultExpandedTopInset: CGFloat = 24
     private static let cameraHousingClearance: CGFloat = 12
 
@@ -11,6 +13,8 @@ enum ScreenGeometry {
         let width: CGFloat
         /// Screen-space Y coordinate of the bottom edge of the camera housing.
         let bottomY: CGFloat
+        /// Exact top-edge depth reported by AppKit for this display.
+        let depth: CGFloat
     }
 
     static func notchBounds(on screen: NSScreen) -> NotchBounds? {
@@ -23,10 +27,12 @@ enum ScreenGeometry {
         let auxiliaryBottom = min(left.minY, right.minY)
         let safeAreaBottom = screen.frame.maxY - screen.safeAreaInsets.top
 
+        let bottomY = min(auxiliaryBottom, safeAreaBottom)
         return NotchBounds(
             centerX: (left.maxX + right.minX) / 2,
             width: right.minX - left.maxX,
-            bottomY: min(auxiliaryBottom, safeAreaBottom)
+            bottomY: bottomY,
+            depth: max(0, screen.frame.maxY - bottomY)
         )
     }
 
@@ -43,11 +49,39 @@ enum ScreenGeometry {
         return NSRect(x: x, y: y, width: size.width, height: size.height)
     }
 
+    /// Adds a visible shoulder on each side of the physical camera housing.
+    /// The center remains aligned with the hardware notch, while all meaningful
+    /// compact content is kept in the unobstructed menu-bar areas beside it.
+    static func compactPanelWidth(
+        notchWidth: CGFloat?,
+        showsMeetingStatus: Bool
+    ) -> CGFloat {
+        guard let notchWidth, notchWidth > 0 else {
+            return fallbackCompactPanelWidth
+        }
+        return notchWidth + (showsMeetingStatus ? compactShoulderWidth * 2 : 0)
+    }
+
+    /// The physical housing is not the same depth on every MacBook model. Use
+    /// AppKit's measured obstruction so the compact black surface ends exactly
+    /// on the hardware edge instead of leaving a visible menu-bar seam.
+    static func compactPanelHeight(notchDepth: CGFloat?) -> CGFloat {
+        guard let notchDepth, notchDepth > 0 else { return compactPanelHeight }
+        return notchDepth
+    }
+
     static func hoverTriggerFrame(on screen: NSScreen, compactSize: NSSize) -> NSRect {
         let compactFrame = panelFrame(on: screen, size: compactSize, expanded: false)
         // Alcove-style forgiving hit target: the visual stays exact, while users
         // can approach from either shoulder of the physical notch or from below.
-        return compactFrame.insetBy(dx: -18, dy: -10).intersection(screen.frame)
+        let horizontalAllowance: CGFloat
+        if let notch = notchBounds(on: screen) {
+            let fullMeetingWidth = notch.width + compactShoulderWidth * 2
+            horizontalAllowance = max(0, (fullMeetingWidth - compactSize.width) / 2)
+        } else {
+            horizontalAllowance = 18
+        }
+        return compactFrame.insetBy(dx: -horizontalAllowance, dy: -10).intersection(screen.frame)
     }
 
     /// Keeps controls below every top-edge obstruction reported by AppKit. The

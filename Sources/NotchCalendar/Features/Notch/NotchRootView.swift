@@ -3,9 +3,17 @@ import SwiftUI
 @MainActor
 final class NotchLayoutMetrics: ObservableObject {
     @Published var expandedContentTopInset: CGFloat
+    @Published var compactNotchWidth: CGFloat?
+    @Published var compactNotchDepth: CGFloat?
 
-    init(expandedContentTopInset: CGFloat) {
+    init(
+        expandedContentTopInset: CGFloat,
+        compactNotchWidth: CGFloat?,
+        compactNotchDepth: CGFloat?
+    ) {
         self.expandedContentTopInset = expandedContentTopInset
+        self.compactNotchWidth = compactNotchWidth
+        self.compactNotchDepth = compactNotchDepth
     }
 }
 
@@ -21,6 +29,7 @@ struct NotchRootView: View {
     @ObservedObject var state: AppState
     @ObservedObject var layoutMetrics: NotchLayoutMetrics
     let onExpandedCardHeightChange: (CGFloat) -> Void
+    let onCompactMeetingActivityChange: (Bool) -> Void
     @Environment(\.appLanguage) private var appLanguage
 
     var body: some View {
@@ -43,7 +52,12 @@ struct NotchRootView: View {
                 Button {
                     state.isExpanded = true
                 } label: {
-                    CompactNotchView(events: state.calendar.todayEvents)
+                    CompactNotchView(
+                        events: state.calendar.todayEvents,
+                        notchWidth: layoutMetrics.compactNotchWidth,
+                        notchDepth: layoutMetrics.compactNotchDepth,
+                        onMeetingActivityChange: onCompactMeetingActivityChange
+                    )
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)

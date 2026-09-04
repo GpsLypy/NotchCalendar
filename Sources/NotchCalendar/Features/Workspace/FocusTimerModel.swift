@@ -63,6 +63,8 @@ final class FocusTimerModel: ObservableObject {
         return 1 - (Double(remainingSeconds) / Double(total))
     }
 
+    var widgetTargetDate: Date? { targetDate }
+
     var timeLabel: String {
         let minutes = remainingSeconds / 60
         let seconds = remainingSeconds % 60
