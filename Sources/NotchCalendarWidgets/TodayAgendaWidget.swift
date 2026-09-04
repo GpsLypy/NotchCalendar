@@ -10,7 +10,6 @@ struct TodayAgendaWidget: Widget {
             provider: CalendarWidgetProvider()
         ) { entry in
             TodayAgendaWidgetView(entry: entry)
-                .widgetURL(NotchWidgetDestination.today)
         }
         .configurationDisplayName("今日日程 / Today")
         .description("查看今天接下来的日程 / See what is next today")
@@ -41,7 +40,9 @@ private struct TodayAgendaWidgetView: View {
                     NotchWidgetGuidance(
                         symbol: "calendar.badge.exclamationmark",
                         title: copy.calendarPermissionTitle,
-                        detail: copy.calendarPermissionDetail
+                        detail: copy.calendarPermissionDetail,
+                        destination: NotchWidgetDestination.today,
+                        openLabel: copy.openApp
                     )
                 }
             } else {
@@ -49,7 +50,9 @@ private struct TodayAgendaWidgetView: View {
                 NotchWidgetGuidance(
                     symbol: "list.bullet.rectangle",
                     title: copy.calendarSetupTitle,
-                    detail: copy.calendarSetupDetail
+                    detail: copy.calendarSetupDetail,
+                    destination: NotchWidgetDestination.today,
+                    openLabel: copy.openApp
                 )
             }
         }
@@ -81,7 +84,11 @@ private struct TodayAgendaContent: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 9) {
-            NotchWidgetHeader(title: copy.agendaWidgetName) {
+            NotchWidgetHeader(
+                title: copy.agendaWidgetName,
+                destination: NotchWidgetDestination.today,
+                openLabel: copy.openApp
+            ) {
                 Text(dayLabel)
                     .font(.system(size: 9, weight: .medium, design: .rounded))
                     .foregroundStyle(NotchWidgetPalette.secondary)
@@ -124,7 +131,7 @@ private struct TodayAgendaContent: View {
                 }
             }
         }
-        .accessibilityElement(children: .combine)
+        .accessibilityElement(children: .contain)
         .accessibilityLabel("\(copy.agendaWidgetName), \(dayLabel)")
     }
 

@@ -54,13 +54,19 @@ struct NotchWidgetRingProgressStyle: ProgressViewStyle {
 
 struct NotchWidgetHeader<Trailing: View>: View {
     let title: String
+    let destination: URL?
+    let openLabel: String
     private let trailing: Trailing
 
     init(
         title: String,
+        destination: URL? = nil,
+        openLabel: String = "Open",
         @ViewBuilder trailing: () -> Trailing
     ) {
         self.title = title
+        self.destination = destination
+        self.openLabel = openLabel
         self.trailing = trailing()
     }
 
@@ -77,6 +83,18 @@ struct NotchWidgetHeader<Trailing: View>: View {
 
             Spacer(minLength: 4)
             trailing
+
+            if let destination {
+                Link(destination: destination) {
+                    Image(systemName: "arrow.up.right")
+                        .font(.system(size: 8, weight: .bold))
+                        .foregroundStyle(NotchWidgetPalette.coral)
+                        .frame(width: 18, height: 18)
+                        .background(NotchWidgetPalette.subdued, in: Circle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(openLabel)
+            }
         }
     }
 }
@@ -93,28 +111,60 @@ struct NotchWidgetGuidance: View {
     let symbol: String
     let title: String
     let detail: String
+    let destination: URL?
+    let openLabel: String
+
+    init(
+        symbol: String,
+        title: String,
+        detail: String,
+        destination: URL? = nil,
+        openLabel: String = "Open"
+    ) {
+        self.symbol = symbol
+        self.title = title
+        self.detail = detail
+        self.destination = destination
+        self.openLabel = openLabel
+    }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 9) {
-            Image(systemName: symbol)
-                .font(.system(size: 20, weight: .medium))
-                .foregroundStyle(NotchWidgetPalette.coral)
+        ZStack(alignment: .topTrailing) {
+            VStack(alignment: .leading, spacing: 9) {
+                Image(systemName: symbol)
+                    .font(.system(size: 20, weight: .medium))
+                    .foregroundStyle(NotchWidgetPalette.coral)
 
-            Spacer(minLength: 0)
+                Spacer(minLength: 0)
 
-            Text(title)
-                .font(.system(size: 15, weight: .semibold, design: .rounded))
-                .foregroundStyle(NotchWidgetPalette.primary)
-                .lineLimit(2)
+                Text(title)
+                    .font(.system(size: 15, weight: .semibold, design: .rounded))
+                    .foregroundStyle(NotchWidgetPalette.primary)
+                    .lineLimit(2)
 
-            Text(detail)
-                .font(.system(size: 10, weight: .medium, design: .rounded))
-                .foregroundStyle(NotchWidgetPalette.secondary)
-                .fixedSize(horizontal: false, vertical: true)
-                .lineLimit(3)
+                Text(detail)
+                    .font(.system(size: 10, weight: .medium, design: .rounded))
+                    .foregroundStyle(NotchWidgetPalette.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .lineLimit(3)
+            }
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("\(title). \(detail)")
+
+            if let destination {
+                Link(destination: destination) {
+                    Image(systemName: "arrow.up.right")
+                        .font(.system(size: 8, weight: .bold))
+                        .foregroundStyle(NotchWidgetPalette.coral)
+                        .frame(width: 20, height: 20)
+                        .background(NotchWidgetPalette.subdued, in: Circle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(openLabel)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-        .accessibilityElement(children: .combine)
+        .accessibilityElement(children: .contain)
     }
 }
 
@@ -150,4 +200,5 @@ struct NotchWidgetCopy {
     var paused: String { isChinese ? "已暂停" : "Paused" }
     var complete: String { isChinese ? "本轮完成" : "Complete" }
     var sessions: String { isChinese ? "轮" : "sessions" }
+    var openApp: String { isChinese ? "打开 Notch Calendar" : "Open Notch Calendar" }
 }

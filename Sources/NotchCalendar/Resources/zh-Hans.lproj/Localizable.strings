@@ -10,7 +10,17 @@
 
 /* General settings */
 "Move the pointer to the compact notch calendar to open today's agenda." = "将指针移到刘海旁的紧凑日历上，即可查看今天的日程。";
+"Move to the compact notch and pause briefly to open today's agenda." = "将指针移到紧凑刘海处并短暂停稳，即可查看今天的日程。";
+"Click the compact notch or the Dock icon to open Notch Calendar." = "点击紧凑刘海或程序坞图标即可打开 Notch Calendar。";
 "Calendar access is requested on first launch and your event data stays on this Mac." = "首次启动时会请求日历权限，日程数据只保留在这台 Mac 上。";
+"Interaction" = "交互";
+"Open the notch calendar" = "打开刘海日历";
+"Intentional hover" = "停稳后展开";
+"Click only" = "仅点击";
+"Show live meeting status beside the notch" = "在刘海两侧显示进行中的会议";
+"The pointer must settle near the notch before it opens." = "指针需要在刘海附近停稳，日历才会展开。";
+"The notch stays quiet until you click it or open the app from the Dock." = "刘海会保持安静，直到你点击它或从程序坞打开应用。";
+"Meeting changes will not resize the notch while you use another app." = "使用其他应用时，会议状态变化不会改变刘海区域大小。";
 "Desktop Widgets" = "桌面组件";
 "Month Calendar, Focus Timer, and Today's Agenda are available as desktop widgets." = "月历、专注计时和今日日程现可作为桌面组件使用。";
 "Control-click the desktop, choose Edit Widgets, then add Notch Calendar." = "按住 Control 点按桌面，选择“编辑小组件”，然后添加 Notch Calendar。";
@@ -89,6 +99,8 @@
 "Calendar" = "日历";
 "Focus" = "专注";
 "Scratchpad" = "便笺";
+"INSIGHTS" = "情报";
+"Radar" = "情报台";
 "PERSONAL DESK" = "个人工作台";
 "Settings" = "设置";
 "Open Settings" = "打开设置";
@@ -182,6 +194,34 @@
 "Clear scratchpad" = "清空便笺";
 "%@ words · %@ characters" = "%@ 个词 · %@ 个字符";
 
+/* Radar */
+"Ten signals, then back to your day." = "只看十条信号，然后回到今天。";
+"Refresh" = "刷新";
+"Refreshing…" = "正在刷新…";
+"Refresh this signal" = "刷新当前信号";
+"LIVE SIGNAL" = "实时信号";
+"Hot" = "热门";
+"Ask" = "问答";
+"Show" = "作品";
+"What the technology community is reading now." = "技术社区此刻正在关注什么。";
+"Questions drawing thoughtful answers." = "正在引发认真回答的问题。";
+"Things people have just made." = "人们刚刚做出来的新东西。";
+"SAVED" = "本地存档";
+"UPDATED" = "更新时间";
+"Tuning the signal…" = "正在校准信号…";
+"Fetching a short briefing from Hacker News." = "正在从 Hacker News 获取一份短简报。";
+"Radar could not load right now." = "情报台暂时无法加载。";
+"Could not refresh. Showing the last saved signal." = "刷新失败，正在显示上次保存的信号。";
+"Check your connection, then try again." = "请检查网络连接后重试。";
+"Retry" = "重试";
+"Source: Hacker News" = "来源：Hacker News";
+"Links open in your default browser" = "链接会在默认浏览器中打开";
+"%@ points" = "%@ 分";
+"%@ comments" = "%@ 条评论";
+"by %@" = "%@ 发布";
+"Opens in your default browser" = "在默认浏览器中打开";
+"Open %@" = "打开 %@";
+
 /* Calendar and meetings */
 "Allow Calendar access in System Settings to show your agenda." = "请在系统设置中允许访问日历，以显示你的日程。";
 "Untitled event" = "未命名日程";
@@ -214,3 +254,5 @@
 "Selected, no events" = "已选择，无日程";
 "No events" = "无日程";
 "Shows today's agenda and month calendar" = "显示今天的日程和月历";
+"Open Notch Calendar" = "打开 Notch Calendar";
+"Hover monitoring is unavailable, so the notch is using click-only mode." = "悬停监听当前不可用，刘海已自动切换为仅点击模式。";

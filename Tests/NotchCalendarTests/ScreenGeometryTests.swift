@@ -33,6 +33,28 @@ final class ScreenGeometryTests: XCTestCase {
         )
     }
 
+    func testClickOnlyModeKeepsAVisibleTargetBesideHardwareNotch() {
+        let width = ScreenGeometry.compactPanelWidth(
+            notchWidth: 185,
+            showsMeetingStatus: false,
+            showsClickTarget: true
+        )
+
+        XCTAssertEqual(width, 245)
+        XCTAssertEqual((width - 185) / 2, ScreenGeometry.compactClickShoulderWidth)
+    }
+
+    func testMeetingShouldersRemainWiderThanClickTarget() {
+        XCTAssertEqual(
+            ScreenGeometry.compactPanelWidth(
+                notchWidth: 185,
+                showsMeetingStatus: true,
+                showsClickTarget: true
+            ),
+            325
+        )
+    }
+
     func testCompactPanelKeepsPillWidthWithoutHardwareNotch() {
         XCTAssertEqual(
             ScreenGeometry.compactPanelWidth(
@@ -41,6 +63,28 @@ final class ScreenGeometryTests: XCTestCase {
             ),
             ScreenGeometry.fallbackCompactPanelWidth
         )
+    }
+
+    func testHoverTargetUsesOnlyNarrowShoulders() {
+        let compactFrame = NSRect(x: 100, y: 200, width: 185, height: 38)
+
+        let trigger = ScreenGeometry.hoverTriggerFrame(
+            compactFrame: compactFrame,
+            notchWidth: 185
+        )
+
+        XCTAssertEqual(trigger, NSRect(x: 82, y: 196, width: 221, height: 46))
+    }
+
+    func testActiveMeetingWidthDoesNotGrowHoverTargetHorizontally() {
+        let compactFrame = NSRect(x: 100, y: 200, width: 325, height: 38)
+
+        let trigger = ScreenGeometry.hoverTriggerFrame(
+            compactFrame: compactFrame,
+            notchWidth: 185
+        )
+
+        XCTAssertEqual(trigger, NSRect(x: 100, y: 196, width: 325, height: 46))
     }
 
     func testExpandedContentUsesBaselineInsetOnUnobscuredDisplay() {

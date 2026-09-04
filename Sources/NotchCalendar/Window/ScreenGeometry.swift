@@ -4,6 +4,7 @@ enum ScreenGeometry {
     static let compactPanelHeight: CGFloat = 30
     static let compactPanelCornerRadius: CGFloat = 9
     static let compactShoulderWidth: CGFloat = 70
+    static let compactClickShoulderWidth: CGFloat = 30
     static let fallbackCompactPanelWidth: CGFloat = 226
     private static let defaultExpandedTopInset: CGFloat = 24
     private static let cameraHousingClearance: CGFloat = 12
@@ -54,12 +55,17 @@ enum ScreenGeometry {
     /// compact content is kept in the unobstructed menu-bar areas beside it.
     static func compactPanelWidth(
         notchWidth: CGFloat?,
-        showsMeetingStatus: Bool
+        showsMeetingStatus: Bool,
+        showsClickTarget: Bool = false
     ) -> CGFloat {
         guard let notchWidth, notchWidth > 0 else {
             return fallbackCompactPanelWidth
         }
-        return notchWidth + (showsMeetingStatus ? compactShoulderWidth * 2 : 0)
+        let shoulderWidth = max(
+            showsMeetingStatus ? compactShoulderWidth : 0,
+            showsClickTarget ? compactClickShoulderWidth : 0
+        )
+        return notchWidth + shoulderWidth * 2
     }
 
     /// The physical housing is not the same depth on every MacBook model. Use
@@ -72,16 +78,20 @@ enum ScreenGeometry {
 
     static func hoverTriggerFrame(on screen: NSScreen, compactSize: NSSize) -> NSRect {
         let compactFrame = panelFrame(on: screen, size: compactSize, expanded: false)
-        // Alcove-style forgiving hit target: the visual stays exact, while users
-        // can approach from either shoulder of the physical notch or from below.
-        let horizontalAllowance: CGFloat
-        if let notch = notchBounds(on: screen) {
-            let fullMeetingWidth = notch.width + compactShoulderWidth * 2
-            horizontalAllowance = max(0, (fullMeetingWidth - compactSize.width) / 2)
-        } else {
-            horizontalAllowance = 18
-        }
-        return compactFrame.insetBy(dx: -horizontalAllowance, dy: -10).intersection(screen.frame)
+        return hoverTriggerFrame(
+            compactFrame: compactFrame,
+            notchWidth: notchBounds(on: screen)?.width
+        ).intersection(screen.frame)
+    }
+
+    /// Pure counterpart used by tests. A small shoulder remains discoverable,
+    /// but no longer spans the nearby menu-bar controls.
+    static func hoverTriggerFrame(compactFrame: NSRect, notchWidth: CGFloat?) -> NSRect {
+        let availableShoulder = notchWidth.map {
+            max(0, ($0 + compactShoulderWidth * 2 - compactFrame.width) / 2)
+        } ?? 12
+        let horizontalAllowance = min(18, availableShoulder)
+        return compactFrame.insetBy(dx: -horizontalAllowance, dy: -4)
     }
 
     /// Keeps controls below every top-edge obstruction reported by AppKit. The

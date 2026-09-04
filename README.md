@@ -1,14 +1,15 @@
 # Notch Calendar
 
-A local-first macOS 15+ personal workspace built around the calendar beside your notch. It combines a glanceable agenda with a full desktop calendar, focus timer, and auto-saved scratchpad.
+A local-first macOS 15+ personal workspace built around the calendar beside your notch. It combines a glanceable agenda with a full desktop calendar, focus timer, auto-saved scratchpad, and a deliberately finite information radar.
 
 ## Features
 
-- Compact notch view that stays clean when idle, then shows live progress only while a meeting is active.
-- Expanded agenda and month calendar on hover.
-- A Codex-inspired desktop workspace with a persistent sidebar, Today overview, calendar, focus timer, and scratchpad.
-- Three matching desktop widgets for the month calendar, live focus progress, and today's agenda. Control-click the desktop, choose **Edit Widgets**, then search for **Notch Calendar**.
-- A full desktop calendar window on launch, restored by clicking the Dock icon after it is closed or minimized.
+- Compact notch view that stays still when idle; live meeting shoulders are available as an opt-in setting.
+- Expanded agenda and month calendar after an intentional hover, with a click-only mode when you want the notch to remain completely quiet.
+- A Codex-inspired desktop workspace with a persistent sidebar, Today overview, calendar, focus timer, scratchpad, and Radar.
+- Radar shows ten Hot, Ask, or Show Hacker News signals, then stops. It refreshes only when opened, keeps a 30-minute local cache, and preserves saved results when the network is unavailable.
+- Three matching desktop widgets for the month calendar, live focus progress, and today's agenda. Each has a small, explicit open control instead of turning the whole widget into a launch target. Control-click the desktop, choose **Edit Widgets**, then search for **Notch Calendar**.
+- Cold launches initialize the notch service without raising the desktop window. Clicking the compact notch opens its calendar, while clicking the Dock icon again restores the full workspace after it is closed or minimized.
 - Drift-resistant 5, 25, and 50 minute timers that keep their place while you switch tools or the Mac sleeps.
 - A local scratchpad with automatic saving, timestamps, and one-click copy.
 - In-app language selection for Simplified Chinese, English, or the current system language, applied without restarting.
@@ -37,9 +38,13 @@ On first launch, allow Calendar access in the system prompt. The app falls back 
 
 The included GitHub Actions workflow creates both a macOS DMG installer and ZIP archive, then publishes them as a GitHub Release with curated Added, Improved, and Fixed notes from `CHANGELOG.md`. It can be triggered by pushing a version tag or manually from the **Actions** tab. The app checks that release feed automatically at launch, can also refresh it from Settings, displays the release’s structured update notes, selects the exact versioned DMG, and verifies GitHub’s published SHA-256 digest. When an update is available, a green circular-arrow shortcut appears above Settings in the sidebar. The DMG includes an Applications shortcut for standard drag-to-install behavior.
 
+Release packages are built as universal2 binaries for both Apple Silicon and Intel Macs. The workflow mounts the final DMG and verifies both architectures, nested code signatures, app/widget version alignment, and the Applications shortcut before publishing.
+
 Version 0.3.0 keeps automatic app replacement disabled while retaining the signed-helper and validation foundation for a future crash-recoverable installer. The update screen uses the manual path instead: **Open DMG & Quit** closes the running version before you drag the replacement into Applications. For Developer ID-signed builds, Settings can also verify and open an equal or newer Applications copy when the app is running from a mounted disk image.
 
 Release archives without a signing certificate are ad-hoc signed for local development only. For Developer ID distribution, set `DEVELOPER_ID_APPLICATION` to a valid Apple Developer ID Application certificate and `NOTARYTOOL_PROFILE` to a configured `notarytool` keychain profile before running the release script. This allows the script to enable hardened runtime, notarize the app, and staple the result before packaging it.
+
+See [the product roadmap](docs/PRODUCT_ROADMAP.md) for the stability requirements and planned market, weather, and local-assistant integrations.
 
 ## Buy me a coffee / 请作者喝杯咖啡
 

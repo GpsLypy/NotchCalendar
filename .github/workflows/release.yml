@@ -21,7 +21,7 @@ jobs:
     env:
       RELEASE_VERSION: ${{ inputs.version || github.ref_name }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       - name: Run tests
         run: swift test
       - name: Prepare curated release notes
@@ -33,6 +33,56 @@ jobs:
           # UI will only offer Open DMG & Quit for these artifacts.
           ALLOW_ADHOC_RELEASE: "1"
         run: Scripts/create_release.sh "${RELEASE_VERSION#v}"
+      - name: Verify packaged release
+        run: |
+          set -euo pipefail
+          version="${RELEASE_VERSION#v}"
+          dmg_path="dist/NotchCalendar-${version}-macos.dmg"
+          mount_path="$(mktemp -d "${RUNNER_TEMP}/notch-calendar-dmg.XXXXXX")"
+          mounted=0
+
+          cleanup() {
+            if [[ "$mounted" == "1" ]]; then
+              hdiutil detach "$mount_path"
+            fi
+            rmdir "$mount_path"
+          }
+          trap cleanup EXIT
+
+          hdiutil attach -readonly -nobrowse -mountpoint "$mount_path" "$dmg_path"
+          mounted=1
+
+          app_path="$mount_path/Notch Calendar.app"
+          updater_path="$app_path/Contents/Helpers/NotchCalendarUpdater"
+          widget_path="$app_path/Contents/PlugIns/NotchCalendarWidgets.appex"
+          widget_executable="$widget_path/Contents/MacOS/NotchCalendarWidgets"
+
+          verify_universal_binary() {
+            local executable_path="$1"
+            local display_name="$2"
+            local architectures
+            architectures="$(lipo -archs "$executable_path")"
+            lipo "$executable_path" -verify_arch arm64 x86_64
+            if [[ "$(wc -w <<< "$architectures" | tr -d ' ')" != "2" ]]; then
+              echo "$display_name has unexpected architectures: $architectures" >&2
+              exit 65
+            fi
+          }
+
+          verify_universal_binary "$app_path/Contents/MacOS/NotchCalendar" "Notch Calendar"
+          verify_universal_binary "$updater_path" "Notch Calendar Updater"
+          verify_universal_binary "$widget_executable" "Notch Calendar Widgets"
+          codesign --verify --deep --strict --all-architectures --verbose=2 "$app_path"
+
+          app_version="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$app_path/Contents/Info.plist")"
+          app_build="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$app_path/Contents/Info.plist")"
+          widget_version="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$widget_path/Contents/Info.plist")"
+          widget_build="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$widget_path/Contents/Info.plist")"
+          [[ "$app_version" == "$version" ]]
+          [[ "$widget_version" == "$version" ]]
+          [[ "$widget_build" == "$app_build" ]]
+          [[ -L "$mount_path/Applications" ]]
+          [[ "$(readlink "$mount_path/Applications")" == "/Applications" ]]
       - name: Publish GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}

@@ -3,6 +3,7 @@ import AppKit
 
 struct SettingsView: View {
     @ObservedObject var updateChecker: UpdateChecker
+    @ObservedObject var presentationPreferences: PresentationPreferences
     @AppStorage(AppLanguage.storageKey) private var storedLanguage = AppLanguage.system.rawValue
     @Environment(\.appLanguage) private var appLanguage
     @State private var showsUpdateDetails = false
@@ -23,9 +24,51 @@ struct SettingsView: View {
             }
 
             Section("Notch Calendar") {
-                Text(t("Move the pointer to the compact notch calendar to open today's agenda."))
+                Text(
+                    effectiveNotchInteractionMode == .intentionalHover
+                        ? t("Move to the compact notch and pause briefly to open today's agenda.")
+                        : t("Click the compact notch or the Dock icon to open Notch Calendar.")
+                )
                 Text(t("Calendar access is requested on first launch and your event data stays on this Mac."))
                     .foregroundStyle(.secondary)
+            }
+
+            Section(t("Interaction")) {
+                Picker(
+                    t("Open the notch calendar"),
+                    selection: $presentationPreferences.notchInteractionMode
+                ) {
+                    ForEach(NotchInteractionMode.allCases) { mode in
+                        Text(t(mode.titleKey)).tag(mode)
+                    }
+                }
+                .pickerStyle(.menu)
+
+                Toggle(
+                    t("Show live meeting status beside the notch"),
+                    isOn: $presentationPreferences.showsMeetingStatus
+                )
+
+                Text(
+                    effectiveNotchInteractionMode == .intentionalHover
+                        ? t("The pointer must settle near the notch before it opens.")
+                        : t("The notch stays quiet until you click it or open the app from the Dock.")
+                )
+                .foregroundStyle(.secondary)
+
+                if presentationPreferences.notchInteractionMode == .intentionalHover,
+                   !presentationPreferences.isHoverMonitorAvailable {
+                    Label(
+                        t("Hover monitoring is unavailable, so the notch is using click-only mode."),
+                        systemImage: "cursorarrow.click.2"
+                    )
+                    .foregroundStyle(.orange)
+                }
+
+                if !presentationPreferences.showsMeetingStatus {
+                    Text(t("Meeting changes will not resize the notch while you use another app."))
+                        .foregroundStyle(.secondary)
+                }
             }
 
             Section(t("Desktop Widgets")) {
@@ -157,6 +200,13 @@ struct SettingsView: View {
         .onChange(of: updateChecker.status) { _, status in
             revealUpdateDetailsIfNeeded(for: status)
         }
+    }
+
+    private var effectiveNotchInteractionMode: NotchInteractionMode {
+        NotchInteractionPolicy.effectiveMode(
+            requestedMode: presentationPreferences.notchInteractionMode,
+            isGlobalMouseMonitorAvailable: presentationPreferences.isHoverMonitorAvailable
+        )
     }
 
     @ViewBuilder private var updateStatus: some View {

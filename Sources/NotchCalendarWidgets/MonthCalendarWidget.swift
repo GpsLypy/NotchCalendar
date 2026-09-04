@@ -10,7 +10,6 @@ struct MonthCalendarWidget: Widget {
             provider: CalendarWidgetProvider()
         ) { entry in
             MonthCalendarWidgetView(entry: entry)
-                .widgetURL(NotchWidgetDestination.calendar)
         }
         .configurationDisplayName("月历 / Month")
         .description("查看本月日期与日程标记 / See this month and event markers")
@@ -41,7 +40,9 @@ private struct MonthCalendarWidgetView: View {
                     NotchWidgetGuidance(
                         symbol: "calendar.badge.exclamationmark",
                         title: copy.calendarPermissionTitle,
-                        detail: copy.calendarPermissionDetail
+                        detail: copy.calendarPermissionDetail,
+                        destination: NotchWidgetDestination.calendar,
+                        openLabel: copy.openApp
                     )
                 }
             } else {
@@ -49,7 +50,9 @@ private struct MonthCalendarWidgetView: View {
                 NotchWidgetGuidance(
                     symbol: "calendar.badge.clock",
                     title: copy.calendarSetupTitle,
-                    detail: copy.calendarSetupDetail
+                    detail: copy.calendarSetupDetail,
+                    destination: NotchWidgetDestination.calendar,
+                    openLabel: copy.openApp
                 )
             }
         }
@@ -69,7 +72,11 @@ private struct MonthGrid: View {
         let model = model
 
         VStack(alignment: .leading, spacing: 7) {
-            NotchWidgetHeader(title: model.monthTitle) {
+            NotchWidgetHeader(
+                title: model.monthTitle,
+                destination: NotchWidgetDestination.calendar,
+                openLabel: copy.openApp
+            ) {
                 Text("\(model.todayDay)")
                     .font(.system(size: 10, weight: .bold, design: .rounded))
                     .monospacedDigit()
@@ -92,7 +99,7 @@ private struct MonthGrid: View {
                 }
             }
         }
-        .accessibilityElement(children: .combine)
+        .accessibilityElement(children: .contain)
         .accessibilityLabel("\(copy.monthWidgetName), \(model.monthTitle)")
     }
 }

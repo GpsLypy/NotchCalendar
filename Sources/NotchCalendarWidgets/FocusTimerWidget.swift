@@ -10,7 +10,6 @@ struct FocusTimerWidget: Widget {
             provider: FocusWidgetProvider()
         ) { entry in
             FocusTimerWidgetView(entry: entry)
-                .widgetURL(NotchWidgetDestination.focus)
         }
         .configurationDisplayName("专注 / Focus")
         .description("查看专注倒计时与进度 / See the current focus timer")
@@ -38,7 +37,9 @@ private struct FocusTimerWidgetView: View {
                 NotchWidgetGuidance(
                     symbol: "timer",
                     title: copy.focusSetupTitle,
-                    detail: copy.focusSetupDetail
+                    detail: copy.focusSetupDetail,
+                    destination: NotchWidgetDestination.focus,
+                    openLabel: copy.openApp
                 )
             }
         }
@@ -56,7 +57,11 @@ private struct FocusTimerContent: View {
 
     var body: some View {
         VStack(spacing: 8) {
-            NotchWidgetHeader(title: copy.focusWidgetName) {
+            NotchWidgetHeader(
+                title: copy.focusWidgetName,
+                destination: NotchWidgetDestination.focus,
+                openLabel: copy.openApp
+            ) {
                 HStack(spacing: 3) {
                     Text("\(snapshot.completedSessions)")
                         .monospacedDigit()
@@ -80,7 +85,7 @@ private struct FocusTimerContent: View {
 
             Spacer(minLength: 0)
         }
-        .accessibilityElement(children: .combine)
+        .accessibilityElement(children: .contain)
         .accessibilityLabel("\(copy.focusWidgetName), \(phaseTitle)")
     }
 

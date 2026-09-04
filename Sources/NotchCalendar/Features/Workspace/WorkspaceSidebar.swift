@@ -23,6 +23,10 @@ struct WorkspaceSidebar: View {
             navigationRow(.focus, shortcut: "⌘3", badge: focusBadge)
             navigationRow(.scratchpad, shortcut: "⌘4")
 
+            sectionLabel("INSIGHTS")
+                .padding(.top, 18)
+            navigationRow(.radar, shortcut: "⌘5")
+
             Spacer(minLength: 24)
 
             TimelineView(.periodic(from: .now, by: 60)) { context in
@@ -208,6 +212,7 @@ struct WorkspaceSidebar: View {
         case .calendar: "2"
         case .focus: "3"
         case .scratchpad: "4"
+        case .radar: "5"
         }
     }
 

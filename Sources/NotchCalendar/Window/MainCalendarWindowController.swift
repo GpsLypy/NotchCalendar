@@ -65,7 +65,11 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func reveal(destination: WorkspaceDestination? = nil) {
+    func reveal(
+        destination: WorkspaceDestination? = nil,
+        activateApplication: Bool = true,
+        reason: String = "explicit"
+    ) {
         if let destination {
             presentation.selectedDestination = destination
         }
@@ -75,7 +79,12 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
         }
         showWindow(nil)
         window?.makeKeyAndOrderFront(nil)
-        NSApp.activate()
+        if activateApplication {
+            NSApp.activate()
+        }
+        PresentationDiagnostics.event(
+            "main-window reveal reason=\(reason) activate=\(activateApplication)"
+        )
     }
 
     func windowWillClose(_ notification: Notification) {

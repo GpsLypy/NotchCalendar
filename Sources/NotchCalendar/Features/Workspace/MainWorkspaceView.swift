@@ -68,6 +68,8 @@ struct MainWorkspaceView: View {
             FocusWorkspaceView(timer: focusTimer, calendar: calendar, now: now)
         case .scratchpad:
             ScratchpadWorkspaceView()
+        case .radar:
+            RadarWorkspaceView()
         }
     }
 

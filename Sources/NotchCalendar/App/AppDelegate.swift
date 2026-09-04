@@ -9,6 +9,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var instanceLockFileDescriptors: [Int32] = []
     private var pendingWidgetDestination: WorkspaceDestination?
 
+    private let launchedByUpdateHandoff =
+        ProcessInfo.processInfo.environment["NOTCH_CALENDAR_UPDATE_TOKEN"] != nil
+
     func applicationDidFinishLaunching(_ notification: Notification) {
         guard acquireSingleInstanceLock() else {
             // Xcode and a standalone debug launch can otherwise each create an
@@ -27,24 +30,53 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             focusTimer: state.focusTimer,
             updateChecker: state.updateChecker
         )
-        mainWindowController?.reveal(destination: pendingWidgetDestination)
-        pendingWidgetDestination = nil
+        if let pendingWidgetDestination {
+            revealMainWindow(
+                destination: pendingWidgetDestination,
+                intent: .deepLink,
+                reason: "widget-deep-link"
+            )
+            self.pendingWidgetDestination = nil
+        }
         Task { await state.updateChecker.checkForUpdates() }
         confirmSuccessfulUpdateLaunchIfNeeded()
+        let launchIntent: WindowPresentationIntent = launchedByUpdateHandoff
+            ? .updateHandoff
+            : .passiveColdLaunch
+        PresentationDiagnostics.event(
+            "cold-launch intent=\(String(describing: launchIntent)) main-window=quiet"
+        )
+    }
+
+    /// This callback does not carry launch provenance: LaunchServices, session
+    /// restoration, or a person may all produce it. Default to quiet so an
+    /// unverified cold-start path can never raise a window over another app.
+    func applicationOpenUntitledFile(_ sender: NSApplication) -> Bool {
+        let intent: WindowPresentationIntent = launchedByUpdateHandoff
+            ? .updateHandoff
+            : .provenanceFreeOpen
+        PresentationDiagnostics.event(
+            "main-window suppressed reason=\(String(describing: intent))"
+        )
+        return true
     }
 
     func applicationShouldHandleReopen(
         _ sender: NSApplication,
         hasVisibleWindows flag: Bool
     ) -> Bool {
-        mainWindowController?.reveal()
+        revealMainWindow(intent: .dockReopen, reason: "dock-reopen")
         return false
     }
 
     func application(_ application: NSApplication, open urls: [URL]) {
         guard let destination = urls.lazy.compactMap(widgetDestination).first else { return }
-        if let mainWindowController {
-            mainWindowController.reveal(destination: destination)
+        if mainWindowController != nil {
+            revealMainWindow(
+                destination: destination,
+                intent: .deepLink,
+                reason: "widget-deep-link"
+            )
         } else {
             pendingWidgetDestination = destination
         }
@@ -59,6 +91,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             close(fileDescriptor)
         }
         instanceLockFileDescriptors.removeAll()
+    }
+
+    private func revealMainWindow(
+        destination: WorkspaceDestination? = nil,
+        intent: WindowPresentationIntent,
+        reason: String
+    ) {
+        guard WindowPresentationPolicy.revealsMainWindow(for: intent) else {
+            PresentationDiagnostics.event("main-window suppressed reason=\(reason)")
+            return
+        }
+        mainWindowController?.reveal(
+            destination: destination,
+            activateApplication: WindowPresentationPolicy.activatesApplication(for: intent),
+            reason: reason
+        )
     }
 
     private func acquireSingleInstanceLock() -> Bool {

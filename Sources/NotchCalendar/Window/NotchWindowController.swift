@@ -3,12 +3,18 @@ import SwiftUI
 import Combine
 import Darwin
 
+private enum NotchExpansionOrigin: Equatable {
+    case intentionalHover
+    case explicitInteraction
+}
+
 @MainActor
 final class NotchWindowController: NSObject, ObservableObject {
     private let state: AppState
     private let panel: NotchPanel
     private let layoutMetrics: NotchLayoutMetrics
     private nonisolated(unsafe) var stateObserver: AnyCancellable?
+    private nonisolated(unsafe) var preferencesObserver: AnyCancellable?
     private nonisolated(unsafe) var globalMouseMonitor: Any?
     private nonisolated(unsafe) var localMouseMonitor: Any?
     // Alcove-like glanceable layout: wide enough for agenda + month, but shallow
@@ -19,12 +25,17 @@ final class NotchWindowController: NSObject, ObservableObject {
     private var expandedCardHeight: CGFloat?
     private var pointerEvaluationQueued = false
     private var compactMeetingIsActive: Bool
+    private var pointerWasInsideTrigger = false
+    private var hoverAnchor: NSPoint?
+    private var pendingExpansionOrigin: NotchExpansionOrigin?
+    private let hoverDwell = Duration.milliseconds(350)
+    private let hoverMovementTolerance: CGFloat = 8
 
     init(state: AppState) {
         self.state = state
         let screen = NSScreen.main ?? NSScreen.screens[0]
         let notchBounds = ScreenGeometry.notchBounds(on: screen)
-        let compactMeetingIsActive = UpcomingEventEngine.status(
+        let compactMeetingIsActive = state.presentationPreferences.showsMeetingStatus && UpcomingEventEngine.status(
             now: Date(),
             events: state.calendar.todayEvents
         ).isActive
@@ -32,14 +43,17 @@ final class NotchWindowController: NSObject, ObservableObject {
         layoutMetrics = NotchLayoutMetrics(
             expandedContentTopInset: ScreenGeometry.expandedContentTopInset(on: screen),
             compactNotchWidth: notchBounds?.width,
-            compactNotchDepth: notchBounds?.depth
+            compactNotchDepth: notchBounds?.depth,
+            showsCompactMeetingStatus: state.presentationPreferences.showsMeetingStatus,
+            showsClickTarget: state.presentationPreferences.notchInteractionMode == .clickOnly
         )
         panel = NotchPanel(
             contentRect: ScreenGeometry.panelFrame(
                 on: screen,
                 size: Self.compactSize(
                     on: screen,
-                    showsMeetingStatus: compactMeetingIsActive
+                    showsMeetingStatus: compactMeetingIsActive,
+                    showsClickTarget: state.presentationPreferences.notchInteractionMode == .clickOnly
                 ),
                 expanded: false
             )
@@ -49,12 +63,17 @@ final class NotchWindowController: NSObject, ObservableObject {
             rootView: AppLanguageHost {
                 NotchRootView(
                     state: state,
-                    layoutMetrics: layoutMetrics
-                ) { [weak self] height in
-                    self?.updateExpandedCardHeight(height)
-                } onCompactMeetingActivityChange: { [weak self] isActive in
-                    self?.updateCompactMeetingActivity(isActive)
-                }
+                    layoutMetrics: layoutMetrics,
+                    onExplicitExpansion: { [weak self] in
+                        self?.requestExpansion(origin: .explicitInteraction)
+                    },
+                    onExpandedCardHeightChange: { [weak self] height in
+                        self?.updateExpandedCardHeight(height)
+                    },
+                    onCompactMeetingActivityChange: { [weak self] isActive in
+                        self?.updateCompactMeetingActivity(isActive)
+                    }
+                )
             }
         )
         hostingView.wantsLayer = true
@@ -72,6 +91,14 @@ final class NotchWindowController: NSObject, ObservableObject {
                 self.applyExpansionState(expanded)
             }
         }
+        preferencesObserver = state.presentationPreferences.$notchInteractionMode
+            .combineLatest(state.presentationPreferences.$showsMeetingStatus)
+            .dropFirst()
+            .sink { [weak self] _, _ in
+                DispatchQueue.main.async { [weak self] in
+                    self?.applyPresentationPreferences()
+                }
+            }
         NotificationCenter.default.addObserver(self, selector: #selector(reposition), name: NSApplication.didChangeScreenParametersNotification, object: nil)
         // A global monitor is required because this non-activating panel does not
         // own the active application's event stream.
@@ -79,13 +106,26 @@ final class NotchWindowController: NSObject, ObservableObject {
             Task { @MainActor in self?.queuePointerEvaluation() }
         }
         // Compact shoulder content is hover-driven. Let menu-bar controls beneath
-        // the transparent panel keep receiving clicks while the global monitor is
-        // available; if monitor registration fails, preserve click-to-expand.
-        applyCompactMousePassthrough()
+        // the transparent panel keep receiving clicks. Click-only mode opts back
+        // into panel hit testing explicitly.
+        if globalMouseMonitor == nil {
+            PresentationDiagnostics.event(
+                "global mouse monitor unavailable; notch interaction fell back to click-only"
+            )
+        }
+        state.presentationPreferences.setHoverMonitorAvailable(globalMouseMonitor != nil)
+        applyPresentationPreferences(animated: false)
         localMouseMonitor = NSEvent.addLocalMonitorForEvents(
-            matching: [.mouseMoved, .mouseEntered, .mouseExited]
+            matching: [.mouseMoved, .mouseEntered, .mouseExited, .leftMouseDown]
         ) { [weak self] event in
-            Task { @MainActor in self?.queuePointerEvaluation() }
+            let windowNumber = event.windowNumber
+            if event.type == .leftMouseDown {
+                Task { @MainActor in
+                    self?.promoteExpandedInteractionToKeyboard(windowNumber: windowNumber)
+                }
+            } else {
+                Task { @MainActor in self?.queuePointerEvaluation() }
+            }
             return event
         }
         trace("hover monitors installed")
@@ -93,6 +133,7 @@ final class NotchWindowController: NSObject, ObservableObject {
 
     deinit {
         stateObserver?.cancel()
+        preferencesObserver?.cancel()
         if let globalMouseMonitor { NSEvent.removeMonitor(globalMouseMonitor) }
         if let localMouseMonitor { NSEvent.removeMonitor(localMouseMonitor) }
         NotificationCenter.default.removeObserver(self)
@@ -101,9 +142,16 @@ final class NotchWindowController: NSObject, ObservableObject {
     func show() { panel.orderFrontRegardless() }
 
     @objc private func reposition() {
-        resize(expanded: state.isExpanded, animated: false)
-        if !state.isExpanded { state.isPresentationExpanded = false }
-        evaluatePointer()
+        cancelPendingHover()
+        collapseTask?.cancel()
+        collapseTask = nil
+        if state.isExpanded {
+            state.isExpanded = false
+            resize(expanded: false, animated: false)
+        } else {
+            resize(expanded: false, animated: false)
+        }
+        PresentationDiagnostics.event("notch collapsed after screen change")
     }
 
     private func evaluatePointer() {
@@ -118,47 +166,79 @@ final class NotchWindowController: NSObject, ObservableObject {
                 scheduleCollapse()
             }
         } else {
+            guard effectiveInteractionMode == .intentionalHover else {
+                cancelPendingHover()
+                return
+            }
             let triggerFrame = ScreenGeometry.hoverTriggerFrame(
                 on: screen,
                 compactSize: Self.compactSize(
                     on: screen,
-                    showsMeetingStatus: compactMeetingIsActive
+                    showsMeetingStatus: compactMeetingIsActive,
+                    showsClickTarget: false
                 )
             )
-            if triggerFrame.contains(pointer) {
-                expandTask?.cancel()
-                expandTask = nil
-                scheduleExpand()
+            let isInside = triggerFrame.contains(pointer)
+            if isInside {
+                if !pointerWasInsideTrigger {
+                    beginHoverCandidate(at: pointer)
+                } else if let hoverAnchor,
+                          pointerDistance(from: hoverAnchor, to: pointer) > hoverMovementTolerance {
+                    beginHoverCandidate(at: pointer)
+                }
             } else {
-                expandTask?.cancel()
-                expandTask = nil
+                cancelPendingHover()
             }
+            pointerWasInsideTrigger = isInside
         }
     }
 
-    private func scheduleExpand() {
-        guard expandTask == nil else { return }
+    private func beginHoverCandidate(at pointer: NSPoint) {
+        expandTask?.cancel()
+        hoverAnchor = pointer
         expandTask = Task { @MainActor [weak self] in
-            try? await Task.sleep(for: .milliseconds(90))
-            guard let self, !Task.isCancelled else { return }
+            guard let self else { return }
+            try? await Task.sleep(for: self.hoverDwell)
+            guard !Task.isCancelled else { return }
             self.expandTask = nil
             guard !self.state.isExpanded else { return }
             let pointer = NSEvent.mouseLocation
             guard let screen = self.panel.screen ?? NSScreen.main,
+                  let hoverAnchor = self.hoverAnchor,
+                  self.pointerDistance(from: hoverAnchor, to: pointer) <= self.hoverMovementTolerance,
                   ScreenGeometry.hoverTriggerFrame(
                     on: screen,
                     compactSize: Self.compactSize(
                         on: screen,
-                        showsMeetingStatus: self.compactMeetingIsActive
+                        showsMeetingStatus: self.compactMeetingIsActive,
+                        showsClickTarget: false
                     )
                   ).contains(pointer) else { return }
             self.trace("expand confirmed at (\(Int(pointer.x)), \(Int(pointer.y)))")
-            self.state.isExpanded = true
+            PresentationDiagnostics.event("notch expanded reason=intentional-hover")
+            self.requestExpansion(origin: .intentionalHover)
         }
+    }
+
+    private func requestExpansion(origin: NotchExpansionOrigin) {
+        guard !state.isExpanded else {
+            if origin == .explicitInteraction { panel.makeKey() }
+            return
+        }
+        pendingExpansionOrigin = origin
+        state.isExpanded = true
+    }
+
+    private func promoteExpandedInteractionToKeyboard(windowNumber: Int) {
+        guard state.isExpanded, panel.windowNumber == windowNumber else { return }
+        panel.makeKey()
+        PresentationDiagnostics.event("notch keyboard focus reason=expanded-click")
     }
 
     private func applyExpansionState(_ expanded: Bool) {
         if expanded {
+            let expansionOrigin = pendingExpansionOrigin ?? .intentionalHover
+            pendingExpansionOrigin = nil
             // The notch is a glanceable "today" surface. Dates picked from the
             // month grid are temporary exploration and should not persist into
             // the next independent hover session.
@@ -170,8 +250,13 @@ final class NotchWindowController: NSObject, ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 guard let self, self.state.isExpanded else { return }
                 self.resize(expanded: true)
+                if expansionOrigin == .explicitInteraction {
+                    self.panel.makeKey()
+                    PresentationDiagnostics.event("notch keyboard focus reason=explicit-interaction")
+                }
             }
         } else {
+            pendingExpansionOrigin = nil
             // Keep the detailed view alive until the panel has visibly folded
             // back into the notch. Replacing it before the frame animation was
             // the source of the previous abrupt, empty-card collapse.
@@ -187,8 +272,9 @@ final class NotchWindowController: NSObject, ObservableObject {
     }
 
     private func updateCompactMeetingActivity(_ isActive: Bool) {
-        guard compactMeetingIsActive != isActive else { return }
-        compactMeetingIsActive = isActive
+        let effectiveActivity = state.presentationPreferences.showsMeetingStatus && isActive
+        guard compactMeetingIsActive != effectiveActivity else { return }
+        compactMeetingIsActive = effectiveActivity
         guard !state.isExpanded else { return }
         resize(expanded: false)
     }
@@ -235,23 +321,31 @@ final class NotchWindowController: NSObject, ObservableObject {
             return
         }
         guard let screen = panel.screen ?? NSScreen.main else { return }
+        if !expanded, panel.isKeyWindow {
+            panel.resignKey()
+            PresentationDiagnostics.debug("notch keyboard focus released")
+        }
         let notchBounds = ScreenGeometry.notchBounds(on: screen)
         if !expanded {
-            compactMeetingIsActive = UpcomingEventEngine.status(
-                now: Date(),
-                events: state.calendar.todayEvents
-            ).isActive
+            compactMeetingIsActive = state.presentationPreferences.showsMeetingStatus
+                && UpcomingEventEngine.status(
+                    now: Date(),
+                    events: state.calendar.todayEvents
+                ).isActive
         }
         layoutMetrics.expandedContentTopInset = ScreenGeometry.expandedContentTopInset(on: screen)
         layoutMetrics.compactNotchWidth = notchBounds?.width
         layoutMetrics.compactNotchDepth = notchBounds?.depth
+        layoutMetrics.showsCompactMeetingStatus = state.presentationPreferences.showsMeetingStatus
+        layoutMetrics.showsClickTarget = effectiveInteractionMode == .clickOnly
         let newFrame = ScreenGeometry.panelFrame(
             on: screen,
             size: expanded
                 ? expandedSize
                 : Self.compactSize(
                     on: screen,
-                    showsMeetingStatus: compactMeetingIsActive
+                    showsMeetingStatus: compactMeetingIsActive,
+                    showsClickTarget: effectiveInteractionMode == .clickOnly
                 ),
             expanded: expanded
         )
@@ -283,19 +377,20 @@ final class NotchWindowController: NSObject, ObservableObject {
                 applyCompactMousePassthrough()
             }
         }
-        DispatchQueue.main.async { [weak self] in self?.evaluatePointer() }
     }
 
     private static func compactSize(
         on screen: NSScreen,
-        showsMeetingStatus: Bool
+        showsMeetingStatus: Bool,
+        showsClickTarget: Bool
     ) -> NSSize {
         let notchBounds = ScreenGeometry.notchBounds(on: screen)
         return NSSize(
             width: min(
                 ScreenGeometry.compactPanelWidth(
                     notchWidth: notchBounds?.width,
-                    showsMeetingStatus: showsMeetingStatus
+                    showsMeetingStatus: showsMeetingStatus,
+                    showsClickTarget: showsClickTarget
                 ),
                 screen.frame.width
             ),
@@ -304,15 +399,55 @@ final class NotchWindowController: NSObject, ObservableObject {
     }
 
     private func applyCompactMousePassthrough() {
-        panel.ignoresMouseEvents = globalMouseMonitor != nil
+        switch effectiveInteractionMode {
+        case .intentionalHover:
+            // Never cover menu-bar controls if global monitoring is unavailable.
+            panel.ignoresMouseEvents = true
+        case .clickOnly:
+            panel.ignoresMouseEvents = false
+        }
+    }
+
+    private func applyPresentationPreferences(animated: Bool = true) {
+        cancelPendingHover()
+        collapseTask?.cancel()
+        collapseTask = nil
+        compactMeetingIsActive = state.presentationPreferences.showsMeetingStatus && UpcomingEventEngine.status(
+            now: Date(),
+            events: state.calendar.todayEvents
+        ).isActive
+        layoutMetrics.showsCompactMeetingStatus = state.presentationPreferences.showsMeetingStatus
+        layoutMetrics.showsClickTarget = effectiveInteractionMode == .clickOnly
+        if !state.isExpanded {
+            resize(expanded: false, animated: animated)
+            applyCompactMousePassthrough()
+        }
+        PresentationDiagnostics.event(
+            "notch preferences mode=\(state.presentationPreferences.notchInteractionMode.rawValue) meeting-status=\(state.presentationPreferences.showsMeetingStatus)"
+        )
+    }
+
+    private var effectiveInteractionMode: NotchInteractionMode {
+        NotchInteractionPolicy.effectiveMode(
+            requestedMode: state.presentationPreferences.notchInteractionMode,
+            isGlobalMouseMonitorAvailable: globalMouseMonitor != nil
+        )
+    }
+
+    private func cancelPendingHover() {
+        expandTask?.cancel()
+        expandTask = nil
+        hoverAnchor = nil
+        pointerWasInsideTrigger = false
+    }
+
+    private func pointerDistance(from first: NSPoint, to second: NSPoint) -> CGFloat {
+        let dx = first.x - second.x
+        let dy = first.y - second.y
+        return (dx * dx + dy * dy).squareRoot()
     }
 
     private func trace(_ message: String) {
-        #if DEBUG
-        print("[NotchCalendar] \(message)")
-        // Xcode flushes stdout for us, but the standalone diagnostic process is
-        // connected to a pipe. Flush explicitly so hover timing is observable.
-        fflush(stdout)
-        #endif
+        PresentationDiagnostics.debug(message)
     }
 }

@@ -7,7 +7,10 @@ struct NotchCalendarApp: App {
     var body: some Scene {
         Settings {
             AppLanguageHost {
-                SettingsView(updateChecker: appDelegate.state.updateChecker)
+                SettingsView(
+                    updateChecker: appDelegate.state.updateChecker,
+                    presentationPreferences: appDelegate.state.presentationPreferences
+                )
             }
         }
     }

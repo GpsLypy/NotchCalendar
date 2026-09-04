@@ -5,15 +5,21 @@ final class NotchLayoutMetrics: ObservableObject {
     @Published var expandedContentTopInset: CGFloat
     @Published var compactNotchWidth: CGFloat?
     @Published var compactNotchDepth: CGFloat?
+    @Published var showsCompactMeetingStatus: Bool
+    @Published var showsClickTarget: Bool
 
     init(
         expandedContentTopInset: CGFloat,
         compactNotchWidth: CGFloat?,
-        compactNotchDepth: CGFloat?
+        compactNotchDepth: CGFloat?,
+        showsCompactMeetingStatus: Bool,
+        showsClickTarget: Bool
     ) {
         self.expandedContentTopInset = expandedContentTopInset
         self.compactNotchWidth = compactNotchWidth
         self.compactNotchDepth = compactNotchDepth
+        self.showsCompactMeetingStatus = showsCompactMeetingStatus
+        self.showsClickTarget = showsClickTarget
     }
 }
 
@@ -28,6 +34,7 @@ private struct ExpandedCardHeightKey: PreferenceKey {
 struct NotchRootView: View {
     @ObservedObject var state: AppState
     @ObservedObject var layoutMetrics: NotchLayoutMetrics
+    let onExplicitExpansion: () -> Void
     let onExpandedCardHeightChange: (CGFloat) -> Void
     let onCompactMeetingActivityChange: (Bool) -> Void
     @Environment(\.appLanguage) private var appLanguage
@@ -50,17 +57,22 @@ struct NotchRootView: View {
                     )
             } else {
                 Button {
-                    state.isExpanded = true
+                    onExplicitExpansion()
                 } label: {
                     CompactNotchView(
                         events: state.calendar.todayEvents,
                         notchWidth: layoutMetrics.compactNotchWidth,
                         notchDepth: layoutMetrics.compactNotchDepth,
+                        showsMeetingStatus: layoutMetrics.showsCompactMeetingStatus,
+                        showsClickTarget: layoutMetrics.showsClickTarget,
                         onMeetingActivityChange: onCompactMeetingActivityChange
                     )
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(
+                    L10n.string("Open Notch Calendar", language: appLanguage)
+                )
                 .accessibilityHint(
                     L10n.string(
                         "Shows today's agenda and month calendar",

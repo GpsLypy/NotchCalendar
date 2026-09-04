@@ -5,22 +5,25 @@ struct CompactNotchView: View {
     let events: [CalendarEvent]
     let notchWidth: CGFloat?
     let notchDepth: CGFloat?
+    let showsMeetingStatus: Bool
+    let showsClickTarget: Bool
     let onMeetingActivityChange: (Bool) -> Void
     @State private var now = Date()
     @Environment(\.appLanguage) private var appLanguage
 
     var body: some View {
         let status = UpcomingEventEngine.status(now: now, events: events)
+        let displayStatus = showsMeetingStatus ? status : .idle
 
         Group {
             if let notchWidth, notchWidth > 0 {
                 notchedContent(
-                    status: status,
+                    status: displayStatus,
                     notchWidth: notchWidth,
                     notchDepth: ScreenGeometry.compactPanelHeight(notchDepth: notchDepth)
                 )
             } else {
-                fallbackPillContent(status: status)
+                fallbackPillContent(status: displayStatus)
             }
         }
         .font(.system(size: 12, weight: .medium, design: .rounded))
@@ -29,7 +32,14 @@ struct CompactNotchView: View {
         .onChange(of: status.isActive) { _, isActive in
             onMeetingActivityChange(isActive)
         }
-        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { now = $0 }
+        .onReceive(
+            Timer.publish(
+                every: showsMeetingStatus ? 1 : 60,
+                on: .main,
+                in: .common
+            ).autoconnect()
+        ) { now = $0 }
+        .onChange(of: showsMeetingStatus) { _, _ in now = Date() }
     }
 
     /// Hardware screenshots can capture pixels drawn behind the camera housing,
@@ -126,6 +136,8 @@ struct CompactNotchView: View {
                 meetingLinkIndicator(for: event)
             }
             .foregroundStyle(Color.primary.opacity(0.86))
+        } else if showsClickTarget {
+            compactClickIndicator
         }
     }
 
@@ -141,8 +153,18 @@ struct CompactNotchView: View {
                 trackColor: Color.primary.opacity(0.16)
             )
         case .upcoming, .idle:
-            EmptyView()
+            if showsClickTarget {
+                compactClickIndicator
+            }
         }
+    }
+
+    private var compactClickIndicator: some View {
+        Circle()
+            .fill(AlcovePalette.accent)
+            .frame(width: 5, height: 5)
+            .shadow(color: AlcovePalette.accent.opacity(0.34), radius: 3)
+            .accessibilityHidden(true)
     }
 
     private func eventTitle(for event: CalendarEvent) -> some View {

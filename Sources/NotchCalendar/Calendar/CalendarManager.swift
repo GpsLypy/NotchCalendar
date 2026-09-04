@@ -57,11 +57,12 @@ final class CalendarManager: ObservableObject {
 
     func refresh() {
         guard hasCalendarAccess else {
-            todayEvents = []
-            authorizationMessage = "Allow Calendar access in System Settings to show your agenda."
+            if !todayEvents.isEmpty { todayEvents = [] }
+            let message = "Allow Calendar access in System Settings to show your agenda."
+            if authorizationMessage != message { authorizationMessage = message }
             return
         }
-        authorizationMessage = nil
+        if authorizationMessage != nil { authorizationMessage = nil }
         loadEvents(from: Date().startOfDay, to: Date().endOfDay)
     }
 
@@ -90,11 +91,15 @@ final class CalendarManager: ObservableObject {
 
     private func loadEvents(from start: Date, to end: Date) {
         guard hasCalendarAccess else {
-            todayEvents = []
+            if !todayEvents.isEmpty { todayEvents = [] }
             return
         }
         let predicate = store.predicateForEvents(withStart: start, end: end, calendars: nil)
-        todayEvents = store.events(matching: predicate).map(makeEvent).sorted { $0.startDate < $1.startDate }
+        let refreshedEvents = store.events(matching: predicate)
+            .map(makeEvent)
+            .sorted { $0.startDate < $1.startDate }
+        guard refreshedEvents != todayEvents else { return }
+        todayEvents = refreshedEvents
     }
 
     private func makeEvent(_ event: EKEvent) -> CalendarEvent {
