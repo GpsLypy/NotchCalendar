@@ -1,0 +1,34 @@
+Support/NotchCalendarWidgets-Info.plist
+  s_da78974ba60664::t_e255bb6cf8c1e4 20,22
+README.md
+  s_da78974ba60664::t_e255bb6cf8c1e4 62-64
+Tests/NotchCalendarTests/UpdateDMGOpenTests.swift
+  s_da78974ba60664::t_a0dbe3e3e59447 7-29
+  s_da78974ba60664::t_7677da67452fbf 1-6,30-84
+Sources/NotchCalendar/App/UpdateChecker.swift
+  s_da78974ba60664::t_7677da67452fbf 477-479,481,483-499,501
+Sources/NotchCalendar/App/WidgetSnapshotCoordinator.swift
+  s_da78974ba60664::t_3f941b3a48ef21 14-15,21-27,30-32,40-43,46-47,81,99-101,107,134-135
+CHANGELOG.md
+  s_da78974ba60664::t_e255bb6cf8c1e4 7-21
+Tests/NotchCalendarTests/WidgetSnapshotCoordinatorTests.swift
+  s_da78974ba60664::t_3f941b3a48ef21 1-63
+Support/Info.plist
+  s_da78974ba60664::t_e255bb6cf8c1e4 20,22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "80bb7f3d8957930bf15388d8e40f1b4eac719e7c",
+  "prompts": {},
+  "sessions": {
+    "s_da78974ba60664": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06f56-a7ef-7561-908f-8411ee9d1de5",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}
