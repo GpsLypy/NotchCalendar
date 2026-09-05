@@ -63,6 +63,12 @@ final class PresentationPreferences: ObservableObject {
         guard isHoverMonitorAvailable != isAvailable else { return }
         isHoverMonitorAvailable = isAvailable
     }
+
+    func reload() {
+        notchInteractionMode = defaults.string(forKey: Self.interactionModeKey)
+            .flatMap(NotchInteractionMode.init(rawValue:)) ?? .intentionalHover
+        showsMeetingStatus = defaults.object(forKey: Self.meetingStatusKey) as? Bool ?? false
+    }
 }
 
 /// Main-window presentation is driven by semantic AppKit events, never by an

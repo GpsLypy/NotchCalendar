@@ -11,6 +11,47 @@ struct CalendarEvent: Identifiable, Equatable {
     let meetingLink: MeetingLink?
     let isAllDay: Bool
     var blocksTime: Bool = true
+    var calendarID: String = ""
+    /// EventKit supplies the original occurrence date for a detached instance.
+    /// Keep it separate from startDate so rescheduling does not split its notes.
+    var originalOccurrenceDate: Date? = nil
+    /// EventKit returns all-day occurrences at midnight in the current system
+    /// zone. Capture their civil date when reading the event, before travel can
+    /// change how that same absolute timestamp would be interpreted.
+    var originalOccurrenceDay: String? = nil
+    var seriesIdentifier: String? = nil
+    var isRecurring: Bool = false
+    var isEligibleForMeeting: Bool = true
+    var duplicateSourceNames: [String] = []
+    var relatedOccurrenceIDs: [String] = []
+
+    var allOccurrenceStableIDs: [String] {
+        Array(Set([occurrenceStableID] + relatedOccurrenceIDs)).sorted()
+    }
+
+    var occurrenceStableID: String {
+        let identity = seriesIdentifier ?? id
+        let occurrence = originalOccurrenceDate ?? (isRecurring || seriesIdentifier == nil ? startDate : nil)
+        // Length-prefixing prevents delimiter collisions in account identifiers.
+        let suffix: String
+        if isAllDay, let originalOccurrenceDay {
+            suffix = "day:\(originalOccurrenceDay)"
+        } else {
+            suffix = occurrence.map { String($0.timeIntervalSinceReferenceDate) } ?? "single"
+        }
+        return "\(calendarID.utf8.count):\(calendarID)\(identity.utf8.count):\(identity)|\(suffix)"
+    }
+
+    static func occurrenceDay(for date: Date, timeZone: TimeZone = .current) -> String {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
+        let parts = calendar.dateComponents([.year, .month, .day], from: date)
+        return String(format: "%04d-%02d-%02d", parts.year!, parts.month!, parts.day!)
+    }
+
+    var displayedSourceNames: [String] {
+        duplicateSourceNames.isEmpty ? [calendarName] : duplicateSourceNames
+    }
 
     func displayTitle(language: AppLanguage) -> String {
         guard !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {

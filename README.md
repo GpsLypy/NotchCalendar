@@ -18,6 +18,11 @@ A local-first macOS 15+ personal workspace built around the calendar beside your
 - Today's planning card finds remaining openings within configurable local hours and meeting buffers, flags overlapping timed events, and prepares up to 50 minutes of focus for the current opening. Free, canceled, declined, and all-day events do not block openings; all-day events remain in the agenda. Suggestions never start automatically or replace an unfinished timer.
 - Custom 5–180 minute focus sessions, separate break tracking, today's and this week's completed focus minutes, and a local journal of the latest 1,000 completions with CSV export. Totals use the session's completion date; legacy cumulative counts remain without invented history.
 - A local scratchpad with automatic saving, timestamps, and one-click copy.
+- Opt-in meeting notifications with 5/10-minute snooze and occurrence dismissal, plus a configurable global join shortcut (default Control–Option–J). Hidden, canceled and declined meetings are excluded. Delivery follows macOS notification/Focus settings; keep the app running to follow calendar changes.
+- Search selected calendars by title, location or source within a configurable range of up to 366 days. Create timed/all-day events in a writable system calendar with daily, weekly or monthly recurrence; matching cross-calendar duplicates can be combined for display without changing the originals. View a second time zone alongside each event.
+- Meeting notes stay attached to individual occurrences, support local search and Markdown export, and preserve Chinese input composition. Export/restore local notes and supported settings through a validated JSON backup, review contents before replacing them, and undo the last restore.
+- Four native Apple Shortcuts actions: Open Today, Start Focus (5–180 minutes plus optional task label), Append to Scratchpad, and Join Next Meeting. App Intents metadata is generated and checked in the packaged app.
+- Task labels in focus history, daily totals and task breakdowns for previous/current weeks, and Markdown weekly-review export. CSV exports include the task label and protect spreadsheet cells from formula interpretation.
 - In-app language selection for Simplified Chinese, English, or the current system language, applied without restarting.
 - One-click Smart Join for Zoom, Google Meet, Microsoft Teams, Webex, Around, and Whereby, plus an Open link action for other structured event URLs.
 - Previous and next month navigation with locale-aware weekday ordering.
@@ -54,7 +59,7 @@ Release archives without a signing certificate are ad-hoc signed for local devel
 
 See [the product roadmap](docs/PRODUCT_ROADMAP.md) for the stability requirements and planned market, weather, and local-assistant integrations.
 
-Version 0.7.0 adds calendar selection, daily planning, and focus history without any payment or account requirement. See [the professional-tool product review](docs/PRODUCT_REVIEW_2026-09-05.md) for the Alcove, Dato, Clop, and Maccy comparison and remaining functional priorities, and [the release validation](docs/VALIDATION_V0.7.0.md) for verification and its limits.
+Version 0.8.0 adds the calendar, meeting, notes, and focus workflow without a payment or account requirement. Get the [0.8.0 release](https://github.com/GpsLypy/NotchCalendar/releases/tag/v0.8.0), and see [workflow setup and limits](docs/WORKFLOWS_V0.8.0.md), [validation details](docs/VALIDATION_V0.8.0.md), and [the professional-tool product review](docs/PRODUCT_REVIEW_2026-09-05.md).
 
 ## Buy me a coffee / 请作者喝杯咖啡
 

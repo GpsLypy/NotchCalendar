@@ -5,6 +5,8 @@ struct SettingsView: View {
     @ObservedObject var updateChecker: UpdateChecker
     @ObservedObject var presentationPreferences: PresentationPreferences
     @ObservedObject var calendar: CalendarManager
+    var meetingAssistant: MeetingAssistant? = nil
+    var backupStore: LocalBackupStore? = nil
     @AppStorage(AppLanguage.storageKey) private var storedLanguage = AppLanguage.system.rawValue
     @Environment(\.appLanguage) private var appLanguage
     @State private var showsUpdateDetails = false
@@ -35,6 +37,17 @@ struct SettingsView: View {
             }
 
             calendarSources
+            CalendarToolsSettingsView(calendar: calendar)
+            if let meetingAssistant { MeetingSettingsSection(assistant: meetingAssistant) }
+            if let backupStore { BackupSettingsSection(store: backupStore) }
+            Section(t("Shortcuts")) {
+                Text(t("Open Today, Start Focus, Append to Scratchpad, and Join Next Meeting are available in Apple's Shortcuts app."))
+                Text(t("Create a shortcut and search for Notch Calendar in the action library. Focus accepts 5–180 minutes and an optional task label."))
+                    .foregroundStyle(.secondary)
+                Button(t("Open Shortcuts")) {
+                    NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Applications/Shortcuts.app"))
+                }
+            }
 
             Section(t("Interaction")) {
                 Picker(

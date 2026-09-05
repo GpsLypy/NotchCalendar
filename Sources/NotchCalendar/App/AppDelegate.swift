@@ -1,5 +1,6 @@
 import AppKit
 import Darwin
+import AppIntents
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
@@ -28,8 +29,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         mainWindowController = MainCalendarWindowController(
             calendar: state.calendar,
             focusTimer: state.focusTimer,
-            updateChecker: state.updateChecker
+            updateChecker: state.updateChecker,
+            notesStore: state.notesStore,
+            meetingAssistant: state.meetingAssistant
         )
+        state.meetingAssistant.start()
+        WorkspaceAutomation.shared = WorkspaceAutomation(
+            focusTimer: state.focusTimer,
+            notes: state.notesStore,
+            navigate: { [weak self] destination in
+                self?.revealMainWindow(destination: destination, intent: .deepLink, reason: "explicit-shortcut")
+            },
+            joinMeeting: { [weak self] in
+                guard let self else { throw WorkspaceAutomationError("Open Notch Calendar and try the shortcut again.") }
+                _ = try await self.state.meetingAssistant.joinNextMeeting()
+            }
+        )
+        NotchAppShortcuts.updateAppShortcutParameters()
         if let pendingWidgetDestination {
             revealMainWindow(
                 destination: pendingWidgetDestination,
@@ -87,6 +103,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ notification: Notification) {
+        state.meetingAssistant.stop()
+        WorkspaceAutomation.shared = nil
         for fileDescriptor in instanceLockFileDescriptors {
             close(fileDescriptor)
         }

@@ -4,6 +4,27 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-09-05
+
+macOS 15+ · Apple Silicon and Intel. This free manual-install build is ad-hoc signed and is not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；继续免费，采用 ad-hoc 签名及手动安装，尚未进行 Developer ID 公证。
+
+### Added / 新增功能
+
+- Added opt-in local meeting reminders, 5/10-minute snooze, occurrence dismissal, and a configurable global join shortcut with visible registration conflicts. / 新增可选会议提醒、延后 5/10 分钟、忽略本次，以及可配置且能提示占用冲突的全局快捷入会。
+- Added bounded calendar search, quick event creation, daily/weekly/monthly recurrence, non-destructive duplicate display, and a second time zone. / 新增日程搜索、快速创建、每日/每周/每月重复日程、重复来源合并显示和第二时区。
+- Added occurrence-linked meeting notes, local note search, Markdown export, validated backup preview and restore, and undo of the last restore. / 新增按单次日程关联的会议笔记、本地搜索、Markdown 导出、校验后的备份预览与恢复，以及撤销上次恢复。
+- Added four native Shortcuts actions, focus task labels, weekly day/task breakdowns, and Markdown weekly-review export. / 新增四个原生快捷指令操作、专注任务标签、按日期和任务统计的周回顾，以及 Markdown 周回顾导出。
+
+### Improved / 功能优化
+
+- Meeting actions re-query the current selected calendars; reminders reconcile on calendar changes and wake without replaying expired deadlines. / 入会时重新查询当前选中的日历，日历变化和唤醒后重排提醒，跳过过期的提醒时间。
+- Backups exclude account secrets and system permissions, show their contents before replacement, and pause restored timers. Shortcuts share the live app stores and preserve unfinished focus work. / 备份不含账户密钥和系统权限，覆盖前展示内容，恢复后的计时器暂停；快捷指令共用应用实时状态并保护未完成的专注。
+
+### Fixed / 问题修复
+
+- Preserved unreadable local notes/focus bytes instead of silently overwriting them, protected Chinese input composition from external note updates, and reloaded restored state synchronously before a timer tick can write old data back. / 无法读取的本地笔记和专注数据会保留原始内容，外部便笺更新不打断中文输入，恢复后同步载入状态，防止旧计时状态覆盖导入数据。
+- Release packaging now extracts and verifies App Intents metadata so Shortcuts actions are included in the distributed app. / 打包时生成并验证 App Intents 元数据，确保交付的应用包含快捷指令操作。
+
 ## [0.7.0] - 2026-09-05
 
 macOS 15+ · Apple Silicon and Intel. This free manual-install build is ad-hoc signed and is not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；本版继续免费，采用 ad-hoc 签名及手动安装，尚未进行 Developer ID 公证。

@@ -4,11 +4,13 @@ import SwiftUI
 
 @MainActor
 final class CalendarManager: ObservableObject {
+    let creationDraft = CalendarDraftSession()
     @Published private(set) var todayEvents: [CalendarEvent] = []
     @Published private(set) var planningEvents: [CalendarEvent] = []
     @Published private(set) var availableCalendars: [CalendarSource] = []
     @Published private(set) var selection: CalendarSelectionPolicy
     @Published private(set) var authorizationMessage: String?
+    @Published private(set) var deduplicatesEvents: Bool
     // A change outside today must still invalidate the month and widget caches.
     @Published private(set) var contentRevision = 0
 
@@ -42,6 +44,7 @@ final class CalendarManager: ObservableObject {
         self.dataSource = dataSource
         self.defaults = defaults
         selection = CalendarSelectionPolicy(defaults: defaults)
+        deduplicatesEvents = defaults.object(forKey: CalendarDuplicatePolicy.storageKey) as? Bool ?? true
         databaseObserver = NotificationCenter.default.addObserver(
             forName: .EKEventStoreChanged, object: dataSource.changeNotificationObject, queue: .main
         ) { [weak self] _ in
@@ -126,6 +129,32 @@ final class CalendarManager: ObservableObject {
         refresh()
     }
 
+    func reloadPreferences() {
+        selection = CalendarSelectionPolicy(defaults: defaults)
+        deduplicatesEvents = defaults.object(forKey: CalendarDuplicatePolicy.storageKey) as? Bool ?? true
+        refresh()
+    }
+
+    func setDeduplicatesEvents(_ enabled: Bool) {
+        guard enabled != deduplicatesEvents else { return }
+        deduplicatesEvents = enabled
+        defaults.set(enabled, forKey: CalendarDuplicatePolicy.storageKey)
+        refresh()
+    }
+
+    var writableCalendars: [CalendarSource] {
+        availableCalendars.filter(\.allowsContentModifications)
+    }
+
+    /// User-initiated only. Failure leaves the view's draft intact.
+    func createEvent(_ draft: CalendarEventDraft) throws -> CalendarEvent {
+        guard hasCalendarAccess else { throw CalendarDraftError.accessDenied }
+        try draft.validate(writableCalendarIDs: Set(writableCalendars.map(\.id)))
+        let event = try dataSource.createEvent(draft)
+        refresh()
+        return event
+    }
+
     func openPrivacySettings() {
         guard let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Calendars") else { return }
         NSWorkspace.shared.open(url)
@@ -141,12 +170,15 @@ final class CalendarManager: ObservableObject {
         return events(from: monthStart, to: monthEnd)
     }
 
-    private func events(from start: Date, to end: Date) -> [CalendarEvent] {
+    func events(from start: Date, to end: Date) -> [CalendarEvent] {
+        guard end > start else { return [] }
         guard let calendarIDs = selection.queryCalendarIDs(
             hasAccess: hasCalendarAccess, availableCalendarIDs: availableCalendars.map(\.id)
         ) else { return [] }
-        return dataSource.events(from: start, to: end, calendarIDs: calendarIDs)
-            .sorted { $0.startDate == $1.startDate ? $0.id < $1.id : $0.startDate < $1.startDate }
+        return CalendarDuplicatePolicy.events(
+            dataSource.events(from: start, to: end, calendarIDs: calendarIDs),
+            enabled: deduplicatesEvents
+        )
     }
 }
 
@@ -163,7 +195,8 @@ final class EventKitCalendarDataSource: CalendarDataSource {
     func availableCalendars() -> [CalendarSource] {
         store.calendars(for: .event).map {
             CalendarSource(id: $0.calendarIdentifier, title: $0.title, sourceTitle: $0.source.title,
-                           color: NSColor(cgColor: $0.cgColor))
+                           color: NSColor(cgColor: $0.cgColor),
+                           allowsContentModifications: $0.allowsContentModifications)
         }
     }
 
@@ -175,9 +208,55 @@ final class EventKitCalendarDataSource: CalendarDataSource {
         return store.events(matching: predicate).map(makeEvent)
     }
 
+    func createEvent(_ draft: CalendarEventDraft) throws -> CalendarEvent {
+        guard authorizationStatus == .fullAccess else { throw CalendarDraftError.accessDenied }
+        let writable = store.calendars(for: .event).filter(\.allowsContentModifications)
+        try draft.validate(writableCalendarIDs: Set(writable.map(\.calendarIdentifier)))
+        guard let calendar = writable.first(where: { $0.calendarIdentifier == draft.calendarID }) else {
+            throw CalendarDraftError.calendarUnavailable
+        }
+        let interval = try draft.datesForSaving()
+        let event = EKEvent(eventStore: store)
+        event.calendar = calendar
+        event.title = draft.title.trimmingCharacters(in: .whitespacesAndNewlines)
+        event.startDate = interval.start
+        event.endDate = interval.end
+        event.isAllDay = draft.isAllDay
+        event.timeZone = draft.timeZone
+        let location = draft.location.trimmingCharacters(in: .whitespacesAndNewlines)
+        event.location = location.isEmpty ? nil : location
+        if !draft.link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { event.url = draft.eventURL }
+        if draft.repeatRule != .never {
+            let frequency: EKRecurrenceFrequency
+            switch draft.repeatRule {
+            case .daily: frequency = .daily
+            case .weekly: frequency = .weekly
+            case .monthly: frequency = .monthly
+            case .never: frequency = .daily
+            }
+            var calculationCalendar = Calendar(identifier: .gregorian)
+            calculationCalendar.timeZone = draft.timeZone!
+            let lastDay = calculationCalendar.startOfDay(for: draft.repeatThrough)
+            let exclusiveEnd = calculationCalendar.date(byAdding: .day, value: 1, to: lastDay)!
+            event.addRecurrenceRule(EKRecurrenceRule(
+                recurrenceWith: frequency, interval: 1,
+                end: EKRecurrenceEnd(end: exclusiveEnd.addingTimeInterval(-1))
+            ))
+        }
+        // A new event contains no attendees. Existing events and invitations are
+        // never edited by this path; EventKit commits only this new draft.
+        try store.save(event, span: .thisEvent, commit: true)
+        return makeEvent(event)
+    }
+
     private func makeEvent(_ event: EKEvent) -> CalendarEvent {
-        let fallbackID = "\(event.calendarItemIdentifier)|\(event.startDate.timeIntervalSinceReferenceDate)"
-        return CalendarEvent(id: event.eventIdentifier ?? fallbackID, title: event.title ?? "",
+        let occurrence = event.occurrenceDate ?? event.startDate!
+        let isRecurring = event.hasRecurrenceRules || event.occurrenceDate != nil
+        let occurrenceDay = event.isAllDay && isRecurring
+            ? CalendarEvent.occurrenceDay(for: occurrence)
+            : nil
+        let instanceID = "\(event.eventIdentifier ?? event.calendarItemIdentifier)|\(occurrence.timeIntervalSinceReferenceDate)"
+        return CalendarEvent(id: instanceID, title: event.title ?? "",
                       startDate: event.startDate, endDate: event.endDate,
                       calendarName: event.calendar.title, calendarColor: NSColor(cgColor: event.calendar.cgColor),
                       location: event.location,
@@ -191,6 +270,15 @@ final class EventKitCalendarDataSource: CalendarDataSource {
                           availability: event.availability,
                           status: event.status,
                           currentUserParticipationStatus: event.attendees?.first(where: \.isCurrentUser)?.participantStatus
-                      ))
+                      ),
+                      calendarID: event.calendar.calendarIdentifier,
+                      originalOccurrenceDate: event.occurrenceDate,
+                      originalOccurrenceDay: occurrenceDay,
+                      // Server UID is shared by occurrences and survives a local
+                      // store resync. Local calendars fall back to the item ID.
+                      seriesIdentifier: event.calendarItemExternalIdentifier ?? event.calendarItemIdentifier,
+                      isRecurring: isRecurring,
+                      isEligibleForMeeting: event.status != .canceled
+                          && event.attendees?.first(where: \.isCurrentUser)?.participantStatus != .declined)
     }
 }

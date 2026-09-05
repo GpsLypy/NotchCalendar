@@ -7,10 +7,14 @@ struct MainWorkspaceView: View {
     @ObservedObject var focusTimer: FocusTimerModel
     @ObservedObject var updateChecker: UpdateChecker
     @ObservedObject var presentation: MainCalendarPresentation
+    @ObservedObject var notesStore = MeetingNotesStore()
+    var meetingAssistant: MeetingAssistant? = nil
 
     @State private var selectedCalendarDate = Date()
     @State private var calendarFollowsToday = true
     @State private var now = Date()
+    @State private var selectedNoteEvent: CalendarEvent?
+    @Environment(\.appLanguage) private var appLanguage
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
@@ -47,6 +51,23 @@ struct MainWorkspaceView: View {
             guard isActive else { return }
             synchronizeWorkspace(to: Date())
         }
+        .sheet(item: $selectedNoteEvent) { event in
+            VStack(alignment: .leading, spacing: 16) {
+                HStack {
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(event.title).font(.title3.bold())
+                        Text(event.startDate.formatted(.dateTime.year().month().day().hour().minute().locale(appLanguage.locale)))
+                            .font(.caption).foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                    Button(L10n.string("Done", language: appLanguage)) { selectedNoteEvent = nil }
+                        .keyboardShortcut(.cancelAction)
+                }
+                MeetingNotesPanel(event: event, store: notesStore)
+            }
+            .padding(24)
+            .frame(width: 570, height: 370)
+        }
     }
 
     @ViewBuilder private var pageContent: some View {
@@ -56,18 +77,21 @@ struct MainWorkspaceView: View {
                 calendar: calendar,
                 focusTimer: focusTimer,
                 isActive: presentation.isActive,
-                navigate: navigate
+                navigate: navigate,
+                meetingAssistant: meetingAssistant,
+                onSelectEvent: { selectedNoteEvent = $0 }
             )
         case .calendar:
             MainCalendarView(
                 calendar: calendar,
                 presentation: presentation,
-                selectedDate: calendarDateBinding
+                selectedDate: calendarDateBinding,
+                onSelectEvent: { selectedNoteEvent = $0 }
             )
         case .focus:
             FocusWorkspaceView(timer: focusTimer, calendar: calendar, now: now)
         case .scratchpad:
-            ScratchpadWorkspaceView()
+            ScratchpadWorkspaceView(notesStore: notesStore)
         case .radar:
             RadarWorkspaceView()
         case .markets:

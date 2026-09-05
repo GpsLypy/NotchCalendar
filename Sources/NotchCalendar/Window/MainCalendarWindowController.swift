@@ -15,7 +15,9 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
     init(
         calendar: CalendarManager,
         focusTimer: FocusTimerModel,
-        updateChecker: UpdateChecker
+        updateChecker: UpdateChecker,
+        notesStore: MeetingNotesStore = MeetingNotesStore(),
+        meetingAssistant: MeetingAssistant? = nil
     ) {
         let window = NSWindow(
             contentRect: .zero,
@@ -37,7 +39,9 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
             calendar: calendar,
             focusTimer: focusTimer,
             updateChecker: updateChecker,
-            presentation: presentation
+            presentation: presentation,
+            notesStore: notesStore,
+            meetingAssistant: meetingAssistant
         )
         window.contentViewController = NSHostingController(
             rootView: AppLanguageHost {

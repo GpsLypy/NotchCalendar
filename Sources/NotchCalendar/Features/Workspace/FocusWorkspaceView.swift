@@ -7,6 +7,7 @@ struct FocusWorkspaceView: View {
     @ObservedObject var calendar: CalendarManager
     let now: Date
     @Environment(\.appLanguage) private var appLanguage
+    @Environment(\.openSettings) private var openSettings
     @AppStorage(DayPlanSettings.startHourKey) private var planningStartHour = 9
     @AppStorage(DayPlanSettings.endHourKey) private var planningEndHour = 18
     @AppStorage(DayPlanSettings.bufferMinutesKey) private var planningBufferMinutes = 5
@@ -15,24 +16,38 @@ struct FocusWorkspaceView: View {
     @State private var exportError: String?
     @State private var exportConfirmation: String?
     @State private var recommendationFeedback: String?
+    @State private var taskDraft = ""
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
                 pageHeader
+                if let error = timer.persistenceError {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Label(t(error), systemImage: "exclamationmark.triangle").foregroundStyle(.orange)
+                        Button(t("Open Settings")) { openSettings() }
+                    }.font(.system(size: 12))
+                }
                 HStack(alignment: .top, spacing: 18) {
                     timerCard
+                        .disabled(timer.persistenceError != nil)
                         .frame(maxWidth: .infinity, alignment: .top)
                     contextColumn
                         .frame(width: 230, alignment: .top)
                 }
                 historyCard
+                FocusWeeklyReviewView(records: timer.history, now: now)
             }
             .padding(.horizontal, 30)
             .padding(.top, 52)
             .padding(.bottom, 30)
         }
         .background(WorkspacePalette.canvas)
+        .onAppear { taskDraft = timer.taskLabel }
+        .onChange(of: taskDraft) { _, value in timer.setTaskLabel(value) }
+        .onChange(of: timer.taskLabel) { _, value in
+            if taskDraft != value { taskDraft = value }
+        }
     }
 
     private var pageHeader: some View {
@@ -64,6 +79,13 @@ struct FocusWorkspaceView: View {
                         .tracking(0.8)
                         .foregroundStyle(WorkspacePalette.secondaryText)
                 }
+
+                TextField(t("Task label (optional)"), text: $taskDraft)
+                    .textFieldStyle(.roundedBorder)
+                    .font(.system(size: 12))
+                    .disabled(timer.selectedKind == .breakTime)
+                    .accessibilityLabel(t("Task label"))
+                    .padding(.top, 18)
 
                 Spacer(minLength: 38)
 
@@ -266,9 +288,10 @@ struct FocusWorkspaceView: View {
                                 .foregroundStyle(record.kind == .focus ? WorkspacePalette.success : WorkspacePalette.secondaryText)
                                 .frame(width: 18)
                                 .accessibilityHidden(true)
-                            Text(t(record.kind == .focus ? "Focus" : "Break"))
+                            Text(record.taskLabel ?? t(record.kind == .focus ? "Focus" : "Break"))
                                 .font(.system(size: 12, weight: .medium))
                                 .foregroundStyle(WorkspacePalette.primaryText)
+                                .lineLimit(1)
                             Text(t("%@ min", "\(record.minutes)"))
                                 .monospacedDigit()
                                 .foregroundStyle(WorkspacePalette.secondaryText)

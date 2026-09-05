@@ -14,6 +14,8 @@ final class FocusTimerModel: ObservableObject {
     /// Includes the legacy cumulative total and completed breaks for compatibility.
     @Published private(set) var completedSessions = 0
     @Published private(set) var history: [FocusHistoryRecord] = []
+    @Published private(set) var taskLabel = ""
+    @Published private(set) var persistenceError: String?
 
     private static let snapshotKey = "workspace.focus.snapshot.v1"
     private static let completedSessionsKey = "workspace.focus.completedSessions"
@@ -35,10 +37,33 @@ final class FocusTimerModel: ObservableObject {
         let activeSessionID: UUID?
         let completedSessions: Int
         let history: [FocusHistoryRecord]
+        let taskLabel: String?
     }
 
     init(defaults: UserDefaults = .standard, now: Date = Date()) {
         self.defaults = defaults
+        reload(now: now)
+    }
+
+    func reload(now: Date = Date()) {
+        targetDate = nil
+        activeSessionID = nil
+        isRunning = false
+        history = []
+        taskLabel = ""
+        selectedMinutes = 25
+        selectedKind = .focus
+        remainingSeconds = 25 * 60
+        completedSessions = 0
+        persistenceError = nil
+        if defaults.object(forKey: Self.snapshotKey) != nil {
+            guard let data = defaults.data(forKey: Self.snapshotKey),
+                  (try? JSONDecoder().decode(Snapshot.self, from: data)) != nil else {
+                // Preserve damaged or future-format bytes for recovery; never overwrite them with an empty history.
+                persistenceError = "Focus data could not be read. Restore a valid backup in Settings before starting a timer."
+                return
+            }
+        }
         if let data = defaults.data(forKey: Self.snapshotKey),
            let snapshot = try? JSONDecoder().decode(Snapshot.self, from: data) {
             selectedMinutes = Self.customMinuteRange.contains(snapshot.selectedMinutes) ? snapshot.selectedMinutes : 25
@@ -46,6 +71,7 @@ final class FocusTimerModel: ObservableObject {
             remainingSeconds = min(selectedMinutes * 60, max(0, snapshot.remainingSeconds))
             completedSessions = max(0, snapshot.completedSessions)
             history = Array(snapshot.history.sorted { $0.completedAt > $1.completedAt }.prefix(Self.historyLimit))
+            taskLabel = String((snapshot.taskLabel ?? "").prefix(200))
             activeSessionID = snapshot.activeSessionID
             targetDate = snapshot.targetDate
             isRunning = snapshot.isRunning && targetDate != nil && remainingSeconds > 0
@@ -83,6 +109,12 @@ final class FocusTimerModel: ObservableObject {
 
     var widgetTargetDate: Date? { targetDate }
 
+    func setTaskLabel(_ value: String) {
+        guard persistenceError == nil else { return }
+        taskLabel = String(value.prefix(200))
+        persistState()
+    }
+
     var timeLabel: String {
         String(format: "%02d:%02d", remainingSeconds / 60, remainingSeconds % 60)
     }
@@ -94,14 +126,14 @@ final class FocusTimerModel: ObservableObject {
     /// Calendar suggestions and custom durations prepare a paused timer, without replacing existing work.
     @discardableResult
     func prepareFocus(minutes: Int) -> Bool {
-        guard !hasUnfinishedSession, Self.customMinuteRange.contains(minutes) else { return false }
+        guard persistenceError == nil, !hasUnfinishedSession, Self.customMinuteRange.contains(minutes) else { return false }
         prepare(minutes: minutes, kind: .focus)
         return true
     }
 
     /// Retains the original 25/50 focus and 5-minute break preset behavior.
     func select(minutes: Int) {
-        guard !hasUnfinishedSession, Self.presets.contains(minutes) else { return }
+        guard persistenceError == nil, !hasUnfinishedSession, Self.presets.contains(minutes) else { return }
         prepare(minutes: minutes, kind: minutes == 5 ? .breakTime : .focus)
     }
 
@@ -116,6 +148,7 @@ final class FocusTimerModel: ObservableObject {
     }
 
     func toggle(now: Date = Date()) {
+        guard persistenceError == nil else { return }
         if isRunning {
             synchronize(now: now)
             guard remainingSeconds > 0 else { return }
@@ -131,6 +164,7 @@ final class FocusTimerModel: ObservableObject {
     }
 
     func reset() {
+        guard persistenceError == nil else { return }
         targetDate = nil
         activeSessionID = nil
         isRunning = false
@@ -139,6 +173,7 @@ final class FocusTimerModel: ObservableObject {
     }
 
     func synchronize(now: Date = Date()) {
+        guard persistenceError == nil else { return }
         guard isRunning, let targetDate else { return }
         let updatedRemaining = min(remainingSeconds, max(0, Int(ceil(targetDate.timeIntervalSince(now)))))
         guard updatedRemaining != remainingSeconds else { return }
@@ -152,7 +187,8 @@ final class FocusTimerModel: ObservableObject {
                     id: sessionID,
                     completedAt: targetDate,
                     minutes: selectedMinutes,
-                    kind: selectedKind
+                    kind: selectedKind,
+                    taskLabel: selectedKind == .focus ? taskLabel.trimmingCharacters(in: .whitespacesAndNewlines).nilIfEmpty : nil
                 ))
                 history.sort { $0.completedAt > $1.completedAt }
                 if history.count > Self.historyLimit { history.removeLast(history.count - Self.historyLimit) }
@@ -169,6 +205,7 @@ final class FocusTimerModel: ObservableObject {
     }
 
     private func persistState() {
+        guard persistenceError == nil else { return }
         let snapshot = Snapshot(
             selectedMinutes: selectedMinutes,
             selectedKind: selectedKind,
@@ -177,10 +214,15 @@ final class FocusTimerModel: ObservableObject {
             targetDate: targetDate,
             activeSessionID: activeSessionID,
             completedSessions: completedSessions,
-            history: history
+            history: history,
+            taskLabel: taskLabel
         )
         guard let data = try? JSONEncoder().encode(snapshot) else { return }
         defaults.set(data, forKey: Self.snapshotKey)
         lastPersistedRemainingSeconds = remainingSeconds
     }
+}
+
+private extension String {
+    var nilIfEmpty: String? { isEmpty ? nil : self }
 }

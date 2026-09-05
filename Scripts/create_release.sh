@@ -166,6 +166,7 @@ ditto "$ROOT_DIR/Sources/NotchCalendar/Resources/en.lproj" \
   "$APP_DIR/Contents/Resources/en.lproj"
 ditto "$ROOT_DIR/Sources/NotchCalendar/Resources/zh-Hans.lproj" \
   "$APP_DIR/Contents/Resources/zh-Hans.lproj"
+python3 "$ROOT_DIR/Scripts/extract_app_intents.py" build "$APP_DIR/Contents/Resources"
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "$INFO_PLIST"
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "$INFO_PLIST"
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "$WIDGET_INFO_PLIST"

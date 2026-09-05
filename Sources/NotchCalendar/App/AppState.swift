@@ -8,6 +8,9 @@ final class AppState: ObservableObject {
     let focusTimer: FocusTimerModel
     let updateChecker = UpdateChecker()
     let presentationPreferences: PresentationPreferences
+    let notesStore: MeetingNotesStore
+    let backupStore: LocalBackupStore
+    let meetingAssistant: MeetingAssistant
     @Published var selectedDate = Date()
     /// Desired hover state. The controller may keep the visual expanded briefly
     /// while its shrink animation completes.
@@ -27,6 +30,9 @@ final class AppState: ObservableObject {
         self.calendar = calendar
         self.focusTimer = focusTimer
         presentationPreferences = PresentationPreferences()
+        notesStore = MeetingNotesStore()
+        backupStore = LocalBackupStore()
+        meetingAssistant = MeetingAssistant(calendar: calendar)
         calendarObserver = calendar.objectWillChange.sink { [weak self] _ in
             self?.objectWillChange.send()
         }
@@ -37,6 +43,13 @@ final class AppState: ObservableObject {
             }
         }
         observeSystemTimeContext()
+        // Restore is posted on MainActor. Reload before it returns so a queued timer
+        // tick or shortcut cannot persist the pre-restore in-memory snapshot.
+        NotificationCenter.default.publisher(for: .localBackupDidRestore)
+            .sink { [weak self] _ in
+                self?.reloadLocalPreferences()
+            }
+            .store(in: &timeContextObservers)
         scheduleNextCalendarDayRefresh()
         widgetSnapshotCoordinator = WidgetSnapshotCoordinator(
             calendar: calendar,
@@ -45,6 +58,14 @@ final class AppState: ObservableObject {
     }
 
     func toggleExpansion() { isExpanded.toggle() }
+
+    private func reloadLocalPreferences() {
+        notesStore.reload()
+        focusTimer.reload()
+        calendar.reloadPreferences()
+        presentationPreferences.reload()
+        meetingAssistant.reloadPreferences()
+    }
 
     private func scheduleNextCalendarDayRefresh(now: Date = Date()) {
         calendarDayTimer?.invalidate()

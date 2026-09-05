@@ -175,9 +175,9 @@ final class FocusHistoryTests: XCTestCase {
         try FocusHistoryCSV.write(records: [second, first], to: url)
         let content = try String(contentsOf: url, encoding: .utf8)
         let rows = content.components(separatedBy: "\r\n")
-        XCTAssertEqual(rows[0], "session_id,completed_at_utc,duration_minutes,kind")
-        XCTAssertEqual(rows[1], "\(first.id.uuidString),2026-09-05T09:00:00.000Z,37,focus")
-        XCTAssertEqual(rows[2], "\(second.id.uuidString),2026-09-05T09:05:00.000Z,5,break")
+        XCTAssertEqual(rows[0], "session_id,completed_at_utc,duration_minutes,kind,task_label")
+        XCTAssertEqual(rows[1], "\(first.id.uuidString),2026-09-05T09:00:00.000Z,37,focus,\"\"")
+        XCTAssertEqual(rows[2], "\(second.id.uuidString),2026-09-05T09:05:00.000Z,5,break,\"\"")
         XCTAssertEqual(rows.count, 4)
         XCTAssertThrowsError(try FocusHistoryCSV.write(records: [first], to: directory))
     }

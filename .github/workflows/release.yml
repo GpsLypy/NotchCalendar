@@ -73,6 +73,7 @@ jobs:
           verify_universal_binary "$updater_path" "Notch Calendar Updater"
           verify_universal_binary "$widget_executable" "Notch Calendar Widgets"
           codesign --verify --deep --strict --all-architectures --verbose=2 "$app_path"
+          python3 Scripts/extract_app_intents.py verify "$app_path/Contents/Resources"
 
           app_version="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$app_path/Contents/Info.plist")"
           app_build="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$app_path/Contents/Info.plist")"

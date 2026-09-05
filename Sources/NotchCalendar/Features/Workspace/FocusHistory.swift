@@ -11,6 +11,7 @@ struct FocusHistoryRecord: Identifiable, Codable, Equatable, Sendable {
     let completedAt: Date
     let minutes: Int
     let kind: FocusSessionKind
+    var taskLabel: String? = nil
 }
 
 struct FocusHistorySummary: Equatable, Sendable {
@@ -47,10 +48,17 @@ enum FocusHistoryCSV {
                 ? $0.id.uuidString < $1.id.uuidString
                 : $0.completedAt < $1.completedAt
         }.map { record in
-            [record.id.uuidString, formatter.string(from: record.completedAt), "\(record.minutes)", record.kind.rawValue]
+            [record.id.uuidString, formatter.string(from: record.completedAt), "\(record.minutes)", record.kind.rawValue, cell(record.taskLabel ?? "")]
                 .joined(separator: ",")
         }
-        return (["session_id,completed_at_utc,duration_minutes,kind"] + rows).joined(separator: "\r\n") + "\r\n"
+        return (["session_id,completed_at_utc,duration_minutes,kind,task_label"] + rows).joined(separator: "\r\n") + "\r\n"
+    }
+
+    private static func cell(_ value: String) -> String {
+        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        let safe = trimmed.first.map { "=+-@".contains($0) } == true || value.first == "\t" || value.first == "\r"
+            ? "'" + value : value
+        return "\"" + safe.replacingOccurrences(of: "\"", with: "\"\"") + "\""
     }
 
     static func write(records: [FocusHistoryRecord], to url: URL) throws {

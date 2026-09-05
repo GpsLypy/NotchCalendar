@@ -6,6 +6,8 @@ struct TodayWorkspaceView: View {
     @ObservedObject var focusTimer: FocusTimerModel
     let isActive: Bool
     let navigate: (WorkspaceDestination) -> Void
+    var meetingAssistant: MeetingAssistant? = nil
+    var onSelectEvent: ((CalendarEvent) -> Void)? = nil
     @Environment(\.appLanguage) private var appLanguage
     @Environment(\.openSettings) private var openSettings
 
@@ -16,6 +18,9 @@ struct TodayWorkspaceView: View {
             VStack(alignment: .leading, spacing: 22) {
                 pageHeader
                 daySignal
+                if let meetingAssistant {
+                    MeetingControlsView(assistant: meetingAssistant)
+                }
                 DayPlanningCard(
                     events: calendar.planningEvents,
                     now: now,
@@ -157,7 +162,15 @@ struct TodayWorkspaceView: View {
                 } else {
                     VStack(spacing: 0) {
                         ForEach(Array(displayedScheduleEvents.enumerated()), id: \.element.id) { index, event in
-                            TodayEventRow(event: event, now: now)
+                            HStack(spacing: 8) {
+                                TodayEventRow(event: event, now: now)
+                                if let onSelectEvent {
+                                    Button { onSelectEvent(event) } label: { Image(systemName: "note.text.badge.plus") }
+                                        .buttonStyle(.plain)
+                                        .foregroundStyle(WorkspacePalette.secondaryText)
+                                        .help(t("Meeting notes"))
+                                }
+                            }
                             if index < displayedScheduleEvents.count - 1 {
                                 Divider().overlay(WorkspacePalette.stroke)
                             }

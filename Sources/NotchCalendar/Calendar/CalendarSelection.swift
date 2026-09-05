@@ -6,6 +6,7 @@ struct CalendarSource: Identifiable, Equatable {
     let title: String
     let sourceTitle: String
     var color: NSColor? = nil
+    var allowsContentModifications: Bool = false
 }
 
 enum CalendarSourceAvailability: Equatable {
@@ -75,6 +76,13 @@ protocol CalendarDataSource {
     func availableCalendars() -> [CalendarSource]
     func events(from start: Date, to end: Date, calendarIDs: Set<String>) -> [CalendarEvent]
     func requestAccess(completion: @escaping @Sendable (Bool, Error?) -> Void)
+    func createEvent(_ draft: CalendarEventDraft) throws -> CalendarEvent
+}
+
+extension CalendarDataSource {
+    func createEvent(_ draft: CalendarEventDraft) throws -> CalendarEvent {
+        throw CalendarDraftError.creationUnavailable
+    }
 }
 
 enum CalendarEventAvailabilityPolicy {

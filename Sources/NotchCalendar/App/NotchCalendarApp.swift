@@ -10,7 +10,9 @@ struct NotchCalendarApp: App {
                 SettingsView(
                     updateChecker: appDelegate.state.updateChecker,
                     presentationPreferences: appDelegate.state.presentationPreferences,
-                    calendar: appDelegate.state.calendar
+                    calendar: appDelegate.state.calendar,
+                    meetingAssistant: appDelegate.state.meetingAssistant,
+                    backupStore: appDelegate.state.backupStore
                 )
             }
         }
