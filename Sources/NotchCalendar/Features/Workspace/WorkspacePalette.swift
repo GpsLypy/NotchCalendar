@@ -20,6 +20,9 @@ enum WorkspaceDestination: String, CaseIterable, Identifiable {
     case focus
     case scratchpad
     case radar
+    case markets
+    case discussion
+    case briefing
 
     var id: String { rawValue }
 
@@ -30,6 +33,9 @@ enum WorkspaceDestination: String, CaseIterable, Identifiable {
         case .focus: "Focus"
         case .scratchpad: "Scratchpad"
         case .radar: "Radar"
+        case .markets: "Markets"
+        case .discussion: "Discussion Room"
+        case .briefing: "Briefing"
         }
     }
 
@@ -40,6 +46,9 @@ enum WorkspaceDestination: String, CaseIterable, Identifiable {
         case .focus: "timer"
         case .scratchpad: "note.text"
         case .radar: "antenna.radiowaves.left.and.right"
+        case .markets: "chart.xyaxis.line"
+        case .discussion: "bubble.left.and.bubble.right"
+        case .briefing: "newspaper"
         }
     }
 }

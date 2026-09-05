@@ -4,6 +4,25 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-09-05
+
+macOS 15+ · Apple Silicon and Intel. This manual-install build is ad-hoc signed and is not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；本版为 ad-hoc 签名的手动安装包，尚未进行 Developer ID 公证。
+
+### Added / 新增功能
+
+- Added Markets with up to eight US stock/ETF symbols, watchlist ordering, personal Alpha Vantage credentials in macOS Keychain, explicit manual refresh, closing quotes, trade dates and per-symbol failures. / 新增自选行情，支持最多八个美股/ETF代码、调整顺序、系统钥匙串保存个人 Alpha Vantage 密钥、手动刷新、收盘行情、交易日期和逐项失败提示。
+- Added a Discussion Room with real Hacker News topics and attributed comments, original-source links, locally saved perspectives, private notes and retained threads. / 新增舆论室，提供真实 Hacker News 话题及署名评论、原帖链接、本机立场、私人笔记及留存话题。
+- Added Briefing with GitHub Blog, Swift.org and NASA primary-source feeds, source and keyword filters, a finite twenty-headline list, bookmarks and read state. / 新增信息差简报，汇集 GitHub Blog、Swift.org 与 NASA 一手资讯，提供来源及关键词筛选、最多二十条的阅读列表、收藏与已读记录。
+
+### Improved / 功能优化
+
+- Added direct sidebar entries and ⌘6 / ⌘7 / ⌘8 shortcuts. Navigation scrolls in smaller windows while Settings remains accessible. / 新增三个同级侧栏入口与快捷键，小窗口内导航可滚动，设置入口仍保持可访问。
+- External content retains source, time and cache context. Bounded requests and local persistence keep network failures independent of calendar, focus and notes. / 外部内容标注来源、时间和缓存状态；请求有边界，联网失败不会影响日历、专注和私人笔记。
+
+### Fixed / 问题修复
+
+- Added deterministic coverage for malformed and partial external responses, request cancellation, rate limits, corrupted caches and persisted local reading state. / 为畸形及部分响应、任务取消、限流、损坏缓存及本地阅读状态恢复补齐确定性测试。
+
 ## [0.5.0] - 2026-09-05
 
 ### Added / 新增功能

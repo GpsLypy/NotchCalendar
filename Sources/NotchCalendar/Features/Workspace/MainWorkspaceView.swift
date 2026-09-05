@@ -70,6 +70,12 @@ struct MainWorkspaceView: View {
             ScratchpadWorkspaceView()
         case .radar:
             RadarWorkspaceView()
+        case .markets:
+            MarketWorkspaceView()
+        case .discussion:
+            DiscussionWorkspaceView()
+        case .briefing:
+            BriefingWorkspaceView()
         }
     }
 

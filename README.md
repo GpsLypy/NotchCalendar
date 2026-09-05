@@ -8,6 +8,9 @@ A local-first macOS 15+ personal workspace built around the calendar beside your
 - Expanded agenda and month calendar after an intentional hover, with a click-only mode when you want the notch to remain completely quiet.
 - A Codex-inspired desktop workspace with a persistent sidebar, Today overview, calendar, focus timer, scratchpad, and Radar.
 - Radar shows ten Hot, Ask, or Show Hacker News signals, then stops. It refreshes only when opened, keeps a 30-minute local cache, and preserves saved results when the network is unavailable.
+- Markets (`⌘6`) keeps up to eight US stock or ETF symbols, with add/remove/reorder controls, manual closing-quote refresh, trade dates, per-symbol errors, and a 15-minute cache. Add your own Alpha Vantage key in the page; it stays in macOS Keychain. This is a personal, end-of-day observation tool, not a real-time trading feed. See [provider setup and limits](docs/markets-provider.md).
+- Discussion Room (`⌘7`) opens real Hacker News topics and a bounded set of attributed comments. Keep your stance, private notes and saved threads locally, with original-source links and offline retention. The page explicitly represents a limited community sample.
+- Briefing (`⌘8`) collects up to twenty current headlines from GitHub Blog, Swift.org and NASA. Filter by source or keyword, mark items read, and save up to one hundred articles locally. The 30-minute cache survives network errors; [source details](docs/briefing-sources.md) explain the scope.
 - Three matching desktop widgets for the month calendar, live focus progress, and today's agenda. Each has a small, explicit open control instead of turning the whole widget into a launch target. Control-click the desktop, choose **Edit Widgets**, then search for **Notch Calendar**.
 - Cold launches initialize the notch service without raising the desktop window. Clicking the compact notch opens its calendar, while clicking the Dock icon again restores the full workspace after it is closed or minimized.
 - Drift-resistant 5, 25, and 50 minute timers that keep their place while you switch tools or the Mac sleeps.
@@ -27,6 +30,8 @@ Open the folder in Xcode and run the `NotchCalendar` executable scheme, or run:
 ```sh
 swift run
 ```
+
+Run deterministic checks with `swift test` using full Xcode (when Command Line Tools are selected, use `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer swift test`). The optional `MarketingCaptureTests` live-source/native-rendering check is skipped unless `NOTCH_CAPTURE_PATH` names an output directory.
 
 On first launch, allow Calendar access in the system prompt. The app falls back to the top-centre position on displays without a camera housing.
 

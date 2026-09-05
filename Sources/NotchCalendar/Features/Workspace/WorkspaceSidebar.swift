@@ -14,20 +14,28 @@ struct WorkspaceSidebar: View {
                 .padding(.top, 43)
                 .padding(.bottom, 24)
 
-            sectionLabel("WORKSPACE")
-            navigationRow(.today, shortcut: "⌘1")
-            navigationRow(.calendar, shortcut: "⌘2", badge: eventBadge)
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    sectionLabel("WORKSPACE")
+                    navigationRow(.today, shortcut: "⌘1")
+                    navigationRow(.calendar, shortcut: "⌘2", badge: eventBadge)
 
-            sectionLabel("TOOLS")
-                .padding(.top, 18)
-            navigationRow(.focus, shortcut: "⌘3", badge: focusBadge)
-            navigationRow(.scratchpad, shortcut: "⌘4")
+                    sectionLabel("TOOLS")
+                        .padding(.top, 18)
+                    navigationRow(.focus, shortcut: "⌘3", badge: focusBadge)
+                    navigationRow(.scratchpad, shortcut: "⌘4")
 
-            sectionLabel("INSIGHTS")
-                .padding(.top, 18)
-            navigationRow(.radar, shortcut: "⌘5")
+                    sectionLabel("INSIGHTS")
+                        .padding(.top, 18)
+                    navigationRow(.radar, shortcut: "⌘5")
+                    navigationRow(.markets, shortcut: "⌘6")
+                    navigationRow(.discussion, shortcut: "⌘7")
+                    navigationRow(.briefing, shortcut: "⌘8")
+                }
+            }
+            .scrollIndicators(.hidden)
 
-            Spacer(minLength: 24)
+            Spacer(minLength: 8)
 
             TimelineView(.periodic(from: .now, by: 60)) { context in
                 DayPulseView(date: context.date)
@@ -213,6 +221,9 @@ struct WorkspaceSidebar: View {
         case .focus: "3"
         case .scratchpad: "4"
         case .radar: "5"
+        case .markets: "6"
+        case .discussion: "7"
+        case .briefing: "8"
         }
     }
 
