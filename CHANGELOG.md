@@ -4,6 +4,25 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-09-05
+
+macOS 15+ · Apple Silicon and Intel. This free manual-install build is ad-hoc signed and is not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；本版继续免费，采用 ad-hoc 签名及手动安装，尚未进行 Developer ID 公证。
+
+### Added / 新增功能
+
+- Added persistent calendar source selection, with account names, calendar colors, and explicit recovery for no access, no calendars, or all calendars hidden. The selection applies to Today, the notch, month calendar, and widgets. / 新增持久化日历来源选择，显示账户名与日历颜色，区分无权限、无日历和全部隐藏状态，统一用于今日、刘海、月历与小组件。
+- Added a local daily planning timeline with configurable hours and meeting buffers, remaining openings, real event conflicts, and an explicit action to prepare a suitable focus session. / 新增本地今日时间规划，支持自定义时段、日程前后缓冲、剩余空档、真实日程冲突与准备合适专注时长的明确操作。
+- Added custom 5–180 minute focus sessions, separate breaks, daily/weekly completed focus minutes, a bounded local completion journal, and CSV export with visible failures. / 新增 5–180 分钟自定义专注、独立休息类型、今日与本周已完成专注时长、有限本地完成记录和带失败反馈的 CSV 导出。
+
+### Improved / 功能优化
+
+- Calendar suggestions respect busy status and never replace a running or paused timer. Completion records preserve their scheduled finish time across sleep and relaunch; earlier cumulative totals remain without fabricated historical entries. / 日历建议遵循忙碌状态，不覆盖运行或暂停的计时器；休眠和重启后按原定完成时间记录，更早的累计次数保留但不伪造历史明细。
+
+### Fixed / 问题修复
+
+- Calendar changes outside today now invalidate month and widget snapshots. Empty calendar selections perform no event query. Planning covers adjacent-day meeting buffers, daylight-saving boundaries, and expired suggestions. / 非当日日程变化现会更新月历与小组件快照；全不选时不查询事件；时间规划覆盖相邻日期缓冲、夏令时与已过期建议。
+- Focus widgets now distinguish breaks from custom five-minute focus sessions and correctly show timers paused immediately after starting, while remaining compatible with older saved snapshots. / 专注小组件现在能区分休息与自定义五分钟专注，并正确显示刚开始就暂停的计时器，同时兼容旧版保存状态。
+
 ## [0.6.0] - 2026-09-05
 
 macOS 15+ · Apple Silicon and Intel. This manual-install build is ad-hoc signed and is not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；本版为 ad-hoc 签名的手动安装包，尚未进行 Developer ID 公证。

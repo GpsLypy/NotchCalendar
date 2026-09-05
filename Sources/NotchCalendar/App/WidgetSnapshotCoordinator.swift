@@ -112,7 +112,9 @@ final class WidgetSnapshotCoordinator {
             isRunning: focusTimer.isRunning,
             targetDate: targetDate,
             completedSessions: focusTimer.completedSessions,
-            localizationIdentifier: publishedLocalizationIdentifier
+            localizationIdentifier: publishedLocalizationIdentifier,
+            isBreak: focusTimer.selectedKind == .breakTime,
+            hasUnfinishedSession: focusTimer.hasUnfinishedSession
         )
 
         if WidgetSnapshotStore.writeFocus(focusSnapshot) {

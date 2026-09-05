@@ -4,6 +4,7 @@ import AppKit
 struct SettingsView: View {
     @ObservedObject var updateChecker: UpdateChecker
     @ObservedObject var presentationPreferences: PresentationPreferences
+    @ObservedObject var calendar: CalendarManager
     @AppStorage(AppLanguage.storageKey) private var storedLanguage = AppLanguage.system.rawValue
     @Environment(\.appLanguage) private var appLanguage
     @State private var showsUpdateDetails = false
@@ -32,6 +33,8 @@ struct SettingsView: View {
                 Text(t("Calendar access is requested on first launch and your event data stays on this Mac."))
                     .foregroundStyle(.secondary)
             }
+
+            calendarSources
 
             Section(t("Interaction")) {
                 Picker(
@@ -196,9 +199,67 @@ struct SettingsView: View {
         }
         .formStyle(.grouped)
         .frame(width: 540, height: 620)
-        .onAppear { revealUpdateDetailsIfNeeded(for: updateChecker.status) }
+        .onAppear {
+            calendar.refresh()
+            revealUpdateDetailsIfNeeded(for: updateChecker.status)
+        }
         .onChange(of: updateChecker.status) { _, status in
             revealUpdateDetailsIfNeeded(for: status)
+        }
+    }
+
+    private var calendarSources: some View {
+        Section(t("Calendar Sources")) {
+            if calendar.sourceAvailability == .needsPermission {
+                Text(t("Allow Calendar access in System Settings to show your agenda."))
+                    .foregroundStyle(.secondary)
+                Button(t("Open System Settings")) { calendar.openPrivacySettings() }
+            } else if calendar.sourceAvailability == .noCalendars {
+                Text(t("No system calendars found. Add an account or calendar in Calendar, then refresh."))
+                    .foregroundStyle(.secondary)
+                HStack {
+                    Button(t("Open Calendar")) {
+                        if let url = URL(string: "ical://") { NSWorkspace.shared.open(url) }
+                    }
+                    Button(t("Refresh Calendars")) { calendar.refresh() }
+                }
+            } else {
+                HStack {
+                    Text(t("%@ of %@ calendars shown", "\(calendar.selectedCalendarCount)", "\(calendar.availableCalendars.count)"))
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    Button(t("Show All Calendars")) { calendar.selectAllCalendars() }
+                        .disabled(calendar.selectedCalendarCount == calendar.availableCalendars.count)
+                }
+                ForEach(calendar.availableCalendars) { source in
+                    Toggle(isOn: Binding(
+                        get: { calendar.isCalendarSelected(source.id) },
+                        set: { calendar.setCalendarSelected(source.id, isSelected: $0) }
+                    )) {
+                        HStack(spacing: 9) {
+                            Circle()
+                                .fill(Color(nsColor: source.color ?? .secondaryLabelColor))
+                                .frame(width: 8, height: 8)
+                                .accessibilityHidden(true)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(source.title)
+                                Text(source.sourceTitle)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                    .toggleStyle(.checkbox)
+                    .accessibilityLabel("\(source.title), \(source.sourceTitle)")
+                }
+                if calendar.sourceAvailability == .noneSelected {
+                    Label(t("All calendars are hidden. Show a calendar to restore your agenda and planning."), systemImage: "calendar.badge.minus")
+                        .foregroundStyle(.secondary)
+                }
+                Text(t("This selection applies to Today, the month view, the notch, and desktop widgets. New calendars are shown automatically."))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
         }
     }
 

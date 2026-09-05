@@ -10,6 +10,7 @@ struct CalendarEvent: Identifiable, Equatable {
     let location: String?
     let meetingLink: MeetingLink?
     let isAllDay: Bool
+    var blocksTime: Bool = true
 
     func displayTitle(language: AppLanguage) -> String {
         guard !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {

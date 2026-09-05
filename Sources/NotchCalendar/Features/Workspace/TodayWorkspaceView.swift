@@ -7,6 +7,7 @@ struct TodayWorkspaceView: View {
     let isActive: Bool
     let navigate: (WorkspaceDestination) -> Void
     @Environment(\.appLanguage) private var appLanguage
+    @Environment(\.openSettings) private var openSettings
 
     @State private var now = Date()
 
@@ -15,6 +16,14 @@ struct TodayWorkspaceView: View {
             VStack(alignment: .leading, spacing: 22) {
                 pageHeader
                 daySignal
+                DayPlanningCard(
+                    events: calendar.planningEvents,
+                    now: now,
+                    sourceAvailability: calendar.sourceAvailability,
+                    focusTimer: focusTimer,
+                    openFocus: { navigate(.focus) },
+                    openCalendar: { navigate(.calendar) }
+                )
                 HStack(alignment: .top, spacing: 18) {
                     schedule
                         .frame(maxWidth: .infinity, alignment: .top)
@@ -89,6 +98,9 @@ struct TodayWorkspaceView: View {
             Button(t("Open System Settings")) { calendar.openPrivacySettings() }
                 .buttonStyle(.borderedProminent)
                 .tint(WorkspacePalette.accent)
+        } else if calendar.sourceAvailability != .available {
+            Button(t("Calendar Sources")) { openSettings() }
+                .buttonStyle(.bordered)
         } else if let meetingLink = featuredEvent?.meetingLink {
             Button {
                 NSWorkspace.shared.open(meetingLink.url)
@@ -122,7 +134,7 @@ struct TodayWorkspaceView: View {
                 }
                 .padding(.bottom, 16)
 
-                if let message = calendar.authorizationMessage {
+                if let message = calendar.availabilityMessage {
                     Label(t(message), systemImage: "calendar.badge.exclamationmark")
                         .font(.system(size: 12))
                         .foregroundStyle(WorkspacePalette.secondaryText)
@@ -213,18 +225,18 @@ struct TodayWorkspaceView: View {
     }
 
     private var signalEyebrow: String {
-        if calendar.authorizationMessage != nil { return t("CALENDAR") }
+        if calendar.availabilityMessage != nil { return t("CALENDAR") }
         guard let event = featuredEvent else { return t("CLEAR AHEAD") }
         return event.startDate <= now ? t("HAPPENING NOW") : t("UP NEXT")
     }
 
     private var signalTitle: String {
-        if calendar.authorizationMessage != nil { return t("Connect your day") }
+        if calendar.availabilityMessage != nil { return t("Connect your day") }
         return featuredEvent?.displayTitle(language: appLanguage) ?? t("A clear stretch ahead")
     }
 
     private var signalDetail: String {
-        if let message = calendar.authorizationMessage { return t(message) }
+        if let message = calendar.availabilityMessage { return t(message) }
         guard let event = featuredEvent else {
             return t("No timed events remain. Choose what deserves your attention.")
         }

@@ -14,6 +14,9 @@ A local-first macOS 15+ personal workspace built around the calendar beside your
 - Three matching desktop widgets for the month calendar, live focus progress, and today's agenda. Each has a small, explicit open control instead of turning the whole widget into a launch target. Control-click the desktop, choose **Edit Widgets**, then search for **Notch Calendar**.
 - Cold launches initialize the notch service without raising the desktop window. Clicking the compact notch opens its calendar, while clicking the Dock icon again restores the full workspace after it is closed or minimized.
 - Drift-resistant 5, 25, and 50 minute timers that keep their place while you switch tools or the Mac sleeps.
+- Calendar source selection in Settings applies consistently to Today, the notch, the month view, and widgets. Hidden calendars stay hidden after relaunch; new calendars appear automatically, and an empty selection never falls back to showing everything.
+- Today's planning card finds remaining openings within configurable local hours and meeting buffers, flags overlapping timed events, and prepares up to 50 minutes of focus for the current opening. Free, canceled, declined, and all-day events do not block openings; all-day events remain in the agenda. Suggestions never start automatically or replace an unfinished timer.
+- Custom 5–180 minute focus sessions, separate break tracking, today's and this week's completed focus minutes, and a local journal of the latest 1,000 completions with CSV export. Totals use the session's completion date; legacy cumulative counts remain without invented history.
 - A local scratchpad with automatic saving, timestamps, and one-click copy.
 - In-app language selection for Simplified Chinese, English, or the current system language, applied without restarting.
 - One-click Smart Join for Zoom, Google Meet, Microsoft Teams, Webex, Around, and Whereby, plus an Open link action for other structured event URLs.
@@ -50,6 +53,8 @@ Version 0.3.0 keeps automatic app replacement disabled while retaining the signe
 Release archives without a signing certificate are ad-hoc signed for local development only. For Developer ID distribution, set `DEVELOPER_ID_APPLICATION` to a valid Apple Developer ID Application certificate and `NOTARYTOOL_PROFILE` to a configured `notarytool` keychain profile before running the release script. This allows the script to enable hardened runtime, notarize the app, and staple the result before packaging it.
 
 See [the product roadmap](docs/PRODUCT_ROADMAP.md) for the stability requirements and planned market, weather, and local-assistant integrations.
+
+Version 0.7.0 adds calendar selection, daily planning, and focus history without any payment or account requirement. See [the professional-tool product review](docs/PRODUCT_REVIEW_2026-09-05.md) for the Alcove, Dato, Clop, and Maccy comparison and remaining functional priorities, and [the release validation](docs/VALIDATION_V0.7.0.md) for verification and its limits.
 
 ## Buy me a coffee / 请作者喝杯咖啡
 

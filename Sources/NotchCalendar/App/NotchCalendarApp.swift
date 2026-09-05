@@ -9,7 +9,8 @@ struct NotchCalendarApp: App {
             AppLanguageHost {
                 SettingsView(
                     updateChecker: appDelegate.state.updateChecker,
-                    presentationPreferences: appDelegate.state.presentationPreferences
+                    presentationPreferences: appDelegate.state.presentationPreferences,
+                    calendar: appDelegate.state.calendar
                 )
             }
         }

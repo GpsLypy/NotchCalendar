@@ -96,6 +96,15 @@ public struct WidgetFocusSnapshot: Codable, Equatable, Sendable {
     public let targetDate: Date?
     public let completedSessions: Int
     public let localizationIdentifier: String
+    private let storedIsBreak: Bool?
+    private let storedHasUnfinishedSession: Bool?
+
+    private enum CodingKeys: String, CodingKey {
+        case selectedMinutes, remainingSecondsAtWrite, isRunning, targetDate
+        case completedSessions, localizationIdentifier
+        case storedIsBreak = "isBreak"
+        case storedHasUnfinishedSession = "hasUnfinishedSession"
+    }
 
     public init(
         selectedMinutes: Int,
@@ -103,7 +112,9 @@ public struct WidgetFocusSnapshot: Codable, Equatable, Sendable {
         isRunning: Bool,
         targetDate: Date?,
         completedSessions: Int,
-        localizationIdentifier: String
+        localizationIdentifier: String,
+        isBreak: Bool? = nil,
+        hasUnfinishedSession: Bool? = nil
     ) {
         self.selectedMinutes = selectedMinutes
         self.remainingSecondsAtWrite = remainingSecondsAtWrite
@@ -111,6 +122,17 @@ public struct WidgetFocusSnapshot: Codable, Equatable, Sendable {
         self.targetDate = targetDate
         self.completedSessions = completedSessions
         self.localizationIdentifier = localizationIdentifier
+        storedIsBreak = isBreak
+        storedHasUnfinishedSession = hasUnfinishedSession
+    }
+
+    /// Older app snapshots used the five-minute preset exclusively for breaks.
+    public var isBreak: Bool { storedIsBreak ?? (selectedMinutes == 5) }
+
+    /// Explicit session state also identifies a timer paused before its first tick.
+    public var hasUnfinishedSession: Bool {
+        storedHasUnfinishedSession
+            ?? (isRunning || (remainingSecondsAtWrite > 0 && remainingSecondsAtWrite < totalSeconds))
     }
 
     public var totalSeconds: Int {
@@ -136,7 +158,7 @@ public struct WidgetFocusSnapshot: Codable, Equatable, Sendable {
         let remaining = remainingSeconds(at: date)
         if remaining == 0 { return .complete }
         if isRunning { return .running }
-        if remaining < totalSeconds { return .paused }
+        if hasUnfinishedSession { return .paused }
         return .ready
     }
 }

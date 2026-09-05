@@ -179,6 +179,7 @@ struct NotchWidgetCopy {
     var monthWidgetName: String { isChinese ? "月历" : "Month" }
     var agendaWidgetName: String { isChinese ? "今日日程" : "Today" }
     var focusWidgetName: String { isChinese ? "专注" : "Focus" }
+    var breakWidgetName: String { isChinese ? "休息" : "Break" }
     var allDay: String { isChinese ? "全天" : "All day" }
     var noEventsTitle: String { isChinese ? "今天暂无日程" : "A clear day" }
     var noEventsDetail: String { isChinese ? "留一点时间给自己" : "Keep a little time for yourself" }
@@ -197,6 +198,7 @@ struct NotchWidgetCopy {
     }
     var ready: String { isChinese ? "准备开始" : "Ready" }
     var running: String { isChinese ? "专注中" : "In focus" }
+    var resting: String { isChinese ? "休息中" : "On a break" }
     var paused: String { isChinese ? "已暂停" : "Paused" }
     var complete: String { isChinese ? "本轮完成" : "Complete" }
     var sessions: String { isChinese ? "轮" : "sessions" }

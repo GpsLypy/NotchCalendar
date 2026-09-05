@@ -34,6 +34,7 @@ struct CalendarDashboardView: View {
     @State private var monthEvents: [CalendarEvent] = []
     @State private var reloadTask: Task<Void, Never>?
     @Environment(\.appLanguage) private var appLanguage
+    @Environment(\.openSettings) private var openSettings
 
     var body: some View {
         let status = UpcomingEventEngine.status(now: now, events: calendar.todayEvents)
@@ -46,6 +47,16 @@ struct CalendarDashboardView: View {
                 header
                 if let authorizationMessage = calendar.authorizationMessage {
                     permissionCard(authorizationMessage)
+                } else if let message = calendar.availabilityMessage {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text(t(message))
+                            .font(.system(size: 12))
+                            .foregroundStyle(AlcovePalette.secondaryText)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Button(t("Calendar Sources")) { openSettings() }
+                            .buttonStyle(.bordered)
+                    }
+                    .padding(22)
                 } else {
                     if Calendar.current.isDateInToday(selectedDate) {
                         nextCard(status: status)

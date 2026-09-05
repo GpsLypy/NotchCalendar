@@ -55,10 +55,14 @@ private struct FocusTimerContent: View {
         snapshot.phase(at: date)
     }
 
+    private var sessionTitle: String {
+        snapshot.isBreak ? copy.breakWidgetName : copy.focusWidgetName
+    }
+
     var body: some View {
         VStack(spacing: 8) {
             NotchWidgetHeader(
-                title: copy.focusWidgetName,
+                title: sessionTitle,
                 destination: NotchWidgetDestination.focus,
                 openLabel: copy.openApp
             ) {
@@ -86,13 +90,13 @@ private struct FocusTimerContent: View {
             Spacer(minLength: 0)
         }
         .accessibilityElement(children: .contain)
-        .accessibilityLabel("\(copy.focusWidgetName), \(phaseTitle)")
+        .accessibilityLabel("\(sessionTitle), \(phaseTitle)")
     }
 
     private var phaseTitle: String {
         switch phase {
         case .ready: copy.ready
-        case .running: copy.running
+        case .running: snapshot.isBreak ? copy.resting : copy.running
         case .paused: copy.paused
         case .complete: copy.complete
         }

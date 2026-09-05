@@ -1,11 +1,20 @@
 import AppKit
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct FocusWorkspaceView: View {
     @ObservedObject var timer: FocusTimerModel
     @ObservedObject var calendar: CalendarManager
     let now: Date
     @Environment(\.appLanguage) private var appLanguage
+    @AppStorage(DayPlanSettings.startHourKey) private var planningStartHour = 9
+    @AppStorage(DayPlanSettings.endHourKey) private var planningEndHour = 18
+    @AppStorage(DayPlanSettings.bufferMinutesKey) private var planningBufferMinutes = 5
+    @State private var customMinutes = "30"
+    @State private var durationError: String?
+    @State private var exportError: String?
+    @State private var exportConfirmation: String?
+    @State private var recommendationFeedback: String?
 
     var body: some View {
         ScrollView {
@@ -17,6 +26,7 @@ struct FocusWorkspaceView: View {
                     contextColumn
                         .frame(width: 230, alignment: .top)
                 }
+                historyCard
             }
             .padding(.horizontal, 30)
             .padding(.top, 52)
@@ -48,7 +58,7 @@ struct FocusWorkspaceView: View {
                     Text(
                         timer.isRunning
                             ? t("IN PROGRESS")
-                            : timer.remainingSeconds == 0 ? t("COMPLETE") : t("READY")
+                            : timer.remainingSeconds == 0 ? t("COMPLETE") : timer.hasUnfinishedSession ? t("PAUSED") : t("READY")
                     )
                         .font(.system(size: 9, weight: .bold))
                         .tracking(0.8)
@@ -72,7 +82,7 @@ struct FocusWorkspaceView: View {
 
                 Text(
                     timer.isRunning
-                        ? t("Stay with the work in front of you.")
+                        ? timer.selectedKind == .breakTime ? t("Step away, breathe, and return with a clean slate.") : t("Stay with the work in front of you.")
                         : timer.remainingSeconds == 0
                             ? t("Session complete. Reset when you are ready.")
                             : sessionDescription
@@ -90,13 +100,16 @@ struct FocusWorkspaceView: View {
                     ForEach(FocusTimerModel.presets, id: \.self) { minutes in
                         FocusPresetButton(
                             minutes: minutes,
-                            isSelected: timer.selectedMinutes == minutes
+                            isSelected: timer.selectedMinutes == minutes && timer.selectedKind == (minutes == 5 ? .breakTime : .focus)
                         ) {
                             timer.select(minutes: minutes)
                         }
-                        .disabled(timer.isRunning)
+                        .disabled(timer.hasUnfinishedSession)
                     }
                 }
+
+                customDurationControls
+                    .padding(.top, 12)
 
                 HStack(spacing: 10) {
                     Button {
@@ -114,7 +127,7 @@ struct FocusWorkspaceView: View {
                     Button(t("Reset")) { timer.reset() }
                         .buttonStyle(.bordered)
                         .controlSize(.large)
-                        .disabled(!timer.isRunning && timer.remainingSeconds == timer.selectedMinutes * 60)
+                        .disabled(!timer.hasUnfinishedSession && timer.remainingSeconds == timer.selectedMinutes * 60)
                 }
                 .padding(.top, 18)
             }
@@ -136,7 +149,7 @@ struct FocusWorkspaceView: View {
             .frame(height: 4)
 
             HStack {
-                Text(timer.isRunning ? t("FOCUSING") : t("SESSION"))
+                Text(timer.isRunning ? t(timer.selectedKind == .breakTime ? "RESTING" : "FOCUSING") : t("SESSION"))
                 Spacer()
                 Text("\(Int(timer.progress * 100))%")
                     .monospacedDigit()
@@ -145,35 +158,146 @@ struct FocusWorkspaceView: View {
             .foregroundStyle(WorkspacePalette.secondaryText)
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(t("Focus session progress"))
+        .accessibilityLabel(t(timer.selectedKind == .breakTime ? "Break progress" : "Focus session progress"))
         .accessibilityValue(t("%@ percent", "\(Int(timer.progress * 100))"))
     }
 
     private var contextColumn: some View {
         VStack(spacing: 12) {
             WorkspaceCard {
-                VStack(alignment: .leading, spacing: 8) {
-                    Image(systemName: "checkmark.seal")
-                        .font(.system(size: 15, weight: .semibold))
-                        .foregroundStyle(WorkspacePalette.success)
-                        .accessibilityHidden(true)
-                    Text(t("SESSIONS"))
+                VStack(alignment: .leading, spacing: 12) {
+                    Text(t("COMPLETED FOCUS"))
                         .font(.system(size: 9, weight: .bold))
                         .tracking(0.9)
                         .foregroundStyle(WorkspacePalette.secondaryText)
-                    Text("\(timer.completedSessions)")
-                        .font(.system(size: 30, weight: .semibold, design: .rounded))
-                        .monospacedDigit()
-                        .foregroundStyle(WorkspacePalette.primaryText)
-                    Text(t("Completed timers on this Mac"))
+
+                    HStack(alignment: .firstTextBaseline, spacing: 16) {
+                        focusMetric("Today", minutes: timer.summary(now: now).todayMinutes)
+                        focusMetric("This week", minutes: timer.summary(now: now).weekMinutes)
+                    }
+                    Text(t("Only finished focus sessions count. Breaks are excluded."))
                         .font(.system(size: 10.5))
                         .foregroundStyle(WorkspacePalette.secondaryText)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Divider().overlay(WorkspacePalette.stroke)
+                    Text(t("%@ completed timers on this Mac, including breaks.", "\(timer.completedSessions)"))
+                        .font(.system(size: 10.5))
+                        .foregroundStyle(WorkspacePalette.secondaryText)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(16)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
 
             nextMeetingCard
+        }
+    }
+
+    private func focusMetric(_ title: String, minutes: Int) -> some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text(t(title))
+                .font(.system(size: 10.5, weight: .medium))
+                .foregroundStyle(WorkspacePalette.secondaryText)
+            Text(t("%@ min", "\(minutes)"))
+                .font(.system(size: 23, weight: .semibold, design: .rounded))
+                .monospacedDigit()
+                .foregroundStyle(WorkspacePalette.primaryText)
+                .minimumScaleFactor(0.7)
+                .lineLimit(1)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private var customDurationControls: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 8) {
+                Text(t("Custom focus"))
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundStyle(WorkspacePalette.secondaryText)
+                Spacer(minLength: 0)
+                TextField("30", text: $customMinutes)
+                    .textFieldStyle(.roundedBorder)
+                    .frame(width: 48)
+                    .multilineTextAlignment(.trailing)
+                    .accessibilityLabel(t("Focus duration in minutes"))
+                    .onSubmit(prepareCustomFocus)
+                    .disabled(timer.hasUnfinishedSession)
+                Text(t("minutes"))
+                    .font(.system(size: 10.5))
+                    .foregroundStyle(WorkspacePalette.secondaryText)
+                Button(t("Set"), action: prepareCustomFocus)
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
+                    .disabled(timer.hasUnfinishedSession)
+            }
+            Text(durationError.map { t($0) } ?? t(timer.hasUnfinishedSession ? "Reset the current timer to change its duration." : "Choose 5–180 minutes. The timer starts when you press Start."))
+                .font(.system(size: 10))
+                .foregroundStyle(durationError == nil ? WorkspacePalette.secondaryText : .orange)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .onChange(of: customMinutes) { _, _ in durationError = nil }
+    }
+
+    private var historyCard: some View {
+        WorkspaceCard {
+            VStack(alignment: .leading, spacing: 14) {
+                HStack {
+                    Text(t("RECENT COMPLETIONS"))
+                        .font(.system(size: 9, weight: .bold))
+                        .tracking(0.9)
+                        .foregroundStyle(WorkspacePalette.secondaryText)
+                    Spacer()
+                    Button(action: exportHistory) {
+                        Label(t("Export CSV"), systemImage: "square.and.arrow.up")
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
+                    .disabled(timer.history.isEmpty)
+                }
+
+                if timer.history.isEmpty {
+                    Text(t("Finish a timer to see its record here."))
+                        .font(.system(size: 12))
+                        .foregroundStyle(WorkspacePalette.primaryText)
+                } else {
+                    ForEach(timer.history.prefix(8)) { record in
+                        HStack(spacing: 10) {
+                            Image(systemName: record.kind == .focus ? "checkmark.circle.fill" : "cup.and.saucer")
+                                .foregroundStyle(record.kind == .focus ? WorkspacePalette.success : WorkspacePalette.secondaryText)
+                                .frame(width: 18)
+                                .accessibilityHidden(true)
+                            Text(t(record.kind == .focus ? "Focus" : "Break"))
+                                .font(.system(size: 12, weight: .medium))
+                                .foregroundStyle(WorkspacePalette.primaryText)
+                            Text(t("%@ min", "\(record.minutes)"))
+                                .monospacedDigit()
+                                .foregroundStyle(WorkspacePalette.secondaryText)
+                            Spacer()
+                            Text(completionDateLabel(record.completedAt))
+                                .foregroundStyle(WorkspacePalette.secondaryText)
+                        }
+                        .font(.system(size: 11))
+                        .accessibilityElement(children: .combine)
+                    }
+                }
+
+                Text(t("Focus minutes belong to the day a session finishes. The latest 1,000 completions stay on this Mac; earlier totals have no detailed records. CSV exports all retained records with UTC timestamps."))
+                    .font(.system(size: 10.5))
+                    .foregroundStyle(WorkspacePalette.secondaryText)
+                    .fixedSize(horizontal: false, vertical: true)
+                if let exportError {
+                    Label(exportError, systemImage: "exclamationmark.triangle")
+                        .font(.system(size: 11))
+                        .foregroundStyle(.orange)
+                        .textSelection(.enabled)
+                } else if let exportConfirmation {
+                    Label(exportConfirmation, systemImage: "checkmark.circle")
+                        .font(.system(size: 11))
+                        .foregroundStyle(WorkspacePalette.success)
+                }
+            }
+            .padding(18)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 
@@ -219,7 +343,7 @@ struct FocusWorkspaceView: View {
                         .buttonStyle(.bordered)
                         .controlSize(.small)
                     }
-                } else if let message = calendar.authorizationMessage {
+                } else if let message = calendar.availabilityMessage {
                     Label(t(message), systemImage: "calendar.badge.exclamationmark")
                         .font(.system(size: 10.5))
                         .foregroundStyle(WorkspacePalette.secondaryText)
@@ -232,6 +356,31 @@ struct FocusWorkspaceView: View {
                         .font(.system(size: 10.5))
                         .foregroundStyle(WorkspacePalette.secondaryText)
                 }
+
+                if let minutes = suggestedFocusMinutes(at: now) {
+                    Divider().overlay(WorkspacePalette.stroke)
+                    Text(t("A %@ minute focus fits your current calendar gap.", "\(minutes)"))
+                        .font(.system(size: 10.5))
+                        .foregroundStyle(WorkspacePalette.secondaryText)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Button(t("Prepare %@ min focus", "\(minutes)")) {
+                        guard let refreshedMinutes = suggestedFocusMinutes(at: Date()) else {
+                            recommendationFeedback = "Available time has changed. Check the latest gaps on Today."
+                            return
+                        }
+                        recommendationFeedback = timer.prepareFocus(minutes: refreshedMinutes)
+                            ? nil : "Reset the current timer to change its duration."
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
+                    .disabled(timer.hasUnfinishedSession)
+                }
+                if let recommendationFeedback {
+                    Text(t(recommendationFeedback))
+                        .font(.system(size: 10.5))
+                        .foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
             .padding(16)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -240,30 +389,30 @@ struct FocusWorkspaceView: View {
 
     private var nextTimedEvent: CalendarEvent? {
         calendar.todayEvents.first {
-            !$0.isAllDay && $0.endDate > now
+            !$0.isAllDay && $0.blocksTime && $0.endDate > now
         }
     }
 
     private var sessionTitle: String {
+        if timer.selectedKind == .breakTime { return t("SHORT BREAK") }
         switch timer.selectedMinutes {
-        case 5: t("SHORT BREAK")
-        case 50: t("DEEP FOCUS")
-        default: t("FOCUS SESSION")
+        case 50: return t("DEEP FOCUS")
+        default: return t("FOCUS SESSION")
         }
     }
 
     private var sessionDescription: String {
+        if timer.selectedKind == .breakTime { return t("Step away, breathe, and return with a clean slate.") }
         switch timer.selectedMinutes {
-        case 5: t("Step away, breathe, and return with a clean slate.")
-        case 50: t("A longer block for work that needs depth.")
-        default: t("A focused block with enough room to make progress.")
+        case 50: return t("A longer block for work that needs depth.")
+        default: return t("A focused block with enough room to make progress.")
         }
     }
 
     private var primaryButtonTitle: String {
         if timer.isRunning { return t("Pause") }
         if timer.remainingSeconds == 0 { return t("Complete") }
-        return timer.remainingSeconds < timer.selectedMinutes * 60 ? t("Resume") : t("Start")
+        return timer.hasUnfinishedSession ? t("Resume") : t("Start")
     }
 
     private var primaryButtonSystemImage: String {
@@ -282,8 +431,62 @@ struct FocusWorkspaceView: View {
     }
 
     private func sessionWillOverlap(_ event: CalendarEvent) -> Bool {
-        guard event.startDate > now, timer.remainingSeconds > 0 else { return false }
+        guard event.blocksTime, event.endDate > now, timer.remainingSeconds > 0 else { return false }
         return now.addingTimeInterval(TimeInterval(timer.remainingSeconds)) > event.startDate
+    }
+
+    private func suggestedFocusMinutes(at date: Date) -> Int? {
+        guard calendar.sourceAvailability == .available else { return nil }
+        let settings = DayPlanSettings(
+            startHour: planningStartHour,
+            endHour: planningEndHour,
+            bufferMinutes: planningBufferMinutes
+        )
+        return DayPlanEngine.makePlan(events: calendar.planningEvents, now: date, settings: settings)
+            .recommendedFocusMinutes(at: date)
+    }
+
+    private func prepareCustomFocus() {
+        guard let minutes = Int(customMinutes.trimmingCharacters(in: .whitespacesAndNewlines)),
+              FocusTimerModel.customMinuteRange.contains(minutes) else {
+            durationError = "Enter a whole number from 5 to 180."
+            return
+        }
+        guard timer.prepareFocus(minutes: minutes) else {
+            durationError = "Reset the current timer to change its duration."
+            return
+        }
+        durationError = nil
+    }
+
+    private func completionDateLabel(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = appLanguage.locale
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
+    }
+
+    private func exportHistory() {
+        exportError = nil
+        exportConfirmation = nil
+        let panel = NSSavePanel()
+        panel.allowedContentTypes = [.commaSeparatedText]
+        panel.canCreateDirectories = true
+        panel.nameFieldStringValue = "Notch-focus.csv"
+        panel.title = t("Export focus history")
+        panel.prompt = t("Export")
+        panel.begin { response in
+            Task { @MainActor in
+                guard response == .OK, let url = panel.url else { return }
+                do {
+                    try FocusHistoryCSV.write(records: timer.history, to: url)
+                    exportConfirmation = t("Saved %@", url.lastPathComponent)
+                } catch {
+                    exportError = t("Could not export focus history: %@", error.localizedDescription)
+                }
+            }
+        }
     }
 
     private func t(_ key: String, _ arguments: CVarArg...) -> String {
