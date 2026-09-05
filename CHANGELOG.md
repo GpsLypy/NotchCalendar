@@ -4,6 +4,21 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-09-05
+
+macOS 15+ · Apple Silicon and Intel. Free manual-install build, ad-hoc signed and not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；继续免费，采用 ad-hoc 签名及手动安装，尚未进行 Developer ID 公证。
+
+**Updating from 0.7.0 or 0.8.0:** download this DMG in your browser, open it in Finder, quit Notch Calendar, and drag the app into Applications. The older app's “Open DMG & Quit” button can crash during the handoff. / **从 0.7.0 或 0.8.0 升级：**请通过浏览器下载本版 DMG，在访达中打开，退出 Notch Calendar 后将新版拖入“应用程序”替换。旧版的“打开 DMG 并退出”按钮可能在交接时崩溃。
+
+### Added / 新增
+
+- Added regression coverage for background DMG-open success and failure, a real NSWorkspace missing-file response, and background widget refresh notifications. / 新增后台打开安装包的成功与失败、系统实际返回文件不存在，以及后台小组件刷新通知的回归测试。
+
+### Fixed / 问题修复
+
+- Fixed a crash when choosing “Open DMG & Quit”: NSWorkspace returns on a concurrent queue, and its completion now explicitly accepts that queue before returning to the main actor. The app quits only after a successful handoff and remains open with an error if opening fails. / 修复点击“打开 DMG 并退出”时崩溃：正确接收系统后台回调，再回主线程处理；打开成功后退出，失败时保留应用并显示错误。
+- Routed settings and locale notifications to the main run loop before refreshing widget snapshots, preventing the same class of thread-isolation failure. / 设置和区域通知先回主线程再刷新小组件快照，避免同类线程隔离崩溃。
+
 ## [0.8.0] - 2026-09-05
 
 macOS 15+ · Apple Silicon and Intel. This free manual-install build is ad-hoc signed and is not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；继续免费，采用 ad-hoc 签名及手动安装，尚未进行 Developer ID 公证。

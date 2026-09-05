@@ -474,15 +474,31 @@ final class UpdateChecker: ObservableObject {
         guard let downloadedUpdateURL else { return }
         NSWorkspace.shared.open(
             downloadedUpdateURL,
-            configuration: NSWorkspace.OpenConfiguration()
-        ) { _, error in
-            Task { @MainActor [weak self] in
-                if let error {
+            configuration: NSWorkspace.OpenConfiguration(),
+            completionHandler: Self.dmgOpenCompletion(
+                onFailure: { [weak self] message in
                     self?.installationStatus = .failed(
-                        "The DMG could not be opened: \(error.localizedDescription)"
+                        "The DMG could not be opened: \(message)"
                     )
+                },
+                onSuccess: { NSApp.terminate(nil) }
+            )
+        )
+    }
+
+    nonisolated static func dmgOpenCompletion(
+        onFailure: @escaping @MainActor @Sendable (String) -> Void,
+        onSuccess: @escaping @MainActor @Sendable () -> Void
+    ) -> @Sendable (NSRunningApplication?, Error?) -> Void {
+        // NSWorkspace invokes this completion on a concurrent queue. The outer
+        // closure must stay nonisolated; a Task alone cannot prevent its entry check.
+        return { _, error in
+            let message = error?.localizedDescription
+            Task { @MainActor in
+                if let message {
+                    onFailure(message)
                 } else {
-                    NSApp.terminate(nil)
+                    onSuccess()
                 }
             }
         }

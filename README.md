@@ -59,7 +59,9 @@ Release archives without a signing certificate are ad-hoc signed for local devel
 
 See [the product roadmap](docs/PRODUCT_ROADMAP.md) for the stability requirements and planned market, weather, and local-assistant integrations.
 
-Version 0.8.0 adds the calendar, meeting, notes, and focus workflow without a payment or account requirement. Get the [0.8.0 release](https://github.com/GpsLypy/NotchCalendar/releases/tag/v0.8.0), and see [workflow setup and limits](docs/WORKFLOWS_V0.8.0.md), [validation details](docs/VALIDATION_V0.8.0.md), and [the professional-tool product review](docs/PRODUCT_REVIEW_2026-09-05.md).
+Version 0.8.0 adds the calendar, meeting, notes, and focus workflow without a payment or account requirement. Get the [0.8.1 crash-fix release](https://github.com/GpsLypy/NotchCalendar/releases/tag/v0.8.1), and see [workflow setup and limits](docs/WORKFLOWS_V0.8.0.md), [validation details](docs/VALIDATION_V0.8.0.md), and [the professional-tool product review](docs/PRODUCT_REVIEW_2026-09-05.md).
+
+When upgrading from 0.7.0 or 0.8.0, download the DMG in your browser and open it in Finder, then quit the app and drag the replacement into Applications. Those older versions may crash when using “Open DMG & Quit”; 0.8.1 fixes that handoff. / 从 0.7.0 或 0.8.0 升级时，请通过浏览器下载 DMG，在访达中打开，退出应用后拖入“应用程序”替换；0.8.1 已修复旧版“打开 DMG 并退出”的崩溃。
 
 ## Buy me a coffee / 请作者喝杯咖啡
 

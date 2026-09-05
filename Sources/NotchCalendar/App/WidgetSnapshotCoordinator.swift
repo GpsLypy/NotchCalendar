@@ -11,15 +11,25 @@ import WidgetKit
 final class WidgetSnapshotCoordinator {
     private let calendar: CalendarManager
     private let focusTimer: FocusTimerModel
+    private let defaults: UserDefaults
+    private let reloadTimelines: @MainActor (String) -> Void
     private var cancellables: Set<AnyCancellable> = []
     private var calendarPublishTask: Task<Void, Never>?
     private var focusPublishTask: Task<Void, Never>?
     private var publishedLocalizationIdentifier: String
 
-    init(calendar: CalendarManager, focusTimer: FocusTimerModel) {
+    init(
+        calendar: CalendarManager,
+        focusTimer: FocusTimerModel,
+        defaults: UserDefaults = .standard,
+        notificationCenter: NotificationCenter = .default,
+        reloadTimelines: @escaping @MainActor (String) -> Void = { WidgetCenter.shared.reloadTimelines(ofKind: $0) }
+    ) {
         self.calendar = calendar
         self.focusTimer = focusTimer
-        publishedLocalizationIdentifier = AppLanguage.persisted().localizationIdentifier
+        self.defaults = defaults
+        self.reloadTimelines = reloadTimelines
+        publishedLocalizationIdentifier = AppLanguage.persisted(in: defaults).localizationIdentifier
 
         calendar.objectWillChange
             .sink { [weak self] _ in self?.scheduleCalendarPublish() }
@@ -27,10 +37,14 @@ final class WidgetSnapshotCoordinator {
         focusTimer.objectWillChange
             .sink { [weak self] _ in self?.scheduleFocusPublish() }
             .store(in: &cancellables)
-        NotificationCenter.default.publisher(for: UserDefaults.didChangeNotification)
+        // NotificationCenter delivers on the posting thread. Move delivery before
+        // entering these MainActor closures, including background defaults writes.
+        notificationCenter.publisher(for: UserDefaults.didChangeNotification)
+            .receive(on: RunLoop.main)
             .sink { [weak self] _ in self?.publishLanguageChangeIfNeeded() }
             .store(in: &cancellables)
-        NotificationCenter.default.publisher(for: NSLocale.currentLocaleDidChangeNotification)
+        notificationCenter.publisher(for: NSLocale.currentLocaleDidChangeNotification)
+            .receive(on: RunLoop.main)
             .sink { [weak self] _ in self?.publishLanguageChangeIfNeeded() }
             .store(in: &cancellables)
 
@@ -64,7 +78,7 @@ final class WidgetSnapshotCoordinator {
     }
 
     private func publishLanguageChangeIfNeeded() {
-        let localizationIdentifier = AppLanguage.persisted().localizationIdentifier
+        let localizationIdentifier = AppLanguage.persisted(in: defaults).localizationIdentifier
         guard localizationIdentifier != publishedLocalizationIdentifier else { return }
         publishedLocalizationIdentifier = localizationIdentifier
         scheduleCalendarPublish()
@@ -82,15 +96,15 @@ final class WidgetSnapshotCoordinator {
             timeZoneIdentifier: TimeZone.autoupdatingCurrent.identifier
         )
 
-        if WidgetSnapshotStore.writeCalendar(calendarSnapshot) {
-            WidgetCenter.shared.reloadTimelines(ofKind: WidgetConstants.monthKind)
-            WidgetCenter.shared.reloadTimelines(ofKind: WidgetConstants.agendaKind)
+        if WidgetSnapshotStore.writeCalendar(calendarSnapshot, to: defaults) {
+            reloadTimelines(WidgetConstants.monthKind)
+            reloadTimelines(WidgetConstants.agendaKind)
         }
     }
 
     private func publishFocus() {
         let targetDate = focusTimer.widgetTargetDate
-        let existingSnapshot = WidgetSnapshotStore.readFocus(from: .standard)
+        let existingSnapshot = WidgetSnapshotStore.readFocus(from: defaults)
         let remainingSecondsAtWrite: Int
         if focusTimer.isRunning,
            let targetDate,
@@ -117,8 +131,8 @@ final class WidgetSnapshotCoordinator {
             hasUnfinishedSession: focusTimer.hasUnfinishedSession
         )
 
-        if WidgetSnapshotStore.writeFocus(focusSnapshot) {
-            WidgetCenter.shared.reloadTimelines(ofKind: WidgetConstants.focusKind)
+        if WidgetSnapshotStore.writeFocus(focusSnapshot, to: defaults) {
+            reloadTimelines(WidgetConstants.focusKind)
         }
     }
 }
