@@ -1,4 +1,4 @@
-# 0.9.0 发布验证
+# 0.9.0 本地候选验证
 
 2026-09-06，版本 0.9.0，构建 21，支持 macOS 15+、Apple 芯片与 Intel。本版包含今日时间轨道、刘海专注活动、⌘K 快速入口和蓝灰工作台配色。
 
@@ -35,7 +35,7 @@ DMG fc553bdd3d63e2851a3b701e041548a3c715be88de867c24cbe29992f2c3cb39
 ZIP e4f4f7745d885767e9508aef753725f59d7144972a75d9c7750c7f1fe7c2b23d
 ```
 
-公开包由 [GitHub Actions](https://github.com/GpsLypy/NotchCalendar/actions/workflows/release.yml) 对发布标签重新运行测试、构建并核验，因此公开附件的校验和以 [v0.9.0 发布页](https://github.com/GpsLypy/NotchCalendar/releases/tag/v0.9.0) 为准。
+0.9.0 保留为本地候选，没有公开发布；其功能已纳入 [1.0.0](VALIDATION_V1.0.0.md)。上述校验和仅用于本地候选产物。
 
 ## 分发与实机边界
 

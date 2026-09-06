@@ -4,14 +4,37 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
-### Quality gates for 1.0 / 1.0 质量门槛
+## [1.0.0] - 2026-09-06
 
-- Cancel hidden workspace refresh and share the compact activity clock; complete focus sessions with a one-shot deadline even when all views are hidden. / 隐藏主窗口停止页面刷新，收起态共用时钟，专注通过独立结束时刻完成。
-- Stop continuous per-frame progress animation in the compact meeting ring; keep second-level progress updates. / 收起态会议进度环停止持续逐帧动画，保持每秒更新。
-- Add Command-1/2 activity switching, Space focus control and Escape dismissal to the expanded notch. Reset stale hover and keyboard focus on sleep/wake notifications. / 补齐刘海键盘操作及休眠唤醒时的状态清理。
-- Add an offline standalone performance probe, raw CPU/wakeup sampling, a shared activity contract and a fail-closed stable-release gate. External-display acceptance remains pending; 1.0 is not released. / 增加离线实机性能探针、原始采样、统一活动规范和正式发布门槛；外接屏验收待完成，暂不发布 1.0。
+macOS 15+ · Apple Silicon and Intel · Free and MIT licensed. Manual installation; ad-hoc signing only, without Developer ID signing or Apple notarization. / 支持 macOS 15 及以上、Apple 芯片与 Intel；免费、MIT 开源，手动安装，仅保留 ad-hoc 签名，不做证书签名和 Apple 公证。
 
-## [0.9.0] - 2026-09-06
+### Added / 新增
+
+- Added a time-proportional day track with separate lanes for overlapping events, event details and direct access to meeting notes. / 新增今日时间轨道，按实际时长展示日程，重叠日程分轨，支持详情与会议笔记入口。
+- Added a compact focus activity with task labels, countdown and pause/resume; switch between calendar and focus in the expanded notch. / 新增刘海专注活动，展示任务标签、倒计时并支持暂停／继续，展开后可切换日历和专注。
+- Added Command-K quick access for bilingual page and today's event search. The expanded notch supports Command-1/2, Space and Escape. / 新增 ⌘K 中英文页面与今日日程搜索；展开的刘海支持 ⌘1/2、空格和 Escape。
+- Added an offline performance probe and a shared contract for activity selection, error states, keyboard controls and local data. / 新增离线性能探针，统一活动选择、错误状态、键盘操作和本地数据约束。
+
+### Improved / 优化
+
+- Refreshed the workspace with slate-blue surfaces, silver text and distinct appointment, focus and availability colors; new workspace sessions start on Today. / 工作台采用蓝灰底色、雾银文字，区分日程、专注和空档颜色，初始页面改为今日。
+- Hidden workspaces stop refreshing their page tree; compact activities share one clock and idle refreshes align with minute and meeting boundaries. / 隐藏工作台停止页面刷新，紧凑活动共用时钟，静置时按整分钟与会议边界更新。
+- Kept compact meeting progress updates at one-second intervals without continuous frame-by-frame animation. / 收起态会议进度环保持每秒更新，停止持续逐帧动画。
+
+### Fixed / 修复
+
+- Active events use deterministic selection and exclude canceled, declined and invalid-duration meetings. / 活动选择不再依赖输入顺序，排除取消、拒绝及无效时长的会议。
+- Focus completion uses an independent deadline even when views are hidden; paused timers retain their state, and midnight planning boundaries display 24:00. / 专注使用独立结束时刻，在窗口隐藏时也能完成；暂停状态保留，午夜规划边界显示 24:00。
+- Sleep/wake notifications clear stale hover state and keyboard focus; notch transitions respect Reduce Motion. / 休眠唤醒通知清理过期悬停与键盘焦点，刘海展开收起遵循「减少动态效果」。
+
+### Acceptance status / 验收状态
+
+- This 1.0 release proceeds under the project owner's decision to publish with pending acceptance. Final unlocked CPU/wakeup measurements, final-build interaction rechecks, physical hover/sleep-wake, external-display and cross-screen acceptance remain incomplete. No performance-pass claim is made. / 本次按项目所有者的最新指示发布，保留待验收状态：最终构建的解锁性能复测、交互复核、实际悬停与休眠唤醒、普通显示器及跨屏验收尚未完成，不宣称性能门槛已通过。
+- The recorded exception applies only to this version and runtime fingerprint. Strict acceptance and measured-failure checks remain available. / 发布例外仅适用于本版本及当前运行代码，保留严格验收检查，实测超预算仍会阻止发布。
+
+See the [quality report](https://github.com/GpsLypy/NotchCalendar/blob/v1.0.0/docs/quality/README.md) and [release validation](https://github.com/GpsLypy/NotchCalendar/blob/v1.0.0/docs/VALIDATION_V1.0.0.md). / 详见[质量报告](https://github.com/GpsLypy/NotchCalendar/blob/v1.0.0/docs/quality/README.md)与[发布验证](https://github.com/GpsLypy/NotchCalendar/blob/v1.0.0/docs/VALIDATION_V1.0.0.md)。
+
+## [0.9.0] - 2026-09-06 (local candidate, not published / 本地候选，未公开发布)
 
 macOS 15+ · Apple Silicon and Intel. Free manual-install build, ad-hoc signed and not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；继续免费，采用 ad-hoc 签名及手动安装，尚未进行 Developer ID 公证。
 
@@ -31,7 +54,7 @@ macOS 15+ · Apple Silicon and Intel. Free manual-install build, ad-hoc signed a
 - Live calendar activity no longer depends on input order and excludes canceled, declined, and invalid-duration events. / 实时日历活动不再依赖输入顺序，并排除取消、拒绝和时长无效的日程。
 - Paused timers retain their status in Today; planning ranges ending at midnight now display 24:00. / 今日页保留已暂停计时的状态，午夜结束的规划区间显示为 24:00。
 
-See [experience review](https://github.com/GpsLypy/NotchCalendar/blob/v0.9.0/docs/EXPERIENCE_REVIEW_2026-09-06.md) and [validation](https://github.com/GpsLypy/NotchCalendar/blob/v0.9.0/docs/VALIDATION_V0.9.0.md). / 详见[体验审视](https://github.com/GpsLypy/NotchCalendar/blob/v0.9.0/docs/EXPERIENCE_REVIEW_2026-09-06.md)与[本版验证](https://github.com/GpsLypy/NotchCalendar/blob/v0.9.0/docs/VALIDATION_V0.9.0.md)。
+See [experience review](https://github.com/GpsLypy/NotchCalendar/blob/v1.0.0/docs/EXPERIENCE_REVIEW_2026-09-06.md) and [validation](https://github.com/GpsLypy/NotchCalendar/blob/v1.0.0/docs/VALIDATION_V0.9.0.md). / 详见[体验审视](https://github.com/GpsLypy/NotchCalendar/blob/v1.0.0/docs/EXPERIENCE_REVIEW_2026-09-06.md)与[本版验证](https://github.com/GpsLypy/NotchCalendar/blob/v1.0.0/docs/VALIDATION_V0.9.0.md)。
 
 ## [0.8.1] - 2026-09-05
 

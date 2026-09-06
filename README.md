@@ -31,11 +31,13 @@ macOS 15+ · Apple 芯片与 Intel · SwiftUI 原生界面 · 当前免费 · MI
 
 ## 界面与功能
 
-### 0.9.0：把一天串起来
+### 1.0：把一天串起来
 
-0.9.0 新增 **今日时间轨道、刘海专注活动与 `⌘K` 快速入口**，采用蓝灰与雾银的工作台配色。点选轨道上的日程查看详情与会议笔记；从刘海暂停或继续专注；用中英文搜索页面与今日日程。
+1.0 新增 **今日时间轨道、刘海专注活动与 `⌘K` 快速入口**，采用蓝灰与雾银的工作台配色。点选轨道上的日程查看详情与会议笔记；从刘海暂停或继续专注；用中英文搜索页面与今日日程。
 
-[下载 0.9.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v0.9.0) · [查看设计与使用方式](docs/EXPERIENCE_REVIEW_2026-09-06.md) · [本版验证](docs/VALIDATION_V0.9.0.md)。
+[下载 1.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.0.0) · [查看设计与使用方式](docs/EXPERIENCE_REVIEW_2026-09-06.md) · [本版验证](docs/VALIDATION_V1.0.0.md)。
+
+本版仅使用 ad-hoc 签名，手动安装。最终性能与部分实机验收仍待完成，具体范围见[质量报告](docs/quality/README.md)。
 
 ### 刘海日历与会议助手
 

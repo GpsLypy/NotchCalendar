@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 from fingerprint import source_fingerprint
-from verify_release_gate import REQUIRED_CASES, validate
+from verify_release_gate import REQUIRED_CASES, validate, has_recorded_release_exception
 
 
 class ReleaseGateTests(unittest.TestCase):
@@ -77,6 +77,39 @@ class ReleaseGateTests(unittest.TestCase):
     def testMissingEvidenceFileIsRejected(self):
         (self.root / "docs/quality/evidence.txt").unlink()
         self.assertTrue(any("Missing device evidence" in error for error in self.check()))
+
+    def recordException(self, errors):
+        self.record["release_exception"] = {
+            "version": "1.0.0", "decision": "publish_with_pending_acceptance",
+            "authorized_by": "project_owner", "request": "Release 1.0",
+            "reason": "Outstanding hardware acceptance disclosed in the release notes",
+            "source_fingerprint": source_fingerprint(self.root),
+            "accepted_pending_checks": errors,
+        }
+        self.check()
+
+    def testExplicitExceptionPreservesStrictAcceptanceFailures(self):
+        self.record["hardware"]["external_hover"]["status"] = "pending"
+        errors = self.check()
+        self.recordException(errors)
+        self.assertEqual(self.check(), errors)
+        self.assertTrue(has_recorded_release_exception("1.0.0", errors, self.root))
+        self.assertFalse(has_recorded_release_exception("1.0.1", errors, self.root))
+
+    def testChangedSourcesAndNewGapsInvalidateException(self):
+        self.record["display_state_validation"] = "pending"
+        self.recordException(self.check())
+        self.record["hardware"]["external_hover"]["status"] = "pending"
+        self.assertFalse(has_recorded_release_exception("1.0.0", self.check(), self.root))
+        (self.root / "Package.swift").write_text("new runtime")
+        self.assertFalse(has_recorded_release_exception("1.0.0", self.check(), self.root))
+
+    def testRecordedExceptionCannotWaiveMeasuredBudgetFailure(self):
+        for index, sample in enumerate(self.performance["runs"][0]["samples"]):
+            sample["cpu_ns"] = index * 1_000_000_000
+        errors = self.check()
+        self.recordException(errors)
+        self.assertFalse(has_recorded_release_exception("1.0.0", errors, self.root))
 
 
 if __name__ == "__main__":

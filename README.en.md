@@ -25,6 +25,12 @@ The workspace above and the [visual feature tour](README.md#界面与功能) use
 
 Published builds are currently ad-hoc signed and not Developer ID notarized. Automatic app replacement is disabled. When upgrading from 0.7.0 or 0.8.0, open the downloaded DMG in Finder and quit the old app before replacing it; 0.8.1 fixes the older “Open DMG & Quit” crash.
 
+## Version 1.0
+
+A proportional day track, compact focus controls, Command-K search and a refreshed workspace bring calendars, meetings and focus together. Hidden views stop refreshing, and compact activities share their update clock.
+
+[Download 1.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.0.0) · [Release validation](docs/VALIDATION_V1.0.0.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Final performance and some hardware acceptance remain pending; see the [quality report](docs/quality/README.md).
+
 ## Features
 
 - Compact notch view that stays still when idle; live meeting shoulders are available as an opt-in setting.

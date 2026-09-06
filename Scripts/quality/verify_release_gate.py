@@ -76,12 +76,46 @@ def validate(version, root=ROOT):
     return errors
 
 
+def has_recorded_release_exception(version, errors, root=ROOT):
+    """Honor the owner's one-build 1.0 decision without marking evidence passed.
+
+    Measured failures, unreadable reports and changed sources remain blockers.
+    The exact outstanding checks must match the reviewed release record.
+    """
+    if version != "1.0.0" or not errors:
+        return False
+    record = json.loads((root / "docs/quality/1.0.0.json").read_text())
+    exception = record.get("release_exception", {})
+    pending_prefixes = (
+        "Confirm the performance samples were taken with the display unlocked and on",
+        "Hardware acceptance pending: ",
+        "Device evidence is stale for current sources: ",
+        "Missing device evidence: ",
+        "Need two independent samples: ",
+    )
+    return (
+        exception.get("version") == version
+        and exception.get("decision") == "publish_with_pending_acceptance"
+        and exception.get("authorized_by") == "project_owner"
+        and bool(exception.get("request"))
+        and bool(exception.get("reason"))
+        and exception.get("source_fingerprint") == source_fingerprint(root)
+        and sorted(exception.get("accepted_pending_checks", [])) == sorted(errors)
+        and all(error.startswith(pending_prefixes) for error in errors)
+    )
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("version")
+    parser.add_argument("--strict", action="store_true", help="Report acceptance gaps even for the recorded 1.0 release exception")
     args = parser.parse_args()
     try:
-        errors = validate(args.version.removeprefix("v"))
+        version = args.version.removeprefix("v")
+        errors = validate(version)
+        if errors and not args.strict and has_recorded_release_exception(version, errors):
+            print("Release authorized with pending acceptance (recorded 1.0 exception):\n- " + "\n- ".join(errors))
+            return 0
     except (ValueError, KeyError, TypeError, OSError) as error:
         errors = [f"Invalid or unreadable quality evidence: {error}"]
     if errors:
