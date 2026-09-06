@@ -57,12 +57,18 @@ struct NotchCompactActivityView: View {
             } else {
                 CompactNotchView(events: events, notchWidth: metrics.compactNotchWidth, notchDepth: metrics.compactNotchDepth,
                                  showsMeetingStatus: preferences.showsMeetingStatus, showsClickTarget: metrics.showsClickTarget,
-                                 onMeetingActivityChange: { _ in })
+                                 onMeetingActivityChange: { _ in }, now: now)
             }
         }
         .onAppear { timer.synchronize(); now = Date(); activityChanged(showsShoulders) }
+        .onChange(of: events) { _, _ in now = Date() }
+        .onChange(of: preferences.showsMeetingStatus) { _, _ in now = Date() }
         .onChange(of: showsShoulders) { _, value in activityChanged(value) }
-        .onReceive(Timer.publish(every: timer.isRunning || preferences.showsMeetingStatus ? 1 : 60, on: .main, in: .common).autoconnect()) { date in
+        .onActivityClock(every: ActivityClockPolicy.compactInterval(
+            now: now, events: events, showsMeetings: preferences.showsMeetingStatus,
+            displaysUpcoming: metrics.compactNotchWidth == nil,
+            visibleFocusRunning: activity == .focus && timer.isRunning
+        )) { date in
             now = date
             timer.synchronize(now: date)
         }
@@ -117,6 +123,7 @@ struct FocusNotchView: View {
                         .background(WorkspacePalette.accent, in: Capsule())
                 }
                 .buttonStyle(.plain)
+                .keyboardShortcut(.space, modifiers: [])
                 .disabled(timer.remainingSeconds == 0 || timer.persistenceError != nil)
                 .opacity(timer.remainingSeconds == 0 || timer.persistenceError != nil ? 0.45 : 1)
                 Button(action: openFocus) {
@@ -148,7 +155,7 @@ struct FocusNotchView: View {
         .foregroundStyle(WorkspacePalette.primaryText)
         .background(.black)
         .onAppear { timer.synchronize(); now = Date() }
-        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { date in now = date; timer.synchronize(now: date) }
+        .onActivityClock(every: timer.isRunning ? 1 : nil) { date in now = date; timer.synchronize(now: date) }
     }
 
     private var nextEvent: CalendarEvent? {

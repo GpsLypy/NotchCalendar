@@ -4,7 +4,11 @@ import AppIntents
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
+    #if NOTCH_QUALITY_PROBE
+    let state = QualityProbe.makeState()
+    #else
     let state = AppState()
+    #endif
     private var controller: NotchWindowController?
     private var mainWindowController: MainCalendarWindowController?
     private var instanceLockFileDescriptors: [Int32] = []
@@ -14,6 +18,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         ProcessInfo.processInfo.environment["NOTCH_CALENDAR_UPDATE_TOKEN"] != nil
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        #if NOTCH_QUALITY_PROBE
+        Task { @MainActor in
+            do { try await QualityProbe.run(state: state); NSApp.terminate(nil) }
+            catch { fputs("Quality probe failed: \(error)\n", stderr); exit(1) }
+        }
+        #else
         guard acquireSingleInstanceLock() else {
             // Xcode and a standalone debug launch can otherwise each create an
             // independent non-activating panel, which looks like duplicated UI.
@@ -66,6 +76,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         PresentationDiagnostics.event(
             "cold-launch intent=\(String(describing: launchIntent)) main-window=quiet"
         )
+        #endif
     }
 
     /// This callback does not carry launch provenance: LaunchServices, session

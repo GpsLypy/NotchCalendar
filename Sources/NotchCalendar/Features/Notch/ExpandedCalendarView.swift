@@ -40,6 +40,7 @@ struct NotchExpandedActivityView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel(L10n.string("Close", language: appLanguage))
+                .keyboardShortcut(.cancelAction)
             }
             .padding(.horizontal, 28)
             .padding(.top, contentTopInset)
@@ -81,6 +82,7 @@ struct NotchExpandedActivityView: View {
         }
         .buttonStyle(.plain)
         .accessibilityAddTraits(activity == destination ? .isSelected : [])
+        .keyboardShortcut(destination == .calendar ? "1" : "2", modifiers: .command)
     }
 }
 

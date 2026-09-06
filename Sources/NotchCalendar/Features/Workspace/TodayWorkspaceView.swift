@@ -44,7 +44,7 @@ struct TodayWorkspaceView: View {
             .padding(.bottom, 30)
         }
         .background(WorkspacePalette.canvas)
-        .onReceive(Timer.publish(every: 30, on: .main, in: .common).autoconnect()) { date in
+        .onActivityClock(every: isActive ? 30 : nil) { date in
             guard isActive else { return }
             now = date
             focusTimer.synchronize(now: date)

@@ -1,0 +1,72 @@
+Building for debugging...
+[0/11] Write sources
+[1/11] Write swift-version--58304C5D6DBC2206.txt
+[3/9] Emitting module NotchCalendar
+[4/9] Compiling NotchCalendar MainCalendarWindowController.swift
+[4/9] Write Objects.LinkFileList
+[5/9] Linking NotchCalendar
+[6/9] Applying NotchCalendar
+[8/42] Emitting module NotchCalendarTests
+[9/45] Compiling NotchCalendarTests UpcomingEventEngineTests.swift
+[10/45] Compiling NotchCalendarTests UpdateDMGOpenTests.swift
+[11/45] Compiling NotchCalendarTests UpdateInstallerTests.swift
+[12/45] Compiling NotchCalendarTests UpdateReleaseNotesTests.swift
+[13/45] Compiling NotchCalendarTests WidgetSnapshotCoordinatorTests.swift
+[14/45] Compiling NotchCalendarTests WidgetSnapshotTests.swift
+[15/45] Compiling NotchCalendarTests MonthGridTests.swift
+[16/45] Compiling NotchCalendarTests NotchActivityTests.swift
+[17/45] Compiling NotchCalendarTests PlanningCaptureTests.swift
+[18/45] Compiling NotchCalendarTests PresentationPolicyTests.swift
+[19/45] Compiling NotchCalendarTests RadarTests.swift
+[20/45] Compiling NotchCalendarTests ScreenGeometryTests.swift
+[21/45] Compiling NotchCalendarTests CalendarEventTests.swift
+[22/45] Compiling NotchCalendarTests CalendarSelectionTests.swift
+[23/45] Compiling NotchCalendarTests CalendarToolsTests.swift
+[24/45] Compiling NotchCalendarTests DayPlanEngineTests.swift
+[25/45] Compiling NotchCalendarTests LocalBackupTests.swift
+[26/45] Compiling NotchCalendarTests MarketTests.swift
+[27/45] Compiling NotchCalendarTests MarketingCaptureTests.swift
+[28/45] Compiling NotchCalendarTests DayTimelineTests.swift
+[29/45] Compiling NotchCalendarTests DeskExperienceCaptureTests.swift
+[30/45] Compiling NotchCalendarTests DiscussionTests.swift
+[31/45] Compiling NotchCalendarTests FocusHistoryTests.swift
+[32/45] Compiling NotchCalendarTests FocusTimerModelTests.swift
+[33/45] Compiling NotchCalendarTests FocusWeeklyReviewTests.swift
+[34/45] Compiling NotchCalendarTests MeetingLinkResolverTests.swift
+[35/45] Compiling NotchCalendarTests MeetingNotesTests.swift
+[36/45] Compiling NotchCalendarTests MeetingReminderTests.swift
+[37/45] Compiling NotchCalendarTests ActivityQualityTests.swift
+[38/45] Compiling NotchCalendarTests AppLanguageTests.swift
+[39/45] Compiling NotchCalendarTests BackupCaptureTests.swift
+[40/45] Compiling NotchCalendarTests BriefingTests.swift
+[41/45] Compiling NotchCalendarTests WorkflowCaptureTests.swift
+[42/45] Compiling NotchCalendarTests WorkspaceAutomationTests.swift
+[43/45] Compiling NotchCalendarTests WorkspaceCommandTests.swift
+[43/45] Write Objects.LinkFileList
+[44/45] Linking NotchCalendarPackageTests
+Build complete! (4.29s)
+Test Suite 'Selected tests' started at 2026-09-06 22:00:58.029.
+Test Suite 'NotchCalendarPackageTests.xctest' started at 2026-09-06 22:00:58.030.
+Test Suite 'ActivityQualityTests' started at 2026-09-06 22:00:58.030.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testBackgroundFocusCompletesWithoutAnyViewClock]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testBackgroundFocusCompletesWithoutAnyViewClock]' passed (0.779 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testIdleAndPausedContentDoNotNeedSecondTicks]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testIdleAndPausedContentDoNotNeedSecondTicks]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testIneligibleEventsCannotScheduleFastRefresh]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testIneligibleEventsCannotScheduleFastRefresh]' passed (0.032 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testMeetingBoundaryIsNotDelayedByMinuteRefresh]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testMeetingBoundaryIsNotDelayedByMinuteRefresh]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testNativeNotchKeyboardAndSyntheticWakeReset]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testNativeNotchKeyboardAndSyntheticWakeReset]' passed (1.637 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testPausingCancelsBackgroundCompletion]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testPausingCancelsBackgroundCompletion]' passed (0.778 seconds).
+Test Suite 'ActivityQualityTests' passed at 2026-09-06 22:01:01.257.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 3.226 (3.227) seconds
+Test Suite 'NotchCalendarPackageTests.xctest' passed at 2026-09-06 22:01:01.257.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 3.226 (3.227) seconds
+Test Suite 'Selected tests' passed at 2026-09-06 22:01:01.257.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 3.226 (3.229) seconds
+◇ Test run started.
+↳ Testing Library Version: 1902
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

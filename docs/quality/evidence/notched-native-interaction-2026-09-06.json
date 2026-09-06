@@ -1,0 +1,306 @@
+{
+  "device": "MacBook Pro Mac15,6 / Apple M3 Pro / built-in 1512x982 points, notch present",
+  "method": "CUA native accessibility actions and screenshots against the optimized standalone quality app on the actual internal display; synthetic calendar and disposable preferences",
+  "shows_meetings": true,
+  "observations": [
+    "Click-only entry expanded the real panel from 325x32 to 600x460 and made it key.",
+    "Space changed visible focus status to Paused and the button to Resume.",
+    "Command-1 selected Calendar and displayed the September 2026 month grid.",
+    "Command-2 selected Focus and preserved the paused time.",
+    "Space changed visible focus status to Running and the button to Pause.",
+    "Escape returned to compact 325x32; the panel released keyboard focus.",
+    "With meeting status explicitly enabled, a synthetic active meeting replaced focus with a visible meeting progress ring.",
+    "After the meeting ended, the compact activity returned to the existing running focus session."
+  ],
+  "limits": [
+    "Pure hover dwell and actual sleep/wake have not been accepted. No external monitor was connected."
+  ],
+  "transitions": [
+    {
+      "activity": "focus",
+      "displayVisible": false,
+      "expanded": false,
+      "frame": "{{593, 950}, {325, 32}}",
+      "key": false,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": true,
+      "pid": 25432,
+      "pointerEvents": 0,
+      "remaining": 1497,
+      "renderExpanded": false,
+      "running": true,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788704900.6949692
+    },
+    {
+      "activity": "focus",
+      "displayVisible": true,
+      "expanded": false,
+      "frame": "{{593, 950}, {325, 32}}",
+      "key": false,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": false,
+      "pid": 25432,
+      "pointerEvents": 177,
+      "remaining": 1459,
+      "renderExpanded": false,
+      "running": true,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788704939.9167109
+    },
+    {
+      "activity": "focus",
+      "displayVisible": true,
+      "expanded": true,
+      "frame": "{{586, 710}, {338, 272}}",
+      "key": true,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": false,
+      "pid": 25432,
+      "pointerEvents": 758,
+      "remaining": 1394,
+      "renderExpanded": true,
+      "running": true,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788705004.163475
+    },
+    {
+      "activity": "focus",
+      "displayVisible": true,
+      "expanded": true,
+      "frame": "{{460, 529}, {590, 453}}",
+      "key": true,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": false,
+      "pid": 25432,
+      "pointerEvents": 758,
+      "remaining": 1394,
+      "renderExpanded": true,
+      "running": true,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788705004.372684
+    },
+    {
+      "activity": "focus",
+      "displayVisible": true,
+      "expanded": true,
+      "frame": "{{455, 522}, {600, 460}}",
+      "key": true,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": false,
+      "pid": 25432,
+      "pointerEvents": 758,
+      "remaining": 1394,
+      "renderExpanded": true,
+      "running": true,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788705004.582314
+    },
+    {
+      "activity": "focus",
+      "displayVisible": true,
+      "expanded": true,
+      "frame": "{{455, 522}, {600, 460}}",
+      "key": true,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": false,
+      "pid": 25432,
+      "pointerEvents": 758,
+      "remaining": 1343,
+      "renderExpanded": true,
+      "running": false,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788705054.595508
+    },
+    {
+      "activity": "focus",
+      "displayVisible": true,
+      "expanded": true,
+      "frame": "{{455, 522}, {600, 460}}",
+      "key": true,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": false,
+      "pid": 25432,
+      "pointerEvents": 758,
+      "remaining": 1343,
+      "renderExpanded": true,
+      "running": true,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788705055.863227
+    },
+    {
+      "activity": "focus",
+      "displayVisible": true,
+      "expanded": false,
+      "frame": "{{495, 648}, {519, 334}}",
+      "key": false,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": false,
+      "pid": 25432,
+      "pointerEvents": 758,
+      "remaining": 1343,
+      "renderExpanded": false,
+      "running": true,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788705056.273199
+    },
+    {
+      "activity": "focus",
+      "displayVisible": true,
+      "expanded": false,
+      "frame": "{{593, 950}, {325, 32}}",
+      "key": false,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": false,
+      "pid": 25432,
+      "pointerEvents": 758,
+      "remaining": 1343,
+      "renderExpanded": false,
+      "running": true,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788705056.482116
+    },
+    {
+      "activity": "calendar",
+      "displayVisible": true,
+      "expanded": false,
+      "frame": "{{593, 950}, {325, 32}}",
+      "key": false,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": false,
+      "pid": 25432,
+      "pointerEvents": 758,
+      "remaining": 1331,
+      "renderExpanded": false,
+      "running": true,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788705069.48846
+    },
+    {
+      "activity": "focus",
+      "displayVisible": true,
+      "expanded": false,
+      "frame": "{{593, 950}, {325, 32}}",
+      "key": false,
+      "mode": "clickOnly",
+      "occludedDuringSample": false,
+      "passthrough": false,
+      "pid": 25432,
+      "pointerEvents": 758,
+      "remaining": 1285,
+      "renderExpanded": false,
+      "running": true,
+      "scenario": "interaction",
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "showsFocus": true,
+      "showsMeetings": true,
+      "timestamp": 1788705114.794431
+    }
+  ]
+}

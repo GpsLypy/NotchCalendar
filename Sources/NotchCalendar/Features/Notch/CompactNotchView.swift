@@ -8,7 +8,7 @@ struct CompactNotchView: View {
     let showsMeetingStatus: Bool
     let showsClickTarget: Bool
     let onMeetingActivityChange: (Bool) -> Void
-    @State private var now = Date()
+    let now: Date
     @Environment(\.appLanguage) private var appLanguage
 
     var body: some View {
@@ -32,14 +32,7 @@ struct CompactNotchView: View {
         .onChange(of: status.isActive) { _, isActive in
             onMeetingActivityChange(isActive)
         }
-        .onReceive(
-            Timer.publish(
-                every: showsMeetingStatus ? 1 : 60,
-                on: .main,
-                in: .common
-            ).autoconnect()
-        ) { now = $0 }
-        .onChange(of: showsMeetingStatus) { _, _ in now = Date() }
+
     }
 
     /// Hardware screenshots can capture pixels drawn behind the camera housing,
@@ -95,7 +88,7 @@ struct CompactNotchView: View {
         HStack(spacing: 10) {
             switch status {
             case let .active(event, _):
-                MeetingProgressRing(event: event, now: now, size: 10, lineWidth: 2)
+                MeetingProgressRing(event: event, now: now, size: 10, lineWidth: 2, animatesProgress: false)
                 eventTitle(for: event)
                 meetingLinkIndicator(for: event)
             case let .upcoming(event, secondsUntilStart):
@@ -150,7 +143,8 @@ struct CompactNotchView: View {
                 now: now,
                 size: 18,
                 lineWidth: 2.5,
-                trackColor: Color.primary.opacity(0.16)
+                trackColor: Color.primary.opacity(0.16),
+                animatesProgress: false
             )
         case .upcoming, .idle:
             if showsClickTarget {

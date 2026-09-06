@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/lyp/Documents/ChatGPT/claend/Scripts/quality/measure.py", line 109, in <module>
+    main()
+    ~~~~^^
+  File "/Users/lyp/Documents/ChatGPT/claend/Scripts/quality/measure.py", line 97, in main
+    raise RuntimeError("Screen locked: unlock the Mac manually before acceptance sampling")
+RuntimeError: Screen locked: unlock the Mac manually before acceptance sampling

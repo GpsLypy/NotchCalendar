@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "status": "pending",
+  "passed": false,
+  "build": {
+    "source_fingerprint": "5ab5b9d87559979b47b25ced27c8d9c630fd07e13ebee5565c3584ca474387e1",
+    "configuration": "release"
+  },
+  "runs": [],
+  "reason": "Final unlocked sampling pending. Lock guard detected screen_locked=true and refused to begin acceptance sampling."
+}

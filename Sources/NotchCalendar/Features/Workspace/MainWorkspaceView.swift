@@ -46,7 +46,7 @@ struct MainWorkspaceView: View {
             reduceMotion ? nil : .easeOut(duration: 0.16),
             value: presentation.selectedDestination
         )
-        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { date in
+        .onActivityClock(every: presentation.isActive ? 1 : nil) { date in
             guard presentation.isActive else { return }
             synchronizeWorkspace(to: date)
         }

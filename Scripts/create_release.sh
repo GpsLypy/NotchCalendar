@@ -19,6 +19,7 @@ for COMPONENT in "${VERSION_COMPONENTS[@]}"; do
   fi
 done
 ROOT_DIR="${0:A:h:h}"
+python3 "$ROOT_DIR/Scripts/quality/verify_release_gate.py" "$VERSION"
 DIST_DIR="$ROOT_DIR/dist"
 APP_DIR="$DIST_DIR/Notch Calendar.app"
 APP_EXECUTABLE="$APP_DIR/Contents/MacOS/NotchCalendar"

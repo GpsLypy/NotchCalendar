@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "status": "pending",
+  "source_fingerprint": "5ab5b9d87559979b47b25ced27c8d9c630fd07e13ebee5565c3584ca474387e1",
+  "performance_report": "docs/quality/evidence/performance-verified-2026-09-06.json",
+  "hardware": {
+    "notched_hover": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "notched_click": {
+      "status": "passed_on_previous_candidate",
+      "actual_hardware": true,
+      "evidence": [
+        "docs/quality/evidence/notched-native-interaction-2026-09-06.json"
+      ],
+      "source_fingerprint": "337ee7a244bf1542e6468a1cb34b3b495313e298b1547757922c456939c633b0",
+      "note": "Recheck final compact-progress build after unlocking; earlier native result retained as evidence."
+    },
+    "notched_activity": {
+      "status": "passed_on_previous_candidate",
+      "actual_hardware": true,
+      "evidence": [
+        "docs/quality/evidence/notched-native-interaction-2026-09-06.json"
+      ],
+      "source_fingerprint": "337ee7a244bf1542e6468a1cb34b3b495313e298b1547757922c456939c633b0",
+      "note": "Recheck final compact-progress build after unlocking; earlier native result retained as evidence."
+    },
+    "notched_keyboard": {
+      "status": "passed_on_previous_candidate",
+      "actual_hardware": true,
+      "evidence": [
+        "docs/quality/evidence/notched-native-interaction-2026-09-06.json"
+      ],
+      "source_fingerprint": "337ee7a244bf1542e6468a1cb34b3b495313e298b1547757922c456939c633b0",
+      "note": "Recheck final compact-progress build after unlocking; earlier native result retained as evidence."
+    },
+    "notched_sleep_wake": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "external_hover": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "external_click": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "external_activity": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "external_keyboard": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "cross_screen_wake": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    }
+  },
+  "distribution": "ad-hoc only; no Developer ID; no notarization",
+  "display_state_validation": "pending",
+  "remaining_reason": "Mac is locked; final unlocked performance and physical hover/sleep checks pending. No external monitor is available."
+}

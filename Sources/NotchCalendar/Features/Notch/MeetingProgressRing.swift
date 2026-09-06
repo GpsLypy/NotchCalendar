@@ -6,6 +6,7 @@ struct MeetingProgressRing: View {
     var size: CGFloat = 22
     var lineWidth: CGFloat = 2.5
     var trackColor: Color = .white.opacity(0.14)
+    var animatesProgress = true
     @Environment(\.appLanguage) private var appLanguage
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
@@ -26,7 +27,7 @@ struct MeetingProgressRing: View {
                 .rotationEffect(.degrees(-90))
         }
         .frame(width: size, height: size)
-        .animation(reduceMotion ? nil : .linear(duration: 1), value: progress)
+        .animation(reduceMotion || !animatesProgress ? nil : .linear(duration: 1), value: progress)
         .accessibilityElement()
         .accessibilityLabel(t("Meeting progress"))
         .accessibilityValue(t("%@ percent", "\(percentage)"))

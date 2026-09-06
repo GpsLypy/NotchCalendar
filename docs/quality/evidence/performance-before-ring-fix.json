@@ -1,0 +1,1303 @@
+{
+  "schema_version": 1,
+  "display_sleep_prevention": "temporary caffeinate -d assertion; manual lock is not disabled",
+  "build": {
+    "source_fingerprint": "337ee7a244bf1542e6468a1cb34b3b495313e298b1547757922c456939c633b0",
+    "binary_sha256": "760d03399d8d52ca5d71a1c3bd284936c86663aef9fdd143ce86a0bca63be7c4",
+    "configuration": "release",
+    "probe": true
+  },
+  "passed": false,
+  "runs": [
+    {
+      "scenario": "idle",
+      "metrics": {
+        "elapsed_seconds": 30.347249999991618,
+        "cpu_mean_percent": 0.006340637125276694,
+        "cpu_p95_percent": 0.03648648246474965,
+        "interrupt_wakeups_per_second": 0.2636153193453183,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 0.5,
+        "cpu_p95_percent": 2.0,
+        "interrupt_wakeups_per_second": 1.0
+      },
+      "passed": true,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "samples": [
+        {
+          "time": 432100.093467,
+          "cpu_ns": 138618041,
+          "interrupt_wakeups": 152,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432101.10303,
+          "cpu_ns": 138697083,
+          "interrupt_wakeups": 153,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432102.111165,
+          "cpu_ns": 139064916,
+          "interrupt_wakeups": 154,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432103.12351,
+          "cpu_ns": 139206958,
+          "interrupt_wakeups": 155,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432104.137512,
+          "cpu_ns": 139206958,
+          "interrupt_wakeups": 155,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432105.147645,
+          "cpu_ns": 139206958,
+          "interrupt_wakeups": 155,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432106.16089,
+          "cpu_ns": 139483500,
+          "interrupt_wakeups": 156,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432107.175201,
+          "cpu_ns": 139483500,
+          "interrupt_wakeups": 156,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432108.188671,
+          "cpu_ns": 140019500,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432109.202042,
+          "cpu_ns": 140019500,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432110.215334,
+          "cpu_ns": 140019500,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432111.226746,
+          "cpu_ns": 140019500,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432112.237965,
+          "cpu_ns": 140019500,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432113.250315,
+          "cpu_ns": 140338875,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432114.261101,
+          "cpu_ns": 140338875,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432115.273494,
+          "cpu_ns": 140338875,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432116.285875,
+          "cpu_ns": 140338875,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432117.296609,
+          "cpu_ns": 140338875,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432118.300848,
+          "cpu_ns": 140338875,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432119.314686,
+          "cpu_ns": 140415458,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432120.327463,
+          "cpu_ns": 140415458,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432121.341514,
+          "cpu_ns": 140415458,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432122.353037,
+          "cpu_ns": 140415458,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432123.362991,
+          "cpu_ns": 140415458,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432124.374514,
+          "cpu_ns": 140415458,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432125.381401,
+          "cpu_ns": 140415458,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432126.392327,
+          "cpu_ns": 140415458,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432127.400878,
+          "cpu_ns": 140415458,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432128.414333,
+          "cpu_ns": 140415458,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432129.427958,
+          "cpu_ns": 140542250,
+          "interrupt_wakeups": 160,
+          "package_idle_wakeups": 1
+        },
+        {
+          "time": 432130.440717,
+          "cpu_ns": 140542250,
+          "interrupt_wakeups": 160,
+          "package_idle_wakeups": 1
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    },
+    {
+      "scenario": "focus",
+      "metrics": {
+        "elapsed_seconds": 30.362056000041775,
+        "cpu_mean_percent": 0.48345073535138083,
+        "cpu_p95_percent": 0.6118346481534511,
+        "interrupt_wakeups_per_second": 2.7007393702154814,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 2.0,
+        "cpu_p95_percent": 5.0,
+        "interrupt_wakeups_per_second": 5.0
+      },
+      "passed": true,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "samples": [
+        {
+          "time": 432138.16159,
+          "cpu_ns": 175867708,
+          "interrupt_wakeups": 154,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432139.174244,
+          "cpu_ns": 180407375,
+          "interrupt_wakeups": 156,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432140.185371,
+          "cpu_ns": 184298666,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432141.197201,
+          "cpu_ns": 190164666,
+          "interrupt_wakeups": 163,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432142.211066,
+          "cpu_ns": 195280458,
+          "interrupt_wakeups": 166,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432143.222228,
+          "cpu_ns": 198045083,
+          "interrupt_wakeups": 169,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432144.233522,
+          "cpu_ns": 203715875,
+          "interrupt_wakeups": 171,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432145.246836,
+          "cpu_ns": 208374875,
+          "interrupt_wakeups": 174,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432146.258677,
+          "cpu_ns": 213573416,
+          "interrupt_wakeups": 177,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432147.271013,
+          "cpu_ns": 219288750,
+          "interrupt_wakeups": 180,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432148.28219,
+          "cpu_ns": 225021625,
+          "interrupt_wakeups": 182,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432149.295476,
+          "cpu_ns": 230798166,
+          "interrupt_wakeups": 184,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432150.307756,
+          "cpu_ns": 237310041,
+          "interrupt_wakeups": 187,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432151.321217,
+          "cpu_ns": 242919041,
+          "interrupt_wakeups": 190,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432152.331525,
+          "cpu_ns": 247722666,
+          "interrupt_wakeups": 192,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432153.34465,
+          "cpu_ns": 253118416,
+          "interrupt_wakeups": 194,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432154.35699,
+          "cpu_ns": 258095333,
+          "interrupt_wakeups": 197,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432155.370795,
+          "cpu_ns": 262632708,
+          "interrupt_wakeups": 200,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432156.384488,
+          "cpu_ns": 268834833,
+          "interrupt_wakeups": 203,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432157.394916,
+          "cpu_ns": 272217708,
+          "interrupt_wakeups": 206,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432158.408312,
+          "cpu_ns": 277946708,
+          "interrupt_wakeups": 208,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432159.420689,
+          "cpu_ns": 282624166,
+          "interrupt_wakeups": 211,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432160.433046,
+          "cpu_ns": 288655291,
+          "interrupt_wakeups": 214,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432161.442586,
+          "cpu_ns": 293021291,
+          "interrupt_wakeups": 217,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432162.45179,
+          "cpu_ns": 296756875,
+          "interrupt_wakeups": 219,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432163.466982,
+          "cpu_ns": 301600458,
+          "interrupt_wakeups": 222,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432164.478286,
+          "cpu_ns": 305802958,
+          "interrupt_wakeups": 225,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432165.489489,
+          "cpu_ns": 310598291,
+          "interrupt_wakeups": 228,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432166.500217,
+          "cpu_ns": 312462875,
+          "interrupt_wakeups": 231,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432167.512986,
+          "cpu_ns": 317817208,
+          "interrupt_wakeups": 234,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432168.523646,
+          "cpu_ns": 322653291,
+          "interrupt_wakeups": 236,
+          "package_idle_wakeups": 2
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    },
+    {
+      "scenario": "meeting-switch",
+      "metrics": {
+        "elapsed_seconds": 30.37410799995996,
+        "cpu_mean_percent": 3.9299890716184107,
+        "cpu_p95_percent": 11.902778821936023,
+        "interrupt_wakeups_per_second": 38.19042192124717,
+        "package_idle_wakeups_per_second": 0.29630499766484875
+      },
+      "budgets": {
+        "cpu_mean_percent": 3.0,
+        "cpu_p95_percent": 8.0,
+        "interrupt_wakeups_per_second": 10.0
+      },
+      "passed": false,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "samples": [
+        {
+          "time": 432174.595695,
+          "cpu_ns": 156722833,
+          "interrupt_wakeups": 151,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432175.609208,
+          "cpu_ns": 156722833,
+          "interrupt_wakeups": 151,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432176.624055,
+          "cpu_ns": 160503583,
+          "interrupt_wakeups": 154,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432177.635994,
+          "cpu_ns": 164552250,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432178.650027,
+          "cpu_ns": 168301208,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432179.66281,
+          "cpu_ns": 169833500,
+          "interrupt_wakeups": 161,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432180.6772,
+          "cpu_ns": 188762083,
+          "interrupt_wakeups": 164,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432181.687255,
+          "cpu_ns": 298579625,
+          "interrupt_wakeups": 269,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432182.70238,
+          "cpu_ns": 420097541,
+          "interrupt_wakeups": 388,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432183.706331,
+          "cpu_ns": 530812333,
+          "interrupt_wakeups": 506,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432184.719888,
+          "cpu_ns": 564265791,
+          "interrupt_wakeups": 535,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432185.733129,
+          "cpu_ns": 569839083,
+          "interrupt_wakeups": 537,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432186.744132,
+          "cpu_ns": 573279333,
+          "interrupt_wakeups": 538,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432187.756365,
+          "cpu_ns": 578003541,
+          "interrupt_wakeups": 540,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432188.764362,
+          "cpu_ns": 586368625,
+          "interrupt_wakeups": 543,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432189.777579,
+          "cpu_ns": 655766541,
+          "interrupt_wakeups": 612,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432190.787943,
+          "cpu_ns": 767961333,
+          "interrupt_wakeups": 728,
+          "package_idle_wakeups": 3
+        },
+        {
+          "time": 432191.798823,
+          "cpu_ns": 883063875,
+          "interrupt_wakeups": 847,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432192.813563,
+          "cpu_ns": 946202750,
+          "interrupt_wakeups": 914,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432193.827103,
+          "cpu_ns": 949439708,
+          "interrupt_wakeups": 916,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432194.834338,
+          "cpu_ns": 952753083,
+          "interrupt_wakeups": 917,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432195.846669,
+          "cpu_ns": 963088583,
+          "interrupt_wakeups": 920,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432196.856791,
+          "cpu_ns": 1001265750,
+          "interrupt_wakeups": 956,
+          "package_idle_wakeups": 5
+        },
+        {
+          "time": 432197.870458,
+          "cpu_ns": 1121920291,
+          "interrupt_wakeups": 1078,
+          "package_idle_wakeups": 7
+        },
+        {
+          "time": 432198.8882,
+          "cpu_ns": 1220819833,
+          "interrupt_wakeups": 1196,
+          "package_idle_wakeups": 9
+        },
+        {
+          "time": 432199.901942,
+          "cpu_ns": 1310454500,
+          "interrupt_wakeups": 1288,
+          "package_idle_wakeups": 9
+        },
+        {
+          "time": 432200.916046,
+          "cpu_ns": 1314671166,
+          "interrupt_wakeups": 1291,
+          "package_idle_wakeups": 9
+        },
+        {
+          "time": 432201.930124,
+          "cpu_ns": 1320286791,
+          "interrupt_wakeups": 1294,
+          "package_idle_wakeups": 9
+        },
+        {
+          "time": 432202.944022,
+          "cpu_ns": 1325257416,
+          "interrupt_wakeups": 1295,
+          "package_idle_wakeups": 9
+        },
+        {
+          "time": 432203.955298,
+          "cpu_ns": 1333968500,
+          "interrupt_wakeups": 1297,
+          "package_idle_wakeups": 9
+        },
+        {
+          "time": 432204.969803,
+          "cpu_ns": 1350421958,
+          "interrupt_wakeups": 1311,
+          "package_idle_wakeups": 9
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    },
+    {
+      "scenario": "idle",
+      "metrics": {
+        "elapsed_seconds": 30.375129000050947,
+        "cpu_mean_percent": 0.013061399673375365,
+        "cpu_p95_percent": 0.05221797880468401,
+        "interrupt_wakeups_per_second": 0.29629503795637885,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 0.5,
+        "cpu_p95_percent": 2.0,
+        "interrupt_wakeups_per_second": 1.0
+      },
+      "passed": true,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "samples": [
+        {
+          "time": 432211.07819,
+          "cpu_ns": 139919916,
+          "interrupt_wakeups": 150,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432212.09318,
+          "cpu_ns": 139919916,
+          "interrupt_wakeups": 150,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432213.105205,
+          "cpu_ns": 140448375,
+          "interrupt_wakeups": 151,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432214.116685,
+          "cpu_ns": 140549583,
+          "interrupt_wakeups": 152,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432215.128005,
+          "cpu_ns": 140549583,
+          "interrupt_wakeups": 152,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432216.141174,
+          "cpu_ns": 140549583,
+          "interrupt_wakeups": 152,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432217.15768,
+          "cpu_ns": 140737458,
+          "interrupt_wakeups": 153,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432218.170985,
+          "cpu_ns": 140737458,
+          "interrupt_wakeups": 153,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432219.184478,
+          "cpu_ns": 142997416,
+          "interrupt_wakeups": 154,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432220.194706,
+          "cpu_ns": 142997416,
+          "interrupt_wakeups": 154,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432221.207532,
+          "cpu_ns": 142997416,
+          "interrupt_wakeups": 154,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432222.217522,
+          "cpu_ns": 142997416,
+          "interrupt_wakeups": 154,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432223.229043,
+          "cpu_ns": 142997416,
+          "interrupt_wakeups": 154,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432224.241988,
+          "cpu_ns": 143389666,
+          "interrupt_wakeups": 155,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432225.253305,
+          "cpu_ns": 143389666,
+          "interrupt_wakeups": 155,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432226.266385,
+          "cpu_ns": 143389666,
+          "interrupt_wakeups": 155,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432227.279543,
+          "cpu_ns": 143389666,
+          "interrupt_wakeups": 155,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432228.291052,
+          "cpu_ns": 143389666,
+          "interrupt_wakeups": 155,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432229.303077,
+          "cpu_ns": 143492958,
+          "interrupt_wakeups": 156,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432230.313595,
+          "cpu_ns": 143591416,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432231.321302,
+          "cpu_ns": 143591416,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432232.334108,
+          "cpu_ns": 143591416,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432233.34677,
+          "cpu_ns": 143591416,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432234.36021,
+          "cpu_ns": 143591416,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432235.373573,
+          "cpu_ns": 143703208,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432236.38943,
+          "cpu_ns": 143703208,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432237.402041,
+          "cpu_ns": 143703208,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432238.414676,
+          "cpu_ns": 143703208,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432239.427411,
+          "cpu_ns": 143887333,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432240.439919,
+          "cpu_ns": 143887333,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 4
+        },
+        {
+          "time": 432241.453319,
+          "cpu_ns": 143887333,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 4
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    },
+    {
+      "scenario": "focus",
+      "metrics": {
+        "elapsed_seconds": 30.371785999974236,
+        "cpu_mean_percent": 0.5273382375344534,
+        "cpu_p95_percent": 0.6525571131618768,
+        "interrupt_wakeups_per_second": 2.897425920229869,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 2.0,
+        "cpu_p95_percent": 5.0,
+        "interrupt_wakeups_per_second": 5.0
+      },
+      "passed": true,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "samples": [
+        {
+          "time": 432249.307168,
+          "cpu_ns": 170199250,
+          "interrupt_wakeups": 155,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432250.320951,
+          "cpu_ns": 175012916,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432251.333186,
+          "cpu_ns": 180468625,
+          "interrupt_wakeups": 161,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432252.34735,
+          "cpu_ns": 186100750,
+          "interrupt_wakeups": 165,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432253.359548,
+          "cpu_ns": 190728791,
+          "interrupt_wakeups": 167,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432254.372342,
+          "cpu_ns": 196207666,
+          "interrupt_wakeups": 170,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432255.380927,
+          "cpu_ns": 202129791,
+          "interrupt_wakeups": 173,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432256.393449,
+          "cpu_ns": 204278666,
+          "interrupt_wakeups": 176,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432257.406697,
+          "cpu_ns": 210241916,
+          "interrupt_wakeups": 179,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432258.415559,
+          "cpu_ns": 216490708,
+          "interrupt_wakeups": 182,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432259.429282,
+          "cpu_ns": 222571583,
+          "interrupt_wakeups": 185,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432260.44282,
+          "cpu_ns": 227999208,
+          "interrupt_wakeups": 188,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432261.451113,
+          "cpu_ns": 233544208,
+          "interrupt_wakeups": 191,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432262.459067,
+          "cpu_ns": 240221333,
+          "interrupt_wakeups": 194,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432263.47341,
+          "cpu_ns": 246094500,
+          "interrupt_wakeups": 197,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432264.485256,
+          "cpu_ns": 251716708,
+          "interrupt_wakeups": 200,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432265.495684,
+          "cpu_ns": 257847083,
+          "interrupt_wakeups": 203,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432266.506756,
+          "cpu_ns": 263266458,
+          "interrupt_wakeups": 206,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432267.519376,
+          "cpu_ns": 269357083,
+          "interrupt_wakeups": 209,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432268.533295,
+          "cpu_ns": 274548125,
+          "interrupt_wakeups": 212,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432269.545994,
+          "cpu_ns": 280554625,
+          "interrupt_wakeups": 215,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432270.560449,
+          "cpu_ns": 282668916,
+          "interrupt_wakeups": 218,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432271.575539,
+          "cpu_ns": 289292958,
+          "interrupt_wakeups": 221,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432272.589117,
+          "cpu_ns": 295105416,
+          "interrupt_wakeups": 223,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432273.598112,
+          "cpu_ns": 300425333,
+          "interrupt_wakeups": 226,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432274.610721,
+          "cpu_ns": 304367833,
+          "interrupt_wakeups": 229,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432275.625965,
+          "cpu_ns": 309951750,
+          "interrupt_wakeups": 232,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432276.639658,
+          "cpu_ns": 315401833,
+          "interrupt_wakeups": 235,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432277.652945,
+          "cpu_ns": 320527375,
+          "interrupt_wakeups": 237,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432278.664939,
+          "cpu_ns": 325488416,
+          "interrupt_wakeups": 240,
+          "package_idle_wakeups": 0
+        },
+        {
+          "time": 432279.678954,
+          "cpu_ns": 330361291,
+          "interrupt_wakeups": 243,
+          "package_idle_wakeups": 0
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    },
+    {
+      "scenario": "meeting-switch",
+      "metrics": {
+        "elapsed_seconds": 30.350469999946654,
+        "cpu_mean_percent": 3.7519519203557685,
+        "cpu_p95_percent": 11.443172302220596,
+        "interrupt_wakeups_per_second": 38.0883722723909,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 3.0,
+        "cpu_p95_percent": 8.0,
+        "interrupt_wakeups_per_second": 10.0
+      },
+      "passed": false,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        }
+      ],
+      "samples": [
+        {
+          "time": 432285.968593,
+          "cpu_ns": 159343666,
+          "interrupt_wakeups": 153,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432286.980627,
+          "cpu_ns": 163085500,
+          "interrupt_wakeups": 154,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432287.988666,
+          "cpu_ns": 166702291,
+          "interrupt_wakeups": 156,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432288.99707,
+          "cpu_ns": 170179416,
+          "interrupt_wakeups": 158,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432290.007163,
+          "cpu_ns": 174632750,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432291.020528,
+          "cpu_ns": 178658708,
+          "interrupt_wakeups": 160,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432292.033139,
+          "cpu_ns": 198044583,
+          "interrupt_wakeups": 164,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432293.043849,
+          "cpu_ns": 264105666,
+          "interrupt_wakeups": 263,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432294.055777,
+          "cpu_ns": 354085500,
+          "interrupt_wakeups": 382,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432295.068649,
+          "cpu_ns": 469258750,
+          "interrupt_wakeups": 501,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432296.083453,
+          "cpu_ns": 501784666,
+          "interrupt_wakeups": 533,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432297.097399,
+          "cpu_ns": 505706666,
+          "interrupt_wakeups": 535,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432298.106033,
+          "cpu_ns": 510600750,
+          "interrupt_wakeups": 536,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432299.120854,
+          "cpu_ns": 516220333,
+          "interrupt_wakeups": 539,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432300.132239,
+          "cpu_ns": 519690708,
+          "interrupt_wakeups": 542,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432301.143168,
+          "cpu_ns": 574528458,
+          "interrupt_wakeups": 617,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432302.157485,
+          "cpu_ns": 690598500,
+          "interrupt_wakeups": 735,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432303.169095,
+          "cpu_ns": 802492250,
+          "interrupt_wakeups": 851,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432304.177763,
+          "cpu_ns": 866201583,
+          "interrupt_wakeups": 911,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432305.186878,
+          "cpu_ns": 869916583,
+          "interrupt_wakeups": 913,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432306.199484,
+          "cpu_ns": 874273250,
+          "interrupt_wakeups": 914,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432307.210759,
+          "cpu_ns": 883576875,
+          "interrupt_wakeups": 917,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432308.22214,
+          "cpu_ns": 926226708,
+          "interrupt_wakeups": 960,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432309.235968,
+          "cpu_ns": 1046350958,
+          "interrupt_wakeups": 1078,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432310.242557,
+          "cpu_ns": 1158398375,
+          "interrupt_wakeups": 1194,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432311.254086,
+          "cpu_ns": 1258290083,
+          "interrupt_wakeups": 1286,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432312.26458,
+          "cpu_ns": 1262810208,
+          "interrupt_wakeups": 1289,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432313.277545,
+          "cpu_ns": 1267748083,
+          "interrupt_wakeups": 1291,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432314.291255,
+          "cpu_ns": 1272686833,
+          "interrupt_wakeups": 1292,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432315.304849,
+          "cpu_ns": 1282645833,
+          "interrupt_wakeups": 1295,
+          "package_idle_wakeups": 2
+        },
+        {
+          "time": 432316.319063,
+          "cpu_ns": 1298078708,
+          "interrupt_wakeups": 1309,
+          "package_idle_wakeups": 2
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    }
+  ]
+}

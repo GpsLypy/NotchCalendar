@@ -35,6 +35,7 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
             blue: 0.03,
             alpha: 1
         )
+        let presentation = self.presentation
         let workspaceView = MainWorkspaceView(
             calendar: calendar,
             focusTimer: focusTimer,
@@ -45,7 +46,7 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
         )
         window.contentViewController = NSHostingController(
             rootView: AppLanguageHost {
-                workspaceView
+                WorkspaceVisibilityHost(presentation: presentation) { workspaceView }
             }
         )
         window.setContentSize(NSSize(width: 980, height: 620))

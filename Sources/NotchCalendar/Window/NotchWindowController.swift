@@ -24,6 +24,9 @@ final class NotchWindowController: NSObject, ObservableObject {
     private var collapseTask: Task<Void, Never>?
     private var expandedCardHeight: CGFloat?
     private var pointerEvaluationQueued = false
+    #if NOTCH_QUALITY_PROBE
+    private(set) var pointerEventCount = 0
+    #endif
     private var compactActivityIsActive: Bool
     private var pointerWasInsideTrigger = false
     private var hoverAnchor: NSPoint?
@@ -71,7 +74,7 @@ final class NotchWindowController: NSObject, ObservableObject {
                         self?.updateCompactMeetingActivity(isActive)
                     }
                 )
-            }
+            }.defaultAppStorage(state.defaults)
         )
         hostingView.wantsLayer = true
         hostingView.layerContentsRedrawPolicy = .onSetNeedsDisplay
@@ -97,6 +100,9 @@ final class NotchWindowController: NSObject, ObservableObject {
                 }
             }
         NotificationCenter.default.addObserver(self, selector: #selector(reposition), name: NSApplication.didChangeScreenParametersNotification, object: nil)
+        for name in [NSWorkspace.willSleepNotification, NSWorkspace.didWakeNotification, NSWorkspace.screensDidWakeNotification] {
+            NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(resetAfterSleepWake), name: name, object: nil)
+        }
         // A global monitor is required because this non-activating panel does not
         // own the active application's event stream.
         globalMouseMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved]) { [weak self] _ in
@@ -134,6 +140,7 @@ final class NotchWindowController: NSObject, ObservableObject {
         if let globalMouseMonitor { NSEvent.removeMonitor(globalMouseMonitor) }
         if let localMouseMonitor { NSEvent.removeMonitor(localMouseMonitor) }
         NotificationCenter.default.removeObserver(self)
+        NSWorkspace.shared.notificationCenter.removeObserver(self)
     }
 
     func show() { panel.orderFrontRegardless() }
@@ -142,13 +149,16 @@ final class NotchWindowController: NSObject, ObservableObject {
         cancelPendingHover()
         collapseTask?.cancel()
         collapseTask = nil
-        if state.isExpanded {
-            state.isExpanded = false
-            resize(expanded: false, animated: false)
-        } else {
-            resize(expanded: false, animated: false)
-        }
+        state.isExpanded = false
+        resize(expanded: false, animated: false)
         PresentationDiagnostics.event("notch collapsed after screen change")
+    }
+
+    @objc private func resetAfterSleepWake() {
+        // Discard the old hover anchor and keyboard ownership. Waking or changing
+        // displays must never revive a stale expanded panel over another app.
+        reposition()
+        PresentationDiagnostics.event("notch reset reason=sleep-wake")
     }
 
     private func evaluatePointer() {
@@ -288,6 +298,9 @@ final class NotchWindowController: NSObject, ObservableObject {
     }
 
     private func queuePointerEvaluation() {
+        #if NOTCH_QUALITY_PROBE
+        pointerEventCount += 1
+        #endif
         guard !pointerEvaluationQueued else { return }
         pointerEvaluationQueued = true
         DispatchQueue.main.async { [weak self] in

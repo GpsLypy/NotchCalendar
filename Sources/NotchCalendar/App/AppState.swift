@@ -1,10 +1,12 @@
 import AppKit
 import SwiftUI
 import Combine
+import WidgetKit
 
 @MainActor
 final class AppState: ObservableObject {
     @Published var calendar: CalendarManager
+    let defaults: UserDefaults
     let focusTimer: FocusTimerModel
     let updateChecker = UpdateChecker()
     let presentationPreferences: PresentationPreferences
@@ -19,30 +21,39 @@ final class AppState: ObservableObject {
     @Published var isPresentationExpanded = false
 
     private var focusClock: Timer?
+    private var focusDeadline: Date?
+    private var focusObserver: AnyCancellable?
     private var calendarDayTimer: Timer?
     private var calendarObserver: AnyCancellable?
     private var timeContextObservers: Set<AnyCancellable> = []
     private var widgetSnapshotCoordinator: WidgetSnapshotCoordinator?
     private var lastSystemTimeRefreshAt: Date?
 
-    init() {
-        let calendar = CalendarManager()
-        let focusTimer = FocusTimerModel()
+    init(
+        calendar: CalendarManager? = nil,
+        defaults: UserDefaults = .standard,
+        recoveryDirectory: URL? = nil,
+        meetingAssistant: MeetingAssistant? = nil,
+        reloadWidgetTimelines: @escaping @MainActor (String) -> Void = { WidgetCenter.shared.reloadTimelines(ofKind: $0) }
+    ) {
+        let calendar = calendar ?? CalendarManager(defaults: defaults)
+        let focusTimer = FocusTimerModel(defaults: defaults)
+        self.defaults = defaults
         self.calendar = calendar
         self.focusTimer = focusTimer
-        presentationPreferences = PresentationPreferences()
-        notesStore = MeetingNotesStore()
-        backupStore = LocalBackupStore()
-        meetingAssistant = MeetingAssistant(calendar: calendar)
+        presentationPreferences = PresentationPreferences(defaults: defaults)
+        notesStore = MeetingNotesStore(defaults: defaults)
+        backupStore = LocalBackupStore(defaults: defaults, recoveryDirectory: recoveryDirectory)
+        self.meetingAssistant = meetingAssistant ?? MeetingAssistant(calendar: calendar, preferences: MeetingPreferences(defaults: defaults))
         calendarObserver = calendar.objectWillChange.sink { [weak self] _ in
             self?.objectWillChange.send()
         }
-        focusClock = .scheduledTimer(withTimeInterval: 30, repeats: true) { [weak self] _ in
-            Task { @MainActor in
-                guard let self else { return }
-                self.focusTimer.synchronize(now: Date())
-            }
+        focusObserver = focusTimer.objectWillChange.sink { [weak self] _ in
+            // Published properties announce before mutation. Read the complete
+            // snapshot after the current action, then retain an unchanged deadline.
+            DispatchQueue.main.async { [weak self] in self?.scheduleFocusCompletion() }
         }
+        scheduleFocusCompletion()
         observeSystemTimeContext()
         // Restore is posted on MainActor. Reload before it returns so a queued timer
         // tick or shortcut cannot persist the pre-restore in-memory snapshot.
@@ -54,8 +65,30 @@ final class AppState: ObservableObject {
         scheduleNextCalendarDayRefresh()
         widgetSnapshotCoordinator = WidgetSnapshotCoordinator(
             calendar: calendar,
-            focusTimer: focusTimer
+            focusTimer: focusTimer,
+            defaults: defaults,
+            reloadTimelines: reloadWidgetTimelines
         )
+    }
+
+    private func scheduleFocusCompletion() {
+        let deadline = focusTimer.isRunning ? focusTimer.widgetTargetDate : nil
+        guard deadline != focusDeadline else { return }
+        focusClock?.invalidate()
+        focusClock = nil
+        focusDeadline = deadline
+        guard let deadline else { return }
+        let timer = Timer(timeInterval: max(0.01, deadline.timeIntervalSinceNow), repeats: false) { [weak self] _ in
+            Task { @MainActor [weak self] in
+                guard let self else { return }
+                self.focusDeadline = nil
+                self.focusClock = nil
+                self.focusTimer.synchronize(now: Date())
+                self.scheduleFocusCompletion()
+            }
+        }
+        focusClock = timer
+        RunLoop.main.add(timer, forMode: .common)
     }
 
     func toggleExpansion() { isExpanded.toggle() }
@@ -114,6 +147,10 @@ final class AppState: ObservableObject {
     private func refreshAfterSystemTimeChange() {
         let now = Date()
         focusTimer.synchronize(now: now)
+        // A wall-clock correction can move an already scheduled Timer deadline.
+        focusDeadline = nil
+        focusClock?.invalidate()
+        scheduleFocusCompletion()
         selectedDate = now
         if lastSystemTimeRefreshAt.map({ abs(now.timeIntervalSince($0)) >= 1 }) ?? true {
             lastSystemTimeRefreshAt = now

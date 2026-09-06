@@ -4,6 +4,13 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+### Quality gates for 1.0 / 1.0 质量门槛
+
+- Cancel hidden workspace refresh and share the compact activity clock; complete focus sessions with a one-shot deadline even when all views are hidden. / 隐藏主窗口停止页面刷新，收起态共用时钟，专注通过独立结束时刻完成。
+- Stop continuous per-frame progress animation in the compact meeting ring; keep second-level progress updates. / 收起态会议进度环停止持续逐帧动画，保持每秒更新。
+- Add Command-1/2 activity switching, Space focus control and Escape dismissal to the expanded notch. Reset stale hover and keyboard focus on sleep/wake notifications. / 补齐刘海键盘操作及休眠唤醒时的状态清理。
+- Add an offline standalone performance probe, raw CPU/wakeup sampling, a shared activity contract and a fail-closed stable-release gate. External-display acceptance remains pending; 1.0 is not released. / 增加离线实机性能探针、原始采样、统一活动规范和正式发布门槛；外接屏验收待完成，暂不发布 1.0。
+
 ## [0.9.0] - 2026-09-06
 
 macOS 15+ · Apple Silicon and Intel. Free manual-install build, ad-hoc signed and not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；继续免费，采用 ad-hoc 签名及手动安装，尚未进行 Developer ID 公证。

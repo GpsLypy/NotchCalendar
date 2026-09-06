@@ -22,8 +22,12 @@ jobs:
       RELEASE_VERSION: ${{ inputs.version || github.ref_name }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: Check stable-release quality evidence
+        run: python3 Scripts/quality/verify_release_gate.py "${RELEASE_VERSION#v}"
       - name: Run tests
-        run: swift test
+        run: |
+          swift test
+          python3 -m unittest discover -s Scripts/quality -p "test_*.py"
       - name: Prepare curated release notes
         run: Scripts/extract_release_notes.sh "${RELEASE_VERSION#v}" "dist/release-notes.md"
       - name: Build manual-install release archive
