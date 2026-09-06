@@ -13,7 +13,7 @@ struct WorkspaceSidebar: View {
             brand
                 .padding(.horizontal, 13)
                 .padding(.top, 43)
-                .padding(.bottom, 24)
+                .padding(.bottom, 20)
 
             if let openCommands {
                 Button(action: openCommands) {
@@ -32,7 +32,7 @@ struct WorkspaceSidebar: View {
                 .foregroundStyle(WorkspacePalette.secondaryText)
                 .keyboardShortcut("k", modifiers: .command)
                 .padding(.horizontal, 12)
-                .padding(.bottom, 20)
+                .padding(.bottom, 18)
             }
 
             ScrollView {
@@ -42,27 +42,21 @@ struct WorkspaceSidebar: View {
                     navigationRow(.calendar, shortcut: "⌘2", badge: eventBadge)
 
                     sectionLabel("TOOLS")
-                        .padding(.top, 18)
+                        .padding(.top, 14)
                     navigationRow(.focus, shortcut: "⌘3", badge: focusBadge)
                     navigationRow(.scratchpad, shortcut: "⌘4")
 
                     sectionLabel("INSIGHTS")
-                        .padding(.top, 18)
+                        .padding(.top, 14)
                     navigationRow(.radar, shortcut: "⌘5")
                     navigationRow(.markets, shortcut: "⌘6")
                     navigationRow(.discussion, shortcut: "⌘7")
                     navigationRow(.briefing, shortcut: "⌘8")
                 }
             }
-            .scrollIndicators(.hidden)
+            .scrollIndicators(.automatic)
 
             Spacer(minLength: 8)
-
-            TimelineView(.periodic(from: .now, by: 60)) { context in
-                DayPulseView(date: context.date)
-            }
-            .padding(.horizontal, 10)
-            .padding(.bottom, 8)
 
             calendarStatus
                 .padding(.horizontal, 10)
@@ -98,7 +92,7 @@ struct WorkspaceSidebar: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                     .fill(WorkspacePalette.accent.opacity(0.16))
-                Image(systemName: "circle.grid.cross.fill")
+                Image(systemName: "calendar")
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundStyle(WorkspacePalette.accent)
                     .accessibilityHidden(true)
@@ -159,15 +153,17 @@ struct WorkspaceSidebar: View {
         } label: {
             HStack(spacing: 8) {
                 Circle()
-                    .fill(calendar.authorizationMessage == nil ? WorkspacePalette.success : Color.orange)
+                    .fill(calendar.sourceAvailability == .available ? WorkspacePalette.success : Color.orange)
                     .frame(width: 6, height: 6)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(calendar.authorizationMessage == nil ? calendarStatusTitle : t("Calendar access needed"))
+                    Text(calendarStatusTitle)
                         .font(.system(size: 11.5, weight: .medium))
                         .foregroundStyle(WorkspacePalette.primaryText)
-                    Text(t("Managed in System Settings"))
-                        .font(.system(size: 9.5))
-                        .foregroundStyle(WorkspacePalette.secondaryText)
+                    if calendar.authorizationMessage != nil {
+                        Text(t("Managed in System Settings"))
+                            .font(.system(size: 9.5))
+                            .foregroundStyle(WorkspacePalette.secondaryText)
+                    }
                 }
                 Spacer(minLength: 0)
             }
@@ -181,6 +177,12 @@ struct WorkspaceSidebar: View {
     }
 
     private var calendarStatusTitle: String {
+        switch calendar.sourceAvailability {
+        case .needsPermission: return t("Calendar access needed")
+        case .noCalendars: return t("No calendars available")
+        case .noneSelected: return t("All calendars hidden")
+        case .available: break
+        }
         let count = calendar.todayEvents.count
         return count == 1
             ? t("1 event today")
@@ -284,7 +286,7 @@ private struct SidebarNavigationButton: View {
                 } else {
                     Text(shortcut)
                         .font(.system(size: 9.5, weight: .medium))
-                        .foregroundStyle(WorkspacePalette.secondaryText.opacity(isHovering ? 0.8 : 0.42))
+                        .foregroundStyle(WorkspacePalette.secondaryText.opacity(isHovering || isSelected ? 1 : 0.75))
                 }
             }
             .padding(.horizontal, 10)
@@ -304,59 +306,8 @@ private struct SidebarNavigationButton: View {
     }
 
     private var rowBackground: Color {
-        if isSelected { return Color.white.opacity(0.085) }
+        if isSelected { return WorkspacePalette.accent.opacity(0.10) }
         if isHovering { return WorkspacePalette.hover }
         return .clear
-    }
-}
-
-private struct DayPulseView: View {
-    let date: Date
-    @Environment(\.appLanguage) private var appLanguage
-
-    private var progress: Double {
-        let calendar = Calendar.current
-        let start = calendar.startOfDay(for: date)
-        guard let end = calendar.date(byAdding: .day, value: 1, to: start) else { return 0 }
-        let elapsed = date.timeIntervalSince(start)
-        return min(max(elapsed / end.timeIntervalSince(start), 0), 1)
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 7) {
-            HStack {
-                Text(
-                    date.formatted(
-                        .dateTime.weekday(.wide).locale(appLanguage.locale)
-                    ).uppercased(with: appLanguage.locale)
-                )
-                Spacer()
-                Text("\(Int(progress * 100))%")
-                    .monospacedDigit()
-            }
-            .font(.system(size: 9, weight: .bold))
-            .tracking(0.75)
-            .foregroundStyle(WorkspacePalette.secondaryText)
-
-            GeometryReader { geometry in
-                ZStack(alignment: .leading) {
-                    Capsule().fill(Color.white.opacity(0.07))
-                    Capsule()
-                        .fill(WorkspacePalette.accent)
-                        .frame(width: max(2, geometry.size.width * progress))
-                }
-            }
-            .frame(height: 2)
-        }
-        .padding(10)
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel(L10n.string("Day progress", language: appLanguage))
-        .accessibilityValue(
-            L10n.string(
-                "%@ percent",
-                language: appLanguage,
-                "\(Int(progress * 100))"
-            )
-        )
     }
 }

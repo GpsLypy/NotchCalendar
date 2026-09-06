@@ -1,0 +1,10 @@
+{
+  "version": "1.1.0",
+  "status": "pending",
+  "build": {
+    "source_fingerprint": "729e6fb6c135da7f0c8f1328b970f415946f21027632daf20d90c81b00c1ddac"
+  },
+  "runs": [],
+  "passed": false,
+  "reason": "Awaiting measurements of the final 1.1.0 runtime. No previous release samples are reused as passing evidence."
+}

@@ -1,10 +1,11 @@
 # Activity quality contract
 
-Applies to the compact notch, expanded panel, workspace commands and future activities. New activity kinds remain frozen until the 1.0 device and resource gates pass.
+Applies to the compact notch, expanded panel, workspace commands and future activities. New activity kinds remain frozen until the device and resource gates pass.
 
 ## Selection and continuity
 
-- `NotchActivityPolicy` is the single selection rule: an enabled, eligible active meeting takes priority; otherwise an enabled unfinished focus/break session appears; otherwise show the calendar. Paused focus remains an unfinished session. Hidden or disabled sources never win.
+- `NotchActivityPolicy` is the single selection rule: an enabled, eligible active meeting takes priority; otherwise an enabled unfinished focus/break session explicitly started or resumed during this launch appears; otherwise show the calendar. Pausing keeps that activity visible during the same launch. Hidden or disabled sources never win.
+- Cold launch and backup restoration retain saved focus data without claiming the notch. Restored running sessions still finish in the background. `hasUnfinishedSession` protects saved work; `hasNotchActivity` controls presentation. Starting or resuming does not expand the panel or activate the workspace.
 - Exclude all-day, cancelled, declined and invalid-duration meetings. Break ties deterministically with occurrence identity. Meeting end returns to the preserved focus session without restarting it.
 - Compact width and rendered content use the same decision. Expanded activity changes only through explicit selection during that hover session; a new expansion reevaluates the compact rule.
 - A new activity must extend the shared rule and its preference/state matrix tests. Do not implement separate priority rules inside views.
@@ -27,6 +28,8 @@ Applies to the compact notch, expanded panel, workspace commands and future acti
 
 ## Release acceptance
 
-`Scripts/quality/verify_release_gate.py` blocks stable 1.x releases with missing device evidence, failed resource measurements or a mismatched runtime source fingerprint. All cases must name concrete evidence. An unavailable device is **pending**, never passed or waived. Distribution currently retains ad-hoc signatures only, with no Developer ID certificate or notarization.
+`Scripts/quality/verify_release_gate.py` blocks stable 1.x releases with missing device evidence, failed resource measurements or a mismatched runtime source fingerprint. All cases must name concrete evidence. An unavailable device stays **pending**, never passed. Distribution currently retains ad-hoc signatures only, with no Developer ID certificate or notarization.
+
+An owner-authorized publication with pending acceptance must be recorded independently for that version, matching the original owner request, runtime fingerprint and exact outstanding checks. It does not change acceptance status, cannot carry over from another version, and cannot waive an actual hardware failure or invalid/failed measurement. The `--strict` gate always reports all remaining failures regardless of a publication exception.
 
 Apple references: [XNU process resource accounting](https://github.com/apple-oss-distributions/xnu/blob/main/osfmk/kern/bsd_kern.c#L1187-L1197), [Apple silicon executable signatures](https://support.apple.com/en-ie/guide/security/secebb113be1/web).

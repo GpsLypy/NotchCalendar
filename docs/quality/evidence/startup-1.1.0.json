@@ -1,0 +1,206 @@
+{
+  "version": "1.1.0",
+  "recorded_at_utc": "2026-09-06T15:43:10.557987+00:00",
+  "method": "Offline native AppKit/SwiftUI window probe built with NOTCH_QUALITY_PROBE and disposable preferences; three-second warmup and three-second observation per scenario.",
+  "scope": "Cold-launch activity selection, compact presentation state and preserved timer state. Production view/controller/model code runs against synthetic local calendar data; notifications, hotkeys and widget reloads are stubbed.",
+  "build": {
+    "source_fingerprint": "729e6fb6c135da7f0c8f1328b970f415946f21027632daf20d90c81b00c1ddac",
+    "binary_sha256": "cfbb59df799feae2d4a6fc758172eb231763f757d99fcac8ad3b9cb4f2991f1d",
+    "configuration": "release",
+    "probe": true
+  },
+  "checks": {
+    "both_processes_exited_normally": true,
+    "both_initial_and_final_activities_calendar": true,
+    "both_initial_and_final_presentations_collapsed": true,
+    "neither_panel_claimed_keyboard_focus": true,
+    "neither_restored_timer_claimed_notch_activity": true,
+    "paused_timer_preserved_49_minutes_20_seconds": true,
+    "running_timer_restored_running_with_49_minutes_20_seconds_remaining": true,
+    "running_counter_decrement_observed_during_short_sample": false
+  },
+  "startup_state_result": "passed",
+  "running_countdown_observation": "The fixture starts a 50-minute session 40 seconds before restoration. Running state and 2960 remaining seconds were preserved in both snapshots. No further integer decrement was observed during this three-second interval; the hidden focus activity is not refreshed every second. This probe alone does not establish elapsed countdown completion.",
+  "limitations": [
+    "Both raw runs reported displayVisible=false. Window-state assertions passed, but actual foreground visibility was not established.",
+    "This is an offline native-window startup probe, not full hardware hover, click, sleep/wake, external-display or cross-display acceptance.",
+    "No performance measurements or claims are made.",
+    "The existing user application was not closed; the probe used a separate bundle identity and temporary preferences that it removed during normal exit."
+  ],
+  "runs": [
+    {
+      "scenario": "restored-paused",
+      "exit_code": 0,
+      "raw_states": [
+        {
+          "activity": "calendar",
+          "displayVisible": false,
+          "expanded": false,
+          "frame": "{{663, 950}, {185, 32}}",
+          "hasNotchActivity": false,
+          "key": false,
+          "mode": "intentionalHover",
+          "occludedDuringSample": false,
+          "passthrough": true,
+          "pid": 40281,
+          "pointerEvents": 0,
+          "remaining": 2960,
+          "renderExpanded": false,
+          "running": false,
+          "scenario": "restored-paused",
+          "screens": [
+            {
+              "frame": "{{0, 0}, {1512, 982}}",
+              "name": "内建视网膜显示器",
+              "notch": true
+            }
+          ],
+          "showsFocus": true,
+          "showsMeetings": true,
+          "timestamp": 1788709342.638339
+        },
+        {
+          "activity": "calendar",
+          "displayVisible": false,
+          "expanded": false,
+          "frame": "{{663, 950}, {185, 32}}",
+          "hasNotchActivity": false,
+          "key": false,
+          "mode": "intentionalHover",
+          "occludedDuringSample": false,
+          "passthrough": true,
+          "pid": 40281,
+          "pointerEvents": 0,
+          "remaining": 2960,
+          "renderExpanded": false,
+          "running": false,
+          "scenario": "restored-paused",
+          "screens": [
+            {
+              "frame": "{{0, 0}, {1512, 982}}",
+              "name": "内建视网膜显示器",
+              "notch": true
+            }
+          ],
+          "showsFocus": true,
+          "showsMeetings": true,
+          "timestamp": 1788709345.6969352
+        }
+      ],
+      "raw_final_state": {
+        "activity": "calendar",
+        "displayVisible": false,
+        "expanded": false,
+        "frame": "{{663, 950}, {185, 32}}",
+        "hasNotchActivity": false,
+        "key": false,
+        "mode": "intentionalHover",
+        "occludedDuringSample": false,
+        "passthrough": true,
+        "pid": 40281,
+        "pointerEvents": 0,
+        "remaining": 2960,
+        "renderExpanded": false,
+        "running": false,
+        "scenario": "restored-paused",
+        "screens": [
+          {
+            "frame": "{{0, 0}, {1512, 982}}",
+            "name": "内建视网膜显示器",
+            "notch": true
+          }
+        ],
+        "showsFocus": true,
+        "showsMeetings": true,
+        "timestamp": 1788709345.6969352
+      }
+    },
+    {
+      "scenario": "restored-running",
+      "exit_code": 0,
+      "raw_states": [
+        {
+          "activity": "calendar",
+          "displayVisible": false,
+          "expanded": false,
+          "frame": "{{663, 950}, {185, 32}}",
+          "hasNotchActivity": false,
+          "key": false,
+          "mode": "intentionalHover",
+          "occludedDuringSample": false,
+          "passthrough": true,
+          "pid": 40293,
+          "pointerEvents": 0,
+          "remaining": 2960,
+          "renderExpanded": false,
+          "running": true,
+          "scenario": "restored-running",
+          "screens": [
+            {
+              "frame": "{{0, 0}, {1512, 982}}",
+              "name": "内建视网膜显示器",
+              "notch": true
+            }
+          ],
+          "showsFocus": true,
+          "showsMeetings": true,
+          "timestamp": 1788709349.003553
+        },
+        {
+          "activity": "calendar",
+          "displayVisible": false,
+          "expanded": false,
+          "frame": "{{663, 950}, {185, 32}}",
+          "hasNotchActivity": false,
+          "key": false,
+          "mode": "intentionalHover",
+          "occludedDuringSample": false,
+          "passthrough": true,
+          "pid": 40293,
+          "pointerEvents": 0,
+          "remaining": 2960,
+          "renderExpanded": false,
+          "running": true,
+          "scenario": "restored-running",
+          "screens": [
+            {
+              "frame": "{{0, 0}, {1512, 982}}",
+              "name": "内建视网膜显示器",
+              "notch": true
+            }
+          ],
+          "showsFocus": true,
+          "showsMeetings": true,
+          "timestamp": 1788709352.033963
+        }
+      ],
+      "raw_final_state": {
+        "activity": "calendar",
+        "displayVisible": false,
+        "expanded": false,
+        "frame": "{{663, 950}, {185, 32}}",
+        "hasNotchActivity": false,
+        "key": false,
+        "mode": "intentionalHover",
+        "occludedDuringSample": false,
+        "passthrough": true,
+        "pid": 40293,
+        "pointerEvents": 0,
+        "remaining": 2960,
+        "renderExpanded": false,
+        "running": true,
+        "scenario": "restored-running",
+        "screens": [
+          {
+            "frame": "{{0, 0}, {1512, 982}}",
+            "name": "内建视网膜显示器",
+            "notch": true
+          }
+        ],
+        "showsFocus": true,
+        "showsMeetings": true,
+        "timestamp": 1788709352.033963
+      }
+    }
+  ]
+}

@@ -553,3 +553,9 @@
 "Resume timer" = "继续计时";
 "Break running" = "休息进行中";
 "Prepare your next session." = "准备下一段专注或休息。";
+
+// Desktop calendar empty state
+"No events on this day." = "这一天还没有日程";
+"Leave room in your day, or add something to look forward to." = "留一点空白，也可以从这里安排新日程。";
+"No calendars available" = "没有可用日历";
+"All calendars hidden" = "日历已全部隐藏";

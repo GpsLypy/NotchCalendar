@@ -4,7 +4,7 @@ import SwiftUI
 @MainActor
 final class MainCalendarPresentation: ObservableObject {
     @Published var isActive = false
-    @Published var selectedDestination = WorkspaceDestination.today
+    @Published var selectedDestination = WorkspaceDestination.calendar
 }
 
 @MainActor

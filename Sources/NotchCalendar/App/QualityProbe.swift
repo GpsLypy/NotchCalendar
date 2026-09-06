@@ -16,7 +16,7 @@ final class QualityProbe {
         guard let directory = env["NOTCH_QUALITY_OUTPUT"], let scenario = env["NOTCH_QUALITY_SCENARIO"] else {
             fatalError("Quality probe requires an output directory and scenario")
         }
-        precondition(["idle", "focus", "meeting-switch", "interaction"].contains(scenario))
+        precondition(["idle", "focus", "meeting-switch", "interaction", "restored-paused", "restored-running"].contains(scenario))
         let output = URL(fileURLWithPath: directory, isDirectory: true)
         try! FileManager.default.createDirectory(at: output, withIntermediateDirectories: true)
         let defaults = UserDefaults(suiteName: suite)!
@@ -33,10 +33,16 @@ final class QualityProbe {
         let calendar = CalendarManager(dataSource: dataSource, defaults: defaults)
         let assistant = MeetingAssistant(calendar: calendar, preferences: MeetingPreferences(defaults: defaults),
             notifications: QualityNotifications(), hotKey: QualityHotKey(), openURL: { _ in false }, showError: { _ in })
+        if scenario.hasPrefix("restored-") {
+            let previous = FocusTimerModel(defaults: defaults, now: origin.addingTimeInterval(-40))
+            previous.select(minutes: 50)
+            previous.toggle(now: origin.addingTimeInterval(-40))
+            if scenario == "restored-paused" { previous.toggle(now: origin) }
+        }
         let state = AppState(calendar: calendar, defaults: defaults,
             recoveryDirectory: output.appendingPathComponent("recovery"), meetingAssistant: assistant,
             reloadWidgetTimelines: { _ in })
-        if scenario != "idle" { state.focusTimer.toggle() }
+        if scenario != "idle" && !scenario.hasPrefix("restored-") { state.focusTimer.toggle() }
         return state
     }
 
@@ -69,12 +75,13 @@ final class QualityProbe {
             }
             let status = UpcomingEventEngine.status(now: Date(), events: calendar.todayEvents)
             let activity = NotchActivityPolicy.compactActivity(showsMeetings: state.presentationPreferences.showsMeetingStatus, meetingIsActive: status.isActive,
-                showsFocus: state.presentationPreferences.showsFocusStatus, hasFocusSession: state.focusTimer.hasUnfinishedSession)
+                showsFocus: state.presentationPreferences.showsFocusStatus, hasFocusSession: state.focusTimer.hasNotchActivity)
             let value: [String: Any] = ["pid": ProcessInfo.processInfo.processIdentifier, "scenario": scenario,
                 "screens": screens, "expanded": state.isExpanded, "renderExpanded": state.isPresentationExpanded,
                 "key": panel.isKeyWindow, "passthrough": panel.ignoresMouseEvents,
                 "frame": NSStringFromRect(panel.frame), "activity": String(describing: activity),
                 "remaining": state.focusTimer.remainingSeconds, "running": state.focusTimer.isRunning,
+                "hasNotchActivity": state.focusTimer.hasNotchActivity,
                 "mode": state.presentationPreferences.notchInteractionMode.rawValue,
                 "showsMeetings": state.presentationPreferences.showsMeetingStatus,
                 "showsFocus": state.presentationPreferences.showsFocusStatus,

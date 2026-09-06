@@ -1,8 +1,8 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "pending",
-  "source_fingerprint": "5ab5b9d87559979b47b25ced27c8d9c630fd07e13ebee5565c3584ca474387e1",
-  "performance_report": "docs/quality/evidence/performance-verified-2026-09-06.json",
+  "source_fingerprint": "729e6fb6c135da7f0c8f1328b970f415946f21027632daf20d90c81b00c1ddac",
+  "performance_report": "docs/quality/evidence/performance-1.1.0.json",
   "hardware": {
     "notched_hover": {
       "status": "pending",
@@ -10,31 +10,19 @@
       "evidence": []
     },
     "notched_click": {
-      "status": "passed_on_previous_candidate",
-      "actual_hardware": true,
-      "evidence": [
-        "docs/quality/evidence/notched-native-interaction-2026-09-06.json"
-      ],
-      "source_fingerprint": "337ee7a244bf1542e6468a1cb34b3b495313e298b1547757922c456939c633b0",
-      "note": "Recheck final compact-progress build after unlocking; earlier native result retained as evidence."
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
     },
     "notched_activity": {
-      "status": "passed_on_previous_candidate",
-      "actual_hardware": true,
-      "evidence": [
-        "docs/quality/evidence/notched-native-interaction-2026-09-06.json"
-      ],
-      "source_fingerprint": "337ee7a244bf1542e6468a1cb34b3b495313e298b1547757922c456939c633b0",
-      "note": "Recheck final compact-progress build after unlocking; earlier native result retained as evidence."
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
     },
     "notched_keyboard": {
-      "status": "passed_on_previous_candidate",
-      "actual_hardware": true,
-      "evidence": [
-        "docs/quality/evidence/notched-native-interaction-2026-09-06.json"
-      ],
-      "source_fingerprint": "337ee7a244bf1542e6468a1cb34b3b495313e298b1547757922c456939c633b0",
-      "note": "Recheck final compact-progress build after unlocking; earlier native result retained as evidence."
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
     },
     "notched_sleep_wake": {
       "status": "pending",
@@ -69,15 +57,19 @@
   },
   "distribution": "ad-hoc only; no Developer ID; no notarization",
   "display_state_validation": "pending",
-  "remaining_reason": "Final unlocked performance, final-candidate click/activity/keyboard recheck, physical hover and sleep/wake acceptance remain pending. No external monitor is available. See the separate one-build release exception; acceptance status is unchanged.",
+  "remaining_reason": "Final-candidate performance and hardware acceptance are pending. Earlier release evidence is historical and does not certify this runtime. No external monitor is currently available.",
+  "owner_release_request": {
+    "version": "1.1.0",
+    "requested_by": "project_owner",
+    "request": "色调审美不好看,还不如上版本的色调，请你用最好的审美重新改，另外我发现的一个 bug 是打开软件自动跳到了 专注计时器而不是默认的日历收缩态，请你仔细打磨产品细节，完成最强新版本的迭代并发布"
+  },
   "release_exception": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "decision": "publish_with_pending_acceptance",
     "authorized_by": "project_owner",
-    "request": "发布 1.0 版本把",
-    "recorded_at": "2026-09-06T23:02:41+08:00",
-    "reason": "The owner requested 1.0 publication after being informed that final unlocked performance and hardware acceptance remain pending. Publish with those limitations disclosed; retain pending evidence and the strict gate for subsequent releases.",
-    "source_fingerprint": "5ab5b9d87559979b47b25ced27c8d9c630fd07e13ebee5565c3584ca474387e1",
+    "request": "色调审美不好看,还不如上版本的色调，请你用最好的审美重新改，另外我发现的一个 bug 是打开软件自动跳到了 专注计时器而不是默认的日历收缩态，请你仔细打磨产品细节，完成最强新版本的迭代并发布",
+    "reason": "The owner requested a polished new release after the previous release disclosed pending performance and hardware acceptance. Any remaining checks must be explicitly recorded for this version and final runtime, with measured failures still blocking publication.",
+    "source_fingerprint": "729e6fb6c135da7f0c8f1328b970f415946f21027632daf20d90c81b00c1ddac",
     "accepted_pending_checks": [
       "Confirm the performance samples were taken with the display unlocked and on",
       "Hardware acceptance pending: notched_hover",
@@ -85,10 +77,13 @@
       "Missing device evidence: notched_hover",
       "Hardware acceptance pending: notched_click",
       "Device evidence is stale for current sources: notched_click",
+      "Missing device evidence: notched_click",
       "Hardware acceptance pending: notched_activity",
       "Device evidence is stale for current sources: notched_activity",
+      "Missing device evidence: notched_activity",
       "Hardware acceptance pending: notched_keyboard",
       "Device evidence is stale for current sources: notched_keyboard",
+      "Missing device evidence: notched_keyboard",
       "Hardware acceptance pending: notched_sleep_wake",
       "Device evidence is stale for current sources: notched_sleep_wake",
       "Missing device evidence: notched_sleep_wake",
@@ -110,11 +105,13 @@
       "Need two independent samples: idle",
       "Need two independent samples: focus",
       "Need two independent samples: meeting-switch"
-    ]
+    ],
+    "recorded_at": "2026-09-06T23:44:43.448009+08:00"
   },
-  "owner_release_request": {
-    "version": "1.0.0",
-    "requested_by": "project_owner",
-    "request": "发布 1.0 版本把"
-  }
+  "automated_evidence": [
+    "docs/quality/evidence/startup-1.1.0.json",
+    "docs/quality/evidence/swift-tests-1.1.0.log",
+    "docs/quality/evidence/release-gate-tests-1.1.0.log",
+    "docs/quality/evidence/package-1.1.0.json"
+  ]
 }

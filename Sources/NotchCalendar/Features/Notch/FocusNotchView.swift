@@ -43,11 +43,11 @@ struct NotchCompactActivityView: View {
     private var meetingIsActive: Bool { UpcomingEventEngine.status(now: now, events: events).isActive }
     private var activity: NotchActivity {
         NotchActivityPolicy.compactActivity(showsMeetings: preferences.showsMeetingStatus, meetingIsActive: meetingIsActive,
-                                          showsFocus: preferences.showsFocusStatus, hasFocusSession: timer.hasUnfinishedSession)
+                                          showsFocus: preferences.showsFocusStatus, hasFocusSession: timer.hasNotchActivity)
     }
     private var showsShoulders: Bool {
         NotchActivityPolicy.showsShoulders(showsMeetings: preferences.showsMeetingStatus, meetingIsActive: meetingIsActive,
-                                         showsFocus: preferences.showsFocusStatus, hasFocusSession: timer.hasUnfinishedSession)
+                                         showsFocus: preferences.showsFocusStatus, hasFocusSession: timer.hasNotchActivity)
     }
 
     var body: some View {

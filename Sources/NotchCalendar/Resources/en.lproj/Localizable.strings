@@ -315,3 +315,9 @@
 "Resume timer" = "Resume timer";
 "Break running" = "Break running";
 "Prepare your next session." = "Prepare your next session.";
+
+// Desktop calendar empty state
+"No events on this day." = "No events on this day.";
+"Leave room in your day, or add something to look forward to." = "Leave room in your day, or add something to look forward to.";
+"No calendars available" = "No calendars available";
+"All calendars hidden" = "All calendars hidden";

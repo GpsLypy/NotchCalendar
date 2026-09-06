@@ -22,6 +22,8 @@ def validate(version, root=ROOT):
         return [f"Missing quality record: {path.relative_to(root)}"]
     report = json.loads(path.read_text())
     errors = []
+    if report.get("version") != version:
+        errors.append(f"Quality record version does not match requested release: {version}")
     if report.get("display_state_validation") != "passed":
         errors.append("Confirm the performance samples were taken with the display unlocked and on")
     fingerprint = source_fingerprint(root)
@@ -29,7 +31,9 @@ def validate(version, root=ROOT):
         errors.append("Device evidence does not match the current runtime source fingerprint")
     for name in REQUIRED_CASES:
         case = report.get("hardware", {}).get(name, {})
-        if case.get("status") != "passed" or case.get("actual_hardware") is not True:
+        if case.get("status") == "failed":
+            errors.append(f"Hardware acceptance failed: {name}")
+        elif case.get("status") != "passed" or case.get("actual_hardware") is not True:
             errors.append(f"Hardware acceptance pending: {name}")
         if case.get("source_fingerprint") != fingerprint:
             errors.append(f"Device evidence is stale for current sources: {name}")
@@ -77,15 +81,31 @@ def validate(version, root=ROOT):
 
 
 def has_recorded_release_exception(version, errors, root=ROOT):
-    """Honor the owner's one-build 1.0 decision without marking evidence passed.
+    """Honor only this version's recorded owner decision for this runtime build.
 
     Measured failures, unreadable reports and changed sources remain blockers.
-    The exact outstanding checks must match the reviewed release record.
+    The owner's original request and exact outstanding checks must match the
+    reviewed release record; a previous version's exception never carries over.
     """
-    if version != "1.0.0" or not errors:
+    if not errors or not all(isinstance(error, str) for error in errors):
         return False
-    record = json.loads((root / "docs/quality/1.0.0.json").read_text())
+    try:
+        record = json.loads((root / "docs/quality" / f"{version}.json").read_text())
+        fingerprint = source_fingerprint(root)
+    except (OSError, ValueError, TypeError):
+        return False
+    if not isinstance(record, dict):
+        return False
     exception = record.get("release_exception", {})
+    owner_request = record.get("owner_release_request", {})
+    if not isinstance(exception, dict) or not isinstance(owner_request, dict):
+        return False
+    accepted = exception.get("accepted_pending_checks")
+    request = owner_request.get("request")
+    if not isinstance(accepted, list) or not all(isinstance(item, str) for item in accepted):
+        return False
+    if not isinstance(request, str) or not request.strip():
+        return False
     pending_prefixes = (
         "Confirm the performance samples were taken with the display unlocked and on",
         "Hardware acceptance pending: ",
@@ -94,13 +114,18 @@ def has_recorded_release_exception(version, errors, root=ROOT):
         "Need two independent samples: ",
     )
     return (
-        exception.get("version") == version
+        record.get("version") == version
+        and record.get("source_fingerprint") == fingerprint
+        and owner_request.get("version") == version
+        and owner_request.get("requested_by") == "project_owner"
+        and exception.get("version") == version
         and exception.get("decision") == "publish_with_pending_acceptance"
         and exception.get("authorized_by") == "project_owner"
-        and bool(exception.get("request"))
-        and bool(exception.get("reason"))
-        and exception.get("source_fingerprint") == source_fingerprint(root)
-        and sorted(exception.get("accepted_pending_checks", [])) == sorted(errors)
+        and exception.get("request") == request
+        and isinstance(exception.get("reason"), str)
+        and bool(exception["reason"].strip())
+        and exception.get("source_fingerprint") == fingerprint
+        and sorted(accepted) == sorted(errors)
         and all(error.startswith(pending_prefixes) for error in errors)
     )
 
@@ -108,13 +133,13 @@ def has_recorded_release_exception(version, errors, root=ROOT):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("version")
-    parser.add_argument("--strict", action="store_true", help="Report acceptance gaps even for the recorded 1.0 release exception")
+    parser.add_argument("--strict", action="store_true", help="Report all acceptance gaps, ignoring any recorded exception for this release")
     args = parser.parse_args()
     try:
         version = args.version.removeprefix("v")
         errors = validate(version)
         if errors and not args.strict and has_recorded_release_exception(version, errors):
-            print("Release authorized with pending acceptance (recorded 1.0 exception):\n- " + "\n- ".join(errors))
+            print(f"Release authorized with pending acceptance (recorded {version} exception):\n- " + "\n- ".join(errors))
             return 0
     except (ValueError, KeyError, TypeError, OSError) as error:
         errors = [f"Invalid or unreadable quality evidence: {error}"]

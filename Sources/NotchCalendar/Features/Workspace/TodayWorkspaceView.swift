@@ -166,7 +166,7 @@ struct TodayWorkspaceView: View {
                         Text(t("This is a good window for uninterrupted work."))
                             .font(.system(size: 12))
                             .foregroundStyle(WorkspacePalette.secondaryText)
-                        Button(t("Start a focus session")) { navigate(.focus) }
+                        Button(t("Open Focus")) { navigate(.focus) }
                             .buttonStyle(.plain)
                             .font(.system(size: 11.5, weight: .semibold))
                             .foregroundStyle(WorkspacePalette.accent)
@@ -233,7 +233,7 @@ struct TodayWorkspaceView: View {
                 title: t("Catch a thought"),
                 detail: t("Notes save automatically on this Mac."),
                 systemImage: "note.text",
-                accent: Color(red: 0.48, green: 0.68, blue: 0.96)
+                accent: WorkspacePalette.accent
             ) {
                 navigate(.scratchpad)
             }
@@ -376,10 +376,14 @@ private struct QuickToolCard: View {
             }
             .padding(16)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(
-                isHovering ? WorkspacePalette.elevated.opacity(1.35) : WorkspacePalette.elevated,
-                in: RoundedRectangle(cornerRadius: 16, style: .continuous)
-            )
+            .background {
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(WorkspacePalette.elevated)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .fill(isHovering ? WorkspacePalette.hover : .clear)
+                    }
+            }
             .overlay {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .stroke(isHovering ? accent.opacity(0.30) : WorkspacePalette.stroke, lineWidth: 1)

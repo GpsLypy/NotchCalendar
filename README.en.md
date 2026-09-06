@@ -10,13 +10,11 @@
 
 macOS 15+ · Apple Silicon & Intel · SwiftUI · Currently free · MIT
 
-![Notch Calendar desktop workspace with sidebar, calendar, meeting links, and a second time zone](docs/images/workspace.png)
+![Notch Calendar desktop workspace with sidebar, calendar, meeting links, and a second time zone](docs/images/v1.1.0/calendar-en.png)
 
 The workspace above and the [visual feature tour](README.md#界面与功能) use native app views. Calendar, note, and focus records are demo fixtures. Screenshots show Simplified Chinese; the app also supports English and system language. See [image sources](docs/images/README.md).
 
 ## Install and get started
-
-**New in 0.9.0:** this release adds an interactive day track, a focus activity in the notch, and `⌘K` quick access, with a slate-blue workspace palette. Inspect appointments and open their notes, pause or resume focus at the notch, and search pages or today's events in English or Chinese. [Download 0.9.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v0.9.0) or see the [experience review](docs/EXPERIENCE_REVIEW_2026-09-06.md) and [release validation](docs/VALIDATION_V0.9.0.md).
 
 1. Download the DMG from [Releases](https://github.com/GpsLypy/NotchCalendar/releases/latest), open it, and drag **Notch Calendar** into **Applications**.
 2. Launch the app and allow Calendar access. Choose the calendars you want to display in Settings.
@@ -25,23 +23,25 @@ The workspace above and the [visual feature tour](README.md#界面与功能) use
 
 Published builds are currently ad-hoc signed and not Developer ID notarized. Automatic app replacement is disabled. When upgrading from 0.7.0 or 0.8.0, open the downloaded DMG in Finder and quit the old app before replacing it; 0.8.1 fixes the older “Open DMG & Quit” crash.
 
-## Version 1.0
+## Version 1.1
 
-A proportional day track, compact focus controls, Command-K search and a refreshed workspace bring calendars, meetings and focus together. Hidden views stop refreshing, and compact activities share their update clock.
+A consistent graphite palette, clearer text hierarchy and restrained accents bring the workspace together. The desktop month calendar has its own responsive layout, giving the month and selected day's agenda room to breathe. The day track, meeting notes and Command-K quick access remain available.
 
-[Download 1.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.0.0) · [Release validation](docs/VALIDATION_V1.0.0.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Final performance and some hardware acceptance remain pending; see the [quality report](docs/quality/README.md).
+Cold launch keeps the calendar collapsed. Opening the workspace starts on Calendar. Saved focus tasks, time and history are preserved; starting or resuming focus explicitly makes it a notch activity. A previously running session continues in the background.
+
+[Download 1.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.1.0) · [Release and validation notes](docs/quality/RELEASE_1.1.0.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Final performance and some hardware acceptance remain pending; see the [quality report](docs/quality/README.md).
 
 ## Features
 
 - Compact notch view that stays still when idle; live meeting shoulders are available as an opt-in setting.
 - Expanded agenda and month calendar after an intentional hover, with a click-only mode when you want the notch to remain completely quiet.
-- A Codex-inspired desktop workspace with a persistent sidebar, Today overview, calendar, focus timer, scratchpad, and Radar.
+- A graphite desktop workspace with a persistent sidebar, Today overview, responsive calendar, focus timer, scratchpad, and Radar.
 - Radar shows ten Hot, Ask, or Show Hacker News signals, then stops. It refreshes only when opened, keeps a 30-minute local cache, and preserves saved results when the network is unavailable.
 - Markets (`⌘6`) keeps up to eight US stock or ETF symbols, with add/remove/reorder controls, manual closing-quote refresh, trade dates, per-symbol errors, and a 15-minute cache. Add your own Alpha Vantage key in the page; it stays in macOS Keychain. This is a personal, end-of-day observation tool, not a real-time trading feed. See [provider setup and limits](docs/markets-provider.md).
 - Discussion Room (`⌘7`) opens real Hacker News topics and a bounded set of attributed comments. Keep your stance, private notes and saved threads locally, with original-source links and offline retention. The page explicitly represents a limited community sample.
 - Briefing (`⌘8`) collects up to twenty current headlines from GitHub Blog, Swift.org and NASA. Filter by source or keyword, mark items read, and save up to one hundred articles locally. The 30-minute cache survives network errors; [source details](docs/briefing-sources.md) explain the scope.
 - Three matching desktop widgets for the month calendar, live focus progress, and today's agenda. Each has a small, explicit open control instead of turning the whole widget into a launch target. Control-click the desktop, choose **Edit Widgets**, then search for **Notch Calendar**.
-- Cold launches initialize the notch service without raising the desktop window. Clicking the compact notch opens its calendar, while clicking the Dock icon again restores the full workspace after it is closed or minimized.
+- Cold launches initialize the collapsed calendar without raising the desktop window or automatically displaying a saved focus session. Starting or resuming focus makes it the current notch activity; enabled meetings keep their existing priority. Clicking the Dock icon opens or restores the full workspace.
 - Drift-resistant 5, 25, and 50 minute timers that keep their place while you switch tools or the Mac sleeps.
 - Calendar source selection in Settings applies consistently to Today, the notch, the month view, and widgets. Hidden calendars stay hidden after relaunch; new calendars appear automatically, and an empty selection never falls back to showing everything.
 - Today's planning card finds remaining openings within configurable local hours and meeting buffers, flags overlapping timed events, and prepares up to 50 minutes of focus for the current opening. Free, canceled, declined, and all-day events do not block openings; all-day events remain in the agenda. Suggestions never start automatically or replace an unfinished timer.
@@ -92,13 +92,15 @@ The included GitHub Actions workflow creates both a macOS DMG installer and ZIP 
 
 Release packages are built as universal2 binaries for both Apple Silicon and Intel Macs. The workflow mounts the final DMG and verifies both architectures, nested code signatures, app/widget version alignment, and the Applications shortcut before publishing.
 
+Stable releases also validate their own quality record. Any owner-authorized publication with pending acceptance must match that version's recorded request, final runtime fingerprint and exact remaining checks. The exception cannot waive a measured failure or carry over from an older release. Use `python3 Scripts/quality/verify_release_gate.py 1.1.0 --strict` to inspect every outstanding gate regardless of a publication decision.
+
 Automatic app replacement is currently disabled; the project retains the signed-helper and validation foundation for a future crash-recoverable installer. The update screen uses the manual path instead: **Open DMG & Quit** closes the running version before you drag the replacement into Applications. For Developer ID-signed builds, Settings can also verify and open an equal or newer Applications copy when the app is running from a mounted disk image.
 
 Without a Developer ID certificate, packaging requires the explicit `ALLOW_ADHOC_RELEASE=1` opt-in and produces ad-hoc signed archives without notarization. For Developer ID distribution, set `DEVELOPER_ID_APPLICATION` to a valid Apple Developer ID Application certificate and `NOTARYTOOL_PROFILE` to a configured `notarytool` keychain profile before running the release script. This allows the script to enable hardened runtime, notarize the app, and staple the result before packaging it.
 
 See [the product roadmap](docs/PRODUCT_ROADMAP.md) for the stability requirements and planned market, weather, and local-assistant integrations.
 
-Version 0.8.0 adds the calendar, meeting, notes, and focus workflow without a payment or account requirement. Get the [0.8.1 crash-fix release](https://github.com/GpsLypy/NotchCalendar/releases/tag/v0.8.1), and see [workflow setup and limits](docs/WORKFLOWS_V0.8.0.md), [validation details](docs/VALIDATION_V0.8.0.md), and [the professional-tool product review](docs/PRODUCT_REVIEW_2026-09-05.md).
+The calendar, meeting, notes and focus workflow has no payment or account requirement. Earlier implementation references remain available in [workflow setup and limits](docs/WORKFLOWS_V0.8.0.md), [0.8 validation details](docs/VALIDATION_V0.8.0.md), and [the product review](docs/PRODUCT_REVIEW_2026-09-05.md).
 
 ## Buy me a coffee / 请作者喝杯咖啡
 

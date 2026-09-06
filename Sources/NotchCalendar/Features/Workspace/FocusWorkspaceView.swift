@@ -17,6 +17,8 @@ struct FocusWorkspaceView: View {
     @State private var exportConfirmation: String?
     @State private var recommendationFeedback: String?
     @State private var taskDraft = ""
+    private enum EditingField: Hashable { case taskLabel, duration }
+    @FocusState private var editingField: EditingField?
 
     var body: some View {
         ScrollView {
@@ -28,12 +30,20 @@ struct FocusWorkspaceView: View {
                         Button(t("Open Settings")) { openSettings() }
                     }.font(.system(size: 12))
                 }
-                HStack(alignment: .top, spacing: 18) {
-                    timerCard
-                        .disabled(timer.persistenceError != nil)
-                        .frame(maxWidth: .infinity, alignment: .top)
-                    contextColumn
-                        .frame(width: 230, alignment: .top)
+                ViewThatFits(in: .horizontal) {
+                    HStack(alignment: .top, spacing: 18) {
+                        timerCard
+                            .disabled(timer.persistenceError != nil)
+                            .frame(minWidth: 350, maxWidth: .infinity, alignment: .top)
+                        contextColumn
+                            .frame(width: 230, alignment: .top)
+                    }
+                    VStack(alignment: .leading, spacing: 18) {
+                        timerCard
+                            .disabled(timer.persistenceError != nil)
+                            .frame(maxWidth: .infinity, alignment: .top)
+                        contextColumn
+                    }
                 }
                 historyCard
                 FocusWeeklyReviewView(records: timer.history, now: now)
@@ -85,13 +95,16 @@ struct FocusWorkspaceView: View {
                     .font(.system(size: 12))
                     .disabled(timer.selectedKind == .breakTime)
                     .accessibilityLabel(t("Task label"))
+                    .focused($editingField, equals: .taskLabel)
                     .padding(.top, 18)
 
-                Spacer(minLength: 38)
+                Spacer(minLength: 28)
 
                 Text(timer.timeLabel)
                     .font(.system(size: 68, weight: .medium, design: .rounded))
                     .monospacedDigit()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
                     .foregroundStyle(WorkspacePalette.primaryText)
                     .contentTransition(.numericText(countsDown: true))
                     .accessibilityLabel(
@@ -111,9 +124,11 @@ struct FocusWorkspaceView: View {
                 )
                     .font(.system(size: 12.5))
                     .foregroundStyle(WorkspacePalette.secondaryText)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, 8)
 
-                Spacer(minLength: 38)
+                Spacer(minLength: 28)
 
                 progressBar
                     .padding(.bottom, 24)
@@ -144,7 +159,7 @@ struct FocusWorkspaceView: View {
                     .controlSize(.large)
                     .tint(WorkspacePalette.accent)
                     .disabled(timer.remainingSeconds == 0)
-                    .keyboardShortcut(.space, modifiers: [])
+                    .keyboardShortcut(editingField == nil ? KeyboardShortcut(.space, modifiers: []) : nil)
 
                     Button(t("Reset")) { timer.reset() }
                         .buttonStyle(.bordered)
@@ -242,6 +257,7 @@ struct FocusWorkspaceView: View {
                     .frame(width: 48)
                     .multilineTextAlignment(.trailing)
                     .accessibilityLabel(t("Focus duration in minutes"))
+                    .focused($editingField, equals: .duration)
                     .onSubmit(prepareCustomFocus)
                     .disabled(timer.hasUnfinishedSession)
                 Text(t("minutes"))

@@ -119,11 +119,20 @@ final class DeskExperienceCaptureTests: XCTestCase {
                          name: "expanded-calendar", to: destination, defaults: defaults, language: .simplifiedChinese, width: 600, height: 460)
         for language: AppLanguage in [.simplifiedChinese, .english] {
             let suffix = language.rawValue
-            for (width, height): (CGFloat, CGFloat) in [(1120, 1050), (860, 780)] {
-                let presentation = MainCalendarPresentation()
-                try await render(MainWorkspaceView(calendar: calendar, focusTimer: timer, updateChecker: UpdateChecker(), presentation: presentation, notesStore: notes),
-                                 name: "desk-\(suffix)-\(Int(width))", to: destination, defaults: defaults, language: language, width: width, height: height)
+            for (width, height): (CGFloat, CGFloat) in [(1120, 780), (860, 620)] {
+                for page in [WorkspaceDestination.calendar, .today, .focus] {
+                    let presentation = MainCalendarPresentation()
+                    presentation.selectedDestination = page
+                    presentation.isActive = true
+                    try await render(MainWorkspaceView(calendar: calendar, focusTimer: timer, updateChecker: UpdateChecker(), presentation: presentation, notesStore: notes),
+                                     name: "desk-\(page.rawValue)-\(suffix)-\(Int(width))", to: destination, defaults: defaults, language: language, width: width, height: height)
+                }
             }
+            let august = Calendar.current.date(from: DateComponents(year: 2026, month: 8, day: 31))!
+            let compactPresentation = MainCalendarPresentation()
+            compactPresentation.isActive = true
+            try await render(MainCalendarView(calendar: calendar, presentation: compactPresentation, selectedDate: .constant(august)),
+                             name: "six-row-month-\(suffix)", to: destination, defaults: defaults, language: language, width: 747, height: 520)
             let commands = WorkspaceCommandCatalog.commands(events: events, language: language, hasSession: true, isRunning: true)
             try await render(WorkspaceCommandView(commands: commands, perform: { _ in }), name: "commands-\(suffix)", to: destination, defaults: defaults, language: language, width: 580, height: 460)
             try await render(WorkspaceCommandView(commands: [], perform: { _ in }), name: "commands-empty-\(suffix)", to: destination, defaults: defaults, language: language, width: 580, height: 460)

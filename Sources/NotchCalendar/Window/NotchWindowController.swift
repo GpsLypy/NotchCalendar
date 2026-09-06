@@ -390,7 +390,7 @@ final class NotchWindowController: NSObject, ObservableObject {
             showsMeetings: state.presentationPreferences.showsMeetingStatus,
             meetingIsActive: UpcomingEventEngine.status(now: Date(), events: state.calendar.todayEvents).isActive,
             showsFocus: state.presentationPreferences.showsFocusStatus,
-            hasFocusSession: state.focusTimer.hasUnfinishedSession
+            hasFocusSession: state.focusTimer.hasNotchActivity
         )
     }
 

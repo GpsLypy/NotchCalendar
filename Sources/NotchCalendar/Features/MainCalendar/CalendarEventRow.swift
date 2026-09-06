@@ -6,6 +6,7 @@ struct CalendarEventRow: View {
     var secondaryTimeZone = ""
     var showsDate = false
     var onSelectEvent: ((CalendarEvent) -> Void)? = nil
+    var compactActions = false
     @Environment(\.appLanguage) private var language
 
     var body: some View {
@@ -48,8 +49,23 @@ struct CalendarEventRow: View {
                 .font(.system(size: 10))
                 .foregroundStyle(WorkspacePalette.secondaryText)
                 .lineLimit(1)
+                if compactActions {
+                    HStack(spacing: 10) { eventActions; Spacer(minLength: 0) }
+                        .padding(.top, 6)
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+            if !compactActions { eventActions }
+
+        }
+        .padding(14)
+        .fixedSize(horizontal: false, vertical: true)
+        .background(WorkspacePalette.elevated, in: RoundedRectangle(cornerRadius: 10))
+        .foregroundStyle(WorkspacePalette.primaryText)
+        .accessibilityElement(children: .contain)
+    }
+
+    @ViewBuilder private var eventActions: some View {
             if let onSelectEvent {
                 Button { onSelectEvent(event) } label: {
                     Image(systemName: "note.text")
@@ -65,14 +81,7 @@ struct CalendarEventRow: View {
                 }
                 .buttonStyle(.bordered)
                 .tint(WorkspacePalette.accent)
-            }
-        }
-        .padding(14)
-        .fixedSize(horizontal: false, vertical: true)
-        .background(WorkspacePalette.elevated, in: RoundedRectangle(cornerRadius: 10))
-        .foregroundStyle(WorkspacePalette.primaryText)
-        .accessibilityElement(children: .contain)
-    }
+            }    }
 
     private var primaryTime: String {
         if event.isAllDay {

@@ -8,6 +8,7 @@ struct MainCalendarView: View {
     @Binding var selectedDate: Date
     var onSelectEvent: ((CalendarEvent) -> Void)? = nil
     @Environment(\.appLanguage) private var language
+    @Environment(\.openSettings) private var openSettings
     @AppStorage(CalendarTimeZoneTools.secondaryStorageKey) private var secondaryTimeZone = ""
     @State private var isSearching = false
     @State private var showsComposer = false
@@ -15,6 +16,7 @@ struct MainCalendarView: View {
     @ObservedObject private var creationDraft: CalendarDraftSession
     @State private var savedMessage: String?
     @State private var dayEvents: [CalendarEvent] = []
+    @State private var monthEvents: [CalendarEvent] = []
 
     init(calendar: CalendarManager, presentation: MainCalendarPresentation,
          selectedDate: Binding<Date>, onSelectEvent: ((CalendarEvent) -> Void)? = nil) {
@@ -45,27 +47,37 @@ struct MainCalendarView: View {
                 CalendarSearchView(calendar: calendar, secondaryTimeZone: secondaryTimeZone,
                                    onSelectEvent: onSelectEvent, onCreate: beginDraft)
             } else {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 18) {
-                        CalendarDashboardView(
-                            calendar: calendar, selectedDate: $selectedDate, contentTopInset: 12,
-                            surface: .window, isActive: presentation.isActive, onClose: nil
-                        )
-                        if !dayEvents.isEmpty {
-                            VStack(alignment: .leading, spacing: 10) {
-                                HStack {
-                                    Text(t("Full day agenda")).font(.system(size: 14, weight: .semibold))
-                                    Spacer()
-                                    Text(t("%@ events", "\(dayEvents.count)"))
-                                        .font(.system(size: 11)).foregroundStyle(WorkspacePalette.secondaryText)
-                                }
-                                ForEach(dayEvents, id: \.occurrenceStableID) { event in
-                                    CalendarEventRow(event: event, secondaryTimeZone: secondaryTimeZone,
-                                                     onSelectEvent: onSelectEvent)
-                                }
+                GeometryReader { geometry in
+                    if geometry.size.width >= 720 {
+                        HStack(alignment: .top, spacing: 24) {
+                            ScrollView {
+                                MonthCalendarView(selectedDate: $selectedDate, events: monthEvents, workspaceStyle: true,
+                                                  workspaceDayHeight: min(72, max(42, (geometry.size.height - 200) / 6)))
                             }
-                            .padding(.horizontal, 30)
-                            .padding(.bottom, 28)
+                            .frame(maxWidth: .infinity, alignment: .top)
+                            Rectangle().fill(WorkspacePalette.stroke).frame(width: 1)
+                            ScrollView { selectedDayAgenda }
+                                .frame(width: 240)
+                        }
+                        .padding(24)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                        .background(WorkspacePalette.elevated.opacity(0.40), in: RoundedRectangle(cornerRadius: 18))
+                        .overlay { RoundedRectangle(cornerRadius: 18).stroke(WorkspacePalette.stroke, lineWidth: 1) }
+                        .padding(.horizontal, 28)
+                        .padding(.bottom, 24)
+                    } else {
+                        ScrollView {
+                            VStack(alignment: .leading, spacing: 24) {
+                                MonthCalendarView(selectedDate: $selectedDate, events: monthEvents, workspaceStyle: true, workspaceDayHeight: 42)
+                                Divider().overlay(WorkspacePalette.stroke)
+                                selectedDayAgenda
+                            }
+                            .padding(24)
+                            .frame(maxWidth: .infinity, alignment: .topLeading)
+                            .background(WorkspacePalette.elevated.opacity(0.40), in: RoundedRectangle(cornerRadius: 18))
+                            .overlay { RoundedRectangle(cornerRadius: 18).stroke(WorkspacePalette.stroke, lineWidth: 1) }
+                            .padding(.horizontal, 28)
+                            .padding(.bottom, 24)
                         }
                     }
                 }
@@ -85,6 +97,65 @@ struct MainCalendarView: View {
         .task(id: DayScope(day: selectedDate, revision: calendar.contentRevision, isActive: presentation.isActive)) {
             guard presentation.isActive else { return }
             dayEvents = calendar.events(for: selectedDate)
+            monthEvents = calendar.events(inMonthContaining: selectedDate)
+        }
+    }
+
+    private var selectedDayAgenda: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 7) {
+                Text(selectedDate.formatted(.dateTime.weekday(.wide).locale(language.locale)))
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundStyle(WorkspacePalette.secondaryText)
+                Text(selectedDate.formatted(.dateTime.month(.wide).day().locale(language.locale)))
+                    .font(.system(size: 25, weight: .semibold, design: .rounded))
+                    .accessibilityAddTraits(.isHeader)
+            }
+            if let message = calendar.authorizationMessage {
+                agendaNotice(message, symbol: "lock", actionTitle: "Open System Settings", action: calendar.openPrivacySettings)
+            } else if let message = calendar.availabilityMessage {
+                agendaNotice(message, symbol: "calendar.badge.exclamationmark", actionTitle: "Calendar Sources", action: { openSettings() })
+            } else if dayEvents.isEmpty {
+                VStack(alignment: .leading, spacing: 12) {
+                    Image(systemName: "calendar.badge.checkmark")
+                        .font(.system(size: 24, weight: .light))
+                        .foregroundStyle(WorkspacePalette.secondaryText)
+                        .accessibilityHidden(true)
+                    Text(t("No events on this day."))
+                        .font(.system(size: 14, weight: .medium))
+                    Text(t("Leave room in your day, or add something to look forward to."))
+                        .font(.system(size: 12))
+                        .foregroundStyle(WorkspacePalette.secondaryText)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Button(action: beginDraft) {
+                        Label(t("New event"), systemImage: "plus")
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
+                    .padding(.top, 4)
+                }
+                .padding(.top, 16)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            } else {
+                Text(t("%@ events", "\(dayEvents.count)"))
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundStyle(WorkspacePalette.secondaryText)
+                ForEach(dayEvents, id: \.occurrenceStableID) { event in
+                    CalendarEventRow(event: event, secondaryTimeZone: secondaryTimeZone,
+                                     onSelectEvent: onSelectEvent, compactActions: true)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .topLeading)
+    }
+
+    private func agendaNotice(_ message: String, symbol: String, actionTitle: String, action: @escaping () -> Void) -> some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Label(t(message), systemImage: symbol)
+                .font(.system(size: 12))
+                .foregroundStyle(WorkspacePalette.secondaryText)
+                .fixedSize(horizontal: false, vertical: true)
+            Button(t(actionTitle), action: action).buttonStyle(.bordered).controlSize(.small)
         }
     }
 
@@ -95,6 +166,7 @@ struct MainCalendarView: View {
                 Text(t("Search")).tag(true)
             }
             .pickerStyle(.segmented)
+            .labelsHidden()
             .frame(width: 186)
             Spacer(minLength: 8)
             Button { showsTimeZones.toggle() } label: {
@@ -120,8 +192,8 @@ struct MainCalendarView: View {
                 .accessibilityHidden(true)
         }
         .padding(.horizontal, 30)
-        .padding(.top, 48)
-        .padding(.bottom, 22)
+        .padding(.top, 42)
+        .padding(.bottom, 24)
     }
 
     private func beginDraft() {

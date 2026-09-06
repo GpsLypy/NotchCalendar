@@ -16,6 +16,9 @@ final class FocusTimerModel: ObservableObject {
     @Published private(set) var history: [FocusHistoryRecord] = []
     @Published private(set) var taskLabel = ""
     @Published private(set) var persistenceError: String?
+    // Restoring a timer restores the work, not its claim on the notch. Only an
+    // explicit start/resume during this launch promotes it to a live activity.
+    @Published private var isNotchActivityActivated = false
 
     private static let snapshotKey = "workspace.focus.snapshot.v1"
     private static let completedSessionsKey = "workspace.focus.completedSessions"
@@ -46,6 +49,7 @@ final class FocusTimerModel: ObservableObject {
     }
 
     func reload(now: Date = Date()) {
+        isNotchActivityActivated = false
         targetDate = nil
         activeSessionID = nil
         isRunning = false
@@ -103,6 +107,12 @@ final class FocusTimerModel: ObservableObject {
         remainingSeconds > 0 && (isRunning || activeSessionID != nil)
     }
 
+    /// Pausing keeps an activity visible during this launch. A cold launch or
+    /// backup restore stays on the calendar without discarding the saved timer.
+    var hasNotchActivity: Bool {
+        hasUnfinishedSession && isNotchActivityActivated
+    }
+
     var progress: Double {
         1 - (Double(remainingSeconds) / Double(selectedMinutes * 60))
     }
@@ -138,6 +148,7 @@ final class FocusTimerModel: ObservableObject {
     }
 
     private func prepare(minutes: Int, kind: FocusSessionKind) {
+        isNotchActivityActivated = false
         selectedMinutes = minutes
         selectedKind = kind
         remainingSeconds = minutes * 60
@@ -159,12 +170,14 @@ final class FocusTimerModel: ObservableObject {
             if activeSessionID == nil { activeSessionID = UUID() }
             targetDate = now.addingTimeInterval(TimeInterval(remainingSeconds))
             isRunning = true
+            isNotchActivityActivated = true
             persistState()
         }
     }
 
     func reset() {
         guard persistenceError == nil else { return }
+        isNotchActivityActivated = false
         targetDate = nil
         activeSessionID = nil
         isRunning = false
@@ -195,6 +208,7 @@ final class FocusTimerModel: ObservableObject {
                 completedSessions += 1
             }
             isRunning = false
+            isNotchActivityActivated = false
             self.targetDate = nil
             activeSessionID = nil
             // History and stopped state share one snapshot, so a restart cannot count this completion twice.

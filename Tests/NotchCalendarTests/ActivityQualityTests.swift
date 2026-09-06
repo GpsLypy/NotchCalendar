@@ -32,6 +32,31 @@ final class ActivityQualityTests: XCTestCase {
         XCTAssertEqual(ActivityClockPolicy.compactInterval(now: now, events: [event], showsMeetings: false, displaysUpcoming: true, visibleFocusRunning: false), 60)
     }
 
+    func testRestoredFocusDoesNotExpandOrActivateColdLaunch() throws {
+        let suite = "FocusQuietLaunch.\(UUID())"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: suite))
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let previousLaunch = FocusTimerModel(defaults: defaults)
+        previousLaunch.select(minutes: 50)
+        previousLaunch.toggle()
+        previousLaunch.toggle()
+        let state = makeState(defaults: defaults)
+
+        XCTAssertTrue(state.focusTimer.hasUnfinishedSession)
+        XCTAssertFalse(state.focusTimer.hasNotchActivity)
+        XCTAssertFalse(state.isExpanded)
+        XCTAssertFalse(state.isPresentationExpanded)
+        for intent in [WindowPresentationIntent.passiveColdLaunch, .updateHandoff, .provenanceFreeOpen] {
+            XCTAssertFalse(WindowPresentationPolicy.revealsMainWindow(for: intent))
+            XCTAssertFalse(WindowPresentationPolicy.activatesApplication(for: intent))
+        }
+        state.focusTimer.toggle()
+        XCTAssertTrue(state.focusTimer.hasNotchActivity)
+        XCTAssertFalse(state.isExpanded, "Starting a live activity must not expand the panel")
+        XCTAssertFalse(state.isPresentationExpanded)
+        state.focusTimer.toggle()
+    }
+
     func testBackgroundFocusCompletesWithoutAnyViewClock() async throws {
         let suite = "FocusDeadline.\(UUID())"
         let defaults = try XCTUnwrap(UserDefaults(suiteName: suite))

@@ -4,6 +4,35 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-09-06
+
+macOS 15+ · Apple Silicon and Intel · Free and MIT licensed. Manual installation; ad-hoc signing only, without Developer ID signing or Apple notarization. / 支持 macOS 15 及以上、Apple 芯片与 Intel；免费、MIT 开源，手动安装，仅保留 ad-hoc 签名，不做证书签名和 Apple 公证。
+
+### Added / 新增
+
+- Added separate today and selected-date markers, larger desktop date targets, and an actionable empty-day agenda. / 新增今天与选中日期的独立标识、更大的桌面日期点击区域，以及可直接创建日程的空日期页面。
+
+### Improved / 优化
+
+- Unified the workspace around graphite surfaces, clearer text contrast and restrained accents, replacing the mismatched blue sidebar and black calendar area. / 工作台统一为石墨灰底色、清晰的文字层级与克制的强调色，修整蓝色侧栏与纯黑日历拼接的不协调感。
+- Rebuilt the desktop month view as a dedicated responsive layout with a readable agenda and calendar, using the available window space instead of stretching the compact notch content. / 桌面月历采用独立自适应布局，日程与月份视图充分利用窗口空间，不再直接放大刘海内的紧凑内容。
+- The workspace now opens on Calendar by default; explicit page shortcuts and links still open their requested destinations. / 主动打开工作台时默认进入日历，页面快捷键和明确指定目的地的链接仍按原入口打开。
+
+### Fixed / 修复
+
+- A saved paused timer, including a 49:20 session, no longer takes over the notch on launch. Start or resume focus explicitly to show it as the current activity; pausing it in the same launch keeps its controls available. / 修复上次暂停的专注计时（如 49:20）在启动后占据刘海的问题：默认保持日历收缩态，本次主动开始或恢复专注后才显示活动，同次暂停仍保留控制入口。
+- Restoring focus keeps its task, remaining duration and completed history. Running sessions continue to finish in the background without opening a window or claiming the notch; meeting priority remains unchanged. / 恢复专注保留任务、剩余时长和完成记录，仍在运行的会话可在后台完成，不自动展开窗口或占据刘海，会议优先规则保持一致。
+- Fixed six-row months in short windows by keeping the calendar independently scrollable. / 修复矮窗口中六行月份的末行可能显示不全，月历支持独立滚动。
+- Suspended the timer's Space shortcut while editing a task or duration, so spaces remain text input. / 编辑任务名称或时长时暂停计时器的空格快捷键，避免输入空格触发暂停。
+- Distinguished missing permissions, unavailable sources and all-hidden calendars in the sidebar, and corrected navigation-only focus button labels. / 侧栏正确区分权限、无来源和全部隐藏状态，修正仅打开专注页面的按钮文案。
+
+### Acceptance status / 验收状态
+
+- Final unlocked performance measurements and some hardware acceptance remain pending, including physical hover/sleep-wake, external-display and cross-screen checks. This release does not claim those gates passed. / 最终解锁性能复测及部分实机验收仍待完成，包括实际悬停、休眠唤醒、普通显示器和跨屏检查；本版不宣称这些门槛已通过。
+- A publication exception must match this version, the final runtime fingerprint, the owner's recorded request and the exact outstanding checks. A previous release's exception never carries over, and measured failures remain blockers. / 发布例外须匹配本版本、最终运行代码指纹、所有者原始请求和确切待验收项，不继承旧版本例外，实测失败仍阻止发布。
+
+See the [1.1 release and validation notes](https://github.com/GpsLypy/NotchCalendar/blob/v1.1.0/docs/quality/RELEASE_1.1.0.md) and [quality record](https://github.com/GpsLypy/NotchCalendar/blob/v1.1.0/docs/quality/1.1.0.json). / 详见 [1.1 发布与验证说明](https://github.com/GpsLypy/NotchCalendar/blob/v1.1.0/docs/quality/RELEASE_1.1.0.md)与[验收记录](https://github.com/GpsLypy/NotchCalendar/blob/v1.1.0/docs/quality/1.1.0.json)。
+
 ## [1.0.0] - 2026-09-06
 
 macOS 15+ · Apple Silicon and Intel · Free and MIT licensed. Manual installation; ad-hoc signing only, without Developer ID signing or Apple notarization. / 支持 macOS 15 及以上、Apple 芯片与 Intel；免费、MIT 开源，手动安装，仅保留 ad-hoc 签名，不做证书签名和 Apple 公证。

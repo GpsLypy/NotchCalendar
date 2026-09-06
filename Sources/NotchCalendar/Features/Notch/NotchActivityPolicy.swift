@@ -7,7 +7,9 @@ enum NotchActivity: Equatable {
 
 enum NotchActivityPolicy {
     /// An explicitly enabled active meeting takes precedence in compact mode.
-    /// Both activities remain available in the expanded surface.
+    /// `hasFocusSession` is the model's presentation eligibility for this launch,
+    /// not merely the existence of a saved timer. Both activities remain
+    /// available in the expanded surface.
     static func compactActivity(showsMeetings: Bool, meetingIsActive: Bool,
                                 showsFocus: Bool, hasFocusSession: Bool) -> NotchActivity {
         if showsMeetings && meetingIsActive { return .calendar }

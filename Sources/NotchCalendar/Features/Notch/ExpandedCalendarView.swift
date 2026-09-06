@@ -67,7 +67,7 @@ struct NotchExpandedActivityView: View {
                 showsMeetings: preferences.showsMeetingStatus,
                 meetingIsActive: UpcomingEventEngine.status(now: Date(), events: calendar.todayEvents).isActive,
                 showsFocus: preferences.showsFocusStatus,
-                hasFocusSession: focusTimer.hasUnfinishedSession
+                hasFocusSession: focusTimer.hasNotchActivity
             )
         }
     }
@@ -154,7 +154,10 @@ struct CalendarDashboardView: View {
         .padding(.bottom, 24)
         .foregroundStyle(.white)
         .background { dashboardBackground }
-        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { newNow in
+        .onActivityClock(every: isActive ? ActivityClockPolicy.compactInterval(
+            now: now, events: calendar.todayEvents, showsMeetings: true,
+            displaysUpcoming: true, visibleFocusRunning: false
+        ) : nil) { newNow in
             guard isActive else { return }
             advanceClock(to: newNow)
         }
@@ -188,15 +191,7 @@ struct CalendarDashboardView: View {
             Color.black.opacity(0.97)
                 .clipShape(NotchAttachedCardShape(cornerRadius: 30))
         case .window:
-            ZStack {
-                Color(red: 0.025, green: 0.025, blue: 0.03)
-                RadialGradient(
-                    colors: [AlcovePalette.accent.opacity(0.10), .clear],
-                    center: .topTrailing,
-                    startRadius: 10,
-                    endRadius: 330
-                )
-            }
+            WorkspacePalette.canvas
         }
     }
 

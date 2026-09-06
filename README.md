@@ -12,7 +12,7 @@
 
 macOS 15+ · Apple 芯片与 Intel · SwiftUI 原生界面 · 当前免费 · MIT 开源
 
-![Notch Calendar 完整工作台：侧栏导航、月历、日程、会议入口与第二时区](docs/images/workspace.png)
+![Notch Calendar 完整工作台：侧栏导航、月历、日程、会议入口与第二时区](docs/images/v1.1.0/calendar-zh.png)
 
 *原生应用界面，日程、笔记和专注记录使用演示数据。应用支持简体中文、English 和跟随系统；[查看配图来源](docs/images/README.md)。*
 
@@ -31,11 +31,13 @@ macOS 15+ · Apple 芯片与 Intel · SwiftUI 原生界面 · 当前免费 · MI
 
 ## 界面与功能
 
-### 1.0：把一天串起来
+### 1.1：日历回到中心
 
-1.0 新增 **今日时间轨道、刘海专注活动与 `⌘K` 快速入口**，采用蓝灰与雾银的工作台配色。点选轨道上的日程查看详情与会议笔记；从刘海暂停或继续专注；用中英文搜索页面与今日日程。
+工作台改为统一的**石墨灰色调**，配合清晰的文字层级与克制的强调色。独立的桌面月历随窗口调整布局，让月份与所选日期的安排都有合适的空间。今日时间轨道、会议笔记与 `⌘K` 快速入口继续保留。
 
-[下载 1.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.0.0) · [查看设计与使用方式](docs/EXPERIENCE_REVIEW_2026-09-06.md) · [本版验证](docs/VALIDATION_V1.0.0.md)。
+启动时保持**日历收缩态**；主动打开工作台默认进入日历。上次暂停的专注时长、任务与历史仍在，点击开始或恢复后才成为刘海活动；原来仍在运行的会话继续在后台计时。
+
+[下载 1.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.1.0) · [本版变化与验证](docs/quality/RELEASE_1.1.0.md)。
 
 本版仅使用 ad-hoc 签名，手动安装。最终性能与部分实机验收仍待完成，具体范围见[质量报告](docs/quality/README.md)。
 
