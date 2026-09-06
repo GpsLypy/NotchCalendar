@@ -1,6 +1,6 @@
 # Notch Calendar 0.8.0 功能使用说明
 
-本版继续免费，不增加账户或付费墙。系统要求 macOS 15+，支持 Apple 芯片和 Intel。安装包与更新说明见 [GitHub 0.8.0 发布页](https://github.com/GpsLypy/NotchCalendar/releases/tag/v0.8.0)。
+本版继续免费，不增加账户或付费墙。系统要求 macOS 15+，支持 Apple 芯片和 Intel。安装包与更新说明见 [GitHub 最新发布页](https://github.com/GpsLypy/NotchCalendar/releases/latest)。
 
 ## 会议提醒与入会
 

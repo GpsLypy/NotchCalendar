@@ -1,0 +1,72 @@
+[
+  {
+    "file": "app-icon.png",
+    "source": "marketing/workflow-complete-2026-09-05/assets/app-icon.png",
+    "sha256": "855b4a1266a5d10510e49a0dfa7fde6fdfd84c233c3ee91c620a5b8d00ddc6fc"
+  },
+  {
+    "file": "workspace.png",
+    "source": ".build/readme-captures/workspace-zh-Hans.png",
+    "sha256": "3681193a47e7c7c8c5362f4a429cd690e1f59185efb43fa9392cb70d2d0afe09"
+  },
+  {
+    "file": "notch-expanded.png",
+    "source": ".build/readme-captures/notch-expanded-zh-Hans.png",
+    "sha256": "439f290bf621bc06075da664df90fb53e99413984aa7475fcbd188767142da83"
+  },
+  {
+    "file": "focus.png",
+    "source": ".build/readme-captures/focus-zh-Hans.png",
+    "sha256": "c63cc9c6b1eeee32106050e186a98b3fd52ecba6ac4d95c319d98239481588f7"
+  },
+  {
+    "file": "calendar-search.png",
+    "source": ".build/readme-captures/calendar-search-zh-Hans-860.png",
+    "sha256": "76246a4d8a5f5daaeccd9d5856547a4165ceee7fb1e1606ad866c561da23da52"
+  },
+  {
+    "file": "event-composer.png",
+    "source": ".build/readme-captures/event-composer-zh-Hans.png",
+    "sha256": "9a6fe71f5f02d1eacd531248ae098d422bf4d8bf94505da447788a54e1eef996"
+  },
+  {
+    "file": "meeting-controls.png",
+    "source": ".build/readme-captures/meeting-controls-zh-Hans-860.png",
+    "sha256": "1b0be936acea52be24cf8d46b52c4f698649e7fe9c613213e33ad0c54369e6d4"
+  },
+  {
+    "file": "meeting-notes.png",
+    "source": ".build/readme-captures/meeting-notes-zh-Hans-860.png",
+    "sha256": "dbcd5ce8f1314613c3326f9c68d84f954ebad5a24df98abddbf5f82aa8ee2b2f"
+  },
+  {
+    "file": "weekly-review.png",
+    "source": ".build/readme-captures/weekly-review-zh-Hans-860.png",
+    "sha256": "fa371b55dce1367476d2c1f767d6095b71a38286f43fedf584830001d0572e0e"
+  },
+  {
+    "file": "backup-preview.png",
+    "source": ".build/workflow-captures/backup-preview-zh-Hans.png",
+    "sha256": "e3489c706a276f33445893e864790230019ac402c75017b4112efa25e9ad3a04"
+  },
+  {
+    "file": "radar.png",
+    "source": "marketing/xiaohongshu-features-2026-09-05/assets/radar-native-public.png",
+    "sha256": "620eaa0145284fd1e3bceb28d3fef28c14fc7eb6965cea1de3ed55f5a938c041"
+  },
+  {
+    "file": "markets.png",
+    "source": "marketing/v0.6.0/assets/markets.png",
+    "sha256": "6d23879fdb87256abe51a2450d6ea087baec4f5a0baee7cbc8e3e0fce55ded8c"
+  },
+  {
+    "file": "discussion.png",
+    "source": "marketing/v0.6.0/assets/discussion.png",
+    "sha256": "471a68885dab7abdd0cfcc84ea4d73653148d4dfab73e9d0e233fdc9bc1a75f0"
+  },
+  {
+    "file": "briefing.png",
+    "source": "marketing/v0.6.0/assets/briefing.png",
+    "sha256": "807811d1c3ad5a993559df2f0210bd2b92116282ff240bc46aac12c19e6c5532"
+  }
+]

@@ -80,6 +80,13 @@ final class WorkflowCaptureTests: XCTestCase {
 
         var captures: [[String: Any]] = []
         for language: AppLanguage in [.simplifiedChinese, .english] {
+            let timer = FocusTimerModel(defaults: defaults, now: clock)
+            _ = timer.prepareFocus(minutes: 45)
+            timer.setTaskLabel("演示 · 产品设计 / Demo product design")
+            presentation.selectedDestination = .calendar
+            captures.append(try await render(MainWorkspaceView(calendar: manager, focusTimer: timer, updateChecker: UpdateChecker(), presentation: presentation, notesStore: notes, meetingAssistant: assistant), name: "workspace-\(language.rawValue)", to: destination, defaults: defaults, language: language, width: 1100, height: 820))
+            captures.append(try await render(FocusWorkspaceView(timer: timer, calendar: manager, now: clock), name: "focus-\(language.rawValue)", to: destination, defaults: defaults, language: language, width: 980, height: 900))
+            captures.append(try await render(CalendarDashboardView(calendar: manager, selectedDate: .constant(day), contentTopInset: 12, surface: .notch, isActive: true, onClose: {}), name: "notch-expanded-\(language.rawValue)", to: destination, defaults: defaults, language: language, width: 600, height: 540))
             for width: CGFloat in [647, 860] {
                 let suffix = "\(language.rawValue)-\(Int(width))"
                 captures.append(try await render(MainCalendarView(calendar: manager, presentation: presentation, selectedDate: .constant(day), onSelectEvent: { _ in }), name: "calendar-month-\(suffix)", to: destination, defaults: defaults, language: language, width: width, height: 960))
@@ -133,6 +140,7 @@ final class WorkflowCaptureTests: XCTestCase {
             .environment(\.colorScheme, .dark)
             .preferredColorScheme(.dark)
             .frame(width: width, height: height)
+            .background(WorkspacePalette.canvas)
         let hosting = NSHostingView(rootView: content)
         let rect = NSRect(x: 0, y: 0, width: width, height: height)
         let window = NSWindow(contentRect: rect, styleMask: [.borderless], backing: .buffered, defer: false)

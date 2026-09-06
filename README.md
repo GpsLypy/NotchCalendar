@@ -1,78 +1,196 @@
-# Notch Calendar
-
-A local-first macOS 15+ personal workspace built around the calendar beside your notch. It combines a glanceable agenda with a full desktop calendar, focus timer, auto-saved scratchpad, and a deliberately finite information radar.
-
-## Features
-
-- Compact notch view that stays still when idle; live meeting shoulders are available as an opt-in setting.
-- Expanded agenda and month calendar after an intentional hover, with a click-only mode when you want the notch to remain completely quiet.
-- A Codex-inspired desktop workspace with a persistent sidebar, Today overview, calendar, focus timer, scratchpad, and Radar.
-- Radar shows ten Hot, Ask, or Show Hacker News signals, then stops. It refreshes only when opened, keeps a 30-minute local cache, and preserves saved results when the network is unavailable.
-- Markets (`⌘6`) keeps up to eight US stock or ETF symbols, with add/remove/reorder controls, manual closing-quote refresh, trade dates, per-symbol errors, and a 15-minute cache. Add your own Alpha Vantage key in the page; it stays in macOS Keychain. This is a personal, end-of-day observation tool, not a real-time trading feed. See [provider setup and limits](docs/markets-provider.md).
-- Discussion Room (`⌘7`) opens real Hacker News topics and a bounded set of attributed comments. Keep your stance, private notes and saved threads locally, with original-source links and offline retention. The page explicitly represents a limited community sample.
-- Briefing (`⌘8`) collects up to twenty current headlines from GitHub Blog, Swift.org and NASA. Filter by source or keyword, mark items read, and save up to one hundred articles locally. The 30-minute cache survives network errors; [source details](docs/briefing-sources.md) explain the scope.
-- Three matching desktop widgets for the month calendar, live focus progress, and today's agenda. Each has a small, explicit open control instead of turning the whole widget into a launch target. Control-click the desktop, choose **Edit Widgets**, then search for **Notch Calendar**.
-- Cold launches initialize the notch service without raising the desktop window. Clicking the compact notch opens its calendar, while clicking the Dock icon again restores the full workspace after it is closed or minimized.
-- Drift-resistant 5, 25, and 50 minute timers that keep their place while you switch tools or the Mac sleeps.
-- Calendar source selection in Settings applies consistently to Today, the notch, the month view, and widgets. Hidden calendars stay hidden after relaunch; new calendars appear automatically, and an empty selection never falls back to showing everything.
-- Today's planning card finds remaining openings within configurable local hours and meeting buffers, flags overlapping timed events, and prepares up to 50 minutes of focus for the current opening. Free, canceled, declined, and all-day events do not block openings; all-day events remain in the agenda. Suggestions never start automatically or replace an unfinished timer.
-- Custom 5–180 minute focus sessions, separate break tracking, today's and this week's completed focus minutes, and a local journal of the latest 1,000 completions with CSV export. Totals use the session's completion date; legacy cumulative counts remain without invented history.
-- A local scratchpad with automatic saving, timestamps, and one-click copy.
-- Opt-in meeting notifications with 5/10-minute snooze and occurrence dismissal, plus a configurable global join shortcut (default Control–Option–J). Hidden, canceled and declined meetings are excluded. Delivery follows macOS notification/Focus settings; keep the app running to follow calendar changes.
-- Search selected calendars by title, location or source within a configurable range of up to 366 days. Create timed/all-day events in a writable system calendar with daily, weekly or monthly recurrence; matching cross-calendar duplicates can be combined for display without changing the originals. View a second time zone alongside each event.
-- Meeting notes stay attached to individual occurrences, support local search and Markdown export, and preserve Chinese input composition. Export/restore local notes and supported settings through a validated JSON backup, review contents before replacing them, and undo the last restore.
-- Four native Apple Shortcuts actions: Open Today, Start Focus (5–180 minutes plus optional task label), Append to Scratchpad, and Join Next Meeting. App Intents metadata is generated and checked in the packaged app.
-- Task labels in focus history, daily totals and task breakdowns for previous/current weeks, and Markdown weekly-review export. CSV exports include the task label and protect spreadsheet cells from formula interpretation.
-- In-app language selection for Simplified Chinese, English, or the current system language, applied without restarting.
-- One-click Smart Join for Zoom, Google Meet, Microsoft Teams, Webex, Around, and Whereby, plus an Open link action for other structured event URLs.
-- Previous and next month navigation with locale-aware weekday ordering.
-- Calendar access via EventKit; data stays on the device.
-- Automatic update checks at launch, a manual refresh action, structured release notes in Settings, and a green sidebar update shortcut whenever a newer GitHub Release is available.
-
-Smart Join resolves the event’s structured URL first, then looks for known conferencing domains in its location and notes. Link detection happens locally, and ordinary links in free-form text are ignored to reduce accidental opens.
-
-## Run from source
-
-Open the folder in Xcode and run the `NotchCalendar` executable scheme, or run:
-
-```sh
-swift run
-```
-
-Run deterministic checks with `swift test` using full Xcode (when Command Line Tools are selected, use `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer swift test`). The optional `MarketingCaptureTests` live-source/native-rendering check is skipped unless `NOTCH_CAPTURE_PATH` names an output directory.
-
-On first launch, allow Calendar access in the system prompt. The app falls back to the top-centre position on displays without a camera housing.
-
-## Publish on GitHub
-
-1. Create a GitHub repository and push this project to it.
-2. If you fork the project, replace `GpsLypy/NotchCalendar` in `Support/Info.plist` with the fork’s `owner/name` value.
-3. Create and push a version tag, for example `v0.1.3`.
-
-The included GitHub Actions workflow creates both a macOS DMG installer and ZIP archive, then publishes them as a GitHub Release with curated Added, Improved, and Fixed notes from `CHANGELOG.md`. It can be triggered by pushing a version tag or manually from the **Actions** tab. The app checks that release feed automatically at launch, can also refresh it from Settings, displays the release’s structured update notes, selects the exact versioned DMG, and verifies GitHub’s published SHA-256 digest. When an update is available, a green circular-arrow shortcut appears above Settings in the sidebar. The DMG includes an Applications shortcut for standard drag-to-install behavior.
-
-Release packages are built as universal2 binaries for both Apple Silicon and Intel Macs. The workflow mounts the final DMG and verifies both architectures, nested code signatures, app/widget version alignment, and the Applications shortcut before publishing.
-
-Version 0.3.0 keeps automatic app replacement disabled while retaining the signed-helper and validation foundation for a future crash-recoverable installer. The update screen uses the manual path instead: **Open DMG & Quit** closes the running version before you drag the replacement into Applications. For Developer ID-signed builds, Settings can also verify and open an equal or newer Applications copy when the app is running from a mounted disk image.
-
-Release archives without a signing certificate are ad-hoc signed for local development only. For Developer ID distribution, set `DEVELOPER_ID_APPLICATION` to a valid Apple Developer ID Application certificate and `NOTARYTOOL_PROFILE` to a configured `notarytool` keychain profile before running the release script. This allows the script to enable hardened runtime, notarize the app, and staple the result before packaging it.
-
-See [the product roadmap](docs/PRODUCT_ROADMAP.md) for the stability requirements and planned market, weather, and local-assistant integrations.
-
-Version 0.8.0 adds the calendar, meeting, notes, and focus workflow without a payment or account requirement. Get the [0.8.1 crash-fix release](https://github.com/GpsLypy/NotchCalendar/releases/tag/v0.8.1), and see [workflow setup and limits](docs/WORKFLOWS_V0.8.0.md), [validation details](docs/VALIDATION_V0.8.0.md), and [the professional-tool product review](docs/PRODUCT_REVIEW_2026-09-05.md).
-
-When upgrading from 0.7.0 or 0.8.0, download the DMG in your browser and open it in Finder, then quit the app and drag the replacement into Applications. Those older versions may crash when using “Open DMG & Quit”; 0.8.1 fixes that handoff. / 从 0.7.0 或 0.8.0 升级时，请通过浏览器下载 DMG，在访达中打开，退出应用后拖入“应用程序”替换；0.8.1 已修复旧版“打开 DMG 并退出”的崩溃。
-
-## Buy me a coffee / 请作者喝杯咖啡
-
-If Notch Calendar makes your day a little easier, you can support its continued development with a coffee. Thank you for every bit of encouragement.
-
-如果 Notch Calendar 让你的一天轻松了一点，欢迎请作者喝杯咖啡，感谢每一份支持与鼓励。
-
 <p align="center">
-  <img src=".github/assets/wechat-pay.jpg" alt="WeChat Pay donation QR code / 微信支付赞助二维码" width="320">
+  <img src="docs/images/app-icon.png" alt="Notch Calendar 应用图标" width="88">
 </p>
 
-## License
+# Notch Calendar
 
-Released under the [MIT License](LICENSE).
+**把日程放在 Mac 刘海旁，把会议、笔记和专注安排在一起。**
+
+一个原生 macOS 个人工作台：抬眼查看下一场会议，需要时展开完整日历，随手记下结论，再为手头的任务留出一段专注时间。
+
+**简体中文** · [English](README.en.md) · [下载最新版](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [更新日志](CHANGELOG.md) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+macOS 15+ · Apple 芯片与 Intel · SwiftUI 原生界面 · 当前免费 · MIT 开源
+
+![Notch Calendar 完整工作台：侧栏导航、月历、日程、会议入口与第二时区](docs/images/workspace.png)
+
+*原生应用界面，日程、笔记和专注记录使用演示数据。应用支持简体中文、English 和跟随系统；[查看配图来源](docs/images/README.md)。*
+
+[界面与功能](#界面与功能) · [开始使用](#开始使用) · [快捷键与自动化](#快捷键与自动化) · [数据与权限](#数据与权限) · [开发与贡献](#开发与贡献)
+
+## 能帮你做什么
+
+| 你的场景 | 在 Notch Calendar 中 |
+| --- | --- |
+| 手头忙着，想知道下一场会议什么时候开始 | 从刘海查看日程与会议入口，按需开启会前提醒 |
+| 日程分散在多个日历里 | 选择日历来源，搜索日程，合并显示完全重复项 |
+| 想安排周期会议，还要考虑异地同事的时间 | 创建日程，设置每日／每周／每月重复，并查看第二时区 |
+| 开完会找不到上次的结论 | 给每一场会议单独记笔记，搜索记录并导出 Markdown |
+| 会议之间想做点完整的工作 | 查看今日空档，准备专注计时，用任务标签整理周回顾 |
+| 想看点资讯，又不想一直刷下去 | 看有限条数的情报、讨论和简报，保留值得回看的内容 |
+
+## 界面与功能
+
+### 刘海日历与会议助手
+
+平时保持紧凑，停稳悬停或点击后展开日程；也可以切换为仅点击打开。完整桌面工作台提供今日总览、月历和工具侧栏，无刘海的显示器也能使用顶部居中入口。
+
+| 展开的刘海日历 | 下一场会议 |
+| --- | --- |
+| ![展开后的日历组件，显示月份、演示日程与入会入口](docs/images/notch-expanded.png) | ![会议卡片，提供加入会议、提醒选项与全局入会快捷键提示](docs/images/meeting-controls.png) |
+
+- **会前提醒**：按需开启；支持延后 5 / 10 分钟、忽略本次，日历变化和唤醒后重新校正。
+- **快捷入会**：识别 Zoom、Google Meet、Teams、Webex、Around 和 Whereby；支持事件中的其他结构化网址。
+- **全局入会**：默认 `⌃⌥J`，需在设置中启用，可自定义；适用于进行中或 15 分钟内开始的有效会议。
+
+图中刘海日历展示的是展开内容组件，不包含实体摄像头或桌面背景。提醒投递受 macOS 通知和专注模式影响，应用运行时才能持续跟进日历修改。
+
+### 查找、创建和跨时区查看日程
+
+把“这场会在哪一天”和“对方那里几点”放在同一个日历页面处理。
+
+| 日程搜索与第二时区 | 快速创建周期日程 |
+| --- | --- |
+| ![按标题、地点或日历搜索，并显示纽约时间与重复来源数量](docs/images/calendar-search.png) | ![创建日程表单，包含标题、日历、日期、时区和重复设置](docs/images/event-composer.png) |
+
+- 按标题、地点、日历名称搜索；日期范围最多 366 天，最多展示 200 个匹配并提示截断。
+- 在可写的系统日历中创建定时或全天日程，支持每日、每周、每月重复及截止日期。
+- 第二时区显示对应日期、时间和 UTC 偏移，处理跨日与夏令时。
+- 完全相同的跨日历事件可合并显示，原始事件不被删除；已有日程的编辑、删除仍通过系统日历完成。
+
+### 便笺、会议笔记与备份恢复
+
+随手记录和会议结论各有入口。每一次周期会议都可以保留独立笔记，回看时不用在一大段便笺里翻找。
+
+| 关联到具体场次的会议笔记 | 恢复前核对 |
+| --- | --- |
+| ![会议笔记中记录演示会议的决定和行动项，自动保存在本机](docs/images/meeting-notes.png) | ![备份恢复预览，显示便笺、会议笔记、专注记录和配置数量](docs/images/backup-preview.png) |
+
+- 普通便笺自动保存、一键复制；会议笔记支持本地搜索和 Markdown 导出。
+- JSON 备份包含便笺、会议笔记、专注历史及支持的配置。
+- 恢复前校验文件并展示内容，确认后覆盖；自动保存恢复前的副本，可撤销上次恢复。
+- 备份不包含系统日历事件、账户密钥或系统权限；笔记以明文导出，由你选择保存位置。
+
+### 专注计时与周回顾
+
+从今日空档准备一段专注，给任务加上标签，周末再看时间实际花在了哪里。
+
+| 自定义专注时长与任务标签 | 按天、按任务查看完成记录 |
+| --- | --- |
+| ![专注页面，提供计时器、任务标签、自定义时长和下一场日程](docs/images/focus.png) | ![周回顾图表，显示每日完成分钟数与任务标签汇总](docs/images/weekly-review.png) |
+
+- 支持 5–180 分钟自定义专注、独立休息计时，暂停后保留进度。
+- 今日规划结合工作时段和会议缓冲，提示空档与冲突；准备计时后由你点击开始。
+- 查看本周及过去周的每日完成分钟和任务汇总，导出 Markdown 周回顾或 CSV 历史。
+- 保留最近 1,000 次完成记录；周回顾只统计已完成专注，不计入休息或未完成计时。
+
+### 有限的信息浏览
+
+每个页面都有明确的条数上限和原文入口。感兴趣的内容可以留下，网络暂时不可用时仍能回看已有缓存。
+
+| 情报台 Radar | 信息差简报 |
+| --- | --- |
+| ![情报台显示有限条数的 Hacker News 公开话题](docs/images/radar.png) | ![简报按 GitHub Blog、Swift.org 和 NASA 筛选，支持已读与收藏](docs/images/briefing.png) |
+
+- **情报台**：每次十条 Hacker News Hot / Ask / Show，提供原文和本地留存。
+- **信息差简报**：汇集 GitHub Blog、Swift.org、NASA，每次最多 20 条，支持来源／关键词筛选、已读与收藏。
+
+| 行情观察台 | 舆论室 |
+| --- | --- |
+| ![行情观察台的连接设置与自选股票，尚未配置密钥，不显示虚构报价](docs/images/markets.png) | ![舆论室展示 Hacker News 话题、公开评论与本机演示笔记](docs/images/discussion.png) |
+
+- **行情观察台**：最多八个美股／ETF 自选，手动刷新收盘行情；使用自己的 Alpha Vantage 密钥，保存在 macOS 钥匙串中。提供的是收盘观察数据，不是实时交易行情。
+- **舆论室**：阅读 Hacker News 话题及有限数量的署名评论，保存立场、私人笔记和话题；笔记不会发布到 HN。
+
+以上资讯图片为历史公开内容画面，标题、热度、时间不代表实时状态。行情图展示未连接状态。详见[行情数据源](docs/markets-provider.md)与[简报来源](docs/briefing-sources.md)。
+
+### 桌面小组件
+
+提供 **月历、专注进度、今日日程** 三种 WidgetKit 小组件。右键桌面 →「编辑小组件」→ 搜索 **Notch Calendar** 添加；组件中的打开按钮可跳转到应用对应页面。
+
+小组件使用主应用生成的本地快照，首次使用请先打开应用并授予日历权限。
+
+## 开始使用
+
+1. 在 [GitHub Releases](https://github.com/GpsLypy/NotchCalendar/releases/latest) 下载 DMG，打开后将 **Notch Calendar** 拖入「应用程序」。
+2. 首次打开时允许日历访问，在设置中选择要显示的日历来源。
+3. 将鼠标停在刘海附近或点击顶部入口查看日程；点击 Dock 图标打开完整工作台。
+4. 按需开启会议提醒、全局入会快捷键，并选择简体中文、English 或跟随系统。
+
+**系统要求：**macOS 15 及以上，Apple 芯片或 Intel。当前无需注册 Notch Calendar 账户、没有付费墙；行情服务需另行配置个人数据源密钥。
+
+当前公开构建采用 ad-hoc 签名，尚未进行 Developer ID 公证，更新使用手动替换。若从 0.7.0 / 0.8.0 升级，请在访达中打开下载的 DMG，再退出旧版并替换应用；0.8.1 已修复旧版「打开 DMG 并退出」的崩溃。
+
+## 快捷键与自动化
+
+| 入口 | 快捷键 |
+| --- | --- |
+| 今日 / 日历 | `⌘1` / `⌘2` |
+| 专注 / 便笺 | `⌘3` / `⌘4` |
+| 情报台 / 行情观察台 | `⌘5` / `⌘6` |
+| 舆论室 / 信息差简报 | `⌘7` / `⌘8` |
+| 从其他应用加入有效会议 | 默认 `⌃⌥J`，需在设置中启用，可修改 |
+
+数字快捷键用于应用工作台内导航。将应用放入「应用程序」并至少打开一次后，可以在系统「快捷指令」操作库搜索 **Notch Calendar**：
+
+| 快捷指令操作 | 用途 |
+| --- | --- |
+| Open Today · 打开今日 | 打开今日日程与规划 |
+| Start Focus · 开始专注 | 传入 5–180 分钟与可选任务标签，保留已有未完成计时 |
+| Append Note · 追加便笺 | 将文字追加到最新便笺末尾 |
+| Join Meeting · 加入会议 | 使用与应用内一致的会议选择规则 |
+
+详细设置、提醒范围、周期事件处理和备份边界见[功能使用说明](docs/WORKFLOWS_V0.8.0.md)。
+
+## 数据与权限
+
+| 数据或能力 | 如何处理 |
+| --- | --- |
+| 日历 | 通过 EventKit 访问系统日历；账户同步由 macOS 的日历账户设置决定 |
+| 便笺、会议笔记、专注历史 | 保存在本机；由你主动导出或备份，无自建账户同步 |
+| 通知与全局入会 | 按需开启；通知需系统授权，全局入会快捷键无需辅助功能权限 |
+| 行情密钥 | 存放在 macOS 钥匙串，刷新或验证时用于请求数据源 |
+| 公开资讯与更新 | 请求相应公开来源和 GitHub Releases；断网时保留已有资讯缓存 |
+
+本地记录与外部资讯使用不同的数据流程。备份文件不等同于云端同步，也不会替你增删系统日历事件。
+
+## 开发与贡献
+
+使用完整 Xcode 与 Swift 6 工具链。可以在 Xcode 中打开项目文件夹并运行 `NotchCalendar`，或在仓库根目录执行：
+
+```sh
+swift run NotchCalendar
+swift test
+```
+
+若当前选择的是 Command Line Tools，可为命令指定完整 Xcode：
+
+```sh
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer swift test
+```
+
+截图导出和真实订阅源联网检查需显式开启，默认测试会跳过这些按需项目。[英文文档](README.en.md#publish-on-github)包含打包、签名和发布说明；[配图说明](docs/images/README.md)记录截图来源与重新生成方式。
+
+欢迎通过 [Issues](https://github.com/GpsLypy/NotchCalendar/issues) 提交问题或功能建议。报告问题时请附应用版本、macOS 版本、复现步骤；分享日志或截图前请移除私人日程和笔记。
+
+- [更新日志](CHANGELOG.md)
+- [功能使用说明](docs/WORKFLOWS_V0.8.0.md)
+- [验证范围](docs/VALIDATION_V0.8.0.md)
+- [产品路线图](docs/PRODUCT_ROADMAP.md)
+
+## 支持项目
+
+如果 Notch Calendar 让你的一天轻松了一点，欢迎请作者喝杯咖啡。
+
+<details>
+<summary>微信赞赏</summary>
+
+<p align="center">
+  <img src=".github/assets/wechat-pay.jpg" alt="微信支付赞助二维码" width="280">
+</p>
+
+</details>
+
+## 许可证
+
+采用 [MIT License](LICENSE)。
