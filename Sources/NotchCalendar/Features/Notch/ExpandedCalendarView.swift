@@ -6,14 +6,81 @@ struct ExpandedCalendarView: View {
     let contentTopInset: CGFloat
 
     var body: some View {
-        CalendarDashboardView(
-            calendar: state.calendar,
-            selectedDate: $state.selectedDate,
+        NotchExpandedActivityView(
+            calendar: state.calendar, focusTimer: state.focusTimer,
+            preferences: state.presentationPreferences, selectedDate: $state.selectedDate,
             contentTopInset: contentTopInset,
-            surface: .notch,
-            isActive: true,
-            onClose: { state.isExpanded = false }
+            onClose: { state.isExpanded = false },
+            openFocus: { state.openWorkspace?(.focus) }
         )
+    }
+}
+
+struct NotchExpandedActivityView: View {
+    @ObservedObject var calendar: CalendarManager
+    @ObservedObject var focusTimer: FocusTimerModel
+    @ObservedObject var preferences: PresentationPreferences
+    @Binding var selectedDate: Date
+    let contentTopInset: CGFloat
+    let onClose: () -> Void
+    let openFocus: () -> Void
+    @State private var activity: NotchActivity = .calendar
+    @Environment(\.appLanguage) private var appLanguage
+
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack(spacing: 8) {
+                activityButton(.calendar, title: "Calendar", symbol: "calendar")
+                activityButton(.focus, title: "Focus", symbol: "timer")
+                Spacer()
+                Button(action: onClose) {
+                    Image(systemName: "xmark").font(.system(size: 10, weight: .semibold))
+                        .frame(width: 26, height: 26)
+                        .background(.white.opacity(0.08), in: Circle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(L10n.string("Close", language: appLanguage))
+            }
+            .padding(.horizontal, 28)
+            .padding(.top, contentTopInset)
+            if activity == .focus {
+                FocusNotchView(timer: focusTimer, events: calendar.todayEvents,
+                               openFocus: openFocus)
+            } else {
+                CalendarDashboardView(
+                    calendar: calendar,
+                    selectedDate: $selectedDate,
+                    contentTopInset: 16,
+                    surface: .notch,
+                    isActive: true,
+                    onClose: nil
+                )
+            }
+        }
+        .foregroundStyle(WorkspacePalette.primaryText)
+        .background(.black.opacity(0.97), in: NotchAttachedCardShape(cornerRadius: 30))
+        .clipShape(NotchAttachedCardShape(cornerRadius: 30))
+        .onAppear {
+            focusTimer.synchronize()
+            activity = NotchActivityPolicy.compactActivity(
+                showsMeetings: preferences.showsMeetingStatus,
+                meetingIsActive: UpcomingEventEngine.status(now: Date(), events: calendar.todayEvents).isActive,
+                showsFocus: preferences.showsFocusStatus,
+                hasFocusSession: focusTimer.hasUnfinishedSession
+            )
+        }
+    }
+
+    private func activityButton(_ destination: NotchActivity, title: String, symbol: String) -> some View {
+        Button { activity = destination } label: {
+            Label(L10n.string(title, language: appLanguage), systemImage: symbol)
+                .font(.system(size: 11, weight: .semibold))
+                .padding(.horizontal, 12).padding(.vertical, 7)
+                .background(activity == destination ? WorkspacePalette.accent.opacity(0.18) : .clear, in: Capsule())
+                .foregroundStyle(activity == destination ? WorkspacePalette.accent : WorkspacePalette.secondaryText)
+        }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(activity == destination ? .isSelected : [])
     }
 }
 

@@ -65,6 +65,10 @@ struct SettingsView: View {
                     isOn: $presentationPreferences.showsMeetingStatus
                 )
 
+                Toggle(t("Show my focus timer beside the notch"), isOn: $presentationPreferences.showsFocusStatus)
+                Text(t("Appears only for a session you start. Pause or resume from the expanded notch."))
+                    .foregroundStyle(.secondary)
+
                 Text(
                     effectiveNotchInteractionMode == .intentionalHover
                         ? t("The pointer must settle near the notch before it opens.")

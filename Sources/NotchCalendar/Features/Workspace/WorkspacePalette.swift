@@ -1,17 +1,17 @@
 import SwiftUI
 
-/// The desktop workspace keeps the notch calendar's coral accent while using
-/// quieter graphite surfaces for the expandable, multi-tool shell.
+/// Slate surfaces, silver type, and blue controls form the personal desk.
+/// Coral is reserved for calendar activity; mint marks available time.
 enum WorkspacePalette {
-    static let canvas = Color(red: 0.027, green: 0.027, blue: 0.033)       // #070708
-    static let sidebar = Color(red: 0.052, green: 0.052, blue: 0.061)      // #0D0D10
-    static let elevated = Color(red: 0.074, green: 0.074, blue: 0.086)     // #131316
+    static let canvas = Color(red: 0.063, green: 0.090, blue: 0.133)      // #101722
+    static let sidebar = Color(red: 0.082, green: 0.122, blue: 0.176)     // #151F2D
+    static let elevated = Color(red: 0.110, green: 0.157, blue: 0.220)    // #1C2838
     static let hover = Color.white.opacity(0.055)
     static let stroke = Color.white.opacity(0.085)
-    static let primaryText = Color.white.opacity(0.94)
-    static let secondaryText = Color.white.opacity(0.55)
-    static let accent = AlcovePalette.accent
-    static let success = Color(red: 0.40, green: 0.84, blue: 0.58)         // #66D694
+    static let primaryText = Color(red: 0.929, green: 0.949, blue: 0.969) // #EDF2F7
+    static let secondaryText = Color(red: 0.624, green: 0.686, blue: 0.761) // #9FAFC2
+    static let accent = Color(red: 0.565, green: 0.722, blue: 0.973)      // #90B8F8
+    static let success = Color(red: 0.510, green: 0.784, blue: 0.690)     // #82C8B0
 }
 
 enum WorkspaceDestination: String, CaseIterable, Identifiable {

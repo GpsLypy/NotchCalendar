@@ -4,6 +4,28 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-09-06
+
+macOS 15+ · Apple Silicon and Intel. Free manual-install build, ad-hoc signed and not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；继续免费，采用 ad-hoc 签名及手动安装，尚未进行 Developer ID 公证。
+
+### Added / 新增
+
+- Added a time-proportional day track with separate lanes for overlapping appointments, event inspection, and a direct meeting-notes action. Dense overlaps remain accessible by scrolling. / 新增今日时间轨道：按实际时长展示日程，重叠日程分轨，支持点选详情和打开会议笔记，密集日程可滚动查看。
+- Added a focus activity beside the notch and on notchless displays, with countdown, pause/resume, task label, and calendar/focus switching in the expanded panel. Visibility is configurable. / 刘海及无刘海显示器新增专注活动，展示倒计时、任务标签，支持暂停、继续及日历／专注切换，可在设置关闭紧凑状态显示。
+- Added Command-K quick access with bilingual page search, today's event search, keyboard navigation, and safe pause/resume of the current timer. / 新增 ⌘K 快速入口，支持中英文页面搜索、今日日程搜索、键盘导航及当前计时的暂停／继续。
+
+### Improved / 优化
+
+- Introduced slate-blue workspace surfaces, silver text, blue focus controls, coral appointments, and mint availability. New workspace sessions open on Today. / 工作台采用蓝灰底色、雾银文字，蓝色专注控件、珊瑚色日程与薄荷色空档；工作台初始页面改为今日。
+- Respect Reduce Motion when expanding or collapsing the notch. / 刘海展开和收起遵循系统「减少动态效果」设置。
+
+### Fixed / 修复
+
+- Live calendar activity no longer depends on input order and excludes canceled, declined, and invalid-duration events. / 实时日历活动不再依赖输入顺序，并排除取消、拒绝和时长无效的日程。
+- Paused timers retain their status in Today; planning ranges ending at midnight now display 24:00. / 今日页保留已暂停计时的状态，午夜结束的规划区间显示为 24:00。
+
+See [experience review](https://github.com/GpsLypy/NotchCalendar/blob/v0.9.0/docs/EXPERIENCE_REVIEW_2026-09-06.md) and [validation](https://github.com/GpsLypy/NotchCalendar/blob/v0.9.0/docs/VALIDATION_V0.9.0.md). / 详见[体验审视](https://github.com/GpsLypy/NotchCalendar/blob/v0.9.0/docs/EXPERIENCE_REVIEW_2026-09-06.md)与[本版验证](https://github.com/GpsLypy/NotchCalendar/blob/v0.9.0/docs/VALIDATION_V0.9.0.md)。
+
 ## [0.8.1] - 2026-09-05
 
 macOS 15+ · Apple Silicon and Intel. Free manual-install build, ad-hoc signed and not Developer ID notarized. / 支持 macOS 15 及以上、Apple 芯片及 Intel；继续免费，采用 ad-hoc 签名及手动安装，尚未进行 Developer ID 公证。

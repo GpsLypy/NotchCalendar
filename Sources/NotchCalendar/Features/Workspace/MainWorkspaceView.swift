@@ -14,6 +14,8 @@ struct MainWorkspaceView: View {
     @State private var calendarFollowsToday = true
     @State private var now = Date()
     @State private var selectedNoteEvent: CalendarEvent?
+    @State private var showsCommands = false
+    @State private var pendingCommandEvent: CalendarEvent?
     @Environment(\.appLanguage) private var appLanguage
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
@@ -23,7 +25,8 @@ struct MainWorkspaceView: View {
                 selection: $presentation.selectedDestination,
                 calendar: calendar,
                 focusTimer: focusTimer,
-                updateChecker: updateChecker
+                updateChecker: updateChecker,
+                openCommands: { showsCommands = true }
             )
             .frame(width: 212)
 
@@ -50,6 +53,28 @@ struct MainWorkspaceView: View {
         .onChange(of: presentation.isActive) { _, isActive in
             guard isActive else { return }
             synchronizeWorkspace(to: Date())
+        }
+        .sheet(isPresented: $showsCommands, onDismiss: {
+            if let event = pendingCommandEvent {
+                pendingCommandEvent = nil
+                // Resolve against current access and selected sources after the
+                // command sheet closes; never reopen a revoked calendar item.
+                selectedNoteEvent = calendar.todayEvents.first { $0.occurrenceStableID == event.occurrenceStableID }
+            }
+        }) {
+            WorkspaceCommandView(commands: WorkspaceCommandCatalog.commands(
+                events: calendar.todayEvents, language: appLanguage,
+                hasSession: focusTimer.hasUnfinishedSession,
+                isRunning: focusTimer.isRunning
+            )) { action in
+                switch action {
+                case .navigate(let destination): navigate(to: destination)
+                case .inspectEvent(let event): pendingCommandEvent = event
+                case .toggleFocus:
+                    focusTimer.synchronize()
+                    if focusTimer.hasUnfinishedSession { focusTimer.toggle() }
+                }
+            }
         }
         .sheet(item: $selectedNoteEvent) { event in
             VStack(alignment: .leading, spacing: 16) {

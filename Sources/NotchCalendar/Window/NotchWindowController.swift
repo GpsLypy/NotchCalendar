@@ -19,12 +19,12 @@ final class NotchWindowController: NSObject, ObservableObject {
     private nonisolated(unsafe) var localMouseMonitor: Any?
     // Alcove-like glanceable layout: wide enough for agenda + month, but shallow
     // enough to feel attached to the camera housing rather than a modal window.
-    private let expandedSize = NSSize(width: 600, height: 390)
+    private let expandedSize = NSSize(width: 600, height: 460)
     private var expandTask: Task<Void, Never>?
     private var collapseTask: Task<Void, Never>?
     private var expandedCardHeight: CGFloat?
     private var pointerEvaluationQueued = false
-    private var compactMeetingIsActive: Bool
+    private var compactActivityIsActive: Bool
     private var pointerWasInsideTrigger = false
     private var hoverAnchor: NSPoint?
     private var pendingExpansionOrigin: NotchExpansionOrigin?
@@ -35,11 +35,8 @@ final class NotchWindowController: NSObject, ObservableObject {
         self.state = state
         let screen = NSScreen.main ?? NSScreen.screens[0]
         let notchBounds = ScreenGeometry.notchBounds(on: screen)
-        let compactMeetingIsActive = state.presentationPreferences.showsMeetingStatus && UpcomingEventEngine.status(
-            now: Date(),
-            events: state.calendar.todayEvents
-        ).isActive
-        self.compactMeetingIsActive = compactMeetingIsActive
+        let compactActivityIsActive = Self.showsCompactActivity(state: state)
+        self.compactActivityIsActive = compactActivityIsActive
         layoutMetrics = NotchLayoutMetrics(
             expandedContentTopInset: ScreenGeometry.expandedContentTopInset(on: screen),
             compactNotchWidth: notchBounds?.width,
@@ -52,7 +49,7 @@ final class NotchWindowController: NSObject, ObservableObject {
                 on: screen,
                 size: Self.compactSize(
                     on: screen,
-                    showsMeetingStatus: compactMeetingIsActive,
+                    showsMeetingStatus: compactActivityIsActive,
                     showsClickTarget: state.presentationPreferences.notchInteractionMode == .clickOnly
                 ),
                 expanded: false
@@ -92,9 +89,9 @@ final class NotchWindowController: NSObject, ObservableObject {
             }
         }
         preferencesObserver = state.presentationPreferences.$notchInteractionMode
-            .combineLatest(state.presentationPreferences.$showsMeetingStatus)
+            .combineLatest(state.presentationPreferences.$showsMeetingStatus, state.presentationPreferences.$showsFocusStatus)
             .dropFirst()
-            .sink { [weak self] _, _ in
+            .sink { [weak self] _, _, _ in
                 DispatchQueue.main.async { [weak self] in
                     self?.applyPresentationPreferences()
                 }
@@ -174,7 +171,7 @@ final class NotchWindowController: NSObject, ObservableObject {
                 on: screen,
                 compactSize: Self.compactSize(
                     on: screen,
-                    showsMeetingStatus: compactMeetingIsActive,
+                    showsMeetingStatus: compactActivityIsActive,
                     showsClickTarget: false
                 )
             )
@@ -210,7 +207,7 @@ final class NotchWindowController: NSObject, ObservableObject {
                     on: screen,
                     compactSize: Self.compactSize(
                         on: screen,
-                        showsMeetingStatus: self.compactMeetingIsActive,
+                        showsMeetingStatus: self.compactActivityIsActive,
                         showsClickTarget: false
                     )
                   ).contains(pointer) else { return }
@@ -272,9 +269,9 @@ final class NotchWindowController: NSObject, ObservableObject {
     }
 
     private func updateCompactMeetingActivity(_ isActive: Bool) {
-        let effectiveActivity = state.presentationPreferences.showsMeetingStatus && isActive
-        guard compactMeetingIsActive != effectiveActivity else { return }
-        compactMeetingIsActive = effectiveActivity
+        let effectiveActivity = isActive
+        guard compactActivityIsActive != effectiveActivity else { return }
+        compactActivityIsActive = effectiveActivity
         guard !state.isExpanded else { return }
         resize(expanded: false)
     }
@@ -327,11 +324,7 @@ final class NotchWindowController: NSObject, ObservableObject {
         }
         let notchBounds = ScreenGeometry.notchBounds(on: screen)
         if !expanded {
-            compactMeetingIsActive = state.presentationPreferences.showsMeetingStatus
-                && UpcomingEventEngine.status(
-                    now: Date(),
-                    events: state.calendar.todayEvents
-                ).isActive
+            compactActivityIsActive = Self.showsCompactActivity(state: state)
         }
         layoutMetrics.expandedContentTopInset = ScreenGeometry.expandedContentTopInset(on: screen)
         layoutMetrics.compactNotchWidth = notchBounds?.width
@@ -344,7 +337,7 @@ final class NotchWindowController: NSObject, ObservableObject {
                 ? expandedSize
                 : Self.compactSize(
                     on: screen,
-                    showsMeetingStatus: compactMeetingIsActive,
+                    showsMeetingStatus: compactActivityIsActive,
                     showsClickTarget: effectiveInteractionMode == .clickOnly
                 ),
             expanded: expanded
@@ -353,7 +346,7 @@ final class NotchWindowController: NSObject, ObservableObject {
             panel.ignoresMouseEvents = false
         }
         trace("animate \(expanded ? "expand" : "collapse") to \(Int(newFrame.width))×\(Int(newFrame.height))")
-        if animated {
+        if animated && !NSWorkspace.shared.accessibilityDisplayShouldReduceMotion {
             NSAnimationContext.runAnimationGroup { context in
                 // AppKit hands this to Core Animation, which is display-synchronised
                 // and therefore presents at the ProMotion refresh rate when available.
@@ -377,6 +370,15 @@ final class NotchWindowController: NSObject, ObservableObject {
                 applyCompactMousePassthrough()
             }
         }
+    }
+
+    private static func showsCompactActivity(state: AppState) -> Bool {
+        NotchActivityPolicy.showsShoulders(
+            showsMeetings: state.presentationPreferences.showsMeetingStatus,
+            meetingIsActive: UpcomingEventEngine.status(now: Date(), events: state.calendar.todayEvents).isActive,
+            showsFocus: state.presentationPreferences.showsFocusStatus,
+            hasFocusSession: state.focusTimer.hasUnfinishedSession
+        )
     }
 
     private static func compactSize(
@@ -412,10 +414,7 @@ final class NotchWindowController: NSObject, ObservableObject {
         cancelPendingHover()
         collapseTask?.cancel()
         collapseTask = nil
-        compactMeetingIsActive = state.presentationPreferences.showsMeetingStatus && UpcomingEventEngine.status(
-            now: Date(),
-            events: state.calendar.todayEvents
-        ).isActive
+        compactActivityIsActive = Self.showsCompactActivity(state: state)
         layoutMetrics.showsCompactMeetingStatus = state.presentationPreferences.showsMeetingStatus
         layoutMetrics.showsClickTarget = effectiveInteractionMode == .clickOnly
         if !state.isExpanded {

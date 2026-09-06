@@ -283,3 +283,35 @@
 "Focus data could not be read. Restore a valid backup in Settings before starting a timer." = "Focus data could not be read. Restore a valid backup in Settings before starting a timer.";
 "Focus for ${minutes} minutes on ${taskLabel}" = "Focus for ${minutes} minutes on ${taskLabel}";
 "Append ${text} to the scratchpad" = "Append ${text} to the scratchpad";
+
+/* Day track, quick access, and focus activity */
+"Day track" = "Day track";
+"Select an event to inspect it" = "Select an event to inspect it";
+"No timed events in your planning hours." = "No timed events in your planning hours.";
+"Each lane separates overlapping events. Scroll for more lanes." = "Each lane separates overlapping events. Scroll for more lanes.";
+"Your session is also within reach at the notch." = "Your session is also within reach at the notch.";
+"Quick access" = "Quick access";
+"Open page" = "Open page";
+"Pause focus timer" = "Pause focus timer";
+"Resume focus timer" = "Resume focus timer";
+"Current session" = "Current session";
+"Search pages and today's events" = "Search pages and today's events";
+"No matching pages or events" = "No matching pages or events";
+"Try a page name, event title, or calendar name." = "Try a page name, event title, or calendar name.";
+"↑ ↓ to move · Return to open" = "↑ ↓ to move · Return to open";
+"On this Mac" = "On this Mac";
+"Show my focus timer beside the notch" = "Show my focus timer beside the notch";
+"Appears only for a session you start. Pause or resume from the expanded notch." = "Appears only for a session you start. Pause or resume from the expanded notch.";
+"One thing at a time." = "One thing at a time.";
+"Session complete" = "Session complete";
+"Ready when you are" = "Ready when you are";
+"Open Focus" = "Open Focus";
+"Focus progress" = "Focus progress";
+"Paused" = "Paused";
+"Pause" = "Pause";
+"Resume" = "Resume";
+"Start" = "Start";
+"Pause timer" = "Pause timer";
+"Resume timer" = "Resume timer";
+"Break running" = "Break running";
+"Prepare your next session." = "Prepare your next session.";

@@ -524,3 +524,32 @@
 "Focus data could not be read. Restore a valid backup in Settings before starting a timer." = "专注数据暂时无法读取，请先到设置恢复有效备份。原始数据已保留。";
 "Focus for ${minutes} minutes on ${taskLabel}" = "为 ${taskLabel} 专注 ${minutes} 分钟";
 "Append ${text} to the scratchpad" = "将 ${text} 追加到便笺";
+
+/* Day track, quick access, and focus activity */
+"Day track" = "今日时间轨道";
+"Select an event to inspect it" = "点选日程，查看详情";
+"No timed events in your planning hours." = "规划时段内没有定时日程。";
+"Each lane separates overlapping events. Scroll for more lanes." = "重叠日程分轨显示，可上下滚动查看。";
+"Your session is also within reach at the notch." = "从刘海也能查看、暂停或继续计时。";
+"Quick access" = "快速入口";
+"Open page" = "打开页面";
+"Pause focus timer" = "暂停专注计时";
+"Resume focus timer" = "继续专注计时";
+"Current session" = "当前计时";
+"Search pages and today's events" = "搜索页面与今日日程";
+"No matching pages or events" = "没有匹配的页面或日程";
+"Try a page name, event title, or calendar name." = "试试页面名称、日程标题或日历名称。";
+"↑ ↓ to move · Return to open" = "↑ ↓ 选择 · 回车打开";
+"On this Mac" = "仅在本机";
+"Show my focus timer beside the notch" = "在刘海旁显示我的专注计时";
+"Appears only for a session you start. Pause or resume from the expanded notch." = "开始计时后才会显示。展开刘海即可暂停或继续。";
+"One thing at a time." = "一次，只做一件事。";
+"Session complete" = "本次计时已完成";
+"Ready when you are" = "准备好，就开始";
+"Open Focus" = "打开专注";
+"Focus progress" = "专注进度";
+"Paused" = "已暂停";
+"Pause timer" = "暂停计时";
+"Resume timer" = "继续计时";
+"Break running" = "休息进行中";
+"Prepare your next session." = "准备下一段专注或休息。";

@@ -12,7 +12,7 @@ enum LocalBackupPolicy {
         "calendar.secondaryTimeZone", "meetings.hotKeyModifiers", "meetings.hotKeyLetter"
     ]
     static let boolKeys: Set<String> = [
-        "presentation.showsMeetingStatus", "calendar.deduplicatesEvents",
+        "presentation.showsMeetingStatus", "presentation.showsFocusStatus", "calendar.deduplicatesEvents",
         "meetings.remindersEnabled", "meetings.hotKeyEnabled", "workspace.focus.isRunning"
     ]
     static let integerKeys: Set<String> = [

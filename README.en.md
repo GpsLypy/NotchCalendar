@@ -16,6 +16,8 @@ The workspace above and the [visual feature tour](README.md#界面与功能) use
 
 ## Install and get started
 
+**New in 0.9.0:** this release adds an interactive day track, a focus activity in the notch, and `⌘K` quick access, with a slate-blue workspace palette. Inspect appointments and open their notes, pause or resume focus at the notch, and search pages or today's events in English or Chinese. [Download 0.9.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v0.9.0) or see the [experience review](docs/EXPERIENCE_REVIEW_2026-09-06.md) and [release validation](docs/VALIDATION_V0.9.0.md).
+
 1. Download the DMG from [Releases](https://github.com/GpsLypy/NotchCalendar/releases/latest), open it, and drag **Notch Calendar** into **Applications**.
 2. Launch the app and allow Calendar access. Choose the calendars you want to display in Settings.
 3. Hover intentionally over the notch or click it to see your agenda. Click the Dock icon to open the full workspace. A click-only mode is available; non-notched displays use a top-centre surface.

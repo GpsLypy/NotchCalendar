@@ -80,7 +80,11 @@ enum EventStatus {
 
 enum UpcomingEventEngine {
     static func status(now: Date, events: [CalendarEvent]) -> EventStatus {
-        let timedEvents = events.filter { !$0.isAllDay }
+        let timedEvents = events.filter {
+            !$0.isAllDay && $0.isEligibleForMeeting && $0.startDate < $0.endDate
+        }.sorted {
+            $0.startDate == $1.startDate ? $0.occurrenceStableID < $1.occurrenceStableID : $0.startDate < $1.startDate
+        }
 
         if let active = timedEvents.first(where: { $0.startDate <= now && $0.endDate > now }) {
             return .active(

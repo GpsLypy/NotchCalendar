@@ -33,6 +33,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             notesStore: state.notesStore,
             meetingAssistant: state.meetingAssistant
         )
+        state.openWorkspace = { [weak self] destination in
+            self?.state.isExpanded = false
+            self?.revealMainWindow(destination: destination, intent: .deepLink, reason: "explicit-notch-action")
+        }
         state.meetingAssistant.start()
         WorkspaceAutomation.shared = WorkspaceAutomation(
             focusTimer: state.focusTimer,

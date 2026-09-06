@@ -12,6 +12,8 @@ struct TodayWorkspaceView: View {
     @Environment(\.openSettings) private var openSettings
 
     @State private var now = Date()
+    @AppStorage(DayPlanSettings.startHourKey) private var startHour = 9
+    @AppStorage(DayPlanSettings.endHourKey) private var endHour = 18
 
     var body: some View {
         ScrollView {
@@ -29,11 +31,12 @@ struct TodayWorkspaceView: View {
                     openFocus: { navigate(.focus) },
                     openCalendar: { navigate(.calendar) }
                 )
-                HStack(alignment: .top, spacing: 18) {
-                    schedule
-                        .frame(maxWidth: .infinity, alignment: .top)
-                    quickTools
-                        .frame(width: 228, alignment: .top)
+                ViewThatFits(in: .horizontal) {
+                      HStack(alignment: .top, spacing: 18) {
+                        schedule.frame(minWidth: 350, maxWidth: .infinity, alignment: .top)
+                        quickTools.frame(width: 210, alignment: .top)
+                    }
+                    VStack(spacing: 18) { schedule; quickTools }
                 }
             }
             .padding(.horizontal, 30)
@@ -76,25 +79,36 @@ struct TodayWorkspaceView: View {
 
     private var daySignal: some View {
         WorkspaceCard {
-            HStack(alignment: .top, spacing: 20) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(signalEyebrow)
-                        .font(.system(size: 9.5, weight: .bold))
-                        .tracking(1.05)
-                        .foregroundStyle(WorkspacePalette.accent)
-                    Text(signalTitle)
-                        .font(.system(size: 22, weight: .semibold, design: .rounded))
-                        .foregroundStyle(WorkspacePalette.primaryText)
-                        .lineLimit(2)
-                    Text(signalDetail)
-                        .font(.system(size: 12.5))
-                        .foregroundStyle(WorkspacePalette.secondaryText)
-                        .lineLimit(2)
+            VStack(alignment: .leading, spacing: 22) {
+                HStack(alignment: .top, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(signalEyebrow)
+                            .font(.system(size: 9.5, weight: .bold))
+                            .tracking(1.05)
+                            .foregroundStyle(WorkspacePalette.accent)
+                        Text(signalTitle)
+                            .font(.system(size: 22, weight: .semibold, design: .rounded))
+                            .foregroundStyle(WorkspacePalette.primaryText)
+                            .lineLimit(2)
+                        Text(signalDetail)
+                            .font(.system(size: 12.5))
+                            .foregroundStyle(WorkspacePalette.secondaryText)
+                            .lineLimit(2)
+                    }
+                    Spacer(minLength: 16)
+                    signalAction
                 }
-                Spacer(minLength: 16)
-                signalAction
+                if calendar.sourceAvailability == .available {
+                    Divider().overlay(WorkspacePalette.stroke)
+                    DayTimelineView(
+                        events: calendar.todayEvents,
+                        now: now,
+                        window: DayPlanEngine.makePlan(events: [], now: now, settings: DayPlanSettings(startHour: startHour, endHour: endHour)).window,
+                        onSelectEvent: onSelectEvent
+                    )
+                }
             }
-            .padding(20)
+            .padding(22)
         }
     }
 
@@ -201,11 +215,13 @@ struct TodayWorkspaceView: View {
     private var quickTools: some View {
         VStack(spacing: 12) {
             QuickToolCard(
-                eyebrow: focusTimer.isRunning ? t("FOCUS RUNNING") : t("FOCUS"),
-                title: focusTimer.isRunning ? focusTimer.timeLabel : t("Make some quiet"),
-                detail: focusTimer.isRunning
-                    ? t("Your timer keeps running here.")
-                    : t("Start a 25-minute session."),
+                eyebrow: focusTimer.hasUnfinishedSession
+                    ? t(focusTimer.isRunning ? (focusTimer.selectedKind == .focus ? "FOCUS RUNNING" : "Break running") : "Paused")
+                    : t(focusTimer.selectedKind == .focus ? "FOCUS" : "Break"),
+                title: focusTimer.hasUnfinishedSession ? focusTimer.timeLabel : t("Make some quiet"),
+                detail: focusTimer.hasUnfinishedSession
+                    ? t("Your session is also within reach at the notch.")
+                    : t("Prepare your next session."),
                 systemImage: "timer",
                 accent: WorkspacePalette.accent
             ) {
@@ -225,8 +241,10 @@ struct TodayWorkspaceView: View {
     }
 
     private var featuredEvent: CalendarEvent? {
-        calendar.todayEvents.first { !$0.isAllDay && $0.startDate <= now && $0.endDate > now }
-            ?? calendar.todayEvents.first { !$0.isAllDay && $0.startDate > now }
+        let events = calendar.todayEvents.filter { !$0.isAllDay && $0.isEligibleForMeeting && $0.startDate < $0.endDate }
+            .sorted { $0.startDate < $1.startDate }
+        return events.first { $0.startDate <= now && $0.endDate > now }
+            ?? events.first { $0.startDate > now }
     }
 
     private var displayedScheduleEvents: [CalendarEvent] {

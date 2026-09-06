@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// The daily timeline is the visual anchor: coral is occupied time, green is
+/// The daily timeline is the visual anchor: coral is occupied time, mint is
 /// available time. Actions remain explicit and never start a timer on their own.
 struct DayPlanningCard: View {
     let events: [CalendarEvent]
@@ -197,7 +197,7 @@ struct DayPlanningCard: View {
                 Capsule().fill(WorkspacePalette.success.opacity(0.28))
                 ForEach(plan.busyIntervals) { interval in
                     Rectangle()
-                        .fill(WorkspacePalette.accent.opacity(0.65))
+                        .fill(AlcovePalette.accent.opacity(0.65))
                         .frame(width: max(1, geometry.size.width * interval.end.timeIntervalSince(interval.start) / duration))
                         .offset(x: geometry.size.width * interval.start.timeIntervalSince(plan.window.start) / duration)
                 }
@@ -284,7 +284,9 @@ struct DayPlanningCard: View {
     }
 
     private func timeRange(_ interval: DayPlanInterval) -> String {
-        "\(interval.start.shortTime(locale: appLanguage.locale))–\(interval.end.shortTime(locale: appLanguage.locale))"
+        let end = Calendar.current.isDate(interval.start, inSameDayAs: interval.end)
+            ? interval.end.shortTime(locale: appLanguage.locale) : "24:00"
+        return "\(interval.start.shortTime(locale: appLanguage.locale))–\(end)"
     }
 
     private func hourLabel(_ hour: Int) -> String {

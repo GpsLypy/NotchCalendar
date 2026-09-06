@@ -38,6 +38,7 @@ struct NotchRootView: View {
     let onExpandedCardHeightChange: (CGFloat) -> Void
     let onCompactMeetingActivityChange: (Bool) -> Void
     @Environment(\.appLanguage) private var appLanguage
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         Group {
@@ -59,13 +60,12 @@ struct NotchRootView: View {
                 Button {
                     onExplicitExpansion()
                 } label: {
-                    CompactNotchView(
+                    NotchCompactActivityView(
+                        timer: state.focusTimer,
+                        preferences: state.presentationPreferences,
+                        metrics: layoutMetrics,
                         events: state.calendar.todayEvents,
-                        notchWidth: layoutMetrics.compactNotchWidth,
-                        notchDepth: layoutMetrics.compactNotchDepth,
-                        showsMeetingStatus: layoutMetrics.showsCompactMeetingStatus,
-                        showsClickTarget: layoutMetrics.showsClickTarget,
-                        onMeetingActivityChange: onCompactMeetingActivityChange
+                        activityChanged: onCompactMeetingActivityChange
                     )
                         .contentShape(Rectangle())
                 }
@@ -82,7 +82,7 @@ struct NotchRootView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .animation(.easeInOut(duration: 0.24), value: state.isPresentationExpanded)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.24), value: state.isPresentationExpanded)
         .onPreferenceChange(ExpandedCardHeightKey.self, perform: onExpandedCardHeightChange)
     }
 }

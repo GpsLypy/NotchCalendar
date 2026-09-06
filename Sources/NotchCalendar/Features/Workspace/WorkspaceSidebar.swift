@@ -5,6 +5,7 @@ struct WorkspaceSidebar: View {
     @ObservedObject var calendar: CalendarManager
     @ObservedObject var focusTimer: FocusTimerModel
     @ObservedObject var updateChecker: UpdateChecker
+    var openCommands: (() -> Void)? = nil
     @Environment(\.appLanguage) private var appLanguage
 
     var body: some View {
@@ -13,6 +14,26 @@ struct WorkspaceSidebar: View {
                 .padding(.horizontal, 13)
                 .padding(.top, 43)
                 .padding(.bottom, 24)
+
+            if let openCommands {
+                Button(action: openCommands) {
+                    HStack(spacing: 8) {
+                        Image(systemName: "magnifyingglass")
+                        Text(t("Quick access"))
+                        Spacer(minLength: 4)
+                        Text("⌘K").font(.system(size: 10, design: .monospaced))
+                    }
+                    .font(.system(size: 12))
+                    .padding(10)
+                    .background(WorkspacePalette.elevated, in: RoundedRectangle(cornerRadius: 8))
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .foregroundStyle(WorkspacePalette.secondaryText)
+                .keyboardShortcut("k", modifiers: .command)
+                .padding(.horizontal, 12)
+                .padding(.bottom, 20)
+            }
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {

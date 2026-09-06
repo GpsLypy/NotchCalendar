@@ -11,6 +11,7 @@ final class AppState: ObservableObject {
     let notesStore: MeetingNotesStore
     let backupStore: LocalBackupStore
     let meetingAssistant: MeetingAssistant
+    var openWorkspace: ((WorkspaceDestination) -> Void)?
     @Published var selectedDate = Date()
     /// Desired hover state. The controller may keep the visual expanded briefly
     /// while its shrink animation completes.

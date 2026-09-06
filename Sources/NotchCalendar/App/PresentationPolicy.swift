@@ -30,6 +30,14 @@ struct NotchInteractionPolicy {
 final class PresentationPreferences: ObservableObject {
     static let interactionModeKey = "presentation.notchInteractionMode"
     static let meetingStatusKey = "presentation.showsMeetingStatus"
+    static let focusStatusKey = "presentation.showsFocusStatus"
+
+    @Published var showsFocusStatus: Bool {
+        didSet {
+            guard oldValue != showsFocusStatus else { return }
+            defaults.set(showsFocusStatus, forKey: Self.focusStatusKey)
+        }
+    }
 
     @Published var notchInteractionMode: NotchInteractionMode {
         didSet {
@@ -57,6 +65,7 @@ final class PresentationPreferences: ObservableObject {
         // Meeting shoulders can resize over another app without any pointer
         // interaction. Keep that opt-in so an upgrade never creates a surprise.
         showsMeetingStatus = defaults.object(forKey: Self.meetingStatusKey) as? Bool ?? false
+        showsFocusStatus = defaults.object(forKey: Self.focusStatusKey) as? Bool ?? true
     }
 
     func setHoverMonitorAvailable(_ isAvailable: Bool) {
@@ -68,6 +77,7 @@ final class PresentationPreferences: ObservableObject {
         notchInteractionMode = defaults.string(forKey: Self.interactionModeKey)
             .flatMap(NotchInteractionMode.init(rawValue:)) ?? .intentionalHover
         showsMeetingStatus = defaults.object(forKey: Self.meetingStatusKey) as? Bool ?? false
+        showsFocusStatus = defaults.object(forKey: Self.focusStatusKey) as? Bool ?? true
     }
 }
 
