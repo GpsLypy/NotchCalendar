@@ -1,0 +1,45 @@
+docs/quality/1.0.0.json
+  s_eca0d1b030f68f::t_4e199cc68241e9 72-114
+CHANGELOG.md
+  s_eca0d1b030f68f::t_4e199cc68241e9 7,9,11-37,57
+.github/workflows/release.yml
+  s_eca0d1b030f68f::t_5838403e4566c9 39-40,93-98,106,109
+Scripts/quality/test_release_gate.py
+  s_eca0d1b030f68f::t_103325d6937138 9,81-112
+  s_eca0d1b030f68f::t_bd95b1fd770680 113
+Support/Info.plist
+  s_eca0d1b030f68f::t_4e199cc68241e9 20,22
+README.md
+  s_eca0d1b030f68f::t_4e199cc68241e9 34,36,38-40
+Scripts/quality/verify_release_gate.py
+  s_eca0d1b030f68f::t_103325d6937138 79-107,111,114-118
+Tests/NotchCalendarTests/UpdateDMGOpenTests.swift
+  s_eca0d1b030f68f::t_431e26a69cd1e3 7-12
+docs/VALIDATION_V1.0.0.md
+  s_eca0d1b030f68f::t_9fc75999d64f2e 1-39
+docs/quality/README.md
+  s_eca0d1b030f68f::t_9fc75999d64f2e 3,42
+  s_eca0d1b030f68f::t_4e199cc68241e9 13,51,59-60
+README.en.md
+  s_eca0d1b030f68f::t_4e199cc68241e9 28-33
+docs/VALIDATION_V0.9.0.md
+  s_eca0d1b030f68f::t_9fc75999d64f2e 1,38
+Support/NotchCalendarWidgets-Info.plist
+  s_eca0d1b030f68f::t_4e199cc68241e9 20,22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "7009b0f38a54253f96c38a55ad95736f8b326771",
+  "prompts": {},
+  "sessions": {
+    "s_eca0d1b030f68f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a076c8-274b-79f0-824f-d2eeb53c45b9",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}
