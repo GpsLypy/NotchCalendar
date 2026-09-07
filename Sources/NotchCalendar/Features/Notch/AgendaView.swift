@@ -40,10 +40,6 @@ struct AgendaView: View {
 
     private func eventSummary(_ event: CalendarEvent) -> some View {
         HStack(alignment: .top, spacing: 9) {
-            Capsule()
-                .fill(event.calendarColor.map { Color(nsColor: $0) } ?? AlcovePalette.accent)
-                .frame(width: 3)
-                .frame(minHeight: 39)
             VStack(alignment: .leading, spacing: 2) {
                 Text(event.displayTitle(language: appLanguage))
                     .font(.system(size: 13, weight: .semibold, design: .rounded))
@@ -68,6 +64,14 @@ struct AgendaView: View {
                 }
             }
             Spacer(minLength: 0)
+        }
+        .frame(minHeight: 32, alignment: .top)
+        .fixedSize(horizontal: false, vertical: true)
+        .padding(.leading, 12)
+        .overlay(alignment: .leading) {
+            Capsule()
+                .fill(event.calendarColor.map { Color(nsColor: $0) } ?? AlcovePalette.accent)
+                .frame(width: 3)
         }
         .contentShape(Rectangle())
         .accessibilityElement(children: .combine)

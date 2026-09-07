@@ -1,0 +1,605 @@
+[0/1] Planning build
+Building for debugging...
+[0/8] Write swift-version--58304C5D6DBC2206.txt
+Build complete! (0.20s)
+Test Suite 'All tests' started at 2026-09-07 17:07:17.068.
+Test Suite 'NotchCalendarPackageTests.xctest' started at 2026-09-07 17:07:17.069.
+Test Suite 'ActivityQualityTests' started at 2026-09-07 17:07:17.069.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testBackgroundFocusCompletesWithoutAnyViewClock]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testBackgroundFocusCompletesWithoutAnyViewClock]' passed (0.776 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testIdleAndPausedContentDoNotNeedSecondTicks]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testIdleAndPausedContentDoNotNeedSecondTicks]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testIdleClockRefreshesAtTheMinuteBoundary]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testIdleClockRefreshesAtTheMinuteBoundary]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testIneligibleEventsCannotScheduleFastRefresh]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testIneligibleEventsCannotScheduleFastRefresh]' passed (0.040 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testMeetingBoundaryIsNotDelayedByMinuteRefresh]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testMeetingBoundaryIsNotDelayedByMinuteRefresh]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testNativeNotchKeyboardAndSyntheticWakeReset]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testNativeNotchKeyboardAndSyntheticWakeReset]' passed (1.673 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testPausingCancelsBackgroundCompletion]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testPausingCancelsBackgroundCompletion]' passed (0.788 seconds).
+Test Case '-[NotchCalendarTests.ActivityQualityTests testRestoredFocusDoesNotExpandOrActivateColdLaunch]' started.
+Test Case '-[NotchCalendarTests.ActivityQualityTests testRestoredFocusDoesNotExpandOrActivateColdLaunch]' passed (0.010 seconds).
+Test Suite 'ActivityQualityTests' passed at 2026-09-07 17:07:20.360.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 3.289 (3.291) seconds
+Test Suite 'AppLanguageTests' started at 2026-09-07 17:07:20.360.
+Test Case '-[NotchCalendarTests.AppLanguageTests testEnglishAndSimplifiedChineseResourcesAreAvailable]' started.
+Test Case '-[NotchCalendarTests.AppLanguageTests testEnglishAndSimplifiedChineseResourcesAreAvailable]' passed (0.010 seconds).
+Test Case '-[NotchCalendarTests.AppLanguageTests testMissingTranslationFallsBackToKey]' started.
+Test Case '-[NotchCalendarTests.AppLanguageTests testMissingTranslationFallsBackToKey]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.AppLanguageTests testPersistedLanguageDefaultsSafely]' started.
+Test Case '-[NotchCalendarTests.AppLanguageTests testPersistedLanguageDefaultsSafely]' passed (0.004 seconds).
+Test Case '-[NotchCalendarTests.AppLanguageTests testSystemLanguageResolvesToSupportedLocalization]' started.
+Test Case '-[NotchCalendarTests.AppLanguageTests testSystemLanguageResolvesToSupportedLocalization]' passed (0.000 seconds).
+Test Suite 'AppLanguageTests' passed at 2026-09-07 17:07:20.375.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.014 (0.015) seconds
+Test Suite 'BackupCaptureTests' started at 2026-09-07 17:07:20.375.
+Test Case '-[NotchCalendarTests.BackupCaptureTests testRenderBackupAndMeetingLibrary]' started.
+/Users/lyp/Documents/ChatGPT/claend/Tests/NotchCalendarTests/BackupCaptureTests.swift:11: -[NotchCalendarTests.BackupCaptureTests testRenderBackupAndMeetingLibrary] : Test skipped - Set NOTCH_WORKFLOW_CAPTURE_PATH for offline backup and notes captures.
+Test Case '-[NotchCalendarTests.BackupCaptureTests testRenderBackupAndMeetingLibrary]' skipped (0.003 seconds).
+Test Suite 'BackupCaptureTests' passed at 2026-09-07 17:07:20.378.
+	 Executed 1 test, with 1 test skipped and 0 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite 'BriefingTests' started at 2026-09-07 17:07:20.378.
+Test Case '-[NotchCalendarTests.BriefingTests testAtomSelectsAlternateLinkAndDistinguishesUpdatedDate]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testAtomSelectsAlternateLinkAndDistinguishesUpdatedDate]' passed (0.007 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testBookmarkReadSearchAndSavedHeadlineSurviveReentryAndFeedRotation]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testBookmarkReadSearchAndSavedHeadlineSurviveReentryAndFeedRotation]' passed (0.005 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testCorruptLibraryRecoversAndSaveCapacityDoesNotEvictExistingBookmarks]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testCorruptLibraryRecoversAndSaveCapacityDoesNotEvictExistingBookmarks]' passed (0.007 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testDiskCacheRoundTripsStaleAndRejectsCorruptFutureOrWrongSource]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testDiskCacheRoundTripsStaleAndRejectsCorruptFutureOrWrongSource]' passed (0.005 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testFeedLimitsNewestTwentyAndRejectsExcessiveXMLDepth]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testFeedLimitsNewestTwentyAndRejectsExcessiveXMLDepth]' passed (0.018 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testFreshCacheReentrySkipsNetworkAndForceRefreshReplacesIt]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testFreshCacheReentrySkipsNetworkAndForceRefreshReplacesIt]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testGitHubHTMLDoctypeInsideCDATAIsTextButRealDeclarationsStillFail]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testGitHubHTMLDoctypeInsideCDATAIsTextButRealDeclarationsStillFail]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testHTTPStatusByteLimitDeadlineAndCancellation]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testHTTPStatusByteLimitDeadlineAndCancellation]' passed (0.045 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testInvalidDatesAndUnsafeLinksAreSkippedWithoutBreakingOtherArticles]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testInvalidDatesAndUnsafeLinksAreSkippedWithoutBreakingOtherArticles]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testLivePrimaryFeedsWhenExplicitlyEnabled]' started.
+/Users/lyp/Documents/ChatGPT/claend/Tests/NotchCalendarTests/BriefingTests.swift:79: -[NotchCalendarTests.BriefingTests testLivePrimaryFeedsWhenExplicitlyEnabled] : Test skipped - Set NOTCH_LIVE_BRIEFING=1 to check public feed availability.
+Test Case '-[NotchCalendarTests.BriefingTests testLivePrimaryFeedsWhenExplicitlyEnabled]' skipped (0.000 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testParserRejectsMalformedOversizedDTDAndUnrelatedXML]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testParserRejectsMalformedOversizedDTDAndUnrelatedXML]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testPartialOfflineLoadKeepsStaleCacheAndSuccessfulSources]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testPartialOfflineLoadKeepsStaleCacheAndSuccessfulSources]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testRSSParsesCDATAEntitiesSortsAndDeduplicatesCanonicalLinks]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testRSSParsesCDATAEntitiesSortsAndDeduplicatesCanonicalLinks]' passed (0.004 seconds).
+Test Case '-[NotchCalendarTests.BriefingTests testTopicRulesUseWordsAndSourcesWithoutInventingSummaries]' started.
+Test Case '-[NotchCalendarTests.BriefingTests testTopicRulesUseWordsAndSourcesWithoutInventingSummaries]' passed (0.000 seconds).
+Test Suite 'BriefingTests' passed at 2026-09-07 17:07:20.480.
+	 Executed 14 tests, with 1 test skipped and 0 failures (0 unexpected) in 0.100 (0.102) seconds
+Test Suite 'CalendarEventTests' started at 2026-09-07 17:07:20.480.
+Test Case '-[NotchCalendarTests.CalendarEventTests testMultiDayEventOccursOnEveryOverlappingDate]' started.
+Test Case '-[NotchCalendarTests.CalendarEventTests testMultiDayEventOccursOnEveryOverlappingDate]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.CalendarEventTests testUntitledEventUsesSelectedAppLanguage]' started.
+Test Case '-[NotchCalendarTests.CalendarEventTests testUntitledEventUsesSelectedAppLanguage]' passed (0.000 seconds).
+Test Suite 'CalendarEventTests' passed at 2026-09-07 17:07:20.481.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'CalendarSelectionTests' started at 2026-09-07 17:07:20.481.
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testEmptySelectionProducesNoQueryAndShowAllRestoresIt]' started.
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testEmptySelectionProducesNoQueryAndShowAllRestoresIt]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testEveryQueryUsesSelectionAndAllHiddenDoesNotQueryProvider]' started.
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testEveryQueryUsesSelectionAndAllHiddenDoesNotQueryProvider]' passed (0.004 seconds).
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testExclusionsPersistAcrossInstances]' started.
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testExclusionsPersistAcrossInstances]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testFreeCanceledAndDeclinedEventsDoNotBlockTime]' started.
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testFreeCanceledAndDeclinedEventsDoNotBlockTime]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testMissingPermissionAndMissingCalendarsRemainDistinct]' started.
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testMissingPermissionAndMissingCalendarsRemainDistinct]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testNewCalendarIsIncludedWhileHiddenCalendarKeepsItsChoice]' started.
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testNewCalendarIsIncludedWhileHiddenCalendarKeepsItsChoice]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testPlanningQueryIncludesAdjacentDayBuffersWithoutAddingThemToToday]' started.
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testPlanningQueryIncludesAdjacentDayBuffersWithoutAddingThemToToday]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testSourceChangesAndPermissionRevocationRefreshState]' started.
+Test Case '-[NotchCalendarTests.CalendarSelectionTests testSourceChangesAndPermissionRevocationRefreshState]' passed (0.001 seconds).
+Test Suite 'CalendarSelectionTests' passed at 2026-09-07 17:07:20.489.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.008 (0.008) seconds
+Test Suite 'CalendarToolsTests' started at 2026-09-07 17:07:20.489.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testAllDayDraftConvertsInclusiveEndUsingDSTCalendarArithmetic]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testAllDayDraftConvertsInclusiveEndUsingDSTCalendarArithmetic]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.CalendarToolsTests testAllDayOccurrenceIdentitySurvivesSystemTimeZoneChangesAndKeepsDatesSeparate]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testAllDayOccurrenceIdentitySurvivesSystemTimeZoneChangesAndKeepsDatesSeparate]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.CalendarToolsTests testDedupCombinesOnlyExactCrossSourceCopiesAndRetainsAliases]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testDedupCombinesOnlyExactCrossSourceCopiesAndRetainsAliases]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.CalendarToolsTests testDedupPreservesDifferencesThatCouldRepresentDifferentMeetings]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testDedupPreservesDifferencesThatCouldRepresentDifferentMeetings]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.CalendarToolsTests testDraftValidationRejectsReadOnlyBadLinkAndInvalidRecurrenceWithoutMutation]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testDraftValidationRejectsReadOnlyBadLinkAndInvalidRecurrenceWithoutMutation]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.CalendarToolsTests testManagerAppliesDedupToEveryReadAndPersistsToggle]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testManagerAppliesDedupToEveryReadAndPersistsToggle]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.CalendarToolsTests testManagerValidatesBeforeWritingAndKeepsDraftOnProviderFailure]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testManagerValidatesBeforeWritingAndKeepsDraftOnProviderFailure]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.CalendarToolsTests testRecurrenceIdentitySurvivesMovedOccurrenceButSeparatesDates]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testRecurrenceIdentitySurvivesMovedOccurrenceButSeparatesDates]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.CalendarToolsTests testSearchMatchesAllWordsAcrossFieldsAndReportsLimit]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testSearchMatchesAllWordsAcrossFieldsAndReportsLimit]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.CalendarToolsTests testSearchRangeCountsCalendarDaysAcrossDST]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testSearchRangeCountsCalendarDaysAcrossDST]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.CalendarToolsTests testTimeZoneOffsetFollowsEventDateAndCrossesDayBoundary]' started.
+Test Case '-[NotchCalendarTests.CalendarToolsTests testTimeZoneOffsetFollowsEventDateAndCrossesDayBoundary]' passed (0.062 seconds).
+Test Suite 'CalendarToolsTests' passed at 2026-09-07 17:07:20.558.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.069 (0.069) seconds
+Test Suite 'DayPlanEngineTests' started at 2026-09-07 17:07:20.559.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testAllDayAndNonBlockingEventsRemainInformational]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testAllDayAndNonBlockingEventsRemainInformational]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testConflictOutsidePlanningHoursIsStillVisible]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testConflictOutsidePlanningHoursIsStillVisible]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testCrossMidnightEventsAndBufferRespectFullDayWindow]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testCrossMidnightEventsAndBufferRespectFullDayWindow]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testCurrentEventHasNoRecommendationAndExpiredConflictDisappears]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testCurrentEventHasNoRecommendationAndExpiredConflictDisappears]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testDSTUsesLocalHourBoundariesAndCalendarDayLength]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testDSTUsesLocalHourBoundariesAndCalendarDayLength]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testInvalidSettingsCannotInvertWindowOrBuffer]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testInvalidSettingsCannotInvertWindowOrBuffer]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testNestedAndChainedOverlapsDoNotLoseLaterConflict]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testNestedAndChainedOverlapsDoNotLoseLaterConflict]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testOverlapsAreMergedAndMeetingBufferIsAppliedOnce]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testOverlapsAreMergedAndMeetingBufferIsAppliedOnce]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testPastAndFutureOutsideWindowCannotProduceExtraFreeTime]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testPastAndFutureOutsideWindowCannotProduceExtraFreeTime]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testSuggestionNeverRoundsUpIntoNextMeeting]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testSuggestionNeverRoundsUpIntoNextMeeting]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testTouchingEventsAndTheirBuffersDoNotCreateFalseConflict]' started.
+Test Case '-[NotchCalendarTests.DayPlanEngineTests testTouchingEventsAndTheirBuffersDoNotCreateFalseConflict]' passed (0.000 seconds).
+Test Suite 'DayPlanEngineTests' passed at 2026-09-07 17:07:20.562.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite 'DayTimelineTests' started at 2026-09-07 17:07:20.562.
+Test Case '-[NotchCalendarTests.DayTimelineTests testClipsSpanningEventsAndUsesIndependentLanesForOverlaps]' started.
+Test Case '-[NotchCalendarTests.DayTimelineTests testClipsSpanningEventsAndUsesIndependentLanesForOverlaps]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.DayTimelineTests testDaylightSavingTrackUsesActualElapsedDuration]' started.
+Test Case '-[NotchCalendarTests.DayTimelineTests testDaylightSavingTrackUsesActualElapsedDuration]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayTimelineTests testDoesNotDropDenseOverlapLanes]' started.
+Test Case '-[NotchCalendarTests.DayTimelineTests testDoesNotDropDenseOverlapLanes]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.DayTimelineTests testDuplicateOccurrencesDoNotCreateDuplicateViewIDs]' started.
+Test Case '-[NotchCalendarTests.DayTimelineTests testDuplicateOccurrencesDoNotCreateDuplicateViewIDs]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayTimelineTests testEmptyOrReversedWindowIsSafe]' started.
+Test Case '-[NotchCalendarTests.DayTimelineTests testEmptyOrReversedWindowIsSafe]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DayTimelineTests testRejectsInvalidCancelledAllDayAndOutsideWindowEvents]' started.
+Test Case '-[NotchCalendarTests.DayTimelineTests testRejectsInvalidCancelledAllDayAndOutsideWindowEvents]' passed (0.000 seconds).
+Test Suite 'DayTimelineTests' passed at 2026-09-07 17:07:20.564.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.002 (0.002) seconds
+Test Suite 'DeskExperienceCaptureTests' started at 2026-09-07 17:07:20.564.
+Test Case '-[NotchCalendarTests.DeskExperienceCaptureTests testKeyboardOpensSearchAndNavigates]' started.
+Test Case '-[NotchCalendarTests.DeskExperienceCaptureTests testKeyboardOpensSearchAndNavigates]' passed (6.613 seconds).
+Test Case '-[NotchCalendarTests.DeskExperienceCaptureTests testRenderDeskAndActivities]' started.
+/Users/lyp/Documents/ChatGPT/claend/Tests/NotchCalendarTests/DeskExperienceCaptureTests.swift:84: -[NotchCalendarTests.DeskExperienceCaptureTests testRenderDeskAndActivities] : Test skipped - Set NOTCH_DESK_CAPTURE_PATH for offline native experience review.
+Test Case '-[NotchCalendarTests.DeskExperienceCaptureTests testRenderDeskAndActivities]' skipped (0.001 seconds).
+Test Suite 'DeskExperienceCaptureTests' passed at 2026-09-07 17:07:27.179.
+	 Executed 2 tests, with 1 test skipped and 0 failures (0 unexpected) in 6.615 (6.615) seconds
+Test Suite 'DiscussionTests' started at 2026-09-07 17:07:27.179.
+Test Case '-[NotchCalendarTests.DiscussionTests testCandidateLimitPreventsUnboundedRequestsWhenCommentsAreDeleted]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testCandidateLimitPreventsUnboundedRequestsWhenCommentsAreDeleted]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testClientDeadlineAndCancellationStopRequests]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testClientDeadlineAndCancellationStopRequests]' passed (0.019 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testClientPreservesHNOrderCapsCommentsAndFourConcurrentRequests]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testClientPreservesHNOrderCapsCommentsAndFourConcurrentRequests]' passed (0.027 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testCompleteRefreshClearsStaleBadgeAndReplacesOutdatedCache]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testCompleteRefreshClearsStaleBadgeAndReplacesOutdatedCache]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testDeletedDeadWrongParentAndFutureCommentsAreExcluded]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testDeletedDeadWrongParentAndFutureCommentsAreExcluded]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testDiskCacheRoundTripRejectsMalformedDataAndBoundsSnapshots]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testDiskCacheRoundTripRejectsMalformedDataAndBoundsSnapshots]' passed (0.021 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testExternalURLsRejectExecutableSchemesCredentialsAndOversizedValues]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testExternalURLsRejectExecutableSchemesCredentialsAndOversizedValues]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testFailedRefreshRetainsCacheAndExplainsFailure]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testFailedRefreshRetainsCacheAndExplainsFailure]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testHTMLBecomesPlainTextWithoutExecutingOrLosingParagraphs]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testHTMLBecomesPlainTextWithoutExecutingOrLosingParagraphs]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testMalformedCommentFieldsMarkSnapshotIncompleteWhileRemovedCommentsDoNot]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testMalformedCommentFieldsMarkSnapshotIncompleteWhileRemovedCommentsDoNot]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testMalformedOrWrongThreadSnapshotsCannotEnterStore]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testMalformedOrWrongThreadSnapshotsCannotEnterStore]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testManualRefreshBypassesCacheOnlyForTheRequestedLoad]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testManualRefreshBypassesCacheOnlyForTheRequestedLoad]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testNotebookPersistsNotesStanceAndBookmarksWithLengthCap]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testNotebookPersistsNotesStanceAndBookmarksWithLengthCap]' passed (0.003 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testOversizedResponseAndInvalidStoryIDAreRejected]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testOversizedResponseAndInvalidStoryIDAreRejected]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testPartialFailureStillReturnsAvailableCommentsAndCountsFailures]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testPartialFailureStillReturnsAvailableCommentsAndCountsFailures]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testPartialRefreshRetainsOldCommentsWithoutOverwritingCompleteDiskCopy]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testPartialRefreshRetainsOldCommentsWithoutOverwritingCompleteDiskCopy]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testSanitizerCapsOversizedInputAndHandlesMalformedEntitiesAndControls]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testSanitizerCapsOversizedInputAndHandlesMalformedEntitiesAndControls]' passed (0.006 seconds).
+Test Case '-[NotchCalendarTests.DiscussionTests testSupersededAndCancelledLoadsCannotOverwriteCurrentThread]' started.
+Test Case '-[NotchCalendarTests.DiscussionTests testSupersededAndCancelledLoadsCannotOverwriteCurrentThread]' passed (0.077 seconds).
+Test Suite 'DiscussionTests' passed at 2026-09-07 17:07:27.340.
+	 Executed 18 tests, with 0 failures (0 unexpected) in 0.160 (0.162) seconds
+Test Suite 'FocusHistoryTests' started at 2026-09-07 17:07:27.340.
+Test Case '-[NotchCalendarTests.FocusHistoryTests testCSVWritesActualFileWithStableIDsUTCDateAndExplicitKinds]' started.
+Test Case '-[NotchCalendarTests.FocusHistoryTests testCSVWritesActualFileWithStableIDsUTCDateAndExplicitKinds]' passed (0.004 seconds).
+Test Case '-[NotchCalendarTests.FocusHistoryTests testCustomFocusSurvivesPauseAndRelaunchWithoutCountingBreaksAsFocus]' started.
+Test Case '-[NotchCalendarTests.FocusHistoryTests testCustomFocusSurvivesPauseAndRelaunchWithoutCountingBreaksAsFocus]' passed (0.003 seconds).
+Test Case '-[NotchCalendarTests.FocusHistoryTests testHistoryRetentionPreservesLifetimeCountAndMostRecentRecords]' started.
+Test Case '-[NotchCalendarTests.FocusHistoryTests testHistoryRetentionPreservesLifetimeCountAndMostRecentRecords]' passed (0.018 seconds).
+Test Case '-[NotchCalendarTests.FocusHistoryTests testLegacyCountMigratesWithoutCreatingFictionalRecords]' started.
+Test Case '-[NotchCalendarTests.FocusHistoryTests testLegacyCountMigratesWithoutCreatingFictionalRecords]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.FocusHistoryTests testOvernightRelaunchUsesActualCompletionDayAndOnlyRecordsOnce]' started.
+Test Case '-[NotchCalendarTests.FocusHistoryTests testOvernightRelaunchUsesActualCompletionDayAndOnlyRecordsOnce]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.FocusHistoryTests testSuggestionCannotReplaceRunningOrImmediatelyPausedSession]' started.
+Test Case '-[NotchCalendarTests.FocusHistoryTests testSuggestionCannotReplaceRunningOrImmediatelyPausedSession]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.FocusHistoryTests testSummaryUsesLocalMidnightAndConfiguredWeekBoundaries]' started.
+Test Case '-[NotchCalendarTests.FocusHistoryTests testSummaryUsesLocalMidnightAndConfiguredWeekBoundaries]' passed (0.001 seconds).
+Test Suite 'FocusHistoryTests' passed at 2026-09-07 17:07:27.373.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.032 (0.032) seconds
+Test Suite 'FocusKeyboardTests' started at 2026-09-07 17:07:27.373.
+Test Case '-[NotchCalendarTests.FocusKeyboardTests testTypingSpaceInTaskLabelDoesNotControlTimer]' started.
+Test Case '-[NotchCalendarTests.FocusKeyboardTests testTypingSpaceInTaskLabelDoesNotControlTimer]' passed (1.246 seconds).
+Test Suite 'FocusKeyboardTests' passed at 2026-09-07 17:07:28.619.
+	 Executed 1 test, with 0 failures (0 unexpected) in 1.246 (1.246) seconds
+Test Suite 'FocusTimerModelTests' started at 2026-09-07 17:07:28.619.
+Test Case '-[NotchCalendarTests.FocusTimerModelTests testCompletedSessionIsCountedOnceAndPersisted]' started.
+Test Case '-[NotchCalendarTests.FocusTimerModelTests testCompletedSessionIsCountedOnceAndPersisted]' passed (0.004 seconds).
+Test Case '-[NotchCalendarTests.FocusTimerModelTests testRunningSessionRestoresFromTargetDateAndExpiredSessionCountsOnce]' started.
+Test Case '-[NotchCalendarTests.FocusTimerModelTests testRunningSessionRestoresFromTargetDateAndExpiredSessionCountsOnce]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.FocusTimerModelTests testTimerUsesAbsoluteEndDateAndPausesAtSynchronizedValue]' started.
+Test Case '-[NotchCalendarTests.FocusTimerModelTests testTimerUsesAbsoluteEndDateAndPausesAtSynchronizedValue]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.FocusTimerModelTests testWallClockRollbackDoesNotIncreaseRemainingTime]' started.
+Test Case '-[NotchCalendarTests.FocusTimerModelTests testWallClockRollbackDoesNotIncreaseRemainingTime]' passed (0.002 seconds).
+Test Suite 'FocusTimerModelTests' passed at 2026-09-07 17:07:28.629.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.009 (0.010) seconds
+Test Suite 'FocusWeeklyReviewTests' started at 2026-09-07 17:07:28.629.
+Test Case '-[NotchCalendarTests.FocusWeeklyReviewTests testDamagedSnapshotRemainsUntouchedUntilValidRestore]' started.
+Test Case '-[NotchCalendarTests.FocusWeeklyReviewTests testDamagedSnapshotRemainsUntouchedUntilValidRestore]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.FocusWeeklyReviewTests testLegacyRecordDecodesWithoutTaskAndCSVProtectsUserInput]' started.
+Test Case '-[NotchCalendarTests.FocusWeeklyReviewTests testLegacyRecordDecodesWithoutTaskAndCSVProtectsUserInput]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.FocusWeeklyReviewTests testReviewExportIncludesAllTaskLabelsAndEscapesMarkdown]' started.
+Test Case '-[NotchCalendarTests.FocusWeeklyReviewTests testReviewExportIncludesAllTaskLabelsAndEscapesMarkdown]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.FocusWeeklyReviewTests testTaskSurvivesPauseRelaunchCompletionAndRestoreReload]' started.
+Test Case '-[NotchCalendarTests.FocusWeeklyReviewTests testTaskSurvivesPauseRelaunchCompletionAndRestoreReload]' passed (0.003 seconds).
+Test Case '-[NotchCalendarTests.FocusWeeklyReviewTests testWeekUsesLocalDaysAcrossDaylightSavingAndExcludesBreaksAndFuture]' started.
+Test Case '-[NotchCalendarTests.FocusWeeklyReviewTests testWeekUsesLocalDaysAcrossDaylightSavingAndExcludesBreaksAndFuture]' passed (0.001 seconds).
+Test Suite 'FocusWeeklyReviewTests' passed at 2026-09-07 17:07:28.638.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.008 (0.009) seconds
+Test Suite 'LocalBackupTests' started at 2026-09-07 17:07:28.638.
+Test Case '-[NotchCalendarTests.LocalBackupTests testFailedRecoveryWriteNeverAppliesIncomingValues]' started.
+Test Case '-[NotchCalendarTests.LocalBackupTests testFailedRecoveryWriteNeverAppliesIncomingValues]' passed (0.005 seconds).
+Test Case '-[NotchCalendarTests.LocalBackupTests testMalformedVersionSensitiveKeyAndWrongTypesFailWithoutChanges]' started.
+Test Case '-[NotchCalendarTests.LocalBackupTests testMalformedVersionSensitiveKeyAndWrongTypesFailWithoutChanges]' passed (0.024 seconds).
+Test Case '-[NotchCalendarTests.LocalBackupTests testMaximumTaskLabelRemainsValidAcrossBackupAndRestore]' started.
+Test Case '-[NotchCalendarTests.LocalBackupTests testMaximumTaskLabelRemainsValidAcrossBackupAndRestore]' passed (0.006 seconds).
+Test Case '-[NotchCalendarTests.LocalBackupTests testOversizedNotesDuplicateIDsAndInvalidFocusHistoryAreRejected]' started.
+Test Case '-[NotchCalendarTests.LocalBackupTests testOversizedNotesDuplicateIDsAndInvalidFocusHistoryAreRejected]' passed (0.003 seconds).
+Test Case '-[NotchCalendarTests.LocalBackupTests testRoundTripPreviewRestorePauseAndUndoPreserveUnrelatedData]' started.
+Test Case '-[NotchCalendarTests.LocalBackupTests testRoundTripPreviewRestorePauseAndUndoPreserveUnrelatedData]' passed (0.008 seconds).
+Test Case '-[NotchCalendarTests.LocalBackupTests testValidBackupCanRepairDamagedNotesAndUndoPreservesOriginalBytes]' started.
+Test Case '-[NotchCalendarTests.LocalBackupTests testValidBackupCanRepairDamagedNotesAndUndoPreservesOriginalBytes]' passed (0.005 seconds).
+Test Suite 'LocalBackupTests' passed at 2026-09-07 17:07:28.688.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.050 (0.050) seconds
+Test Suite 'MainCalendarWindowLayoutTests' started at 2026-09-07 17:07:28.688.
+Test Case '-[NotchCalendarTests.MainCalendarWindowLayoutTests testLaterUserResizeIsPreserved]' started.
+Test Case '-[NotchCalendarTests.MainCalendarWindowLayoutTests testLaterUserResizeIsPreserved]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MainCalendarWindowLayoutTests testLegacySmallWindowGrowsWithoutMovingOffScreen]' started.
+Test Case '-[NotchCalendarTests.MainCalendarWindowLayoutTests testLegacySmallWindowGrowsWithoutMovingOffScreen]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MainCalendarWindowLayoutTests testSmallerDisplayClampsOversizedOrDisconnectedScreenFrame]' started.
+Test Case '-[NotchCalendarTests.MainCalendarWindowLayoutTests testSmallerDisplayClampsOversizedOrDisconnectedScreenFrame]' passed (0.000 seconds).
+Test Suite 'MainCalendarWindowLayoutTests' passed at 2026-09-07 17:07:28.689.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+Test Suite 'MarketTests' started at 2026-09-07 17:07:28.689.
+Test Case '-[NotchCalendarTests.MarketTests testCancellationCannotOverwriteCacheAndCountsAttempt]' started.
+Test Case '-[NotchCalendarTests.MarketTests testCancellationCannotOverwriteCacheAndCountsAttempt]' passed (0.026 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testClientDeadlineAndCancellation]' started.
+Test Case '-[NotchCalendarTests.MarketTests testClientDeadlineAndCancellation]' passed (0.014 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testClientDecodesDocumentedSchemaAndSafeRequest]' started.
+Test Case '-[NotchCalendarTests.MarketTests testClientDecodesDocumentedSchemaAndSafeRequest]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testConnectionVerificationUsesOnlyFirstSymbol]' started.
+Test Case '-[NotchCalendarTests.MarketTests testConnectionVerificationUsesOnlyFirstSymbol]' passed (0.003 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testCorruptOrMismatchedPersistedQuotesAreIgnored]' started.
+Test Case '-[NotchCalendarTests.MarketTests testCorruptOrMismatchedPersistedQuotesAreIgnored]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testExpiredRequestQuotaRecovers]' started.
+Test Case '-[NotchCalendarTests.MarketTests testExpiredRequestQuotaRecovers]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testFreshCacheSurvivesRestartAndConsumesNoRequests]' started.
+Test Case '-[NotchCalendarTests.MarketTests testFreshCacheSurvivesRestartAndConsumesNoRequests]' passed (0.003 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testHTTPRateLimitAndOversizedBodies]' started.
+Test Case '-[NotchCalendarTests.MarketTests testHTTPRateLimitAndOversizedBodies]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testMalformedNonfiniteMismatchedAndImpossibleDatesAreRejected]' started.
+Test Case '-[NotchCalendarTests.MarketTests testMalformedNonfiniteMismatchedAndImpossibleDatesAreRejected]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testMissingOptionalRangeAndVolumeStillProvidesAQuote]' started.
+Test Case '-[NotchCalendarTests.MarketTests testMissingOptionalRangeAndVolumeStillProvidesAQuote]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testNoKeyDoesNotNetworkAndKeyIsNeverWrittenToDefaults]' started.
+Test Case '-[NotchCalendarTests.MarketTests testNoKeyDoesNotNetworkAndKeyIsNeverWrittenToDefaults]' passed (0.003 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testPersistedRollingQuotaIsNotBypassedOnRestartOrClockRollback]' started.
+Test Case '-[NotchCalendarTests.MarketTests testPersistedRollingQuotaIsNotBypassedOnRestartOrClockRollback]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testProviderLimitAndInvalidKeyAreClassifiedWithoutEchoingMessage]' started.
+Test Case '-[NotchCalendarTests.MarketTests testProviderLimitAndInvalidKeyAreClassifiedWithoutEchoingMessage]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testProviderRateLimitStopsRemainderOfBatch]' started.
+Test Case '-[NotchCalendarTests.MarketTests testProviderRateLimitStopsRemainderOfBatch]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testStaleQuoteIsPreservedDuringPartialFailureAndRequestsAreSerial]' started.
+Test Case '-[NotchCalendarTests.MarketTests testStaleQuoteIsPreservedDuringPartialFailureAndRequestsAreSerial]' passed (0.023 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testSymbolsRejectExchangeSuffixesURLsAndLimitWatchlist]' started.
+Test Case '-[NotchCalendarTests.MarketTests testSymbolsRejectExchangeSuffixesURLsAndLimitWatchlist]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MarketTests testWatchlistEditsPersistAndPreserveExplicitEmptyList]' started.
+Test Case '-[NotchCalendarTests.MarketTests testWatchlistEditsPersistAndPreserveExplicitEmptyList]' passed (0.003 seconds).
+Test Suite 'MarketTests' passed at 2026-09-07 17:07:28.775.
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.085 (0.086) seconds
+Test Suite 'MarketingCaptureTests' started at 2026-09-07 17:07:28.775.
+Test Case '-[NotchCalendarTests.MarketingCaptureTests testRenderPublicFeatureViews]' started.
+/Users/lyp/Documents/ChatGPT/claend/Tests/NotchCalendarTests/MarketingCaptureTests.swift:11: -[NotchCalendarTests.MarketingCaptureTests testRenderPublicFeatureViews] : Test skipped - Set NOTCH_CAPTURE_PATH to render public-source marketing assets.
+Test Case '-[NotchCalendarTests.MarketingCaptureTests testRenderPublicFeatureViews]' skipped (0.000 seconds).
+Test Suite 'MarketingCaptureTests' passed at 2026-09-07 17:07:28.776.
+	 Executed 1 test, with 1 test skipped and 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'MeetingAssistantTests' started at 2026-09-07 17:07:28.776.
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testDeletedOccurrenceDoesNotLeavePendingNotification]' started.
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testDeletedOccurrenceDoesNotLeavePendingNotification]' passed (0.004 seconds).
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testDisablingRemindersCancelsOnlyMeetingNotifications]' started.
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testDisablingRemindersCancelsOnlyMeetingNotifications]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testJoinRequeriesAndOpeningFailureIsReported]' started.
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testJoinRequeriesAndOpeningFailureIsReported]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testPassiveRefreshDoesNotRequestPermissionAndExplicitEnableDoes]' started.
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testPassiveRefreshDoesNotRequestPermissionAndExplicitEnableDoes]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testRevokedCalendarAndNotificationPermissionRemoveReminders]' started.
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testRevokedCalendarAndNotificationPermissionRemoveReminders]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testShortcutConflictIsVisibleAndStopUnregisters]' started.
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testShortcutConflictIsVisibleAndStopUnregisters]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testSleepCancelsQueueAndWakeDoesNotCatchUpMissedReminders]' started.
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testSleepCancelsQueueAndWakeDoesNotCatchUpMissedReminders]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testSnoozeSurvivesRestartAndExpiredDeadlineDoesNotReplay]' started.
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testSnoozeSurvivesRestartAndExpiredDeadlineDoesNotReplay]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testStableReconciliationAndHiddenCalendarCancelsPending]' started.
+Test Case '-[NotchCalendarTests.MeetingAssistantTests testStableReconciliationAndHiddenCalendarCancelsPending]' passed (0.002 seconds).
+Test Suite 'MeetingAssistantTests' passed at 2026-09-07 17:07:28.795.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.018 (0.019) seconds
+Test Suite 'MeetingLinkResolverTests' started at 2026-09-07 17:07:28.795.
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testAcceptsGenericHTTPSLinkFromStructuredEventURL]' started.
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testAcceptsGenericHTTPSLinkFromStructuredEventURL]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testLocationTakesPriorityOverNotes]' started.
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testLocationTakesPriorityOverNotes]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testPhysicalLocationPreservesRoomAndRemovesMeetingLink]' started.
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testPhysicalLocationPreservesRoomAndRemovesMeetingLink]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testRecognisesCommonMeetingProviders]' started.
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testRecognisesCommonMeetingProviders]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testRejectsLookalikeMeetingDomains]' started.
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testRejectsLookalikeMeetingDomains]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testRejectsNonMeetingPagesOnKnownProviderDomains]' started.
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testRejectsNonMeetingPagesOnKnownProviderDomains]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testRejectsOrdinaryLinksInFreeFormText]' started.
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testRejectsOrdinaryLinksInFreeFormText]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testStructuredEventURLTakesPriorityOverFreeFormLinks]' started.
+Test Case '-[NotchCalendarTests.MeetingLinkResolverTests testStructuredEventURLTakesPriorityOverFreeFormLinks]' passed (0.000 seconds).
+Test Suite 'MeetingLinkResolverTests' passed at 2026-09-07 17:07:28.798.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+Test Suite 'MeetingNotesTests' started at 2026-09-07 17:07:28.798.
+Test Case '-[NotchCalendarTests.MeetingNotesTests testBlankEventDoesNotCreatePlaceholderNoteAndRemoveIsLocal]' started.
+Test Case '-[NotchCalendarTests.MeetingNotesTests testBlankEventDoesNotCreatePlaceholderNoteAndRemoveIsLocal]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MeetingNotesTests testCorruptNotesRemainUntouchedAndOversizedEditsNeverReplaceSavedContent]' started.
+Test Case '-[NotchCalendarTests.MeetingNotesTests testCorruptNotesRemainUntouchedAndOversizedEditsNeverReplaceSavedContent]' passed (0.005 seconds).
+Test Case '-[NotchCalendarTests.MeetingNotesTests testEditorDoesNotPublishMarkedTextAndMergesExternalAppendAtCommit]' started.
+Test Case '-[NotchCalendarTests.MeetingNotesTests testEditorDoesNotPublishMarkedTextAndMergesExternalAppendAtCommit]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.MeetingNotesTests testMarkdownRetainsUnicodeAndCalendarMetadata]' started.
+Test Case '-[NotchCalendarTests.MeetingNotesTests testMarkdownRetainsUnicodeAndCalendarMetadata]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingNotesTests testMeetingNotesAssociateByOccurrenceNotTitleAndSurviveRelaunch]' started.
+Test Case '-[NotchCalendarTests.MeetingNotesTests testMeetingNotesAssociateByOccurrenceNotTitleAndSurviveRelaunch]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.MeetingNotesTests testMergedCalendarAliasKeepsNotesWhenPrimarySourceChanges]' started.
+Test Case '-[NotchCalendarTests.MeetingNotesTests testMergedCalendarAliasKeepsNotesWhenPrimarySourceChanges]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.MeetingNotesTests testScratchpadMigrationKeepsOldKeyAndShortcutReadsLatestText]' started.
+Test Case '-[NotchCalendarTests.MeetingNotesTests testScratchpadMigrationKeepsOldKeyAndShortcutReadsLatestText]' passed (0.001 seconds).
+Test Suite 'MeetingNotesTests' passed at 2026-09-07 17:07:28.812.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.013 (0.013) seconds
+Test Suite 'MeetingReminderTests' started at 2026-09-07 17:07:28.812.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testBeyondHorizonAndEndedMeetingsAreNotScheduled]' started.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testBeyondHorizonAndEndedMeetingsAreNotScheduled]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingReminderTests testBoundedScheduleDeduplicatesOccurrences]' started.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testBoundedScheduleDeduplicatesOccurrences]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.MeetingReminderTests testDismissAppliesToOneOccurrenceAndFollowsReschedule]' started.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testDismissAppliesToOneOccurrenceAndFollowsReschedule]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingReminderTests testDismissedDuplicateSourceRemainsDismissedWhenPrimarySourceChanges]' started.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testDismissedDuplicateSourceRemainsDismissedWhenPrimarySourceChanges]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingReminderTests testFutureReminderUsesLeadTimeAndStableIdentifier]' started.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testFutureReminderUsesLeadTimeAndStableIdentifier]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.MeetingReminderTests testIneligibleAndAllDayExcludedButFreeOnlineMeetingIncluded]' started.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testIneligibleAndAllDayExcludedButFreeOnlineMeetingIncluded]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingReminderTests testNearestJoinSelectsMostRecentlyStartedAndHonorsFifteenMinutes]' started.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testNearestJoinSelectsMostRecentlyStartedAndHonorsFifteenMinutes]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingReminderTests testRefreshDoesNotReplaceUnchangedRequestsOrOtherFeaturesNotifications]' started.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testRefreshDoesNotReplaceUnchangedRequestsOrOtherFeaturesNotifications]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingReminderTests testSnoozeIsBoundedByMeetingEndAndCanRepeat]' started.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testSnoozeIsBoundedByMeetingEndAndCanRepeat]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MeetingReminderTests testWakeDoesNotReplayExpiredLeadOrSnoozedReminders]' started.
+Test Case '-[NotchCalendarTests.MeetingReminderTests testWakeDoesNotReplayExpiredLeadOrSnoozedReminders]' passed (0.000 seconds).
+Test Suite 'MeetingReminderTests' passed at 2026-09-07 17:07:28.816.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+Test Suite 'MonthGridTests' started at 2026-09-07 17:07:28.816.
+Test Case '-[NotchCalendarTests.MonthGridTests testEnglishMondayFirstRotatesSymbolsAndOffsetsSundayMonth]' started.
+Test Case '-[NotchCalendarTests.MonthGridTests testEnglishMondayFirstRotatesSymbolsAndOffsetsSundayMonth]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MonthGridTests testEnglishSundayFirstOrdersSymbolsAndStartsSundayMonthAtZero]' started.
+Test Case '-[NotchCalendarTests.MonthGridTests testEnglishSundayFirstOrdersSymbolsAndStartsSundayMonthAtZero]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.MonthGridTests testMovingFromLongMonthClampsSelectionToTargetMonthEnd]' started.
+Test Case '-[NotchCalendarTests.MonthGridTests testMovingFromLongMonthClampsSelectionToTargetMonthEnd]' passed (0.000 seconds).
+Test Suite 'MonthGridTests' passed at 2026-09-07 17:07:28.816.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'NotchActivityTests' started at 2026-09-07 17:07:28.816.
+Test Case '-[NotchCalendarTests.NotchActivityTests testColdLaunchWithPausedFiftyMinuteTimerKeepsCompactCalendarAndSavedWork]' started.
+Test Case '-[NotchCalendarTests.NotchActivityTests testColdLaunchWithPausedFiftyMinuteTimerKeepsCompactCalendarAndSavedWork]' passed (0.003 seconds).
+Test Case '-[NotchCalendarTests.NotchActivityTests testCompactPriorityAcrossAllPreferenceAndActivityCombinations]' started.
+Test Case '-[NotchCalendarTests.NotchActivityTests testCompactPriorityAcrossAllPreferenceAndActivityCombinations]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.NotchActivityTests testExplicitResumeAfterRunningRestoreHonorsMeetingPriority]' started.
+Test Case '-[NotchCalendarTests.NotchActivityTests testExplicitResumeAfterRunningRestoreHonorsMeetingPriority]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.NotchActivityTests testFocusVisibilityPreferencePersistsAndReloads]' started.
+Test Case '-[NotchCalendarTests.NotchActivityTests testFocusVisibilityPreferencePersistsAndReloads]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.NotchActivityTests testPausedTimerKeepsActivityButRestoredTimerWaitsForExplicitResume]' started.
+Test Case '-[NotchCalendarTests.NotchActivityTests testPausedTimerKeepsActivityButRestoredTimerWaitsForExplicitResume]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.NotchActivityTests testRestoredRunningTimerCompletesInBackgroundWithoutClaimingNotch]' started.
+Test Case '-[NotchCalendarTests.NotchActivityTests testRestoredRunningTimerCompletesInBackgroundWithoutClaimingNotch]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.NotchActivityTests testUpcomingSelectionIgnoresCancelledInvalidAndUnsortedEvents]' started.
+Test Case '-[NotchCalendarTests.NotchActivityTests testUpcomingSelectionIgnoresCancelledInvalidAndUnsortedEvents]' passed (0.000 seconds).
+Test Suite 'NotchActivityTests' passed at 2026-09-07 17:07:28.825.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.008 (0.009) seconds
+Test Suite 'PlanningCaptureTests' started at 2026-09-07 17:07:28.825.
+Test Case '-[NotchCalendarTests.PlanningCaptureTests testRenderPlanningAndFocus]' started.
+/Users/lyp/Documents/ChatGPT/claend/Tests/NotchCalendarTests/PlanningCaptureTests.swift:12: -[NotchCalendarTests.PlanningCaptureTests testRenderPlanningAndFocus] : Test skipped - Set NOTCH_PLANNING_CAPTURE_PATH for offline native layout review.
+Test Case '-[NotchCalendarTests.PlanningCaptureTests testRenderPlanningAndFocus]' skipped (0.000 seconds).
+Test Suite 'PlanningCaptureTests' passed at 2026-09-07 17:07:28.826.
+	 Executed 1 test, with 1 test skipped and 0 failures (0 unexpected) in 0.000 (0.001) seconds
+Test Suite 'PresentationPolicyTests' started at 2026-09-07 17:07:28.826.
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testHoverFallsBackToClickWhenGlobalMonitorIsUnavailable]' started.
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testHoverFallsBackToClickWhenGlobalMonitorIsUnavailable]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testPassiveLaunchNeverRevealsMainWindow]' started.
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testPassiveLaunchNeverRevealsMainWindow]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testPresentationPreferencesDefaultToQuietMeetingChanges]' started.
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testPresentationPreferencesDefaultToQuietMeetingChanges]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testPresentationPreferencesPersistExplicitChoices]' started.
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testPresentationPreferencesPersistExplicitChoices]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testProvenanceFreeOpenNeverRevealsMainWindow]' started.
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testProvenanceFreeOpenNeverRevealsMainWindow]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testUpdateHandoffNeverRevealsMainWindow]' started.
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testUpdateHandoffNeverRevealsMainWindow]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testVerifiableExplicitIntentsRevealAndActivateWorkspace]' started.
+Test Case '-[NotchCalendarTests.PresentationPolicyTests testVerifiableExplicitIntentsRevealAndActivateWorkspace]' passed (0.000 seconds).
+Test Suite 'PresentationPolicyTests' passed at 2026-09-07 17:07:28.829.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite 'RadarTests' started at 2026-09-07 17:07:28.829.
+Test Case '-[NotchCalendarTests.RadarTests testClientEnforcesSharedFeedDeadline]' started.
+Test Case '-[NotchCalendarTests.RadarTests testClientEnforcesSharedFeedDeadline]' passed (0.043 seconds).
+Test Case '-[NotchCalendarTests.RadarTests testClientIsolatesFailedItemRequestsAndOnlyThrowsWhenNoneAreValid]' started.
+Test Case '-[NotchCalendarTests.RadarTests testClientIsolatesFailedItemRequestsAndOnlyThrowsWhenNoneAreValid]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.RadarTests testClientLoadsTenStoriesInRankOrderWithAtMostFourConcurrentRequests]' started.
+Test Case '-[NotchCalendarTests.RadarTests testClientLoadsTenStoriesInRankOrderWithAtMostFourConcurrentRequests]' passed (0.054 seconds).
+Test Case '-[NotchCalendarTests.RadarTests testClientPropagatesTaskCancellation]' started.
+Test Case '-[NotchCalendarTests.RadarTests testClientPropagatesTaskCancellation]' passed (0.031 seconds).
+Test Case '-[NotchCalendarTests.RadarTests testClientRejectsOversizedAndNonSuccessResponses]' started.
+Test Case '-[NotchCalendarTests.RadarTests testClientRejectsOversizedAndNonSuccessResponses]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.RadarTests testClientSkipsMalformedAndDeadItemsAndUsesHackerNewsFallbackURL]' started.
+Test Case '-[NotchCalendarTests.RadarTests testClientSkipsMalformedAndDeadItemsAndUsesHackerNewsFallbackURL]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.RadarTests testDiskCacheRoundTripsSnapshotsAndRejectsWrongFeed]' started.
+Test Case '-[NotchCalendarTests.RadarTests testDiskCacheRoundTripsSnapshotsAndRejectsWrongFeed]' passed (0.004 seconds).
+Test Case '-[NotchCalendarTests.RadarTests testFailureWithoutCacheProducesActionableNonBlankState]' started.
+Test Case '-[NotchCalendarTests.RadarTests testFailureWithoutCacheProducesActionableNonBlankState]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.RadarTests testFreshCacheAvoidsNetworkUntilManualRefresh]' started.
+Test Case '-[NotchCalendarTests.RadarTests testFreshCacheAvoidsNetworkUntilManualRefresh]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.RadarTests testOlderSameFeedRequestCannotOverwriteNewerResult]' started.
+Test Case '-[NotchCalendarTests.RadarTests testOlderSameFeedRequestCannotOverwriteNewerResult]' passed (0.105 seconds).
+Test Case '-[NotchCalendarTests.RadarTests testStaleCacheRemainsVisibleWhenRefreshFails]' started.
+Test Case '-[NotchCalendarTests.RadarTests testStaleCacheRemainsVisibleWhenRefreshFails]' passed (0.001 seconds).
+Test Suite 'RadarTests' passed at 2026-09-07 17:07:29.072.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.242 (0.243) seconds
+Test Suite 'ScreenGeometryTests' started at 2026-09-07 17:07:29.072.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testActiveMeetingWidthDoesNotGrowHoverTargetHorizontally]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testActiveMeetingWidthDoesNotGrowHoverTargetHorizontally]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testClickOnlyModeKeepsAVisibleTargetBesideHardwareNotch]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testClickOnlyModeKeepsAVisibleTargetBesideHardwareNotch]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testCompactPanelAddsVisibleShouldersAroundHardwareNotch]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testCompactPanelAddsVisibleShouldersAroundHardwareNotch]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testCompactPanelKeepsPillWidthWithoutHardwareNotch]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testCompactPanelKeepsPillWidthWithoutHardwareNotch]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testCompactPanelKeepsShortVisualHeight]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testCompactPanelKeepsShortVisualHeight]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testCompactPanelMatchesHardwareWidthWhileMeetingIsInactive]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testCompactPanelMatchesHardwareWidthWhileMeetingIsInactive]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testCompactPanelMatchesReportedHardwareDepth]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testCompactPanelMatchesReportedHardwareDepth]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testExpandedContentClearsMenuBarOnDisplayWithoutNotch]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testExpandedContentClearsMenuBarOnDisplayWithoutNotch]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testExpandedContentUsesBaselineInsetOnUnobscuredDisplay]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testExpandedContentUsesBaselineInsetOnUnobscuredDisplay]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testExpandedContentUsesDeepestReportedTopObstruction]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testExpandedContentUsesDeepestReportedTopObstruction]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testExpandedContentUsesSafeAreaWhenAuxiliaryNotchBoundsAreUnavailable]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testExpandedContentUsesSafeAreaWhenAuxiliaryNotchBoundsAreUnavailable]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testHoverTargetUsesOnlyNarrowShoulders]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testHoverTargetUsesOnlyNarrowShoulders]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testMeetingShouldersRemainWiderThanClickTarget]' started.
+Test Case '-[NotchCalendarTests.ScreenGeometryTests testMeetingShouldersRemainWiderThanClickTarget]' passed (0.000 seconds).
+Test Suite 'ScreenGeometryTests' passed at 2026-09-07 17:07:29.075.
+	 Executed 13 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'UpcomingEventEngineTests' started at 2026-09-07 17:07:29.075.
+Test Case '-[NotchCalendarTests.UpcomingEventEngineTests testMeetingIsActiveAtItsStartAndIdleAtItsEnd]' started.
+Test Case '-[NotchCalendarTests.UpcomingEventEngineTests testMeetingIsActiveAtItsStartAndIdleAtItsEnd]' passed (0.000 seconds).
+Test Suite 'UpcomingEventEngineTests' passed at 2026-09-07 17:07:29.075.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'UpdateDMGOpenTests' started at 2026-09-07 17:07:29.075.
+Test Case '-[NotchCalendarTests.UpdateDMGOpenTests testBackgroundOpenFailureReturnsMessageWithoutQuitting]' started.
+Test Case '-[NotchCalendarTests.UpdateDMGOpenTests testBackgroundOpenFailureReturnsMessageWithoutQuitting]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.UpdateDMGOpenTests testBackgroundOpenSuccessReturnsToMainActorBeforeQuitting]' started.
+Test Case '-[NotchCalendarTests.UpdateDMGOpenTests testBackgroundOpenSuccessReturnsToMainActorBeforeQuitting]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.UpdateDMGOpenTests testWorkspaceReportsMissingDMGWithoutCrashing]' started.
+/Users/lyp/Documents/ChatGPT/claend/Tests/NotchCalendarTests/UpdateDMGOpenTests.swift:11: -[NotchCalendarTests.UpdateDMGOpenTests testWorkspaceReportsMissingDMGWithoutCrashing] : Test skipped - Set NOTCH_WORKSPACE_OPEN_INTEGRATION=1 to exercise the real Finder missing-file response
+Test Case '-[NotchCalendarTests.UpdateDMGOpenTests testWorkspaceReportsMissingDMGWithoutCrashing]' skipped (0.000 seconds).
+Test Suite 'UpdateDMGOpenTests' passed at 2026-09-07 17:07:29.077.
+	 Executed 3 tests, with 1 test skipped and 0 failures (0 unexpected) in 0.001 (0.002) seconds
+Test Suite 'UpdateInstallerTests' started at 2026-09-07 17:07:29.077.
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testAutomaticReplacementRemainsFailClosed]' started.
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testAutomaticReplacementRemainsFailClosed]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testFileDigestMatchesKnownSHA256]' started.
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testFileDigestMatchesKnownSHA256]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testGitHubDigestRequiresSHA256WithExactly64HexCharacters]' started.
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testGitHubDigestRequiresSHA256WithExactly64HexCharacters]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testTrustedAssetRejectsLookalikesAndURLMetadata]' started.
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testTrustedAssetRejectsLookalikesAndURLMetadata]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testTrustedAssetRequiresExactRepositoryTagAndFilename]' started.
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testTrustedAssetRequiresExactRepositoryTagAndFilename]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testVersionComparisonAndEquivalentTrailingZeroes]' started.
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testVersionComparisonAndEquivalentTrailingZeroes]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testVersionParserRejectsAmbiguousOrMalformedValues]' started.
+Test Case '-[NotchCalendarTests.UpdateInstallerTests testVersionParserRejectsAmbiguousOrMalformedValues]' passed (0.000 seconds).
+Test Suite 'UpdateInstallerTests' passed at 2026-09-07 17:07:29.081.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+Test Suite 'UpdateReleaseNotesTests' started at 2026-09-07 17:07:29.081.
+Test Case '-[NotchCalendarTests.UpdateReleaseNotesTests testAcceptsChineseOnlyHeadings]' started.
+Test Case '-[NotchCalendarTests.UpdateReleaseNotesTests testAcceptsChineseOnlyHeadings]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.UpdateReleaseNotesTests testAcceptsNumberedAndPlusListItemsUsedByReleaseValidation]' started.
+Test Case '-[NotchCalendarTests.UpdateReleaseNotesTests testAcceptsNumberedAndPlusListItemsUsedByReleaseValidation]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.UpdateReleaseNotesTests testFallbackRemovesBasicMarkdownAndGeneratedChangelog]' started.
+Test Case '-[NotchCalendarTests.UpdateReleaseNotesTests testFallbackRemovesBasicMarkdownAndGeneratedChangelog]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.UpdateReleaseNotesTests testIgnoresUnstructuredReleaseText]' started.
+Test Case '-[NotchCalendarTests.UpdateReleaseNotesTests testIgnoresUnstructuredReleaseText]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.UpdateReleaseNotesTests testParsesAddedImprovedAndFixedSections]' started.
+Test Case '-[NotchCalendarTests.UpdateReleaseNotesTests testParsesAddedImprovedAndFixedSections]' passed (0.000 seconds).
+Test Suite 'UpdateReleaseNotesTests' passed at 2026-09-07 17:07:29.084.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'WidgetSnapshotCoordinatorTests' started at 2026-09-07 17:07:29.084.
+Test Case '-[NotchCalendarTests.WidgetSnapshotCoordinatorTests testBackgroundDefaultsAndLocaleNotificationsRepublishAllWidgetsOnMainThread]' started.
+Test Case '-[NotchCalendarTests.WidgetSnapshotCoordinatorTests testBackgroundDefaultsAndLocaleNotificationsRepublishAllWidgetsOnMainThread]' passed (0.040 seconds).
+Test Suite 'WidgetSnapshotCoordinatorTests' passed at 2026-09-07 17:07:29.123.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.040 (0.040) seconds
+Test Suite 'WidgetSnapshotTests' started at 2026-09-07 17:07:29.124.
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testCalendarSnapshotRoundTripsThroughIsolatedPreferences]' started.
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testCalendarSnapshotRoundTripsThroughIsolatedPreferences]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testEventOverlapUsesExclusiveEndBoundary]' started.
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testEventOverlapUsesExclusiveEndBoundary]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testFiveMinuteFocusAndBreakRoundTripWithExplicitKinds]' started.
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testFiveMinuteFocusAndBreakRoundTripWithExplicitKinds]' passed (0.002 seconds).
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testFocusSnapshotUsesAbsoluteTargetWithoutGrowingAfterClockRollback]' started.
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testFocusSnapshotUsesAbsoluteTargetWithoutGrowingAfterClockRollback]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testImmediatelyPausedFocusRemainsPausedAfterRoundTrip]' started.
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testImmediatelyPausedFocusRemainsPausedAfterRoundTrip]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testLegacyFocusSnapshotDecodesWithPresetAndPauseFallbacks]' started.
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testLegacyFocusSnapshotDecodesWithPresetAndPauseFallbacks]' passed (0.000 seconds).
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testThreeHourCustomFocusCountsDownToCompletion]' started.
+Test Case '-[NotchCalendarTests.WidgetSnapshotTests testThreeHourCustomFocusCountsDownToCompletion]' passed (0.000 seconds).
+Test Suite 'WidgetSnapshotTests' passed at 2026-09-07 17:07:29.129.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.005 (0.005) seconds
+Test Suite 'WorkflowCaptureTests' started at 2026-09-07 17:07:29.129.
+Test Case '-[NotchCalendarTests.WorkflowCaptureTests testRenderCompleteWorkflow]' started.
+/Users/lyp/Documents/ChatGPT/claend/Tests/NotchCalendarTests/WorkflowCaptureTests.swift:12: -[NotchCalendarTests.WorkflowCaptureTests testRenderCompleteWorkflow] : Test skipped - Set NOTCH_WORKFLOW_CAPTURE_PATH for offline workflow layout captures.
+Test Case '-[NotchCalendarTests.WorkflowCaptureTests testRenderCompleteWorkflow]' skipped (0.001 seconds).
+Test Suite 'WorkflowCaptureTests' passed at 2026-09-07 17:07:29.130.
+	 Executed 1 test, with 1 test skipped and 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'WorkspaceAutomationTests' started at 2026-09-07 17:07:29.130.
+Test Case '-[NotchCalendarTests.WorkspaceAutomationTests testShortcutStartsSharedTimerAndRefusesToOverwriteActiveOrPausedWork]' started.
+Test Case '-[NotchCalendarTests.WorkspaceAutomationTests testShortcutStartsSharedTimerAndRefusesToOverwriteActiveOrPausedWork]' passed (0.003 seconds).
+Test Case '-[NotchCalendarTests.WorkspaceAutomationTests testShortcutValidatesBeforeMutationAndAppendsToLatestNote]' started.
+Test Case '-[NotchCalendarTests.WorkspaceAutomationTests testShortcutValidatesBeforeMutationAndAppendsToLatestNote]' passed (0.002 seconds).
+Test Suite 'WorkspaceAutomationTests' passed at 2026-09-07 17:07:29.135.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.006 (0.006) seconds
+Test Suite 'WorkspaceCommandTests' started at 2026-09-07 17:07:29.135.
+Test Case '-[NotchCalendarTests.WorkspaceCommandTests testEventSearchIncludesCalendarAndLocationAndDeduplicates]' started.
+Test Case '-[NotchCalendarTests.WorkspaceCommandTests testEventSearchIncludesCalendarAndLocationAndDeduplicates]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.WorkspaceCommandTests testSearchSupportsBothLanguagesAndAllWords]' started.
+Test Case '-[NotchCalendarTests.WorkspaceCommandTests testSearchSupportsBothLanguagesAndAllWords]' passed (0.001 seconds).
+Test Case '-[NotchCalendarTests.WorkspaceCommandTests testTimerActionOnlyExistsForUnfinishedSession]' started.
+Test Case '-[NotchCalendarTests.WorkspaceCommandTests testTimerActionOnlyExistsForUnfinishedSession]' passed (0.002 seconds).
+Test Suite 'WorkspaceCommandTests' passed at 2026-09-07 17:07:29.139.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite 'NotchCalendarPackageTests.xctest' passed at 2026-09-07 17:07:29.139.
+	 Executed 235 tests, with 7 tests skipped and 0 failures (0 unexpected) in 12.049 (12.070) seconds
+Test Suite 'All tests' passed at 2026-09-07 17:07:29.140.
+	 Executed 235 tests, with 7 tests skipped and 0 failures (0 unexpected) in 12.049 (12.072) seconds
+◇ Test run started.
+↳ Testing Library Version: 1902
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

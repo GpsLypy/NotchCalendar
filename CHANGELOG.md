@@ -4,6 +4,25 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-09-07
+
+macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or Apple notarization. / 手动安装，仅保留 ad-hoc 签名，不做证书签名或公证。
+
+### Added / 新增
+
+- Added regression coverage for legacy window resizing, saved manual sizes, smaller displays and all-day agenda rendering. / 新增旧窗口尺寸迁移、手动尺寸记忆、小屏边界和全天日程显示的回归验证。
+
+### Fixed / 修复
+
+- Increased the default workspace to 1120 × 780 so the month and agenda appear side by side. Legacy small windows expand once within the available screen; subsequent manual sizes remain remembered. / 默认工作台增大到 1120 × 780，使月历与日程并排显示；旧的小窗口首次按屏幕可用空间放大，之后继续记住手动调整的尺寸。
+- Kept notch agenda color markers at the height of their event text, fixing an all-day event's accent line stretching to the bottom of the expanded panel. / 刘海日程的颜色竖线跟随文字高度，修复全天日程旁的强调线被拉伸至展开面板底部的问题。
+
+### Acceptance status / 验收状态
+
+- Final performance and physical display acceptance remain pending; this release does not claim those checks passed. / 最终性能及实机显示器验收仍待完成，本版不宣称这些检查已通过。
+
+See [validation notes](https://github.com/GpsLypy/NotchCalendar/blob/v1.1.1/docs/quality/RELEASE_1.1.1.md). / 详见[验证说明](https://github.com/GpsLypy/NotchCalendar/blob/v1.1.1/docs/quality/RELEASE_1.1.1.md)。
+
 ## [1.1.0] - 2026-09-06
 
 macOS 15+ · Apple Silicon and Intel · Free and MIT licensed. Manual installation; ad-hoc signing only, without Developer ID signing or Apple notarization. / 支持 macOS 15 及以上、Apple 芯片与 Intel；免费、MIT 开源，手动安装，仅保留 ad-hoc 签名，不做证书签名和 Apple 公证。

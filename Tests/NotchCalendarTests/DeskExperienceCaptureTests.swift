@@ -117,6 +117,17 @@ final class DeskExperienceCaptureTests: XCTestCase {
         preferences.showsFocusStatus = false
         try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences, selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {}).frame(maxHeight: .infinity, alignment: .top),
                          name: "expanded-calendar", to: destination, defaults: defaults, language: .simplifiedChinese, width: 600, height: 460)
+        let allDayEvent = CalendarEvent(id: "seasonal-day", title: "白露", startDate: start, endDate: end,
+                                       calendarName: "节气", calendarColor: .systemPink, location: nil,
+                                       meetingLink: nil, isAllDay: true)
+        let allDayCalendar = CalendarManager(dataSource: CalendarSelectionTestDataSource(
+            eventsByCalendarID: ["work": [allDayEvent]]), defaults: defaults)
+        allDayCalendar.refresh(now: now)
+        try await render(NotchExpandedActivityView(calendar: allDayCalendar, focusTimer: timer, preferences: preferences,
+                                                  selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {})
+                            .frame(maxHeight: .infinity, alignment: .top),
+                         name: "expanded-calendar-all-day", to: destination, defaults: defaults,
+                         language: .simplifiedChinese, width: 600, height: 460)
         for language: AppLanguage in [.simplifiedChinese, .english] {
             let suffix = language.rawValue
             for (width, height): (CGFloat, CGFloat) in [(1120, 780), (860, 620)] {

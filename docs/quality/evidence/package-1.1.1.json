@@ -1,0 +1,48 @@
+{
+  "version": "1.1.1",
+  "recorded_at": "2026-09-07T17:09:42.385723+08:00",
+  "source_fingerprint": "fe5d2676749a56302b7eb9f19ddc95b945ac1587edfe143c13ddf4d6dbc98503",
+  "versions": {
+    "app": {
+      "version": "1.1.1",
+      "build": "24"
+    },
+    "widget": {
+      "version": "1.1.1",
+      "build": "24"
+    }
+  },
+  "architectures": {
+    "app": [
+      "x86_64",
+      "arm64"
+    ],
+    "widget": [
+      "x86_64",
+      "arm64"
+    ],
+    "updater": [
+      "x86_64",
+      "arm64"
+    ]
+  },
+  "signatures": {
+    "app": "adhoc; verified all architectures",
+    "widget": "adhoc; verified all architectures",
+    "updater": "adhoc; verified all architectures"
+  },
+  "app_intents_metadata": "passed",
+  "applications_link": "passed",
+  "zip_crc": "passed",
+  "assets": {
+    "NotchCalendar-1.1.1-macos.dmg": {
+      "bytes": 6551604,
+      "sha256": "fd31d08008ab8d54b77ca9049c0d4a10d059f7525e993a2a022a99e220eb74bf"
+    },
+    "NotchCalendar-1.1.1-macos.zip": {
+      "bytes": 5514377,
+      "sha256": "fc177baf22f7ac8424bdaca9ac2589565d50696283a82f334d39345dcf87737f"
+    }
+  },
+  "scope": "Locally built final candidate; public CI artifacts are verified separately after publication."
+}

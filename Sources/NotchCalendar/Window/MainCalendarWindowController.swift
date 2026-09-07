@@ -1,6 +1,26 @@
 import AppKit
 import SwiftUI
 
+enum MainCalendarWindowLayout {
+    static let preferredContentSize = NSSize(width: 1120, height: 780)
+
+    /// Grow a legacy window once, then preserve later user sizes. Keep the
+    /// entire frame reachable on the current display, including its title bar.
+    static func fittedFrame(_ frame: NSRect, visibleFrame: NSRect, expandTo preferredSize: NSSize? = nil) -> NSRect {
+        let available = visibleFrame.insetBy(dx: 16, dy: 16)
+        let size = NSSize(
+            width: min(available.width, max(frame.width, preferredSize?.width ?? frame.width)),
+            height: min(available.height, max(frame.height, preferredSize?.height ?? frame.height))
+        )
+        return NSRect(
+            x: min(max(frame.midX - size.width / 2, available.minX), available.maxX - size.width),
+            y: min(max(frame.maxY - size.height, available.minY), available.maxY - size.height),
+            width: size.width,
+            height: size.height
+        )
+    }
+}
+
 @MainActor
 final class MainCalendarPresentation: ObservableObject {
     @Published var isActive = false
@@ -9,7 +29,8 @@ final class MainCalendarPresentation: ObservableObject {
 
 @MainActor
 final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
-    private static let frameAutosaveName = "NotchCalendarMainWindow"
+    private static let legacyFrameAutosaveName = "NotchCalendarMainWindow"
+    private static let frameAutosaveName = "NotchCalendarMainWindow.WideLayout"
     private let presentation = MainCalendarPresentation()
 
     init(
@@ -49,17 +70,26 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
                 WorkspaceVisibilityHost(presentation: presentation) { workspaceView }
             }
         )
-        window.setContentSize(NSSize(width: 980, height: 620))
+        window.setContentSize(MainCalendarWindowLayout.preferredContentSize)
+        let preferredFrameSize = window.frame.size
         window.contentMinSize = NSSize(width: 860, height: 520)
         window.isReleasedWhenClosed = false
         window.tabbingMode = .disallowed
         window.animationBehavior = .documentWindow
 
         let restoredSavedFrame = window.setFrameUsingName(Self.frameAutosaveName)
-        window.setFrameAutosaveName(Self.frameAutosaveName)
-        if !restoredSavedFrame {
+        let restoredLegacyFrame = !restoredSavedFrame && window.setFrameUsingName(Self.legacyFrameAutosaveName)
+        if !restoredSavedFrame && !restoredLegacyFrame {
             window.center()
         }
+        if let screen = window.screen ?? NSScreen.main {
+            window.setFrame(MainCalendarWindowLayout.fittedFrame(
+                window.frame, visibleFrame: screen.visibleFrame,
+                expandTo: restoredSavedFrame ? nil : preferredFrameSize
+            ), display: false)
+        }
+        window.setFrameAutosaveName(Self.frameAutosaveName)
+        window.saveFrame(usingName: Self.frameAutosaveName)
 
         super.init(window: window)
         window.delegate = self
