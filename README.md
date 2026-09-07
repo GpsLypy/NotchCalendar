@@ -37,7 +37,7 @@ macOS 15+ · Apple 芯片与 Intel · SwiftUI 原生界面 · 当前免费 · MI
 
 启动时保持**日历收缩态**；主动打开工作台默认进入日历。上次暂停的专注时长、任务与历史仍在，点击开始或恢复后才成为刘海活动；原来仍在运行的会话继续在后台计时。
 
-[下载 1.1.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.1.1) · [本版变化与验证](docs/quality/RELEASE_1.1.1.md)。
+[下载 1.1.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.1.2) · [本版变化与验证](docs/quality/RELEASE_1.1.2.md)。
 
 本版仅使用 ad-hoc 签名，手动安装。最终性能与部分实机验收仍待完成，具体范围见[质量报告](docs/quality/README.md)。
 

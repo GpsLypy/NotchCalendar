@@ -30,9 +30,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             NSApp.terminate(nil)
             return
         }
-        // Regular activation keeps the installed app visible in the Dock. The
-        // notch panel remains non-activating, so hovering it still does not steal
-        // focus from the current application.
+        // Initially keep the app discoverable in the Dock. Closing the workspace
+        // switches to accessory mode; an explicit reopen restores regular mode.
+        // The notch panel remains non-activating in either mode.
         NSApp.setActivationPolicy(.regular)
         controller = NotchWindowController(state: state)
         controller?.show()

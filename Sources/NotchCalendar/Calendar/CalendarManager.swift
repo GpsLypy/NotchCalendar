@@ -176,7 +176,7 @@ final class CalendarManager: ObservableObject {
             hasAccess: hasCalendarAccess, availableCalendarIDs: availableCalendars.map(\.id)
         ) else { return [] }
         return CalendarDuplicatePolicy.events(
-            dataSource.events(from: start, to: end, calendarIDs: calendarIDs),
+            dataSource.events(from: start, to: end, calendarIDs: calendarIDs).filter { !$0.isCancelled },
             enabled: deduplicatesEvents
         )
     }
@@ -279,6 +279,7 @@ final class EventKitCalendarDataSource: CalendarDataSource {
                       seriesIdentifier: event.calendarItemExternalIdentifier ?? event.calendarItemIdentifier,
                       isRecurring: isRecurring,
                       isEligibleForMeeting: event.status != .canceled
-                          && event.attendees?.first(where: \.isCurrentUser)?.participantStatus != .declined)
+                          && event.attendees?.first(where: \.isCurrentUser)?.participantStatus != .declined,
+                      isCancelledByProvider: event.status == .canceled)
     }
 }

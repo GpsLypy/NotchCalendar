@@ -11,7 +11,8 @@ struct ExpandedCalendarView: View {
             preferences: state.presentationPreferences, selectedDate: $state.selectedDate,
             contentTopInset: contentTopInset,
             onClose: { state.isExpanded = false },
-            openFocus: { state.openWorkspace?(.focus) }
+            openFocus: { state.openWorkspace?(.focus) },
+            openMainWindow: { state.openWorkspace?(.calendar) }
         )
     }
 }
@@ -24,6 +25,7 @@ struct NotchExpandedActivityView: View {
     let contentTopInset: CGFloat
     let onClose: () -> Void
     let openFocus: () -> Void
+    let openMainWindow: () -> Void
     @State private var activity: NotchActivity = .calendar
     @Environment(\.appLanguage) private var appLanguage
 
@@ -41,6 +43,20 @@ struct NotchExpandedActivityView: View {
                 .buttonStyle(.plain)
                 .accessibilityLabel(L10n.string("Close", language: appLanguage))
                 .keyboardShortcut(.cancelAction)
+            }
+            .overlay {
+                Button {
+                    onClose()
+                    openMainWindow()
+                } label: {
+                    Label(L10n.string("Main window", language: appLanguage), systemImage: "macwindow")
+                        .font(.system(size: 11, weight: .semibold))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 7)
+                        .background(.white.opacity(0.08), in: Capsule())
+                }
+                .buttonStyle(.plain)
+                .help(L10n.string("Open main window", language: appLanguage))
             }
             .padding(.horizontal, 28)
             .padding(.top, contentTopInset)

@@ -24,6 +24,16 @@ struct CalendarEvent: Identifiable, Equatable {
     var isEligibleForMeeting: Bool = true
     var duplicateSourceNames: [String] = []
     var relatedOccurrenceIDs: [String] = []
+    var isCancelledByProvider: Bool = false
+
+    var isCancelled: Bool {
+        // Some calendar servers leave status unchanged and mark only the title.
+        // Match explicit leading labels, not ordinary text mentioning cancellation.
+        isCancelledByProvider || title.range(
+            of: #"^\s*(?:(?:已取消|cancelled|canceled)\s*[:：]|[\[【](?:已取消|cancelled|canceled)[\]】])"#,
+            options: [.regularExpression, .caseInsensitive]
+        ) != nil
+    }
 
     var allOccurrenceStableIDs: [String] {
         Array(Set([occurrenceStableID] + relatedOccurrenceIDs)).sorted()

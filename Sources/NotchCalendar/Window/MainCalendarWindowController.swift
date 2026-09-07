@@ -108,6 +108,8 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
         if let destination {
             presentation.selectedDestination = destination
         }
+        // Explicitly reopening the workspace restores its Dock and app menu.
+        NSApp.setActivationPolicy(.regular)
         presentation.isActive = true
         if window?.isMiniaturized == true {
             window?.deminiaturize(nil)
@@ -124,6 +126,9 @@ final class MainCalendarWindowController: NSWindowController, NSWindowDelegate {
 
     func windowWillClose(_ notification: Notification) {
         presentation.isActive = false
+        // Closing the workspace leaves the notch, reminders and focus deadline
+        // alive. Accessory apps can still present settings and reopen windows.
+        NSApp.setActivationPolicy(.accessory)
     }
 
     func windowDidMiniaturize(_ notification: Notification) {

@@ -112,10 +112,10 @@ final class DeskExperienceCaptureTests: XCTestCase {
         timer.synchronize(now: now)
         let notes = MeetingNotesStore(defaults: defaults)
         let preferences = PresentationPreferences(defaults: defaults)
-        try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences, selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {}).frame(maxHeight: .infinity, alignment: .top),
+        try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences, selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {}).frame(maxHeight: .infinity, alignment: .top),
                          name: "expanded-focus", to: destination, defaults: defaults, language: .simplifiedChinese, width: 600, height: 460)
         preferences.showsFocusStatus = false
-        try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences, selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {}).frame(maxHeight: .infinity, alignment: .top),
+        try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences, selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {}).frame(maxHeight: .infinity, alignment: .top),
                          name: "expanded-calendar", to: destination, defaults: defaults, language: .simplifiedChinese, width: 600, height: 460)
         let allDayEvent = CalendarEvent(id: "seasonal-day", title: "白露", startDate: start, endDate: end,
                                        calendarName: "节气", calendarColor: .systemPink, location: nil,
@@ -124,7 +124,7 @@ final class DeskExperienceCaptureTests: XCTestCase {
             eventsByCalendarID: ["work": [allDayEvent]]), defaults: defaults)
         allDayCalendar.refresh(now: now)
         try await render(NotchExpandedActivityView(calendar: allDayCalendar, focusTimer: timer, preferences: preferences,
-                                                  selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {})
+                                                  selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {})
                             .frame(maxHeight: .infinity, alignment: .top),
                          name: "expanded-calendar-all-day", to: destination, defaults: defaults,
                          language: .simplifiedChinese, width: 600, height: 460)

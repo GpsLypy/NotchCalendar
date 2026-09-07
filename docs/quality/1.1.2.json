@@ -1,0 +1,116 @@
+{
+  "status": "pending",
+  "hardware": {
+    "notched_hover": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "notched_click": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "notched_activity": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "notched_keyboard": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "notched_sleep_wake": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "external_hover": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "external_click": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "external_activity": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "external_keyboard": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    },
+    "cross_screen_wake": {
+      "status": "pending",
+      "actual_hardware": false,
+      "evidence": []
+    }
+  },
+  "distribution": "ad-hoc only; no Developer ID; no notarization",
+  "display_state_validation": "pending",
+  "remaining_reason": "Final-candidate performance and hardware acceptance are pending. Earlier release evidence is historical and does not certify this runtime. No external monitor is currently available.",
+  "version": "1.1.2",
+  "source_fingerprint": "0c5f11b933ebbf62058d07c841bb38eb6d2c79c06eecb467d08524f93a221b58",
+  "performance_report": "docs/quality/evidence/performance-1.1.2.json",
+  "owner_release_request": {
+    "version": "1.1.2",
+    "requested_by": "project_owner",
+    "request": "改完发个新版本"
+  },
+  "release_exception": {
+    "version": "1.1.2",
+    "decision": "publish_with_pending_acceptance",
+    "authorized_by": "project_owner",
+    "request": "改完发个新版本",
+    "reason": "The owner explicitly requested publication of the completed Dock, main-window entry and cancelled-event fixes. Disclosed hardware and performance checks remain pending for this exact runtime; no measured failures are waived.",
+    "source_fingerprint": "0c5f11b933ebbf62058d07c841bb38eb6d2c79c06eecb467d08524f93a221b58",
+    "recorded_at": "2026-09-07T20:59:31.266298+08:00",
+    "accepted_pending_checks": [
+      "Confirm the performance samples were taken with the display unlocked and on",
+      "Hardware acceptance pending: notched_hover",
+      "Device evidence is stale for current sources: notched_hover",
+      "Missing device evidence: notched_hover",
+      "Hardware acceptance pending: notched_click",
+      "Device evidence is stale for current sources: notched_click",
+      "Missing device evidence: notched_click",
+      "Hardware acceptance pending: notched_activity",
+      "Device evidence is stale for current sources: notched_activity",
+      "Missing device evidence: notched_activity",
+      "Hardware acceptance pending: notched_keyboard",
+      "Device evidence is stale for current sources: notched_keyboard",
+      "Missing device evidence: notched_keyboard",
+      "Hardware acceptance pending: notched_sleep_wake",
+      "Device evidence is stale for current sources: notched_sleep_wake",
+      "Missing device evidence: notched_sleep_wake",
+      "Hardware acceptance pending: external_hover",
+      "Device evidence is stale for current sources: external_hover",
+      "Missing device evidence: external_hover",
+      "Hardware acceptance pending: external_click",
+      "Device evidence is stale for current sources: external_click",
+      "Missing device evidence: external_click",
+      "Hardware acceptance pending: external_activity",
+      "Device evidence is stale for current sources: external_activity",
+      "Missing device evidence: external_activity",
+      "Hardware acceptance pending: external_keyboard",
+      "Device evidence is stale for current sources: external_keyboard",
+      "Missing device evidence: external_keyboard",
+      "Hardware acceptance pending: cross_screen_wake",
+      "Device evidence is stale for current sources: cross_screen_wake",
+      "Missing device evidence: cross_screen_wake",
+      "Need two independent samples: idle",
+      "Need two independent samples: focus",
+      "Need two independent samples: meeting-switch"
+    ]
+  },
+  "automated_evidence": [
+    "docs/quality/evidence/swift-tests-1.1.2.log",
+    "docs/quality/evidence/release-gate-tests-1.1.2.log",
+    "docs/quality/evidence/package-1.1.2.json"
+  ]
+}

@@ -4,6 +4,25 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-09-07
+
+macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。
+
+### Added / 新增
+
+- Added a Main window button at the top of the expanded notch to reopen the calendar workspace and restore the Dock icon. / 刘海展开顶部新增“主界面”按钮，可重新打开日历工作台并恢复程序坞图标。
+
+### Fixed / 修复
+
+- Hide cancelled events across calendar queries, including explicit cancellation labels from calendar providers that do not update event status. / 统一隐藏已取消日程，兼容仅在标题前标记“已取消：”而未更新状态的日历来源。
+- Closing the workspace hides the running app from the Dock while keeping the notch, reminders and focus timer alive. Explicitly reopening the workspace restores the Dock icon. / 关闭工作台后隐藏运行中的程序坞图标，刘海、提醒与专注计时继续运行；再次打开工作台时恢复图标。
+
+### Acceptance status / 验收状态
+
+- Physical display and final performance acceptance remain pending. / 实机显示器及最终性能验收仍待完成，不宣称通过。
+
+See [validation notes](https://github.com/GpsLypy/NotchCalendar/blob/v1.1.2/docs/quality/RELEASE_1.1.2.md).
+
 ## [1.1.1] - 2026-09-07
 
 macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or Apple notarization. / 手动安装，仅保留 ad-hoc 签名，不做证书签名或公证。
