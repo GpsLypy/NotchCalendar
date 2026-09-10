@@ -1,5 +1,24 @@
 "__language__" = "简体中文";
 
+/* App sharing */
+"Share" = "分享";
+"Notch Calendar" = "刘海日历";
+"Share Notch Calendar" = "分享刘海日历";
+"A little space. A clearer day." = "方寸之间，安排好每一天。";
+"Your day, right at the notch." = "把日程，放进刘海里。";
+"Calendar · Meetings · Focus" = "日历 · 会议 · 专注";
+"Make time for what matters" = "留点时间，做重要的事";
+"Copy Image" = "复制图片";
+"Save Image…" = "保存图片…";
+"Copy Link" = "复制链接";
+"Link copied" = "链接已复制";
+"Image copied" = "图片已复制";
+"Image saved" = "图片已保存";
+"Could not copy. Try again." = "复制失败，请重试。";
+"Could not create the image. Try again." = "图片生成失败，请重试。";
+"Could not save the image. Choose another location." = "图片保存失败，请选择其他位置。";
+"Share the image with friends to introduce Notch Calendar." = "把图片分享给朋友，一起发现刘海日历。";
+
 /* Language settings */
 "Language" = "语言";
 "App Language" = "应用语言";

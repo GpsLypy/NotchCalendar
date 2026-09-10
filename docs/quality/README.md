@@ -1,6 +1,6 @@
 # 质量验收与发布记录
 
-当前迭代为 1.1.2（build 25）。[本版验收记录](1.1.2.json) 与 [1.1 发布及验证说明](RELEASE_1.1.2.md) 分别记录机器可读状态和人工可审阅的结果。最终性能与部分实机验收仍为 **pending**；发布决定不把待验收改为通过。发行包只保留运行必需的 ad-hoc，不使用 Developer ID 证书或 Apple 公证。
+当前迭代为 1.2.0（build 26）。[本版验收记录](1.2.0.json) 与 [1.2 发布及验证说明](RELEASE_1.2.0.md) 分别记录机器可读状态和人工可审阅的结果。最终性能与部分实机验收仍为 **pending**；发布决定不把待验收改为通过。发行包只保留运行必需的 ad-hoc，不使用 Developer ID 证书或 Apple 公证。
 
 ## 1.1 的验收重点
 
@@ -21,7 +21,7 @@
 | 实际纯悬停路径和休眠唤醒 | 待实机验收 |
 | 普通外接显示器与跨屏唤醒 | 待实机验收，当前没有外接屏 |
 
-具体状态以 [1.1 验收记录](1.1.2.json) 为准。以前版本的原生截图、合成通知与性能样本不作为新运行代码的通过证据。[1.0 历史报告](1.0.0-report.md) 保留之前的调查、原始样本和已披露限制。
+具体状态以 [1.2 验收记录](1.2.0.json) 为准。以前版本的原生截图、合成通知与性能样本不作为新运行代码的通过证据。[1.0 历史报告](1.0.0-report.md) 保留之前的调查、原始样本和已披露限制。
 
 ## 性能采样方法
 
@@ -44,7 +44,7 @@ python3 Scripts/quality/build_probe.py
 python3 Scripts/quality/measure.py .build/quality-1.1-unique --repeats 2
 DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer swift test
 python3 -m unittest discover -s Scripts/quality -p 'test_*.py'
-python3 Scripts/quality/verify_release_gate.py 1.1.2 --strict
+python3 Scripts/quality/verify_release_gate.py 1.2.0 --strict
 ```
 
 开始采样前确认屏幕解锁、刘海可见，采样时不操作鼠标与窗口；输出目录必须为新目录。原生交互测试另以 `NOTCH_DESK_INTERACTION=1` 显式开启，它不替代实际悬停、显示器插拔或休眠测试。
@@ -61,4 +61,4 @@ python3 Scripts/quality/verify_release_gate.py 1.1.2 --strict
 
 所有者明确要求在已披露待验收的情况下发布时，只能记录一次适用于本版本和最终运行代码的例外。记录必须包含相互匹配的原始所有者请求、版本、指纹和**完全一致**的待验收列表；记录缺失、请求不符、新增缺口或源码变化都会使例外无效。旧版本例外不会自动继承。实测硬件失败、无效性能样本或超预算不能被该例外覆盖。
 
-`--strict` 始终输出全部待验收项并返回未通过。命中有效的本版发布例外时，普通打包检查明确输出“已授权带待验收项发布”及逐项列表，不输出“质量门槛通过”。[1.0 的历史记录](1.0.0.json) 与 [1.1 的记录](1.1.2.json) 独立保存。
+`--strict` 始终输出全部待验收项并返回未通过。命中有效的本版发布例外时，普通打包检查明确输出“已授权带待验收项发布”及逐项列表，不输出“质量门槛通过”。[1.0 的历史记录](1.0.0.json)、[1.1 的记录](1.1.2.json) 与 [1.2 的记录](1.2.0.json) 独立保存。

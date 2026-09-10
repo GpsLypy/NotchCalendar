@@ -659,7 +659,7 @@ private enum UpdateDownloadDestination {
     }
 }
 
-private enum UpdateConfiguration {
+enum UpdateConfiguration {
     static var currentVersion: String {
         Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.0.0"
     }

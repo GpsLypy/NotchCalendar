@@ -7,6 +7,8 @@ struct WorkspaceSidebar: View {
     @ObservedObject var updateChecker: UpdateChecker
     var openCommands: (() -> Void)? = nil
     @Environment(\.appLanguage) private var appLanguage
+    @Environment(\.openSettings) private var openSettings
+    @State private var showsShare = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -68,23 +70,52 @@ struct WorkspaceSidebar: View {
                     .padding(.bottom, 7)
             }
 
-            SettingsLink {
-                Label(t("Settings"), systemImage: "gearshape")
-                    .font(.system(size: 12.5, weight: .medium))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 10)
-                    .frame(height: 32)
-                    .contentShape(Rectangle())
+            VStack(spacing: 2) {
+                Divider().padding(.bottom, 6)
+                if let url = UpdateConfiguration.githubURL {
+                    Link(destination: url) {
+                        utilityLabel("GitHub", icon: "chevron.left.forwardslash.chevron.right")
+                    }
+                    .help(t("View on GitHub"))
+                }
+                Button { showsShare = true } label: {
+                    utilityLabel("Share", icon: "square.and.arrow.up")
+                }
+                SettingsLink {
+                    utilityLabel("Settings", icon: "gearshape")
+                }
+                Button {
+                    openSettings()
+                    Task { await updateChecker.checkForUpdates() }
+                } label: {
+                    utilityLabel(
+                        updateChecker.status == .checking ? "Checking for updates…" : "Check for Updates",
+                        icon: "arrow.triangle.2.circlepath"
+                    )
+                }
+                .disabled(updateChecker.status == .checking || updateChecker.isDownloading || updateChecker.isInstalling)
             }
             .buttonStyle(.plain)
             .foregroundStyle(WorkspacePalette.secondaryText)
             .padding(.horizontal, 10)
             .padding(.bottom, 12)
-            .help(t("Open Settings"))
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .background(WorkspacePalette.sidebar)
         .accessibilityElement(children: .contain)
+        .sheet(isPresented: $showsShare) {
+            ShareCalendarView()
+                .environment(\.appLanguage, appLanguage)
+        }
+    }
+
+    private func utilityLabel(_ title: String, icon: String) -> some View {
+        Label(t(title), systemImage: icon)
+            .font(.system(size: 12, weight: .medium))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 10)
+            .frame(height: 30)
+            .contentShape(Rectangle())
     }
 
     private var brand: some View {

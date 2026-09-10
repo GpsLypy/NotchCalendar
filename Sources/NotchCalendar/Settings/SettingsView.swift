@@ -504,10 +504,7 @@ struct SettingsView: View {
     }
 
     private var githubURL: URL? {
-        guard let repository = Bundle.main.object(forInfoDictionaryKey: "NotchCalendarGitHubRepository") as? String,
-              !repository.isEmpty,
-              !repository.contains("YOUR_GITHUB") else { return nil }
-        return URL(string: "https://github.com/\(repository)")
+        UpdateConfiguration.githubURL
     }
 
     private func t(_ key: String, _ arguments: CVarArg...) -> String {

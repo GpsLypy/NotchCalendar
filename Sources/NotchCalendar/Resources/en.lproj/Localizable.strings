@@ -1,4 +1,23 @@
 "__language__" = "English";
+
+/* App sharing */
+"Share" = "Share";
+"Notch Calendar" = "Notch Calendar";
+"Share Notch Calendar" = "Share Notch Calendar";
+"A little space. A clearer day." = "A little space. A clearer day.";
+"Your day, right at the notch." = "Your day, right at the notch.";
+"Calendar · Meetings · Focus" = "Calendar · Meetings · Focus";
+"Make time for what matters" = "Make time for what matters";
+"Copy Image" = "Copy Image";
+"Save Image…" = "Save Image…";
+"Copy Link" = "Copy Link";
+"Link copied" = "Link copied";
+"Image copied" = "Image copied";
+"Image saved" = "Image saved";
+"Could not copy. Try again." = "Could not copy. Try again.";
+"Could not create the image. Try again." = "Could not create the image. Try again.";
+"Could not save the image. Choose another location." = "Could not save the image. Choose another location.";
+"Share the image with friends to introduce Notch Calendar." = "Share the image with friends to introduce Notch Calendar.";
 "Markets" = "Markets";
 "Discussion Room" = "Discussion Room";
 "Briefing" = "Briefing";

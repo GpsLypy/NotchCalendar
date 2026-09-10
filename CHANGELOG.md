@@ -4,6 +4,29 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-09-10
+
+macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。
+
+### Added / 新增
+
+- Added GitHub, Share, Settings and Check for Updates shortcuts together at the bottom of the workspace sidebar. / 工作台侧栏底部集中提供 GitHub、分享、设置和检查更新入口。
+- Share opens a bilingual Notch Calendar poster highlighting the notch calendar experience, with Copy Image, Save PNG and Copy Link actions. Images export at 1200 × 880 using illustrative events. / 点击分享弹出中英文刘海日历宣传海报，突出刘海日历体验，支持复制图片、保存 PNG 和复制项目链接；图片以 1200 × 880 导出，使用示例日程。
+
+### Improved / 优化
+
+- The sidebar update action opens Settings and starts the existing update check, with a checking state and protection against repeated requests. / 侧栏检查更新直接打开设置并启动现有更新检查，显示检查中状态并防止重复触发。
+
+### Fixed / 修复
+
+- Fixed inconsistent handling of surrounding whitespace in the configured GitHub repository by sharing the update checker's normalized configuration across Settings, sidebar navigation and sharing. / 设置、侧栏和分享统一使用更新器已规范化的仓库配置，修复仓库名称前后空格处理不一致的问题。
+
+### Acceptance status / 验收状态
+
+- Local Swift tests passed: 238 tests, 10 optional tests skipped, zero failures; both poster languages were rendered and decoded as PNG. Native click-through, final performance and physical display acceptance remain pending. / 本地 Swift 测试共 238 项，10 项可选测试跳过，零失败；中英文海报均已渲染并完成 PNG 解码验证。原生窗口点击流程、最终性能和实机显示器验收仍待完成。
+
+See [validation notes](https://github.com/GpsLypy/NotchCalendar/blob/v1.2.0/docs/quality/RELEASE_1.2.0.md).
+
 ## [1.1.2] - 2026-09-07
 
 macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。
