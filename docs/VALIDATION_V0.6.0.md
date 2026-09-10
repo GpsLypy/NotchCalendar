@@ -42,4 +42,4 @@ DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer ALLOW_ADHOC_RELEASE=1 S
 fd7f882c21d61cc45e984bfd089ef25ed0801be53f253a801be9b85692e82d6e  NotchCalendar-0.6.0-macos.zip
 ```
 
-宣传素材与视频的格式校验记录另见 marketing/v0.6.0/output/validation.md。
+宣传素材与视频的格式校验记录保留在本地 `marketing/v0.6.0/output/validation.md`，不随仓库分发，也不参与版本构建。

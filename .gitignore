@@ -7,7 +7,7 @@ DerivedData/
 dist/
 
 # Local promotional assets and exports (not needed for app builds).
-# Existing tracked marketing scripts and documents remain versioned.
+# Keep promotional scripts, documents and generated media local.
 /marketing/
 
 __pycache__/
