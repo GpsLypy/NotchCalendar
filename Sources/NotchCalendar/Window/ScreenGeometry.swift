@@ -1,4 +1,5 @@
 import AppKit
+import CoreGraphics
 
 enum ScreenGeometry {
     static let compactPanelHeight: CGFloat = 30
@@ -8,6 +9,31 @@ enum ScreenGeometry {
     static let fallbackCompactPanelWidth: CGFloat = 226
     private static let defaultExpandedTopInset: CGFloat = 24
     private static let cameraHousingClearance: CGFloat = 12
+
+    /// NSScreen.main follows keyboard focus, which can belong to an external
+    /// display. Resolve against the current screen list on launch and topology
+    /// changes so reopening the lid restores the built-in display automatically.
+    static func preferredNotchScreen(current: NSScreen? = nil) -> NSScreen? {
+        let screens = NSScreen.screens
+        let displays = screens.compactMap { screen -> NotchScreenSelection.Display? in
+            guard let id = displayID(for: screen) else { return nil }
+            return .init(id: id, isBuiltIn: CGDisplayIsBuiltin(id) != 0)
+        }
+        let preferredID = NotchScreenSelection.preferredDisplayID(
+            displays: displays,
+            currentDisplayID: current.flatMap(displayID),
+            mainDisplayID: NSScreen.main.flatMap(displayID)
+        )
+        if let preferredID,
+           let screen = screens.first(where: { displayID(for: $0) == preferredID }) {
+            return screen
+        }
+        return screens.first
+    }
+
+    private static func displayID(for screen: NSScreen) -> CGDirectDisplayID? {
+        (screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? NSNumber)?.uint32Value
+    }
 
     struct NotchBounds {
         let centerX: CGFloat
@@ -120,5 +146,29 @@ enum ScreenGeometry {
         )
         guard obstructionDepth > 0 else { return defaultExpandedTopInset }
         return max(defaultExpandedTopInset, obstructionDepth + cameraHousingClearance)
+    }
+}
+
+/// Operates only on currently available displays; a disconnected display ID
+/// must never retain ownership of the notch panel.
+enum NotchScreenSelection {
+    struct Display {
+        let id: UInt32
+        let isBuiltIn: Bool
+    }
+
+    static func preferredDisplayID(
+        displays: [Display],
+        currentDisplayID: UInt32? = nil,
+        mainDisplayID: UInt32? = nil
+    ) -> UInt32? {
+        if let builtIn = displays.first(where: \.isBuiltIn) { return builtIn.id }
+        if let currentDisplayID, displays.contains(where: { $0.id == currentDisplayID }) {
+            return currentDisplayID
+        }
+        if let mainDisplayID, displays.contains(where: { $0.id == mainDisplayID }) {
+            return mainDisplayID
+        }
+        return displays.first?.id
     }
 }

@@ -29,7 +29,7 @@ A consistent graphite palette, clearer text hierarchy and restrained accents bri
 
 Cold launch keeps the calendar collapsed. Opening the workspace starts on Calendar. Saved focus tasks, time and history are preserved; starting or resuming focus explicitly makes it a notch activity. A previously running session continues in the background.
 
-[Download 1.2.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.2.0) · [Release and validation notes](docs/quality/RELEASE_1.2.0.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Final performance and some hardware acceptance remain pending; see the [quality report](docs/quality/README.md).
+[Download 1.2.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.2.1) · [Release and validation notes](docs/quality/RELEASE_1.2.1.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Final performance and some hardware acceptance remain pending; see the [quality report](docs/quality/README.md).
 
 ## Features
 
@@ -92,7 +92,7 @@ The included GitHub Actions workflow creates both a macOS DMG installer and ZIP 
 
 Release packages are built as universal2 binaries for both Apple Silicon and Intel Macs. The workflow mounts the final DMG and verifies both architectures, nested code signatures, app/widget version alignment, and the Applications shortcut before publishing.
 
-Stable releases also validate their own quality record. Any owner-authorized publication with pending acceptance must match that version's recorded request, final runtime fingerprint and exact remaining checks. The exception cannot waive a measured failure or carry over from an older release. Use `python3 Scripts/quality/verify_release_gate.py 1.2.0 --strict` to inspect every outstanding gate regardless of a publication decision.
+Stable releases also validate their own quality record. Any owner-authorized publication with pending acceptance must match that version's recorded request, final runtime fingerprint and exact remaining checks. The exception cannot waive a measured failure or carry over from an older release. Use `python3 Scripts/quality/verify_release_gate.py 1.2.1 --strict` to inspect every outstanding gate regardless of a publication decision.
 
 Automatic app replacement is currently disabled; the project retains the signed-helper and validation foundation for a future crash-recoverable installer. The update screen uses the manual path instead: **Open DMG & Quit** closes the running version before you drag the replacement into Applications. For Developer ID-signed builds, Settings can also verify and open an equal or newer Applications copy when the app is running from a mounted disk image.
 

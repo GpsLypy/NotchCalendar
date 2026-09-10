@@ -6,5 +6,9 @@ DerivedData/
 .DS_Store
 dist/
 
+# Local promotional assets and exports (not needed for app builds).
+# Existing tracked marketing scripts and documents remain versioned.
+/marketing/
+
 __pycache__/
 *.pyc

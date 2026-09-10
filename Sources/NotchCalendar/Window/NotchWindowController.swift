@@ -36,7 +36,7 @@ final class NotchWindowController: NSObject, ObservableObject {
 
     init(state: AppState) {
         self.state = state
-        let screen = NSScreen.main ?? NSScreen.screens[0]
+        let screen = ScreenGeometry.preferredNotchScreen() ?? NSScreen.screens[0]
         let notchBounds = ScreenGeometry.notchBounds(on: screen)
         let compactActivityIsActive = Self.showsCompactActivity(state: state)
         self.compactActivityIsActive = compactActivityIsActive
@@ -162,7 +162,7 @@ final class NotchWindowController: NSObject, ObservableObject {
     }
 
     private func evaluatePointer() {
-        guard let screen = panel.screen ?? NSScreen.main else { return }
+        guard let screen = panel.screen ?? ScreenGeometry.preferredNotchScreen() else { return }
         let pointer = NSEvent.mouseLocation
 
         if state.isExpanded {
@@ -210,7 +210,7 @@ final class NotchWindowController: NSObject, ObservableObject {
             self.expandTask = nil
             guard !self.state.isExpanded else { return }
             let pointer = NSEvent.mouseLocation
-            guard let screen = self.panel.screen ?? NSScreen.main,
+            guard let screen = self.panel.screen ?? ScreenGeometry.preferredNotchScreen(),
                   let hoverAnchor = self.hoverAnchor,
                   self.pointerDistance(from: hoverAnchor, to: pointer) <= self.hoverMovementTolerance,
                   ScreenGeometry.hoverTriggerFrame(
@@ -330,7 +330,7 @@ final class NotchWindowController: NSObject, ObservableObject {
             trace("drop stale \(expanded ? "expand" : "collapse") resize")
             return
         }
-        guard let screen = panel.screen ?? NSScreen.main else { return }
+        guard let screen = ScreenGeometry.preferredNotchScreen(current: panel.screen) else { return }
         if !expanded, panel.isKeyWindow {
             panel.resignKey()
             PresentationDiagnostics.debug("notch keyboard focus released")

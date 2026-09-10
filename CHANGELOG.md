@@ -4,6 +4,28 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-09-10
+
+macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。
+
+### Added / 新增
+
+- Added eight display-selection regression tests, including a native check with a connected built-in screen and external monitor. / 新增 8 项屏幕选择回归测试，包含连接内置屏与外接显示器时的原生屏幕选择验证。
+
+### Fixed / 修复
+
+- Prefer the available built-in display for the notch panel on launch, display changes and wake, even when an external monitor is the main screen. Fall back to an available external screen in clamshell mode and return when the built-in display becomes available again. / 刘海面板在启动、显示器变更和唤醒时优先使用可用的内置屏幕，即使外接显示器被设为主屏；合盖时回退到可用外接屏，内置屏恢复可用后自动返回。
+
+### Improved / 优化
+
+- Ignore local marketing assets and exports in Git while retaining previously tracked scripts and documents. The release build does not depend on these local assets. / Git 忽略本地宣传素材和导出文件，保留此前已跟踪的脚本与文档；版本构建不依赖这些本地素材。
+
+### Acceptance status / 验收状态
+
+- Local Swift tests: 246 total, 10 optional tests skipped, zero failures. The native screen resolver passed with the built-in display and a 24V5 external monitor connected. Physical lid changes, hot-plug and wake interaction, and final performance acceptance remain pending. / 本地 Swift 测试共 246 项，10 项可选测试跳过，零失败；连接内置屏和 24V5 外接屏时的原生屏幕选择测试通过。实际合盖开盖、热插拔、唤醒交互及最终性能验收仍待完成。
+
+See [validation notes](https://github.com/GpsLypy/NotchCalendar/blob/v1.2.1/docs/quality/RELEASE_1.2.1.md).
+
 ## [1.2.0] - 2026-09-10
 
 macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。
