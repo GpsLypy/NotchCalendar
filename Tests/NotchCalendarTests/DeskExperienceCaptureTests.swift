@@ -112,10 +112,22 @@ final class DeskExperienceCaptureTests: XCTestCase {
         timer.synchronize(now: now)
         let notes = MeetingNotesStore(defaults: defaults)
         let preferences = PresentationPreferences(defaults: defaults)
-        try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences, selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {}).frame(maxHeight: .infinity, alignment: .top),
+        let fileShelf = FileShelfStore(defaults: defaults)
+        let shelfDirectory = FileManager.default.temporaryDirectory
+            .appendingPathComponent("NotchCalendar-FileShelfCapture-\(UUID())")
+        try FileManager.default.createDirectory(
+            at: shelfDirectory.appendingPathComponent("项目资料"),
+            withIntermediateDirectories: true
+        )
+        try Data("Meeting notes".utf8).write(to: shelfDirectory.appendingPathComponent("会议记录.md"))
+        try Data(repeating: 0, count: 2_048).write(to: shelfDirectory.appendingPathComponent("预算草案.pdf"))
+        defer { try? FileManager.default.removeItem(at: shelfDirectory) }
+        fileShelf.isEnabled = true
+        fileShelf.setRootDirectory(shelfDirectory)
+        try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences, fileShelf: fileShelf, selectedDate: .constant(now), activity: .constant(.focus), contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {}).frame(maxHeight: .infinity, alignment: .top),
                          name: "expanded-focus", to: destination, defaults: defaults, language: .simplifiedChinese, width: 600, height: 460)
         preferences.showsFocusStatus = false
-        try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences, selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {}).frame(maxHeight: .infinity, alignment: .top),
+        try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences, fileShelf: fileShelf, selectedDate: .constant(now), activity: .constant(.calendar), contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {}).frame(maxHeight: .infinity, alignment: .top),
                          name: "expanded-calendar", to: destination, defaults: defaults, language: .simplifiedChinese, width: 600, height: 460)
         let allDayEvent = CalendarEvent(id: "seasonal-day", title: "白露", startDate: start, endDate: end,
                                        calendarName: "节气", calendarColor: .systemPink, location: nil,
@@ -124,9 +136,16 @@ final class DeskExperienceCaptureTests: XCTestCase {
             eventsByCalendarID: ["work": [allDayEvent]]), defaults: defaults)
         allDayCalendar.refresh(now: now)
         try await render(NotchExpandedActivityView(calendar: allDayCalendar, focusTimer: timer, preferences: preferences,
-                                                  selectedDate: .constant(now), contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {})
+                                                   fileShelf: fileShelf, selectedDate: .constant(now), activity: .constant(.calendar),
+                                                   contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {})
                             .frame(maxHeight: .infinity, alignment: .top),
                          name: "expanded-calendar-all-day", to: destination, defaults: defaults,
+                         language: .simplifiedChinese, width: 600, height: 460)
+        try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences,
+                                                   fileShelf: fileShelf, selectedDate: .constant(now), activity: .constant(.files),
+                                                   contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {})
+                            .frame(maxHeight: .infinity, alignment: .top),
+                         name: "expanded-files", to: destination, defaults: defaults,
                          language: .simplifiedChinese, width: 600, height: 460)
         for language: AppLanguage in [.simplifiedChinese, .english] {
             let suffix = language.rawValue

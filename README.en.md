@@ -23,17 +23,18 @@ The workspace above and the [visual feature tour](README.md#界面与功能) use
 
 Published builds are currently ad-hoc signed and not Developer ID notarized. Automatic app replacement is disabled. When upgrading from 0.7.0 or 0.8.0, open the downloaded DMG in Finder and quit the old app before replacing it; 0.8.1 fixes the older “Open DMG & Quit” crash.
 
-## Version 1.1
+## Version 1.3
 
-A consistent graphite palette, clearer text hierarchy and restrained accents bring the workspace together. The desktop month calendar has its own responsive layout, giving the month and selected day's agenda room to breathe. The day track, meeting notes and Command-K quick access remain available.
+The expanded notch now includes an optional file shelf. Choose one frequently used folder to browse it, open files, reveal items in Finder, copy paths, or drag files into other apps. Dragging a Finder file over the compact notch opens the shelf without moving or copying it.
 
-Cold launch keeps the calendar collapsed. Opening the workspace starts on Calendar. Saved focus tasks, time and history are preserved; starting or resuming focus explicitly makes it a notch activity. A previously running session continues in the background.
+The file shelf is off by default and stays within the selected root folder. Its machine-specific bookmark remains local and is excluded from backups. Existing calendar, meeting and focus behavior remains unchanged.
 
-[Download 1.2.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.2.1) · [Release and validation notes](docs/quality/RELEASE_1.2.1.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Final performance and some hardware acceptance remain pending; see the [quality report](docs/quality/README.md).
+[Download 1.3.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.3.0) · [Release and validation notes](docs/quality/RELEASE_1.3.0.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Physical Finder drag/drop, final performance and some hardware acceptance remain pending; see the [quality report](docs/quality/README.md).
 
 ## Features
 
 - Compact notch view that stays still when idle; live meeting shoulders are available as an opt-in setting.
+- Optional file shelf for one local folder, with bounded navigation, Finder actions, file drag-out, sorting, hidden-file controls and automatic refresh.
 - Expanded agenda and month calendar after an intentional hover, with a click-only mode when you want the notch to remain completely quiet.
 - A graphite desktop workspace with a persistent sidebar, Today overview, responsive calendar, focus timer, scratchpad, and Radar.
 - Radar shows ten Hot, Ask, or Show Hacker News signals, then stops. It refreshes only when opened, keeps a 30-minute local cache, and preserves saved results when the network is unavailable.

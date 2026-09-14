@@ -6,15 +6,18 @@ import Darwin
 private enum NotchExpansionOrigin: Equatable {
     case intentionalHover
     case explicitInteraction
+    case fileDrag
 }
 
 @MainActor
 final class NotchWindowController: NSObject, ObservableObject {
     private let state: AppState
     private let panel: NotchPanel
+    private let fileDropPanel: FileDropPanel
     private let layoutMetrics: NotchLayoutMetrics
     private nonisolated(unsafe) var stateObserver: AnyCancellable?
     private nonisolated(unsafe) var preferencesObserver: AnyCancellable?
+    private nonisolated(unsafe) var fileShelfObserver: AnyCancellable?
     private nonisolated(unsafe) var globalMouseMonitor: Any?
     private nonisolated(unsafe) var localMouseMonitor: Any?
     // Alcove-like glanceable layout: wide enough for agenda + month, but shallow
@@ -58,6 +61,13 @@ final class NotchWindowController: NSObject, ObservableObject {
                 expanded: false
             )
         )
+        fileDropPanel = FileDropPanel(
+            contentRect: ScreenGeometry.panelFrame(
+                on: screen,
+                size: Self.fileDropTargetSize(on: screen),
+                expanded: false
+            )
+        )
         super.init()
         let hostingView = NSHostingView(
             rootView: AppLanguageHost {
@@ -72,6 +82,9 @@ final class NotchWindowController: NSObject, ObservableObject {
                     },
                     onCompactMeetingActivityChange: { [weak self] isActive in
                         self?.updateCompactMeetingActivity(isActive)
+                    },
+                    onFileDropTargeted: { [weak self] isTargeted in
+                        self?.handleFileDropTargeted(isTargeted)
                     }
                 )
             }.defaultAppStorage(state.defaults)
@@ -79,6 +92,18 @@ final class NotchWindowController: NSObject, ObservableObject {
         hostingView.wantsLayer = true
         hostingView.layerContentsRedrawPolicy = .onSetNeedsDisplay
         panel.contentView = hostingView
+        fileDropPanel.contentView = NSHostingView(
+            rootView: AppLanguageHost {
+                FileShelfDropTargetView(
+                    onClick: { [weak self] in
+                        self?.requestExpansion(origin: .explicitInteraction)
+                    },
+                    onTargeted: { [weak self] isTargeted in
+                        self?.handleFileDropTargeted(isTargeted)
+                    }
+                )
+            }.defaultAppStorage(state.defaults)
+        )
         stateObserver = state.$isExpanded.removeDuplicates().sink { [weak self] expanded in
             // `@Published` sends from `willSet`, so defer until the new value is
             // actually stored. This also coalesces rapid hover re-entry into the
@@ -96,6 +121,16 @@ final class NotchWindowController: NSObject, ObservableObject {
             .dropFirst()
             .sink { [weak self] _, _, _ in
                 DispatchQueue.main.async { [weak self] in
+                    self?.applyPresentationPreferences()
+                }
+            }
+        fileShelfObserver = state.fileShelf.$isEnabled
+            .dropFirst()
+            .sink { [weak self] isEnabled in
+                DispatchQueue.main.async { [weak self] in
+                    if !isEnabled, self?.state.notchActivity == .files {
+                        self?.state.notchActivity = .calendar
+                    }
                     self?.applyPresentationPreferences()
                 }
             }
@@ -137,13 +172,17 @@ final class NotchWindowController: NSObject, ObservableObject {
     deinit {
         stateObserver?.cancel()
         preferencesObserver?.cancel()
+        fileShelfObserver?.cancel()
         if let globalMouseMonitor { NSEvent.removeMonitor(globalMouseMonitor) }
         if let localMouseMonitor { NSEvent.removeMonitor(localMouseMonitor) }
         NotificationCenter.default.removeObserver(self)
         NSWorkspace.shared.notificationCenter.removeObserver(self)
     }
 
-    func show() { panel.orderFrontRegardless() }
+    func show() {
+        panel.orderFrontRegardless()
+        updateFileDropPanel()
+    }
 
     @objc private func reposition() {
         cancelPendingHover()
@@ -151,6 +190,7 @@ final class NotchWindowController: NSObject, ObservableObject {
         collapseTask = nil
         state.isExpanded = false
         resize(expanded: false, animated: false)
+        updateFileDropPanel()
         PresentationDiagnostics.event("notch collapsed after screen change")
     }
 
@@ -227,13 +267,24 @@ final class NotchWindowController: NSObject, ObservableObject {
         }
     }
 
-    private func requestExpansion(origin: NotchExpansionOrigin) {
+    private func requestExpansion(origin: NotchExpansionOrigin, activity: NotchActivity? = nil) {
+        if let activity {
+            state.notchActivity = activity
+        } else {
+            state.notchActivity = Self.defaultActivity(state: state)
+        }
         guard !state.isExpanded else {
             if origin == .explicitInteraction { panel.makeKey() }
             return
         }
         pendingExpansionOrigin = origin
         state.isExpanded = true
+    }
+
+    private func handleFileDropTargeted(_ isTargeted: Bool) {
+        guard isTargeted, state.fileShelf.isEnabled else { return }
+        requestExpansion(origin: .fileDrag, activity: .files)
+        PresentationDiagnostics.event("notch expanded reason=file-drag")
     }
 
     private func promoteExpandedInteractionToKeyboard(windowNumber: Int) {
@@ -355,6 +406,7 @@ final class NotchWindowController: NSObject, ObservableObject {
                 ),
             expanded: expanded
         )
+        updateFileDropPanel(on: screen, expanded: expanded)
         if expanded {
             panel.ignoresMouseEvents = false
         }
@@ -394,6 +446,15 @@ final class NotchWindowController: NSObject, ObservableObject {
         )
     }
 
+    private static func defaultActivity(state: AppState) -> NotchActivity {
+        NotchActivityPolicy.compactActivity(
+            showsMeetings: state.presentationPreferences.showsMeetingStatus,
+            meetingIsActive: UpcomingEventEngine.status(now: Date(), events: state.calendar.todayEvents).isActive,
+            showsFocus: state.presentationPreferences.showsFocusStatus,
+            hasFocusSession: state.focusTimer.hasNotchActivity
+        )
+    }
+
     private static func compactSize(
         on screen: NSScreen,
         showsMeetingStatus: Bool,
@@ -411,6 +472,33 @@ final class NotchWindowController: NSObject, ObservableObject {
             ),
             height: ScreenGeometry.compactPanelHeight(notchDepth: notchBounds?.depth)
         )
+    }
+
+    private static func fileDropTargetSize(on screen: NSScreen) -> NSSize {
+        let notchBounds = ScreenGeometry.notchBounds(on: screen)
+        return NSSize(
+            width: notchBounds?.width ?? ScreenGeometry.fallbackCompactPanelWidth,
+            height: ScreenGeometry.compactPanelHeight(notchDepth: notchBounds?.depth)
+        )
+    }
+
+    private func updateFileDropPanel(
+        on screen: NSScreen? = nil,
+        expanded: Bool? = nil
+    ) {
+        let isExpanded = expanded ?? state.isExpanded
+        guard state.fileShelf.isEnabled, !isExpanded,
+              let screen = screen ?? ScreenGeometry.preferredNotchScreen(current: panel.screen) else {
+            fileDropPanel.orderOut(nil)
+            return
+        }
+        let frame = ScreenGeometry.panelFrame(
+            on: screen,
+            size: Self.fileDropTargetSize(on: screen),
+            expanded: false
+        )
+        fileDropPanel.setFrame(frame, display: true)
+        fileDropPanel.orderFrontRegardless()
     }
 
     private func applyCompactMousePassthrough() {
@@ -434,6 +522,7 @@ final class NotchWindowController: NSObject, ObservableObject {
             resize(expanded: false, animated: animated)
             applyCompactMousePassthrough()
         }
+        updateFileDropPanel()
         PresentationDiagnostics.event(
             "notch preferences mode=\(state.presentationPreferences.notchInteractionMode.rawValue) meeting-status=\(state.presentationPreferences.showsMeetingStatus)"
         )

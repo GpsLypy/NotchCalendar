@@ -7,6 +7,7 @@ struct SettingsView: View {
     @ObservedObject var calendar: CalendarManager
     var meetingAssistant: MeetingAssistant? = nil
     var backupStore: LocalBackupStore? = nil
+    var fileShelf: FileShelfStore? = nil
     @AppStorage(AppLanguage.storageKey) private var storedLanguage = AppLanguage.system.rawValue
     @Environment(\.appLanguage) private var appLanguage
     @State private var showsUpdateDetails = false
@@ -90,6 +91,8 @@ struct SettingsView: View {
                         .foregroundStyle(.secondary)
                 }
             }
+
+            if let fileShelf { FileShelfSettingsSection(store: fileShelf) }
 
             Section(t("Desktop Widgets")) {
                 Label(

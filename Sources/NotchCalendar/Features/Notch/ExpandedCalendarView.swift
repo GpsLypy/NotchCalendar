@@ -8,7 +8,8 @@ struct ExpandedCalendarView: View {
     var body: some View {
         NotchExpandedActivityView(
             calendar: state.calendar, focusTimer: state.focusTimer,
-            preferences: state.presentationPreferences, selectedDate: $state.selectedDate,
+            preferences: state.presentationPreferences, fileShelf: state.fileShelf,
+            selectedDate: $state.selectedDate, activity: $state.notchActivity,
             contentTopInset: contentTopInset,
             onClose: { state.isExpanded = false },
             openFocus: { state.openWorkspace?(.focus) },
@@ -21,12 +22,13 @@ struct NotchExpandedActivityView: View {
     @ObservedObject var calendar: CalendarManager
     @ObservedObject var focusTimer: FocusTimerModel
     @ObservedObject var preferences: PresentationPreferences
+    @ObservedObject var fileShelf: FileShelfStore
     @Binding var selectedDate: Date
+    @Binding var activity: NotchActivity
     let contentTopInset: CGFloat
     let onClose: () -> Void
     let openFocus: () -> Void
     let openMainWindow: () -> Void
-    @State private var activity: NotchActivity = .calendar
     @Environment(\.appLanguage) private var appLanguage
 
     var body: some View {
@@ -34,6 +36,9 @@ struct NotchExpandedActivityView: View {
             HStack(spacing: 8) {
                 activityButton(.calendar, title: "Calendar", symbol: "calendar")
                 activityButton(.focus, title: "Focus", symbol: "timer")
+                if fileShelf.isEnabled {
+                    activityButton(.files, title: "Files", symbol: "folder")
+                }
                 Spacer()
                 Button(action: onClose) {
                     Image(systemName: "xmark").font(.system(size: 10, weight: .semibold))
@@ -63,6 +68,8 @@ struct NotchExpandedActivityView: View {
             if activity == .focus {
                 FocusNotchView(timer: focusTimer, events: calendar.todayEvents,
                                openFocus: openFocus)
+            } else if activity == .files, fileShelf.isEnabled {
+                FileShelfView(store: fileShelf)
             } else {
                 CalendarDashboardView(
                     calendar: calendar,
@@ -79,12 +86,7 @@ struct NotchExpandedActivityView: View {
         .clipShape(NotchAttachedCardShape(cornerRadius: 30))
         .onAppear {
             focusTimer.synchronize()
-            activity = NotchActivityPolicy.compactActivity(
-                showsMeetings: preferences.showsMeetingStatus,
-                meetingIsActive: UpcomingEventEngine.status(now: Date(), events: calendar.todayEvents).isActive,
-                showsFocus: preferences.showsFocusStatus,
-                hasFocusSession: focusTimer.hasNotchActivity
-            )
+            if activity == .files, !fileShelf.isEnabled { activity = .calendar }
         }
     }
 
@@ -98,7 +100,15 @@ struct NotchExpandedActivityView: View {
         }
         .buttonStyle(.plain)
         .accessibilityAddTraits(activity == destination ? .isSelected : [])
-        .keyboardShortcut(destination == .calendar ? "1" : "2", modifiers: .command)
+        .keyboardShortcut(activityShortcut(destination), modifiers: .command)
+    }
+
+    private func activityShortcut(_ destination: NotchActivity) -> KeyEquivalent {
+        switch destination {
+        case .calendar: "1"
+        case .focus: "2"
+        case .files: "3"
+        }
     }
 }
 

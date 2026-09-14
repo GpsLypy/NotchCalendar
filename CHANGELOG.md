@@ -4,6 +4,30 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-09-14
+
+macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。
+
+### Added / 新增
+
+- Added an opt-in file shelf to the expanded notch. Choose one local folder, browse within its boundary, open files and folders, reveal items in Finder, copy paths, and drag files into other apps. / 展开刘海新增可选文件浮窗；选择一个本地文件夹后，可在限定范围内浏览、打开文件与文件夹、在访达中定位、复制路径，并将文件拖到其他应用。
+- Added name/date sorting, hidden-file controls, automatic directory refresh, persisted folder bookmarks, and clear loading, empty, missing-folder and read-error states. / 新增名称或修改日期排序、隐藏文件开关、目录自动刷新、文件夹书签持久化，以及加载中、空目录、目录失效和读取失败状态。
+
+### Improved / 优化
+
+- Dragging a Finder file over the compact notch opens the file shelf without moving or copying the file. The file shelf is available with `⌘3` while expanded. / 将访达文件拖到紧凑刘海会打开文件浮窗，但不会移动或复制文件；展开后可使用 `⌘3` 切换到文件页。
+- Directory reads run away from the main thread, changes are monitored only while the feature is enabled, and symbolic links cannot navigate outside the selected root. Machine-specific folder bookmarks stay out of local backups. / 目录读取不阻塞主线程，仅在功能启用时监听变化，符号链接不能越出所选根目录；与机器绑定的目录书签不会进入本地备份。
+
+### Fixed / 修复
+
+- Kept menu-bar controls clickable by isolating Finder drag detection in a narrow non-activating panel, and prevented drag-triggered expansion from taking keyboard focus away from Finder. / 将访达拖拽检测隔离到窄幅非激活面板，保持菜单栏控件可点击，并避免拖拽触发展开时从访达抢走键盘焦点。
+
+### Acceptance status / 验收状态
+
+- Local Swift tests: 251 total, 11 optional tests skipped, zero failures. The file shelf passed directory-boundary, bookmark, sorting and panel-lifecycle tests, plus a 600 × 460 native SwiftUI render. Physical Finder drag/drop, notched display interaction and final performance acceptance remain pending. / 本地 Swift 测试共 251 项，11 项可选测试跳过，零失败；文件浮窗已通过目录边界、书签、排序和面板生命周期测试，并完成 600 × 460 原生 SwiftUI 渲染。实际访达跨应用拖拽、实体刘海交互及最终性能验收仍待完成。
+
+See [validation notes](https://github.com/GpsLypy/NotchCalendar/blob/v1.3.0/docs/quality/RELEASE_1.3.0.md).
+
 ## [1.2.1] - 2026-09-10
 
 macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。

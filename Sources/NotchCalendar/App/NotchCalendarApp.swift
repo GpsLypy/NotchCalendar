@@ -12,7 +12,8 @@ struct NotchCalendarApp: App {
                     presentationPreferences: appDelegate.state.presentationPreferences,
                     calendar: appDelegate.state.calendar,
                     meetingAssistant: appDelegate.state.meetingAssistant,
-                    backupStore: appDelegate.state.backupStore
+                    backupStore: appDelegate.state.backupStore,
+                    fileShelf: appDelegate.state.fileShelf
                 )
             }
         }

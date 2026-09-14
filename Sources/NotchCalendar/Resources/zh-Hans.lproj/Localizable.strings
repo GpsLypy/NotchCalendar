@@ -19,6 +19,38 @@
 "Could not save the image. Choose another location." = "图片保存失败，请选择其他位置。";
 "Share the image with friends to introduce Notch Calendar." = "把图片分享给朋友，一起发现刘海日历。";
 
+/* File shelf */
+"Files" = "文件";
+"File Shelf" = "文件浮窗";
+"Enable the file shelf in the notch" = "在刘海中启用文件浮窗";
+"Choose one folder to browse from the notch." = "选择一个可从刘海快速浏览的文件夹。";
+"Choose Folder" = "选择文件夹";
+"Choose Another Folder" = "更换文件夹";
+"Use Folder" = "使用此文件夹";
+"Folder" = "文件夹";
+"Remove" = "移除";
+"Show hidden files" = "显示隐藏文件";
+"Sort files by" = "文件排序";
+"Name" = "名称";
+"Date Modified" = "修改日期";
+"Drag files out to other apps. Dragging files over the compact notch opens the shelf without moving them." = "可将文件拖到其他应用；把文件拖到紧凑刘海上会打开浮窗，但不会移动文件。";
+"Back" = "返回";
+"No Folder" = "未选择文件夹";
+"Choose a folder for quick access" = "选择一个常用文件夹";
+"Files stay in their original folder on this Mac." = "文件仍保留在这台 Mac 的原始位置。";
+"Loading files…" = "正在载入文件…";
+"The selected folder is unavailable." = "所选文件夹不可用。";
+"The selected folder could not be saved." = "无法保存所选文件夹。";
+"The folder could not be read." = "无法读取此文件夹。";
+"The file could not be opened." = "无法打开此文件。";
+"This folder is outside the file shelf." = "此文件夹不在文件浮窗范围内。";
+"Choose the folder again if it was moved or disconnected." = "如果文件夹已移动或磁盘已断开，请重新选择。";
+"This folder is empty" = "此文件夹为空";
+"New files will appear here automatically." = "新文件会自动显示在这里。";
+"Open" = "打开";
+"Open Folder" = "打开文件夹";
+"Copy Path" = "复制路径";
+
 /* Language settings */
 "Language" = "语言";
 "App Language" = "应用语言";

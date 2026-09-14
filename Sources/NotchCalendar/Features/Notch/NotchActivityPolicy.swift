@@ -1,8 +1,9 @@
 import Foundation
 
-enum NotchActivity: Equatable {
+enum NotchActivity: Equatable, Sendable {
     case calendar
     case focus
+    case files
 }
 
 enum NotchActivityPolicy {

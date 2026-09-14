@@ -23,6 +23,27 @@ final class NotchLayoutMetrics: ObservableObject {
     }
 }
 
+struct FileShelfDropTargetView: View {
+    let onClick: () -> Void
+    let onTargeted: (Bool) -> Void
+    @Environment(\.appLanguage) private var appLanguage
+
+    var body: some View {
+        Button(action: onClick) {
+            Color.clear.contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .dropDestination(for: URL.self) { _, _ in
+            false
+        } isTargeted: { isTargeted in
+            onTargeted(isTargeted)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .contentShape(Rectangle())
+        .accessibilityLabel(L10n.string("Open Notch Calendar", language: appLanguage))
+    }
+}
+
 private struct ExpandedCardHeightKey: PreferenceKey {
     static let defaultValue: CGFloat = 0
 
@@ -37,6 +58,7 @@ struct NotchRootView: View {
     let onExplicitExpansion: () -> Void
     let onExpandedCardHeightChange: (CGFloat) -> Void
     let onCompactMeetingActivityChange: (Bool) -> Void
+    let onFileDropTargeted: (Bool) -> Void
     @Environment(\.appLanguage) private var appLanguage
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
@@ -84,5 +106,11 @@ struct NotchRootView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.24), value: state.isPresentationExpanded)
         .onPreferenceChange(ExpandedCardHeightKey.self, perform: onExpandedCardHeightChange)
+        .dropDestination(for: URL.self) { _, _ in
+            false
+        } isTargeted: { isTargeted in
+            guard state.fileShelf.isEnabled else { return }
+            onFileDropTargeted(isTargeted)
+        }
     }
 }

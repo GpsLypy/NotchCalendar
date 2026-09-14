@@ -22,6 +22,39 @@
 "Discussion Room" = "Discussion Room";
 "Briefing" = "Briefing";
 
+/* File shelf */
+"Files" = "Files";
+"File Shelf" = "File Shelf";
+"Enable the file shelf in the notch" = "Enable the file shelf in the notch";
+"Choose one folder to browse from the notch." = "Choose one folder to browse from the notch.";
+"Choose Folder" = "Choose Folder";
+"Choose Another Folder" = "Choose Another Folder";
+"Use Folder" = "Use Folder";
+"Folder" = "Folder";
+"Remove" = "Remove";
+"Show hidden files" = "Show hidden files";
+"Sort files by" = "Sort files by";
+"Name" = "Name";
+"Date Modified" = "Date Modified";
+"Drag files out to other apps. Dragging files over the compact notch opens the shelf without moving them." = "Drag files out to other apps. Dragging files over the compact notch opens the shelf without moving them.";
+"Back" = "Back";
+"Refresh" = "Refresh";
+"No Folder" = "No Folder";
+"Choose a folder for quick access" = "Choose a folder for quick access";
+"Files stay in their original folder on this Mac." = "Files stay in their original folder on this Mac.";
+"Loading files…" = "Loading files…";
+"The selected folder is unavailable." = "The selected folder is unavailable.";
+"The selected folder could not be saved." = "The selected folder could not be saved.";
+"The folder could not be read." = "The folder could not be read.";
+"The file could not be opened." = "The file could not be opened.";
+"This folder is outside the file shelf." = "This folder is outside the file shelf.";
+"Choose the folder again if it was moved or disconnected." = "Choose the folder again if it was moved or disconnected.";
+"This folder is empty" = "This folder is empty";
+"New files will appear here automatically." = "New files will appear here automatically.";
+"Open" = "Open";
+"Open Folder" = "Open Folder";
+"Copy Path" = "Copy Path";
+
 // Daily planning and calendar selection
 "TIME TO FOCUS" = "TIME TO FOCUS";
 "Planning hours" = "Planning hours";

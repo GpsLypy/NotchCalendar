@@ -13,12 +13,14 @@ final class AppState: ObservableObject {
     let notesStore: MeetingNotesStore
     let backupStore: LocalBackupStore
     let meetingAssistant: MeetingAssistant
+    let fileShelf: FileShelfStore
     var openWorkspace: ((WorkspaceDestination) -> Void)?
     @Published var selectedDate = Date()
     /// Desired hover state. The controller may keep the visual expanded briefly
     /// while its shrink animation completes.
     @Published var isExpanded = false
     @Published var isPresentationExpanded = false
+    @Published var notchActivity: NotchActivity = .calendar
 
     private var focusClock: Timer?
     private var focusDeadline: Date?
@@ -44,6 +46,7 @@ final class AppState: ObservableObject {
         presentationPreferences = PresentationPreferences(defaults: defaults)
         notesStore = MeetingNotesStore(defaults: defaults)
         backupStore = LocalBackupStore(defaults: defaults, recoveryDirectory: recoveryDirectory)
+        fileShelf = FileShelfStore(defaults: defaults)
         self.meetingAssistant = meetingAssistant ?? MeetingAssistant(calendar: calendar, preferences: MeetingPreferences(defaults: defaults))
         calendarObserver = calendar.objectWillChange.sink { [weak self] _ in
             self?.objectWillChange.send()
