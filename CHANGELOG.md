@@ -4,6 +4,24 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-09-15
+
+macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。
+
+### Added / 新增
+
+- Added a Finder-style file shelf with up to twelve sidebar favorites, back/forward navigation, Name/Date Modified/Size/Kind columns, and inline folder disclosure. / 文件浮窗改为 Finder 式布局，支持最多 12 个侧栏收藏、前进后退、名称/修改日期/大小/种类列和文件夹行内展开。
+
+### Fixed / 修复
+
+- Automatically migrate the single folder saved by 1.3.0 into the new favorites list, preserving the existing selection without asking the user to choose it again. / 自动将 1.3.0 保存的单个文件夹迁移到新版收藏列表，保留原选择，无需用户重新添加。
+
+### Acceptance status / 验收状态
+
+- Local Swift tests: 254 total, 10 optional tests skipped, zero failures. Eight file-shelf tests cover multiple favorites, migration, ordering, selection, history, inline disclosure and directory boundaries. Native renders verified the Finder-style shelf and multi-folder Settings layout. Physical Finder drag/drop, notched display interaction and final performance acceptance remain pending. / 本地 Swift 测试共 254 项，10 项可选测试跳过，零失败；8 项文件浮窗测试覆盖多收藏、迁移、排序、选中、历史导航、行内展开和目录边界，原生渲染已验证 Finder 式浮窗与多目录设置页。实际 Finder 拖放、实体刘海交互及最终性能验收仍待完成。
+
+See [validation notes](https://github.com/GpsLypy/NotchCalendar/blob/v1.4.0/docs/quality/RELEASE_1.4.0.md).
+
 ## [1.3.0] - 2026-09-14
 
 macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。

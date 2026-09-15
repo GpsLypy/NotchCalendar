@@ -54,6 +54,23 @@
 "Open" = "Open";
 "Open Folder" = "Open Folder";
 "Copy Path" = "Copy Path";
+"Favorites" = "Favorites";
+"Forward" = "Forward";
+"Size" = "Size";
+"Kind" = "Kind";
+"Add Folders" = "Add Folders";
+"Add folders to Favorites" = "Add folders to Favorites";
+"Keep frequently used folders together in the notch." = "Keep frequently used folders together in the notch.";
+"Remove this favorite or reconnect its disk." = "Remove this favorite or reconnect its disk.";
+"Alias" = "Alias";
+"Document" = "Document";
+"Expand Folder" = "Expand Folder";
+"Collapse Folder" = "Collapse Folder";
+"Move Up" = "Move Up";
+"Move Down" = "Move Down";
+"Add folders that should appear in the file shelf sidebar." = "Add folders that should appear in the file shelf sidebar.";
+"%@ of %@ folders" = "%@ of %@ folders";
+"You can keep up to 12 folders." = "You can keep up to 12 folders.";
 
 // Daily planning and calendar selection
 "TIME TO FOCUS" = "TIME TO FOCUS";

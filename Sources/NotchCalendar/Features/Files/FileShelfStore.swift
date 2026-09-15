@@ -17,14 +17,33 @@ enum FileShelfSort: String, CaseIterable, Identifiable, Sendable {
     }
 }
 
+struct FileShelfLocation: Identifiable, Equatable, Sendable {
+    let id: UUID
+    let url: URL
+    let bookmark: Data
+
+    var name: String { url.lastPathComponent }
+}
+
 struct FileShelfItem: Identifiable, Equatable, Sendable {
     let url: URL
     let name: String
     let isDirectory: Bool
+    let isPackage: Bool
+    let isSymbolicLink: Bool
     let modificationDate: Date?
     let fileSize: Int64?
+    let typeIdentifier: String?
 
     var id: URL { url }
+    var canExpand: Bool { isDirectory && !isPackage && !isSymbolicLink }
+}
+
+struct FileShelfVisibleItem: Identifiable, Equatable, Sendable {
+    let item: FileShelfItem
+    let depth: Int
+
+    var id: URL { item.id }
 }
 
 enum FileShelfDirectoryReader {
@@ -35,8 +54,9 @@ enum FileShelfDirectoryReader {
         fileManager: FileManager = .default
     ) throws -> [FileShelfItem] {
         let keys: Set<URLResourceKey> = [
-            .isDirectoryKey, .isHiddenKey, .localizedNameKey,
-            .contentModificationDateKey, .fileSizeKey
+            .isDirectoryKey, .isHiddenKey, .isPackageKey, .isSymbolicLinkKey,
+            .localizedNameKey, .contentModificationDateKey, .fileSizeKey,
+            .typeIdentifierKey
         ]
         let options: FileManager.DirectoryEnumerationOptions = showsHiddenFiles ? [] : [.skipsHiddenFiles]
         let urls = try fileManager.contentsOfDirectory(
@@ -47,12 +67,16 @@ enum FileShelfDirectoryReader {
         let items = try urls.compactMap { url -> FileShelfItem? in
             let values = try url.resourceValues(forKeys: keys)
             if !showsHiddenFiles, values.isHidden == true { return nil }
+            let isDirectory = values.isDirectory == true
             return FileShelfItem(
                 url: url,
                 name: values.localizedName ?? url.lastPathComponent,
-                isDirectory: values.isDirectory == true,
+                isDirectory: isDirectory,
+                isPackage: values.isPackage == true,
+                isSymbolicLink: values.isSymbolicLink == true,
                 modificationDate: values.contentModificationDate,
-                fileSize: values.isDirectory == true ? nil : values.fileSize.map(Int64.init)
+                fileSize: isDirectory ? nil : values.fileSize.map(Int64.init),
+                typeIdentifier: values.typeIdentifier
             )
         }
         return items.sorted { first, second in
@@ -76,14 +100,22 @@ enum FileShelfDirectoryReader {
     }
 }
 
+private struct FileShelfLocationRecord: Codable {
+    let id: UUID
+    let bookmark: Data
+}
+
 private enum FileShelfReadFailure: Error, Sendable {
     case unreadable
 }
 
 @MainActor
 final class FileShelfStore: ObservableObject {
+    static let maximumLocations = 12
     static let enabledKey = "files.shelfEnabled"
     static let bookmarkKey = "files.rootBookmark"
+    static let locationsKey = "files.rootBookmarks.v2"
+    static let selectedLocationKey = "files.selectedLocationID"
     static let hiddenFilesKey = "files.showsHiddenFiles"
     static let sortKey = "files.sort"
 
@@ -98,6 +130,7 @@ final class FileShelfStore: ObservableObject {
         didSet {
             guard oldValue != showsHiddenFiles else { return }
             defaults.set(showsHiddenFiles, forKey: Self.hiddenFilesKey)
+            resetTree()
             refresh()
         }
     }
@@ -105,29 +138,52 @@ final class FileShelfStore: ObservableObject {
         didSet {
             guard oldValue != sort else { return }
             defaults.set(sort.rawValue, forKey: Self.sortKey)
+            resetTree()
             refresh()
         }
     }
-    @Published private(set) var rootURL: URL?
+    @Published private(set) var locations: [FileShelfLocation]
+    @Published private(set) var selectedLocationID: UUID?
     @Published private(set) var currentURL: URL?
     @Published private(set) var items: [FileShelfItem] = []
+    @Published private(set) var expandedDirectoryURLs: Set<URL> = []
+    @Published private(set) var childrenByDirectory: [URL: [FileShelfItem]] = [:]
+    @Published private(set) var loadingDirectoryURLs: Set<URL> = []
     @Published private(set) var isLoading = false
     @Published private(set) var errorMessageKey: String?
 
     private let defaults: UserDefaults
+    private var history: [URL]
+    private var historyIndex: Int
     private var refreshTask: Task<Void, Never>?
     private var monitor: DispatchSourceFileSystemObject?
     private var monitorDescriptor: Int32 = -1
     private var refreshGeneration = 0
+    private var treeGeneration = 0
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
         isEnabled = defaults.object(forKey: Self.enabledKey) as? Bool ?? false
         showsHiddenFiles = defaults.object(forKey: Self.hiddenFilesKey) as? Bool ?? false
         sort = defaults.string(forKey: Self.sortKey).flatMap(FileShelfSort.init(rawValue:)) ?? .name
-        rootURL = Self.restoreRootURL(from: defaults.data(forKey: Self.bookmarkKey))
-        currentURL = rootURL
-        if rootURL != nil, isEnabled { refresh() }
+
+        var restored = Self.restoreLocations(from: defaults.data(forKey: Self.locationsKey))
+        if restored.isEmpty,
+           let legacy = Self.restoreLocation(from: defaults.data(forKey: Self.bookmarkKey)) {
+            restored = [legacy]
+        }
+        locations = restored
+        let storedSelection = defaults.string(forKey: Self.selectedLocationKey).flatMap(UUID.init(uuidString:))
+        let selection = restored.contains(where: { $0.id == storedSelection })
+            ? storedSelection
+            : restored.first?.id
+        let selectedURL = restored.first(where: { $0.id == selection })?.url
+        selectedLocationID = selection
+        currentURL = selectedURL
+        history = selectedURL.map { [$0] } ?? []
+        historyIndex = history.isEmpty ? -1 : 0
+        persistLocations()
+        if currentURL != nil, isEnabled { refresh() }
     }
 
     deinit {
@@ -136,65 +192,155 @@ final class FileShelfStore: ObservableObject {
         if monitor == nil, monitorDescriptor >= 0 { close(monitorDescriptor) }
     }
 
-    var canNavigateUp: Bool {
-        guard let rootURL, let currentURL else { return false }
-        return currentURL.standardizedFileURL != rootURL.standardizedFileURL
+    var selectedLocation: FileShelfLocation? {
+        locations.first(where: { $0.id == selectedLocationID })
     }
 
-    func chooseRootDirectory() {
+    var rootURL: URL? { selectedLocation?.url }
+    var canNavigateBack: Bool { historyIndex > 0 }
+    var canNavigateForward: Bool { historyIndex >= 0 && historyIndex + 1 < history.count }
+
+    var visibleItems: [FileShelfVisibleItem] {
+        flatten(items, depth: 0)
+    }
+
+    func chooseRootDirectories() {
         let panel = NSOpenPanel()
         panel.canChooseFiles = false
         panel.canChooseDirectories = true
-        panel.allowsMultipleSelection = false
-        panel.prompt = L10n.string("Use Folder", language: AppLanguage.persisted(in: defaults))
+        panel.allowsMultipleSelection = true
+        panel.prompt = L10n.string("Add Folders", language: AppLanguage.persisted(in: defaults))
         if let rootURL { panel.directoryURL = rootURL }
         NSApp.activate(ignoringOtherApps: true)
-        guard panel.runModal() == .OK, let url = panel.url else { return }
-        setRootDirectory(url)
+        guard panel.runModal() == .OK else { return }
+        addRootDirectories(panel.urls)
+    }
+
+    func chooseRootDirectory() {
+        chooseRootDirectories()
+    }
+
+    func addRootDirectories(_ urls: [URL]) {
+        var additions: [FileShelfLocation] = []
+        let availableSlots = max(0, Self.maximumLocations - locations.count)
+        for url in urls.prefix(availableSlots) {
+            let resolved = url.resolvingSymlinksInPath().standardizedFileURL
+            guard !locations.contains(where: { $0.url == resolved }),
+                  !additions.contains(where: { $0.url == resolved }),
+                  (try? resolved.resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true else {
+                continue
+            }
+            guard let bookmark = try? Self.bookmark(for: resolved) else {
+                errorMessageKey = "The selected folder could not be saved."
+                continue
+            }
+            additions.append(FileShelfLocation(id: UUID(), url: resolved, bookmark: bookmark))
+        }
+        guard !additions.isEmpty else {
+            if locations.count >= Self.maximumLocations {
+                errorMessageKey = "You can keep up to 12 folders."
+            }
+            return
+        }
+        locations.append(contentsOf: additions)
+        persistLocations()
+        selectLocation(additions[0].id)
     }
 
     func setRootDirectory(_ url: URL) {
-        let resolved = url.resolvingSymlinksInPath().standardizedFileURL
-        guard (try? resolved.resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true else {
-            errorMessageKey = "The selected folder is unavailable."
-            return
-        }
-        do {
-            let bookmark = try resolved.bookmarkData(
-                options: [],
-                includingResourceValuesForKeys: [.isDirectoryKey],
-                relativeTo: nil
-            )
-            defaults.set(bookmark, forKey: Self.bookmarkKey)
-            rootURL = resolved
-            currentURL = resolved
-            errorMessageKey = nil
-            if isEnabled { refresh() }
-        } catch {
-            errorMessageKey = "The selected folder could not be saved."
+        locations = []
+        selectedLocationID = nil
+        persistLocations()
+        addRootDirectories([url])
+    }
+
+    func selectLocation(_ id: UUID) {
+        guard let location = locations.first(where: { $0.id == id }) else { return }
+        selectedLocationID = id
+        defaults.set(id.uuidString, forKey: Self.selectedLocationKey)
+        currentURL = location.url
+        history = [location.url]
+        historyIndex = 0
+        errorMessageKey = nil
+        resetTree()
+        refresh()
+    }
+
+    func removeLocation(_ id: UUID) {
+        guard let index = locations.firstIndex(where: { $0.id == id }) else { return }
+        let wasSelected = selectedLocationID == id
+        locations.remove(at: index)
+        persistLocations()
+        guard wasSelected else { return }
+        if locations.isEmpty {
+            selectedLocationID = nil
+            currentURL = nil
+            history = []
+            historyIndex = -1
+            resetTree()
+            refresh()
+        } else {
+            selectLocation(locations[min(index, locations.count - 1)].id)
         }
     }
 
     func clearRootDirectory() {
         stopMonitoring()
-        defaults.removeObject(forKey: Self.bookmarkKey)
-        rootURL = nil
+        locations = []
+        selectedLocationID = nil
         currentURL = nil
+        history = []
+        historyIndex = -1
         items = []
         errorMessageKey = nil
+        resetTree()
+        persistLocations()
+    }
+
+    func moveLocation(_ id: UUID, by offset: Int) {
+        guard let source = locations.firstIndex(where: { $0.id == id }) else { return }
+        let destination = source + offset
+        guard locations.indices.contains(destination) else { return }
+        locations.swapAt(source, destination)
+        persistLocations()
+    }
+
+    func canMoveLocation(_ id: UUID, by offset: Int) -> Bool {
+        guard let source = locations.firstIndex(where: { $0.id == id }) else { return false }
+        return locations.indices.contains(source + offset)
     }
 
     func open(_ item: FileShelfItem) {
-        if item.isDirectory {
+        if item.isDirectory, !item.isPackage {
             navigate(to: item.url)
         } else if !NSWorkspace.shared.open(item.url) {
             errorMessageKey = "The file could not be opened."
         }
     }
 
-    func navigateUp() {
-        guard canNavigateUp, let currentURL else { return }
-        navigate(to: currentURL.deletingLastPathComponent())
+    func navigateBack() {
+        guard canNavigateBack else { return }
+        historyIndex -= 1
+        currentURL = history[historyIndex]
+        resetTree()
+        refresh()
+    }
+
+    func navigateForward() {
+        guard canNavigateForward else { return }
+        historyIndex += 1
+        currentURL = history[historyIndex]
+        resetTree()
+        refresh()
+    }
+
+    func toggleDirectoryExpansion(_ item: FileShelfItem) {
+        guard item.canExpand, let rootURL,
+              FileShelfDirectoryReader.contains(item.url, inside: rootURL) else { return }
+        if expandedDirectoryURLs.remove(item.url) != nil { return }
+        expandedDirectoryURLs.insert(item.url)
+        guard childrenByDirectory[item.url] == nil else { return }
+        loadChildren(of: item.url)
     }
 
     func reveal(_ url: URL) {
@@ -208,6 +354,7 @@ final class FileShelfStore: ObservableObject {
 
     func refresh() {
         guard isEnabled, let directory = currentURL else {
+            refreshTask?.cancel()
             items = []
             isLoading = false
             stopMonitoring()
@@ -221,19 +368,7 @@ final class FileShelfStore: ObservableObject {
         isLoading = true
         errorMessageKey = nil
         refreshTask = Task { [weak self] in
-            let result = await Task.detached(priority: .userInitiated) {
-                do {
-                    return Result<[FileShelfItem], FileShelfReadFailure>.success(
-                        try FileShelfDirectoryReader.items(
-                            at: directory,
-                            showsHiddenFiles: showsHiddenFiles,
-                            sort: sort
-                        )
-                    )
-                } catch {
-                    return .failure(.unreadable)
-                }
-            }.value
+            let result = await Self.read(directory, showsHiddenFiles: showsHiddenFiles, sort: sort)
             guard let self, !Task.isCancelled,
                   self.refreshGeneration == generation,
                   self.currentURL == directory else { return }
@@ -257,8 +392,81 @@ final class FileShelfStore: ObservableObject {
             errorMessageKey = "This folder is outside the file shelf."
             return
         }
-        currentURL = url.resolvingSymlinksInPath().standardizedFileURL
+        let destination = url.resolvingSymlinksInPath().standardizedFileURL
+        if historyIndex + 1 < history.count {
+            history.removeSubrange((historyIndex + 1)..<history.count)
+        }
+        if history.last != destination { history.append(destination) }
+        historyIndex = history.count - 1
+        currentURL = destination
+        resetTree()
         refresh()
+    }
+
+    private func loadChildren(of directory: URL) {
+        loadingDirectoryURLs.insert(directory)
+        let generation = treeGeneration
+        let showsHiddenFiles = showsHiddenFiles
+        let sort = sort
+        Task { [weak self] in
+            let result = await Self.read(directory, showsHiddenFiles: showsHiddenFiles, sort: sort)
+            guard let self, self.treeGeneration == generation,
+                  self.expandedDirectoryURLs.contains(directory) else { return }
+            self.loadingDirectoryURLs.remove(directory)
+            if case .success(let children) = result {
+                self.childrenByDirectory[directory] = children
+            }
+        }
+    }
+
+    private nonisolated static func read(
+        _ directory: URL,
+        showsHiddenFiles: Bool,
+        sort: FileShelfSort
+    ) async -> Result<[FileShelfItem], FileShelfReadFailure> {
+        await Task.detached(priority: .userInitiated) {
+            do {
+                return .success(try FileShelfDirectoryReader.items(
+                    at: directory,
+                    showsHiddenFiles: showsHiddenFiles,
+                    sort: sort
+                ))
+            } catch {
+                return .failure(.unreadable)
+            }
+        }.value
+    }
+
+    private func flatten(_ source: [FileShelfItem], depth: Int) -> [FileShelfVisibleItem] {
+        var result: [FileShelfVisibleItem] = []
+        for item in source {
+            result.append(FileShelfVisibleItem(item: item, depth: depth))
+            if expandedDirectoryURLs.contains(item.url),
+               let children = childrenByDirectory[item.url] {
+                result.append(contentsOf: flatten(children, depth: depth + 1))
+            }
+        }
+        return result
+    }
+
+    private func resetTree() {
+        treeGeneration += 1
+        expandedDirectoryURLs = []
+        childrenByDirectory = [:]
+        loadingDirectoryURLs = []
+    }
+
+    private func persistLocations() {
+        let records = locations.map { FileShelfLocationRecord(id: $0.id, bookmark: $0.bookmark) }
+        if records.isEmpty {
+            defaults.removeObject(forKey: Self.locationsKey)
+            defaults.removeObject(forKey: Self.selectedLocationKey)
+            defaults.removeObject(forKey: Self.bookmarkKey)
+            return
+        }
+        defaults.set(try? JSONEncoder().encode(records), forKey: Self.locationsKey)
+        defaults.set(selectedLocationID?.uuidString, forKey: Self.selectedLocationKey)
+        defaults.set(records[0].bookmark, forKey: Self.bookmarkKey)
     }
 
     private func startMonitoring(_ directory: URL) {
@@ -271,10 +479,7 @@ final class FileShelfStore: ObservableObject {
             eventMask: [.write, .delete, .rename, .attrib, .extend, .link, .revoke],
             queue: .main
         )
-        source.setEventHandler { [weak self] in
-            guard let self else { return }
-            self.refresh()
-        }
+        source.setEventHandler { [weak self] in self?.refresh() }
         source.setCancelHandler { close(descriptor) }
         monitor = source
         source.resume()
@@ -286,7 +491,28 @@ final class FileShelfStore: ObservableObject {
         monitorDescriptor = -1
     }
 
-    private static func restoreRootURL(from bookmark: Data?) -> URL? {
+    private static func bookmark(for url: URL) throws -> Data {
+        try url.bookmarkData(
+            options: [],
+            includingResourceValuesForKeys: [.isDirectoryKey],
+            relativeTo: nil
+        )
+    }
+
+    private static func restoreLocations(from data: Data?) -> [FileShelfLocation] {
+        guard let data,
+              let records = try? JSONDecoder().decode([FileShelfLocationRecord].self, from: data) else {
+            return []
+        }
+        var seen: Set<URL> = []
+        return records.prefix(maximumLocations).compactMap { record in
+            guard let location = restoreLocation(id: record.id, from: record.bookmark),
+                  seen.insert(location.url).inserted else { return nil }
+            return location
+        }
+    }
+
+    private static func restoreLocation(id: UUID = UUID(), from bookmark: Data?) -> FileShelfLocation? {
         guard let bookmark else { return nil }
         var isStale = false
         guard let url = try? URL(
@@ -297,6 +523,7 @@ final class FileShelfStore: ObservableObject {
         ) else { return nil }
         let resolved = url.resolvingSymlinksInPath().standardizedFileURL
         guard (try? resolved.resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true else { return nil }
-        return resolved
+        let refreshedBookmark = (try? self.bookmark(for: resolved)) ?? bookmark
+        return FileShelfLocation(id: id, url: resolved, bookmark: refreshedBookmark)
     }
 }

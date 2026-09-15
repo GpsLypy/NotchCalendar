@@ -50,6 +50,23 @@
 "Open" = "打开";
 "Open Folder" = "打开文件夹";
 "Copy Path" = "复制路径";
+"Favorites" = "个人收藏";
+"Forward" = "前进";
+"Size" = "大小";
+"Kind" = "种类";
+"Add Folders" = "添加文件夹";
+"Add folders to Favorites" = "将文件夹添加到个人收藏";
+"Keep frequently used folders together in the notch." = "在刘海中集中使用常用文件夹。";
+"Remove this favorite or reconnect its disk." = "移除此收藏，或重新连接所在磁盘。";
+"Alias" = "替身";
+"Document" = "文稿";
+"Expand Folder" = "展开文件夹";
+"Collapse Folder" = "收起文件夹";
+"Move Up" = "上移";
+"Move Down" = "下移";
+"Add folders that should appear in the file shelf sidebar." = "添加要显示在文件浮窗侧栏中的文件夹。";
+"%@ of %@ folders" = "%@ / %@ 个文件夹";
+"You can keep up to 12 folders." = "最多可保留 12 个文件夹。";
 
 /* Language settings */
 "Language" = "语言";

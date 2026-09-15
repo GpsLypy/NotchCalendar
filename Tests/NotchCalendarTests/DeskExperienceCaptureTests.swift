@@ -113,17 +113,21 @@ final class DeskExperienceCaptureTests: XCTestCase {
         let notes = MeetingNotesStore(defaults: defaults)
         let preferences = PresentationPreferences(defaults: defaults)
         let fileShelf = FileShelfStore(defaults: defaults)
-        let shelfDirectory = FileManager.default.temporaryDirectory
+        let shelfRoot = FileManager.default.temporaryDirectory
             .appendingPathComponent("NotchCalendar-FileShelfCapture-\(UUID())")
+        let shelfDirectory = shelfRoot.appendingPathComponent("Downloads")
+        let projectsDirectory = shelfRoot.appendingPathComponent("Projects")
         try FileManager.default.createDirectory(
             at: shelfDirectory.appendingPathComponent("项目资料"),
             withIntermediateDirectories: true
         )
+        try FileManager.default.createDirectory(at: projectsDirectory, withIntermediateDirectories: true)
         try Data("Meeting notes".utf8).write(to: shelfDirectory.appendingPathComponent("会议记录.md"))
         try Data(repeating: 0, count: 2_048).write(to: shelfDirectory.appendingPathComponent("预算草案.pdf"))
-        defer { try? FileManager.default.removeItem(at: shelfDirectory) }
+        try Data("Roadmap".utf8).write(to: projectsDirectory.appendingPathComponent("Roadmap.md"))
+        defer { try? FileManager.default.removeItem(at: shelfRoot) }
         fileShelf.isEnabled = true
-        fileShelf.setRootDirectory(shelfDirectory)
+        fileShelf.addRootDirectories([shelfDirectory, projectsDirectory])
         try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences, fileShelf: fileShelf, selectedDate: .constant(now), activity: .constant(.focus), contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {}).frame(maxHeight: .infinity, alignment: .top),
                          name: "expanded-focus", to: destination, defaults: defaults, language: .simplifiedChinese, width: 600, height: 460)
         preferences.showsFocusStatus = false
@@ -141,12 +145,19 @@ final class DeskExperienceCaptureTests: XCTestCase {
                             .frame(maxHeight: .infinity, alignment: .top),
                          name: "expanded-calendar-all-day", to: destination, defaults: defaults,
                          language: .simplifiedChinese, width: 600, height: 460)
+        if let folder = fileShelf.items.first(where: { $0.canExpand }) {
+            fileShelf.toggleDirectoryExpansion(folder)
+            try await Task.sleep(for: .milliseconds(200))
+        }
         try await render(NotchExpandedActivityView(calendar: calendar, focusTimer: timer, preferences: preferences,
                                                    fileShelf: fileShelf, selectedDate: .constant(now), activity: .constant(.files),
                                                    contentTopInset: 44, onClose: {}, openFocus: {}, openMainWindow: {})
                             .frame(maxHeight: .infinity, alignment: .top),
                          name: "expanded-files", to: destination, defaults: defaults,
                          language: .simplifiedChinese, width: 600, height: 460)
+        try await render(Form { FileShelfSettingsSection(store: fileShelf) }.formStyle(.grouped),
+                         name: "file-shelf-settings", to: destination, defaults: defaults,
+                         language: .simplifiedChinese, width: 540, height: 560)
         for language: AppLanguage in [.simplifiedChinese, .english] {
             let suffix = language.rawValue
             for (width, height): (CGFloat, CGFloat) in [(1120, 780), (860, 620)] {

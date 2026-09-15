@@ -25,16 +25,16 @@ Published builds are currently ad-hoc signed and not Developer ID notarized. Aut
 
 ## Version 1.3
 
-The expanded notch now includes an optional file shelf. Choose one frequently used folder to browse it, open files, reveal items in Finder, copy paths, or drag files into other apps. Dragging a Finder file over the compact notch opens the shelf without moving or copying it.
+The expanded notch now includes an optional Finder-style file shelf. Keep up to twelve folders in its sidebar, browse Name, Date Modified, Size and Kind columns, expand folders inline, open files, reveal items in Finder, copy paths, or drag files into other apps. Dragging a Finder file over the compact notch opens the shelf without moving or copying it.
 
-The file shelf is off by default and stays within the selected root folder. Its machine-specific bookmark remains local and is excluded from backups. Existing calendar, meeting and focus behavior remains unchanged.
+The file shelf is off by default and stays within the currently selected favorite. Machine-specific bookmarks remain local and are excluded from backups. Existing calendar, meeting and focus behavior remains unchanged.
 
-[Download 1.3.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.3.0) · [Release and validation notes](docs/quality/RELEASE_1.3.0.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Physical Finder drag/drop, final performance and some hardware acceptance remain pending; see the [quality report](docs/quality/README.md).
+[Download 1.4.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.4.0) · [Release and validation notes](docs/quality/RELEASE_1.4.0.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Physical Finder drag/drop, final performance and some hardware acceptance remain pending; see the [quality report](docs/quality/README.md).
 
 ## Features
 
 - Compact notch view that stays still when idle; live meeting shoulders are available as an opt-in setting.
-- Optional file shelf for one local folder, with bounded navigation, Finder actions, file drag-out, sorting, hidden-file controls and automatic refresh.
+- Optional Finder-style file shelf for up to twelve local folders, with bounded navigation, inline folder disclosure, Finder actions, file drag-out, sorting, hidden-file controls and automatic refresh.
 - Expanded agenda and month calendar after an intentional hover, with a click-only mode when you want the notch to remain completely quiet.
 - A graphite desktop workspace with a persistent sidebar, Today overview, responsive calendar, focus timer, scratchpad, and Radar.
 - Radar shows ten Hot, Ask, or Show Hacker News signals, then stops. It refreshes only when opened, keeps a 30-minute local cache, and preserves saved results when the network is unavailable.
