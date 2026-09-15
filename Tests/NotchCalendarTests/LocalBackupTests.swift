@@ -9,6 +9,7 @@ final class LocalBackupTests: XCTestCase {
             let store = LocalBackupStore(defaults: defaults, recoveryDirectory: directory.appendingPathComponent("recovery"))
             defaults.set("Original note", forKey: "workspace.scratchpad.text")
             defaults.set("zh-Hans", forKey: "app.language")
+            defaults.set("fast", forKey: PresentationPreferences.hoverResponseKey)
             defaults.set("DO NOT EXPORT", forKey: "api.secret")
             defaults.set(Data("CACHED ACCOUNT EVENTS".utf8), forKey: "calendar.rawEvents")
             defaults.set(Data("PRIVATE LOCAL PATH".utf8), forKey: FileShelfStore.bookmarkKey)
@@ -25,12 +26,14 @@ final class LocalBackupTests: XCTestCase {
             XCTAssertNil(backup.values[FileShelfStore.locationsKey])
             defaults.set("Current note", forKey: "workspace.scratchpad.text")
             defaults.set("en", forKey: "app.language")
+            defaults.set("deliberate", forKey: PresentationPreferences.hoverResponseKey)
             try store.prepareImport(from: file)
             XCTAssertEqual(store.preview?.scratchpadCharacters, "Original note".count)
             XCTAssertEqual(defaults.string(forKey: "workspace.scratchpad.text"), "Current note")
             try store.restorePreview()
             XCTAssertEqual(defaults.string(forKey: "workspace.scratchpad.text"), "Original note")
             XCTAssertEqual(defaults.string(forKey: "app.language"), "zh-Hans")
+            XCTAssertEqual(defaults.string(forKey: PresentationPreferences.hoverResponseKey), "fast")
             XCTAssertTrue(store.canUndo)
             let restoredTimer = FocusTimerModel(defaults: defaults)
             XCTAssertFalse(restoredTimer.isRunning)
@@ -71,6 +74,7 @@ final class LocalBackupTests: XCTestCase {
                 try JSONEncoder().encode(wrongVersion),
                 try JSONEncoder().encode(LocalBackupDocument(exportedAt: Date(), values: ["api.key": .string("secret")])),
                 try JSONEncoder().encode(LocalBackupDocument(exportedAt: Date(), values: ["meetings.remindersEnabled": .string("true")])),
+                try JSONEncoder().encode(LocalBackupDocument(exportedAt: Date(), values: ["presentation.notchHoverResponse": .string("instant")])),
                 try JSONEncoder().encode(LocalBackupDocument(exportedAt: Date(), values: ["workspace.planning.startHour": .integer(23), "workspace.planning.endHour": .integer(8)])),
                 try JSONEncoder().encode(LocalBackupDocument(exportedAt: Date(), values: ["calendar.secondaryTimeZone": .string("Mars/Olympus")])),
                 Data(repeating: 32, count: LocalBackupPolicy.maximumFileBytes + 1)

@@ -15,6 +15,38 @@ enum NotchInteractionMode: String, CaseIterable, Identifiable, Sendable {
     }
 }
 
+enum NotchHoverResponse: String, CaseIterable, Identifiable, Sendable {
+    case fast
+    case balanced
+    case deliberate
+
+    var id: String { rawValue }
+
+    var titleKey: String {
+        switch self {
+        case .fast: "Fast"
+        case .balanced: "Balanced"
+        case .deliberate: "Deliberate"
+        }
+    }
+
+    var dwell: Duration {
+        switch self {
+        case .fast: .milliseconds(70)
+        case .balanced: .milliseconds(140)
+        case .deliberate: .milliseconds(300)
+        }
+    }
+
+    var expansionDuration: TimeInterval {
+        switch self {
+        case .fast: 0.18
+        case .balanced: 0.20
+        case .deliberate: 0.28
+        }
+    }
+}
+
 struct NotchInteractionPolicy {
     static func effectiveMode(
         requestedMode: NotchInteractionMode,
@@ -31,6 +63,7 @@ final class PresentationPreferences: ObservableObject {
     static let interactionModeKey = "presentation.notchInteractionMode"
     static let meetingStatusKey = "presentation.showsMeetingStatus"
     static let focusStatusKey = "presentation.showsFocusStatus"
+    static let hoverResponseKey = "presentation.notchHoverResponse"
 
     @Published var showsFocusStatus: Bool {
         didSet {
@@ -53,6 +86,13 @@ final class PresentationPreferences: ObservableObject {
         }
     }
 
+    @Published var hoverResponse: NotchHoverResponse {
+        didSet {
+            guard oldValue != hoverResponse else { return }
+            defaults.set(hoverResponse.rawValue, forKey: Self.hoverResponseKey)
+        }
+    }
+
     @Published private(set) var isHoverMonitorAvailable = true
 
     private let defaults: UserDefaults
@@ -66,6 +106,8 @@ final class PresentationPreferences: ObservableObject {
         // interaction. Keep that opt-in so an upgrade never creates a surprise.
         showsMeetingStatus = defaults.object(forKey: Self.meetingStatusKey) as? Bool ?? false
         showsFocusStatus = defaults.object(forKey: Self.focusStatusKey) as? Bool ?? true
+        hoverResponse = defaults.string(forKey: Self.hoverResponseKey)
+            .flatMap(NotchHoverResponse.init(rawValue:)) ?? .balanced
     }
 
     func setHoverMonitorAvailable(_ isAvailable: Bool) {
@@ -78,6 +120,8 @@ final class PresentationPreferences: ObservableObject {
             .flatMap(NotchInteractionMode.init(rawValue:)) ?? .intentionalHover
         showsMeetingStatus = defaults.object(forKey: Self.meetingStatusKey) as? Bool ?? false
         showsFocusStatus = defaults.object(forKey: Self.focusStatusKey) as? Bool ?? true
+        hoverResponse = defaults.string(forKey: Self.hoverResponseKey)
+            .flatMap(NotchHoverResponse.init(rawValue:)) ?? .balanced
     }
 }
 

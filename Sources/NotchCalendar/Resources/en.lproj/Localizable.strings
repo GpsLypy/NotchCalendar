@@ -21,6 +21,11 @@
 "Markets" = "Markets";
 "Discussion Room" = "Discussion Room";
 "Briefing" = "Briefing";
+"Hover response" = "Hover response";
+"Fast" = "Fast";
+"Balanced" = "Balanced";
+"Deliberate" = "Deliberate";
+"Controls how quickly the notch opens after the pointer enters it." = "Controls how quickly the notch opens after the pointer enters it.";
 
 /* File shelf */
 "Files" = "Files";
@@ -54,6 +59,7 @@
 "Open" = "Open";
 "Open Folder" = "Open Folder";
 "Copy Path" = "Copy Path";
+"The file could not be copied." = "The file could not be copied.";
 "Favorites" = "Favorites";
 "Forward" = "Forward";
 "Size" = "Size";

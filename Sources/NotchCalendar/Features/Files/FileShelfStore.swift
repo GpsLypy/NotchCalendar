@@ -352,6 +352,17 @@ final class FileShelfStore: ObservableObject {
         NSPasteboard.general.setString(url.path, forType: .string)
     }
 
+    @discardableResult
+    func copyFile(_ item: FileShelfItem, to pasteboard: NSPasteboard = .general) -> Bool {
+        pasteboard.clearContents()
+        guard pasteboard.writeObjects([item.url as NSURL]) else {
+            errorMessageKey = "The file could not be copied."
+            return false
+        }
+        errorMessageKey = nil
+        return true
+    }
+
     func refresh() {
         guard isEnabled, let directory = currentURL else {
             refreshTask?.cancel()

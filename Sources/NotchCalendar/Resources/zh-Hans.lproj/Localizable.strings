@@ -50,6 +50,7 @@
 "Open" = "打开";
 "Open Folder" = "打开文件夹";
 "Copy Path" = "复制路径";
+"The file could not be copied." = "无法复制此文件。";
 "Favorites" = "个人收藏";
 "Forward" = "前进";
 "Size" = "大小";
@@ -85,6 +86,11 @@
 "Open the notch calendar" = "打开刘海日历";
 "Intentional hover" = "停稳后展开";
 "Click only" = "仅点击";
+"Hover response" = "悬停响应";
+"Fast" = "快速";
+"Balanced" = "平衡";
+"Deliberate" = "防误触";
+"Controls how quickly the notch opens after the pointer enters it." = "控制指针进入刘海后多久展开。";
 "Show live meeting status beside the notch" = "在刘海两侧显示进行中的会议";
 "The pointer must settle near the notch before it opens." = "指针需要在刘海附近停稳，日历才会展开。";
 "The notch stays quiet until you click it or open the app from the Dock." = "刘海会保持安静，直到你点击它或从程序坞打开应用。";

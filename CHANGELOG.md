@@ -4,6 +4,25 @@ All notable changes to Notch Calendar are documented here.
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-09-15
+
+macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。
+
+### Added / 新增
+
+- Added visible Open, Copy and Show in Finder actions for the selected file, with Return and Command-C keyboard support. Copy writes a standard macOS file URL so the item can be pasted into Finder or another app. / 为选中文件新增可见的打开、复制和在访达中显示操作，并支持 Return 与 Command-C；复制会写入标准 macOS 文件 URL，可粘贴到访达或其他应用。
+
+### Fixed / 修复
+
+- Make the notch SwiftUI host accept AppKit's first mouse event and process row selection independently from double-click opening, so controls respond on the first click instead of requiring a repeated click. / 刘海 SwiftUI 宿主现在接收 AppKit 首次鼠标事件，行选择也不再等待双击识别，控件第一次点击即可响应，无需重复点击。
+- Reduce the default hover confirmation and expansion animation from roughly 670 ms combined to roughly 340 ms, with Fast, Balanced and Prevent Accidental Opens response presets in Settings. / 默认悬停确认与展开动画总时长由约 670ms 降至约 340ms，并在设置中新增快速、平衡和防误触三档响应速度。
+
+### Acceptance status / 验收状态
+
+- Local Swift tests: 258 total, 10 optional tests skipped, zero failures. Two independent optimized samples passed every idle, focus and meeting-switch CPU/p95/wakeup budget; a 1,000-item folder scan completed in 0.109–0.159 seconds. Physical first-click, Finder paste and hover-speed acceptance remains pending. / 本地 Swift 测试共 258 项，10 项可选测试跳过，零失败；静置、专注和会议切换均取得两次独立优化样本并通过 CPU、p95 与唤醒预算，1,000 项目录扫描耗时 0.109–0.159 秒。实际首击、访达粘贴和悬停速度仍待实机验收。
+
+See [validation notes](https://github.com/GpsLypy/NotchCalendar/blob/v1.4.1/docs/quality/RELEASE_1.4.1.md).
+
 ## [1.4.0] - 2026-09-15
 
 macOS 15+ · Apple Silicon and Intel · Manual installation, ad-hoc signatures only; no Developer ID signing or notarization. / 手动安装，仅 ad-hoc 签名，不做证书签名或公证。

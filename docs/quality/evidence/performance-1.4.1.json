@@ -1,0 +1,1892 @@
+{
+  "schema_version": 1,
+  "version": "1.4.1",
+  "display_sleep_prevention": "temporary caffeinate -d assertion; manual lock is not disabled",
+  "build": {
+    "source_fingerprint": "3d7429e42abceae1b70e440a117ec7a67d0931e7a79177183e1c9363788498b0",
+    "binary_sha256": "0c655b367c56437dde4a896ad78173ca9fff07ab451689f1d5e627f80a7e8d7a",
+    "configuration": "release",
+    "probe": true
+  },
+  "passed": true,
+  "runs": [
+    {
+      "scenario": "idle",
+      "metrics": {
+        "elapsed_seconds": 30.376666000000114,
+        "cpu_mean_percent": 0.0037349128439572526,
+        "cpu_p95_percent": 0.02731121719694304,
+        "interrupt_wakeups_per_second": 0.2304400357827279,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 0.5,
+        "cpu_p95_percent": 2.0,
+        "interrupt_wakeups_per_second": 1.0
+      },
+      "passed": true,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        },
+        {
+          "frame": "{{-1920, 0}, {1920, 1080}}",
+          "name": "24V5",
+          "notch": false
+        }
+      ],
+      "samples": [
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11804.807026,
+          "cpu_ns": 148988541,
+          "interrupt_wakeups": 133,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11805.819633,
+          "cpu_ns": 148988541,
+          "interrupt_wakeups": 133,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11806.832649,
+          "cpu_ns": 149265208,
+          "interrupt_wakeups": 134,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11807.844739,
+          "cpu_ns": 149301000,
+          "interrupt_wakeups": 135,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11808.85726,
+          "cpu_ns": 149301000,
+          "interrupt_wakeups": 135,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11809.873602,
+          "cpu_ns": 149500416,
+          "interrupt_wakeups": 136,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11810.886119,
+          "cpu_ns": 149500416,
+          "interrupt_wakeups": 136,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11811.900627,
+          "cpu_ns": 149500416,
+          "interrupt_wakeups": 136,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11812.916157,
+          "cpu_ns": 149800666,
+          "interrupt_wakeups": 137,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11813.926806,
+          "cpu_ns": 149800666,
+          "interrupt_wakeups": 137,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11814.941148,
+          "cpu_ns": 149800666,
+          "interrupt_wakeups": 137,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11815.95595,
+          "cpu_ns": 149800666,
+          "interrupt_wakeups": 137,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11816.969665,
+          "cpu_ns": 149800666,
+          "interrupt_wakeups": 137,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11817.983807,
+          "cpu_ns": 150006791,
+          "interrupt_wakeups": 138,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11818.996004,
+          "cpu_ns": 150006791,
+          "interrupt_wakeups": 138,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11820.009441,
+          "cpu_ns": 150006791,
+          "interrupt_wakeups": 138,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11821.023034,
+          "cpu_ns": 150006791,
+          "interrupt_wakeups": 138,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11822.035909,
+          "cpu_ns": 150006791,
+          "interrupt_wakeups": 138,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11823.049904,
+          "cpu_ns": 150034166,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11824.065386,
+          "cpu_ns": 150034166,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11825.078014,
+          "cpu_ns": 150034166,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11826.090678,
+          "cpu_ns": 150034166,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11827.100078,
+          "cpu_ns": 150034166,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11828.109013,
+          "cpu_ns": 150034166,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11829.117133,
+          "cpu_ns": 150034166,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11830.127672,
+          "cpu_ns": 150034166,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11831.140976,
+          "cpu_ns": 150034166,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11832.149402,
+          "cpu_ns": 150034166,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11833.162008,
+          "cpu_ns": 150123083,
+          "interrupt_wakeups": 140,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11834.174416,
+          "cpu_ns": 150123083,
+          "interrupt_wakeups": 140,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11835.183692,
+          "cpu_ns": 150123083,
+          "interrupt_wakeups": 140,
+          "package_idle_wakeups": 0
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    },
+    {
+      "scenario": "idle",
+      "metrics": {
+        "elapsed_seconds": 30.393652999999176,
+        "cpu_mean_percent": 0.0072505532651835555,
+        "cpu_p95_percent": 0.03322615599820317,
+        "interrupt_wakeups_per_second": 0.296114455212088,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 0.5,
+        "cpu_p95_percent": 2.0,
+        "interrupt_wakeups_per_second": 1.0
+      },
+      "passed": true,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        },
+        {
+          "frame": "{{-1920, 0}, {1920, 1080}}",
+          "name": "24V5",
+          "notch": false
+        }
+      ],
+      "samples": [
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12256.648346,
+          "cpu_ns": 153646208,
+          "interrupt_wakeups": 130,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12257.662565,
+          "cpu_ns": 153646208,
+          "interrupt_wakeups": 130,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12258.675623,
+          "cpu_ns": 153945250,
+          "interrupt_wakeups": 131,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12259.688983,
+          "cpu_ns": 154016041,
+          "interrupt_wakeups": 132,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12260.702318,
+          "cpu_ns": 154016041,
+          "interrupt_wakeups": 132,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12261.71399,
+          "cpu_ns": 154016041,
+          "interrupt_wakeups": 132,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12262.728007,
+          "cpu_ns": 154277833,
+          "interrupt_wakeups": 133,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12263.7401,
+          "cpu_ns": 154277833,
+          "interrupt_wakeups": 133,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12264.75524,
+          "cpu_ns": 154615125,
+          "interrupt_wakeups": 134,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12265.764687,
+          "cpu_ns": 154615125,
+          "interrupt_wakeups": 134,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12266.778534,
+          "cpu_ns": 154615125,
+          "interrupt_wakeups": 134,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12267.790085,
+          "cpu_ns": 154615125,
+          "interrupt_wakeups": 134,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12268.802992,
+          "cpu_ns": 154615125,
+          "interrupt_wakeups": 134,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12269.815281,
+          "cpu_ns": 154675791,
+          "interrupt_wakeups": 135,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12270.83035,
+          "cpu_ns": 154675791,
+          "interrupt_wakeups": 135,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12271.841009,
+          "cpu_ns": 154675791,
+          "interrupt_wakeups": 135,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12272.85599,
+          "cpu_ns": 154675791,
+          "interrupt_wakeups": 135,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12273.869252,
+          "cpu_ns": 155675208,
+          "interrupt_wakeups": 136,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12274.879014,
+          "cpu_ns": 155675208,
+          "interrupt_wakeups": 136,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12275.892482,
+          "cpu_ns": 155675208,
+          "interrupt_wakeups": 136,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12276.905471,
+          "cpu_ns": 155675208,
+          "interrupt_wakeups": 136,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12277.91914,
+          "cpu_ns": 155675208,
+          "interrupt_wakeups": 136,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12278.933036,
+          "cpu_ns": 155765583,
+          "interrupt_wakeups": 137,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12279.947273,
+          "cpu_ns": 155765583,
+          "interrupt_wakeups": 137,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12280.961539,
+          "cpu_ns": 155765583,
+          "interrupt_wakeups": 137,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12281.975376,
+          "cpu_ns": 155765583,
+          "interrupt_wakeups": 137,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12282.98797,
+          "cpu_ns": 155765583,
+          "interrupt_wakeups": 137,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12284.003471,
+          "cpu_ns": 155808875,
+          "interrupt_wakeups": 138,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12285.014473,
+          "cpu_ns": 155849916,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12286.029916,
+          "cpu_ns": 155849916,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 12287.041999,
+          "cpu_ns": 155849916,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    },
+    {
+      "scenario": "focus",
+      "metrics": {
+        "elapsed_seconds": 30.401561000000584,
+        "cpu_mean_percent": 0.23148221895579196,
+        "cpu_p95_percent": 0.3338801531134457,
+        "interrupt_wakeups_per_second": 2.828802113154596,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 2.0,
+        "cpu_p95_percent": 5.0,
+        "interrupt_wakeups_per_second": 5.0
+      },
+      "passed": true,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        },
+        {
+          "frame": "{{-1920, 0}, {1920, 1080}}",
+          "name": "24V5",
+          "notch": false
+        }
+      ],
+      "samples": [
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11731.183099,
+          "cpu_ns": 161958458,
+          "interrupt_wakeups": 139,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11732.193786,
+          "cpu_ns": 164578625,
+          "interrupt_wakeups": 142,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11733.207804,
+          "cpu_ns": 167851166,
+          "interrupt_wakeups": 146,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11734.221523,
+          "cpu_ns": 168066583,
+          "interrupt_wakeups": 147,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11735.235175,
+          "cpu_ns": 169673708,
+          "interrupt_wakeups": 150,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11736.249177,
+          "cpu_ns": 171186708,
+          "interrupt_wakeups": 153,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11737.263588,
+          "cpu_ns": 174573625,
+          "interrupt_wakeups": 156,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11738.276321,
+          "cpu_ns": 177717375,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11739.287972,
+          "cpu_ns": 181430250,
+          "interrupt_wakeups": 162,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11740.297212,
+          "cpu_ns": 183207416,
+          "interrupt_wakeups": 165,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11741.312023,
+          "cpu_ns": 186018083,
+          "interrupt_wakeups": 168,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11742.326133,
+          "cpu_ns": 189157833,
+          "interrupt_wakeups": 171,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11743.34009,
+          "cpu_ns": 190884708,
+          "interrupt_wakeups": 174,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11744.353004,
+          "cpu_ns": 194226125,
+          "interrupt_wakeups": 178,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11745.366294,
+          "cpu_ns": 196900208,
+          "interrupt_wakeups": 181,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11746.380141,
+          "cpu_ns": 198543958,
+          "interrupt_wakeups": 184,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11747.39377,
+          "cpu_ns": 200248333,
+          "interrupt_wakeups": 187,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11748.407145,
+          "cpu_ns": 202837041,
+          "interrupt_wakeups": 190,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11749.420005,
+          "cpu_ns": 205464458,
+          "interrupt_wakeups": 193,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11750.433803,
+          "cpu_ns": 207213833,
+          "interrupt_wakeups": 196,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11751.448443,
+          "cpu_ns": 208777875,
+          "interrupt_wakeups": 199,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11752.458841,
+          "cpu_ns": 211935083,
+          "interrupt_wakeups": 202,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11753.473635,
+          "cpu_ns": 214704000,
+          "interrupt_wakeups": 205,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11754.483899,
+          "cpu_ns": 216180791,
+          "interrupt_wakeups": 207,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11755.497711,
+          "cpu_ns": 219002666,
+          "interrupt_wakeups": 210,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11756.512598,
+          "cpu_ns": 221344250,
+          "interrupt_wakeups": 212,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11757.527303,
+          "cpu_ns": 224304666,
+          "interrupt_wakeups": 215,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11758.54161,
+          "cpu_ns": 225861000,
+          "interrupt_wakeups": 216,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11759.555478,
+          "cpu_ns": 228297166,
+          "interrupt_wakeups": 219,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11760.572349,
+          "cpu_ns": 229834375,
+          "interrupt_wakeups": 222,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11761.58466,
+          "cpu_ns": 232332666,
+          "interrupt_wakeups": 225,
+          "package_idle_wakeups": 0
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    },
+    {
+      "scenario": "focus",
+      "metrics": {
+        "elapsed_seconds": 30.398896000000605,
+        "cpu_mean_percent": 0.2324177035902837,
+        "cpu_p95_percent": 0.34931191343325946,
+        "interrupt_wakeups_per_second": 2.9935297650282493,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 2.0,
+        "cpu_p95_percent": 5.0,
+        "interrupt_wakeups_per_second": 5.0
+      },
+      "passed": true,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        },
+        {
+          "frame": "{{-1920, 0}, {1920, 1080}}",
+          "name": "24V5",
+          "notch": false
+        }
+      ],
+      "samples": [
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11843.280631,
+          "cpu_ns": 169434375,
+          "interrupt_wakeups": 138,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11844.296023,
+          "cpu_ns": 171099916,
+          "interrupt_wakeups": 141,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11845.308444,
+          "cpu_ns": 172915083,
+          "interrupt_wakeups": 145,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11846.317896,
+          "cpu_ns": 173187416,
+          "interrupt_wakeups": 147,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11847.33033,
+          "cpu_ns": 174713625,
+          "interrupt_wakeups": 150,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11848.342911,
+          "cpu_ns": 176366083,
+          "interrupt_wakeups": 153,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11849.356452,
+          "cpu_ns": 179688333,
+          "interrupt_wakeups": 156,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11850.369923,
+          "cpu_ns": 181400833,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11851.384664,
+          "cpu_ns": 184463333,
+          "interrupt_wakeups": 162,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11852.397757,
+          "cpu_ns": 186210375,
+          "interrupt_wakeups": 165,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11853.411662,
+          "cpu_ns": 187875208,
+          "interrupt_wakeups": 168,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11854.426093,
+          "cpu_ns": 191028666,
+          "interrupt_wakeups": 171,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11855.438541,
+          "cpu_ns": 193157375,
+          "interrupt_wakeups": 174,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11856.451601,
+          "cpu_ns": 195756708,
+          "interrupt_wakeups": 178,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11857.46698,
+          "cpu_ns": 199016583,
+          "interrupt_wakeups": 181,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11858.47628,
+          "cpu_ns": 201962750,
+          "interrupt_wakeups": 184,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11859.492335,
+          "cpu_ns": 204962500,
+          "interrupt_wakeups": 187,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11860.506649,
+          "cpu_ns": 206582458,
+          "interrupt_wakeups": 190,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11861.522174,
+          "cpu_ns": 210374083,
+          "interrupt_wakeups": 193,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11862.535097,
+          "cpu_ns": 212580666,
+          "interrupt_wakeups": 196,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11863.549222,
+          "cpu_ns": 214074708,
+          "interrupt_wakeups": 199,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11864.561539,
+          "cpu_ns": 216985708,
+          "interrupt_wakeups": 202,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11865.575581,
+          "cpu_ns": 218750083,
+          "interrupt_wakeups": 205,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11866.587627,
+          "cpu_ns": 220339791,
+          "interrupt_wakeups": 208,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11867.600851,
+          "cpu_ns": 221855333,
+          "interrupt_wakeups": 211,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11868.614339,
+          "cpu_ns": 224928708,
+          "interrupt_wakeups": 214,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11869.6293,
+          "cpu_ns": 228209208,
+          "interrupt_wakeups": 217,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11870.639202,
+          "cpu_ns": 231736916,
+          "interrupt_wakeups": 220,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11871.652904,
+          "cpu_ns": 234354666,
+          "interrupt_wakeups": 223,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11872.66637,
+          "cpu_ns": 237441500,
+          "interrupt_wakeups": 226,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11873.679527,
+          "cpu_ns": 240086791,
+          "interrupt_wakeups": 229,
+          "package_idle_wakeups": 0
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    },
+    {
+      "scenario": "meeting-switch",
+      "metrics": {
+        "elapsed_seconds": 30.3954990000002,
+        "cpu_mean_percent": 0.2842474012352929,
+        "cpu_p95_percent": 0.4363170195733024,
+        "interrupt_wakeups_per_second": 3.45445883286862,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 3.0,
+        "cpu_p95_percent": 8.0,
+        "interrupt_wakeups_per_second": 10.0
+      },
+      "passed": true,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        },
+        {
+          "frame": "{{-1920, 0}, {1920, 1080}}",
+          "name": "24V5",
+          "notch": false
+        }
+      ],
+      "samples": [
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11768.052446,
+          "cpu_ns": 159277500,
+          "interrupt_wakeups": 138,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11769.062619,
+          "cpu_ns": 161473250,
+          "interrupt_wakeups": 141,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11770.076427,
+          "cpu_ns": 161844708,
+          "interrupt_wakeups": 143,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11771.090516,
+          "cpu_ns": 163643500,
+          "interrupt_wakeups": 147,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11772.10297,
+          "cpu_ns": 166174791,
+          "interrupt_wakeups": 150,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11773.117386,
+          "cpu_ns": 168629416,
+          "interrupt_wakeups": 152,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11774.130955,
+          "cpu_ns": 176083083,
+          "interrupt_wakeups": 157,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11775.145454,
+          "cpu_ns": 179527416,
+          "interrupt_wakeups": 160,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11776.160139,
+          "cpu_ns": 182604791,
+          "interrupt_wakeups": 163,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11777.174071,
+          "cpu_ns": 184808500,
+          "interrupt_wakeups": 166,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11778.183662,
+          "cpu_ns": 187872791,
+          "interrupt_wakeups": 171,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11779.198081,
+          "cpu_ns": 190576666,
+          "interrupt_wakeups": 175,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11780.211583,
+          "cpu_ns": 193201958,
+          "interrupt_wakeups": 178,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11781.225013,
+          "cpu_ns": 197056791,
+          "interrupt_wakeups": 180,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11782.237333,
+          "cpu_ns": 201381666,
+          "interrupt_wakeups": 185,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11783.247028,
+          "cpu_ns": 204351041,
+          "interrupt_wakeups": 188,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11784.260192,
+          "cpu_ns": 206935125,
+          "interrupt_wakeups": 191,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11785.274786,
+          "cpu_ns": 208953583,
+          "interrupt_wakeups": 194,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11786.289453,
+          "cpu_ns": 212844208,
+          "interrupt_wakeups": 199,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11787.302699,
+          "cpu_ns": 216510708,
+          "interrupt_wakeups": 203,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11788.316433,
+          "cpu_ns": 219782250,
+          "interrupt_wakeups": 206,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11789.333039,
+          "cpu_ns": 224217875,
+          "interrupt_wakeups": 211,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11790.345357,
+          "cpu_ns": 227182208,
+          "interrupt_wakeups": 214,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11791.359038,
+          "cpu_ns": 230224708,
+          "interrupt_wakeups": 217,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11792.372089,
+          "cpu_ns": 232861583,
+          "interrupt_wakeups": 220,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11793.382015,
+          "cpu_ns": 235639541,
+          "interrupt_wakeups": 225,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11794.392242,
+          "cpu_ns": 237314083,
+          "interrupt_wakeups": 229,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11795.406462,
+          "cpu_ns": 239153791,
+          "interrupt_wakeups": 232,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11796.419147,
+          "cpu_ns": 240875625,
+          "interrupt_wakeups": 235,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11797.432322,
+          "cpu_ns": 244072625,
+          "interrupt_wakeups": 239,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11798.447945,
+          "cpu_ns": 245675916,
+          "interrupt_wakeups": 243,
+          "package_idle_wakeups": 0
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    },
+    {
+      "scenario": "meeting-switch",
+      "metrics": {
+        "elapsed_seconds": 30.42179600000054,
+        "cpu_mean_percent": 0.28589342982905563,
+        "cpu_p95_percent": 0.49524202697031217,
+        "interrupt_wakeups_per_second": 3.3857304151273047,
+        "package_idle_wakeups_per_second": 0.0
+      },
+      "budgets": {
+        "cpu_mean_percent": 3.0,
+        "cpu_p95_percent": 8.0,
+        "interrupt_wakeups_per_second": 10.0
+      },
+      "passed": true,
+      "screens": [
+        {
+          "frame": "{{0, 0}, {1512, 982}}",
+          "name": "\u5185\u5efa\u89c6\u7f51\u819c\u663e\u793a\u5668",
+          "notch": true
+        },
+        {
+          "frame": "{{-1920, 0}, {1920, 1080}}",
+          "name": "24V5",
+          "notch": false
+        }
+      ],
+      "samples": [
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11880.025165,
+          "cpu_ns": 158775000,
+          "interrupt_wakeups": 138,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11881.038997,
+          "cpu_ns": 160415166,
+          "interrupt_wakeups": 141,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11882.055291,
+          "cpu_ns": 162369000,
+          "interrupt_wakeups": 146,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11883.068081,
+          "cpu_ns": 164065208,
+          "interrupt_wakeups": 149,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11884.081393,
+          "cpu_ns": 164277750,
+          "interrupt_wakeups": 150,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11885.098317,
+          "cpu_ns": 167497375,
+          "interrupt_wakeups": 154,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11886.111001,
+          "cpu_ns": 177016541,
+          "interrupt_wakeups": 159,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11887.126837,
+          "cpu_ns": 179140416,
+          "interrupt_wakeups": 162,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11888.142275,
+          "cpu_ns": 181199250,
+          "interrupt_wakeups": 165,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11889.155773,
+          "cpu_ns": 183982958,
+          "interrupt_wakeups": 168,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11890.169503,
+          "cpu_ns": 189003375,
+          "interrupt_wakeups": 174,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11891.18533,
+          "cpu_ns": 191867875,
+          "interrupt_wakeups": 176,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11892.20003,
+          "cpu_ns": 193520250,
+          "interrupt_wakeups": 179,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11893.214261,
+          "cpu_ns": 196092291,
+          "interrupt_wakeups": 182,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11894.22792,
+          "cpu_ns": 200257500,
+          "interrupt_wakeups": 187,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11895.241819,
+          "cpu_ns": 203250125,
+          "interrupt_wakeups": 190,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11896.253739,
+          "cpu_ns": 205533666,
+          "interrupt_wakeups": 192,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11897.267836,
+          "cpu_ns": 208666750,
+          "interrupt_wakeups": 195,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11898.28235,
+          "cpu_ns": 212051166,
+          "interrupt_wakeups": 200,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11899.299792,
+          "cpu_ns": 214956583,
+          "interrupt_wakeups": 203,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11900.312613,
+          "cpu_ns": 216634583,
+          "interrupt_wakeups": 206,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11901.325076,
+          "cpu_ns": 219804916,
+          "interrupt_wakeups": 211,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11902.339329,
+          "cpu_ns": 222630041,
+          "interrupt_wakeups": 214,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11903.353425,
+          "cpu_ns": 225327000,
+          "interrupt_wakeups": 217,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11904.368962,
+          "cpu_ns": 228017625,
+          "interrupt_wakeups": 220,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11905.383522,
+          "cpu_ns": 232696666,
+          "interrupt_wakeups": 225,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11906.393266,
+          "cpu_ns": 235640416,
+          "interrupt_wakeups": 229,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11907.405683,
+          "cpu_ns": 239470583,
+          "interrupt_wakeups": 232,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11908.419841,
+          "cpu_ns": 241109083,
+          "interrupt_wakeups": 235,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11909.434376,
+          "cpu_ns": 244214000,
+          "interrupt_wakeups": 238,
+          "package_idle_wakeups": 0
+        },
+        {
+          "screen_locked": null,
+          "on_console": true,
+          "logged_in": true,
+          "time": 11910.446961,
+          "cpu_ns": 245748916,
+          "interrupt_wakeups": 241,
+          "package_idle_wakeups": 0
+        }
+      ],
+      "pointer_events": 0,
+      "uninterrupted": true,
+      "display_visible": true,
+      "scope": "Release-optimized standalone app with real notch panel and hidden workspace; synthetic calendar; network, notification delivery and WidgetKit extension excluded."
+    }
+  ]
+}

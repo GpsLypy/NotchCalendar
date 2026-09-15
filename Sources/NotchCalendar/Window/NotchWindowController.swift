@@ -34,7 +34,6 @@ final class NotchWindowController: NSObject, ObservableObject {
     private var pointerWasInsideTrigger = false
     private var hoverAnchor: NSPoint?
     private var pendingExpansionOrigin: NotchExpansionOrigin?
-    private let hoverDwell = Duration.milliseconds(350)
     private let hoverMovementTolerance: CGFloat = 8
 
     init(state: AppState) {
@@ -69,7 +68,7 @@ final class NotchWindowController: NSObject, ObservableObject {
             )
         )
         super.init()
-        let hostingView = NSHostingView(
+        let hostingView = NotchHostingView(
             rootView: AppLanguageHost {
                 NotchRootView(
                     state: state,
@@ -92,7 +91,7 @@ final class NotchWindowController: NSObject, ObservableObject {
         hostingView.wantsLayer = true
         hostingView.layerContentsRedrawPolicy = .onSetNeedsDisplay
         panel.contentView = hostingView
-        fileDropPanel.contentView = NSHostingView(
+        fileDropPanel.contentView = NotchHostingView(
             rootView: AppLanguageHost {
                 FileShelfDropTargetView(
                     onClick: { [weak self] in
@@ -117,9 +116,13 @@ final class NotchWindowController: NSObject, ObservableObject {
             }
         }
         preferencesObserver = state.presentationPreferences.$notchInteractionMode
-            .combineLatest(state.presentationPreferences.$showsMeetingStatus, state.presentationPreferences.$showsFocusStatus)
+            .combineLatest(
+                state.presentationPreferences.$showsMeetingStatus,
+                state.presentationPreferences.$showsFocusStatus,
+                state.presentationPreferences.$hoverResponse
+            )
             .dropFirst()
-            .sink { [weak self] _, _, _ in
+            .sink { [weak self] _, _, _, _ in
                 DispatchQueue.main.async { [weak self] in
                     self?.applyPresentationPreferences()
                 }
@@ -245,7 +248,7 @@ final class NotchWindowController: NSObject, ObservableObject {
         hoverAnchor = pointer
         expandTask = Task { @MainActor [weak self] in
             guard let self else { return }
-            try? await Task.sleep(for: self.hoverDwell)
+            try? await Task.sleep(for: self.state.presentationPreferences.hoverResponse.dwell)
             guard !Task.isCancelled else { return }
             self.expandTask = nil
             guard !self.state.isExpanded else { return }
@@ -415,7 +418,9 @@ final class NotchWindowController: NSObject, ObservableObject {
             NSAnimationContext.runAnimationGroup { context in
                 // AppKit hands this to Core Animation, which is display-synchronised
                 // and therefore presents at the ProMotion refresh rate when available.
-                context.duration = expanded ? 0.32 : 0.26
+                context.duration = expanded
+                    ? state.presentationPreferences.hoverResponse.expansionDuration
+                    : 0.22
                 context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
                 panel.animator().setFrame(newFrame, display: true)
                 if !expanded {

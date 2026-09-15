@@ -25,17 +25,17 @@ Published builds are currently ad-hoc signed and not Developer ID notarized. Aut
 
 ## Version 1.3
 
-The expanded notch now includes an optional Finder-style file shelf. Keep up to twelve folders in its sidebar, browse Name, Date Modified, Size and Kind columns, expand folders inline, open files, reveal items in Finder, copy paths, or drag files into other apps. Dragging a Finder file over the compact notch opens the shelf without moving or copying it.
+The expanded notch now includes an optional Finder-style file shelf. Keep up to twelve folders in its sidebar, browse Name, Date Modified, Size and Kind columns, and expand folders inline. A selected item can be opened, copied, revealed in Finder, copied as a path, or dragged into another app. Dragging a Finder file over the compact notch opens the shelf without moving or copying it.
 
 The file shelf is off by default and stays within the currently selected favorite. Machine-specific bookmarks remain local and are excluded from backups. Existing calendar, meeting and focus behavior remains unchanged.
 
-[Download 1.4.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.4.0) · [Release and validation notes](docs/quality/RELEASE_1.4.0.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Physical Finder drag/drop, final performance and some hardware acceptance remain pending; see the [quality report](docs/quality/README.md).
+[Download 1.4.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.4.1) · [Release and validation notes](docs/quality/RELEASE_1.4.1.md). This manual-install build uses ad-hoc signing only, without Developer ID signing or notarization. Optimized performance budgets passed; physical Finder interaction and some hardware acceptance remain pending. See the [quality report](docs/quality/README.md).
 
 ## Features
 
 - Compact notch view that stays still when idle; live meeting shoulders are available as an opt-in setting.
 - Optional Finder-style file shelf for up to twelve local folders, with bounded navigation, inline folder disclosure, Finder actions, file drag-out, sorting, hidden-file controls and automatic refresh.
-- Expanded agenda and month calendar after an intentional hover, with a click-only mode when you want the notch to remain completely quiet.
+- Expanded agenda and month calendar after an intentional hover, with Fast, Balanced and Prevent Accidental Opens response presets plus a click-only mode.
 - A graphite desktop workspace with a persistent sidebar, Today overview, responsive calendar, focus timer, scratchpad, and Radar.
 - Radar shows ten Hot, Ask, or Show Hacker News signals, then stops. It refreshes only when opened, keeps a 30-minute local cache, and preserves saved results when the network is unavailable.
 - Markets (`⌘6`) keeps up to eight US stock or ETF symbols, with add/remove/reorder controls, manual closing-quote refresh, trade dates, per-symbol errors, and a 15-minute cache. Add your own Alpha Vantage key in the page; it stays in macOS Keychain. This is a personal, end-of-day observation tool, not a real-time trading feed. See [provider setup and limits](docs/markets-provider.md).

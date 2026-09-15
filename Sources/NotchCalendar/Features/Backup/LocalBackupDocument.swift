@@ -9,7 +9,8 @@ enum LocalBackupPolicy {
     static let dataKeys: Set<String> = ["meeting.notes.v1", "workspace.focus.snapshot.v1"]
     static let stringKeys: Set<String> = [
         "workspace.scratchpad.text", "app.language", "presentation.notchInteractionMode",
-        "calendar.secondaryTimeZone", "meetings.hotKeyModifiers", "meetings.hotKeyLetter"
+        "presentation.notchHoverResponse", "calendar.secondaryTimeZone",
+        "meetings.hotKeyModifiers", "meetings.hotKeyLetter"
     ]
     static let boolKeys: Set<String> = [
         "presentation.showsMeetingStatus", "presentation.showsFocusStatus", "calendar.deduplicatesEvents",
@@ -96,6 +97,8 @@ struct LocalBackupDocument: Codable, Equatable, Sendable {
                 guard ["system", "en", "zh-Hans"].contains(language) else { throw LocalBackupError.invalidData }
             case ("presentation.notchInteractionMode", .string(let mode)):
                 guard ["intentionalHover", "clickOnly"].contains(mode) else { throw LocalBackupError.invalidData }
+            case ("presentation.notchHoverResponse", .string(let response)):
+                guard ["fast", "balanced", "deliberate"].contains(response) else { throw LocalBackupError.invalidData }
             case ("calendar.secondaryTimeZone", .string(let zone)):
                 guard zone.isEmpty || TimeZone(identifier: zone) != nil else { throw LocalBackupError.invalidData }
             case ("meetings.hotKeyModifiers", .string(let modifiers)):

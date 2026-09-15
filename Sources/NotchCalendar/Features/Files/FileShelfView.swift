@@ -7,6 +7,11 @@ struct FileShelfView: View {
     @Environment(\.appLanguage) private var appLanguage
     @State private var selectedItemURL: URL?
 
+    private var selectedItem: FileShelfItem? {
+        guard let selectedItemURL else { return nil }
+        return store.visibleItems.first(where: { $0.item.url == selectedItemURL })?.item
+    }
+
     var body: some View {
         HStack(spacing: 0) {
             sidebar
@@ -106,18 +111,37 @@ struct FileShelfView: View {
 
             Spacer(minLength: 6)
 
+            Button {
+                if let selectedItem { store.open(selectedItem) }
+            } label: {
+                Image(systemName: "arrow.up.forward.app").frame(width: 22, height: 22)
+            }
+            .disabled(selectedItem == nil)
+            .keyboardShortcut(.return, modifiers: [])
+            .help(t("Open"))
+
+            Button {
+                if let selectedItem { store.copyFile(selectedItem) }
+            } label: {
+                Image(systemName: "doc.on.doc").frame(width: 22, height: 22)
+            }
+            .disabled(selectedItem == nil)
+            .keyboardShortcut("c", modifiers: .command)
+            .help(t("Copy"))
+
             Button { store.refresh() } label: {
                 Image(systemName: "arrow.clockwise").frame(width: 22, height: 22)
             }
             .disabled(store.currentURL == nil || store.isLoading)
             .help(t("Refresh"))
 
-            if let currentURL = store.currentURL {
-                Button { store.reveal(currentURL) } label: {
-                    Image(systemName: "folder").frame(width: 22, height: 22)
-                }
-                .help(t("Show in Finder"))
+            Button {
+                if let url = selectedItem?.url ?? store.currentURL { store.reveal(url) }
+            } label: {
+                Image(systemName: "magnifyingglass").frame(width: 22, height: 22)
             }
+            .disabled(selectedItem == nil && store.currentURL == nil)
+            .help(t("Show in Finder"))
         }
         .buttonStyle(.plain)
         .foregroundStyle(WorkspacePalette.secondaryText)
@@ -283,13 +307,14 @@ private struct FileShelfTableRow: View {
         .background(rowBackground)
         .onHover { isHovering = $0 }
         .onTapGesture(count: 2) { store.open(item) }
-        .onTapGesture { selection = item.url }
+        .simultaneousGesture(TapGesture().onEnded { selection = item.url })
         .draggable(item.url)
         .contextMenu {
             Button(item.isDirectory && !item.isPackage ? t("Open Folder") : t("Open")) {
                 store.open(item)
             }
             Button(t("Show in Finder")) { store.reveal(item.url) }
+            Button(t("Copy")) { store.copyFile(item) }
             Button(t("Copy Path")) { store.copyPath(item.url) }
         }
         .accessibilityElement(children: .combine)

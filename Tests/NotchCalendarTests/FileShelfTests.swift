@@ -1,4 +1,6 @@
+import AppKit
 import Foundation
+import SwiftUI
 import XCTest
 @testable import NotchCalendar
 
@@ -51,6 +53,25 @@ final class FileShelfTests: XCTestCase {
         }
     }
 
+    func testThousandItemDirectoryReadStaysWithinInteractiveBudget() throws {
+        try withDirectory { directory in
+            for index in 0..<1_000 {
+                try Data().write(to: directory.appendingPathComponent("File-\(index).txt"))
+            }
+            let clock = ContinuousClock()
+            var items: [FileShelfItem] = []
+            let duration = try clock.measure {
+                items = try FileShelfDirectoryReader.items(
+                    at: directory,
+                    showsHiddenFiles: false,
+                    sort: .name
+                )
+            }
+            XCTAssertEqual(items.count, 1_000)
+            XCTAssertLessThan(duration, .seconds(2))
+        }
+    }
+
     func testRootBoundaryRejectsSiblingAndEscapingSymbolicLink() throws {
         try withDirectory { parent in
             let root = parent.appendingPathComponent("root")
@@ -65,6 +86,35 @@ final class FileShelfTests: XCTestCase {
             XCTAssertFalse(FileShelfDirectoryReader.contains(sibling, inside: root))
             XCTAssertFalse(FileShelfDirectoryReader.contains(link, inside: root))
         }
+    }
+
+    @MainActor
+    func testCopyWritesFinderCompatibleFileURL() throws {
+        try withDirectory { directory in
+            let file = directory.appendingPathComponent("Copy Me.txt")
+            try Data("content".utf8).write(to: file)
+            let item = try XCTUnwrap(FileShelfDirectoryReader.items(
+                at: directory,
+                showsHiddenFiles: false,
+                sort: .name
+            ).first)
+            let pasteboard = NSPasteboard(name: NSPasteboard.Name("FileShelfTests.\(UUID())"))
+            let suite = "FileShelfCopyTests.\(UUID())"
+            let defaults = try XCTUnwrap(UserDefaults(suiteName: suite))
+            defer { defaults.removePersistentDomain(forName: suite) }
+            let store = FileShelfStore(defaults: defaults)
+
+            XCTAssertTrue(store.copyFile(item, to: pasteboard))
+            let copiedValue = try XCTUnwrap(pasteboard.string(forType: .fileURL))
+            let copiedURL = try XCTUnwrap(URL(string: copiedValue))
+            XCTAssertEqual(copiedURL.standardizedFileURL, file.standardizedFileURL)
+        }
+    }
+
+    @MainActor
+    func testNotchHostingViewAcceptsTheFirstClick() {
+        let hostingView = NotchHostingView(rootView: Text("First click"))
+        XCTAssertTrue(hostingView.acceptsFirstMouse(for: nil))
     }
 
     @MainActor

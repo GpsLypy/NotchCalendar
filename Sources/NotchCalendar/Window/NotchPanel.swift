@@ -1,4 +1,9 @@
 import AppKit
+import SwiftUI
+
+final class NotchHostingView<Content: View>: NSHostingView<Content> {
+    override func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
+}
 
 final class NotchPanel: NSPanel {
     init(contentRect: NSRect) {

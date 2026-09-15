@@ -61,6 +61,20 @@ struct SettingsView: View {
                 }
                 .pickerStyle(.menu)
 
+                if presentationPreferences.notchInteractionMode == .intentionalHover {
+                    Picker(
+                        t("Hover response"),
+                        selection: $presentationPreferences.hoverResponse
+                    ) {
+                        ForEach(NotchHoverResponse.allCases) { response in
+                            Text(t(response.titleKey)).tag(response)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    Text(t("Controls how quickly the notch opens after the pointer enters it."))
+                        .foregroundStyle(.secondary)
+                }
+
                 Toggle(
                     t("Show live meeting status beside the notch"),
                     isOn: $presentationPreferences.showsMeetingStatus

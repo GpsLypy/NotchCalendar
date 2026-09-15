@@ -66,6 +66,7 @@ final class PresentationPolicyTests: XCTestCase {
         let preferences = PresentationPreferences(defaults: defaults)
 
         XCTAssertEqual(preferences.notchInteractionMode, .intentionalHover)
+        XCTAssertEqual(preferences.hoverResponse, .balanced)
         XCTAssertFalse(preferences.showsMeetingStatus)
     }
 
@@ -77,10 +78,19 @@ final class PresentationPolicyTests: XCTestCase {
 
         let preferences = PresentationPreferences(defaults: defaults)
         preferences.notchInteractionMode = .clickOnly
+        preferences.hoverResponse = .fast
         preferences.showsMeetingStatus = true
 
         let restored = PresentationPreferences(defaults: defaults)
         XCTAssertEqual(restored.notchInteractionMode, .clickOnly)
+        XCTAssertEqual(restored.hoverResponse, .fast)
         XCTAssertTrue(restored.showsMeetingStatus)
+    }
+
+    func testHoverResponsePresetsIncreaseDelayAndAnimationInOrder() {
+        XCTAssertLessThan(NotchHoverResponse.fast.dwell, NotchHoverResponse.balanced.dwell)
+        XCTAssertLessThan(NotchHoverResponse.balanced.dwell, NotchHoverResponse.deliberate.dwell)
+        XCTAssertLessThan(NotchHoverResponse.fast.expansionDuration, NotchHoverResponse.balanced.expansionDuration)
+        XCTAssertLessThan(NotchHoverResponse.balanced.expansionDuration, NotchHoverResponse.deliberate.expansionDuration)
     }
 }
