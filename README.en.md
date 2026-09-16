@@ -6,10 +6,11 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
-## New in 1.6.2
+## New in 1.6.3
 
-- GitHub and Check for Updates move into Settings → Software Update, retaining Support, License & trial, Share and Settings in the sidebar.
-- Improved license recovery after one-time Keychain approval, with session reuse and specific error codes on failure.
+- Private bookmarks remain unlocked while you stay on their page, then lock when you leave, switch apps or windows, lock the screen, or put the Mac to sleep.
+- Bookmark authentication waits for the original window to regain focus and provides an explicit Keychain recovery action with error codes when needed.
+- Widgets cache this month and next month so upcoming events remain available across month rollover while the main app is closed.
 
 ## Personal workspace
 
