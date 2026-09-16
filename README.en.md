@@ -6,10 +6,10 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
-## New in 1.6.1
+## New in 1.6.2
 
-- Settings uses six top navigation categories, with direct links to update, calendar and meeting preferences.
-- Startup and background license checks no longer repeatedly show Keychain password dialogs. Use Retry reading license when authorization is needed.
+- GitHub and Check for Updates move into Settings → Software Update, retaining Support, License & trial, Share and Settings in the sidebar.
+- Improved license recovery after one-time Keychain approval, with session reuse and specific error codes on failure.
 
 ## Personal workspace
 
