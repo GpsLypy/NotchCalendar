@@ -4,6 +4,7 @@ macOS 15+ · Apple 芯片与 Intel · build 40 · 2026-09-16
 
 ## 新增 / Added
 
+- **展开刘海便笺**：在「文件」后新增「便笺」入口，可直接编辑自动保存在本机的便笺，并使用 `⌘4` 快速切换。
 - **跨月小组件数据**：日历快照预先保存本月和下月事件。主应用在月末未运行时，月历和今日日程小组件跨月后仍可显示下月安排。
 
 ## 修复 / Fixed
@@ -36,6 +37,7 @@ macOS 15+ · Apple 芯片与 Intel · build 40 · 2026-09-16
 
 ### Added
 
+- The expanded notch adds Scratchpad immediately after Files, with automatic local saving and Command-4 access.
 - Calendar snapshots now include this month and next month, keeping widget events available across month rollover while the host app is closed.
 
 ### Fixed
