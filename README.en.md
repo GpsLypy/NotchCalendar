@@ -6,7 +6,12 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
-## New in 1.6
+## New in 1.6.1
+
+- Settings uses six top navigation categories, with direct links to update, calendar and meeting preferences.
+- Startup and background license checks no longer repeatedly show Keychain password dialogs. Use Retry reading license when authorization is needed.
+
+## Personal workspace
 
 - Offline daily classical Chinese poetry, with saved verses and a collapsible card.
 - Encrypted private website bookmarks, protected by system authentication and automatic locking.
@@ -22,7 +27,7 @@ The new licensed distribution is closed source. At first launch, choose a **7-da
 
 ## Permanent activation
 
-1. Scan the WeChat payment QR code in the launch window or Settings → “永久授权 / 支持作者”, and pay CNY 9.90.
+1. Scan the WeChat payment QR code in the launch window or Settings → General → License & trial, and pay CNY 9.90.
 2. Send your payment receipt and the installation ID copied from the app to the author.
 3. After manually confirming payment, the author sends an activation code. Paste it into the app to activate.
 

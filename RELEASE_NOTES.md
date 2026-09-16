@@ -1,44 +1,44 @@
-# Notch Calendar 1.6.0
+# Notch Calendar 1.6.1
 
-macOS 15+ · Apple 芯片与 Intel · build 33 · 2026-09-16
+macOS 15+ · Apple 芯片与 Intel · build 34 · 2026-09-16
 
-## 新增
+## 优化 / Improved
 
-- **今日诗笺**：14 条内置古典诗词摘句，按本地日期轮换，支持换一句、收藏、我的诗笺和收起，离线可用。
-- **私密收藏（⌘9）**：通过 Mac 系统身份验证解锁，加密保存网站标题和网址，支持搜索、编辑、置顶和删除。离开页面、切换应用或窗口、休眠或解锁两分钟后锁定。
-- **首次上手**：从查看日历、开始专注、收藏诗句中选择一个目标，按实际操作记录完成。可跳过，以后从设置重新打开，不会自动启动或覆盖计时。
-- **资讯显隐**：可隐藏情报台、自选行情、舆论室、信息差简报，侧栏、快捷键与快速搜索同步调整，已有数据保留。
-- **领码与售后**：一键复制申请资料或打开预填邮件草稿。收到完整付款凭证和安装标识后通常 24 小时内回复；换机、重装凭购买记录免费补发，无年度次数限制，仅限本人使用；丢码无需再次付款。
-- **自愿打赏**：侧栏新增打赏作者入口，已激活用户也可自愿支持，无需续费。
+- **设置重新排版**：顶部固定分类导航，下方分组卡片。通用设置、日历设置、会议提醒、工作台、数据与文件、软件更新各自独立，内容在 820 × 620 的窗口内滚动。
+- **直接进入更新页**：点击「检查更新」或新版本提示，直接进入软件更新分类；日历来源、会议提醒入口也会定位对应设置。
+- **精简窗口顶部**：授权入口移至「通用设置 → 授权与试用」，避免额外占用一行工具栏。
 
-## 修复
+## 修复 / Fixed
 
-- 有效试用期间重启不再反复弹出收款窗口；新增侧栏「授权与试用」入口。
-- 永久授权检查不再反复写入钥匙串；后台检查保留激活错误提示。
-- 没有定时日程时收起空时间轴，空闲状态提供直接进入专注的操作。
+- **修复授权钥匙串反复弹窗**：启动、定时检查、唤醒及试用记录保存改为静默访问钥匙串。需要许可时在应用内提示，仅点击「重试读取授权」才允许出现系统授权框。
+- 钥匙串访问被拒绝时保留原记录，不新建安装标识、不重置试用，也不会错误授予永久权限。
 
-## 授权与隐私
+## 升级与授权
 
-7 天免费试用，**¥9.9 一次买断、永久使用、无订阅**。付款核实和发码仍由作者人工完成。邮箱 **498988598@qq.com**，手机 **13191513539**。1.5.0 的有效授权继续使用，升级无需再次付款。
+下载 `NotchCalendar-1.6.1-macos.dmg`，退出旧版后拖入「应用程序」替换。也提供 ZIP 与 SHA-256 校验文件。1.5.0 / 1.6.0 的有效永久授权继续使用，升级无需再次付款。
 
-私密收藏在本机加密保存，密钥位于 macOS 钥匙串；不抓取网站预览，也不上传云端。**收藏和密钥不包含在应用 JSON 备份中**，请将本机加密文件和钥匙串一起妥善备份。打开网站会交给默认浏览器，浏览器可能记录历史；此功能不是无痕浏览器。
+若升级后提示无法读取授权，请点击「重试读取授权」，在 macOS 提示中输入登录钥匙串密码（通常为 Mac 登录密码）并选择「始终允许」。不要删除原授权钥匙串记录。
 
-## 安装
-
-下载 `NotchCalendar-1.6.0-macos.dmg`，退出旧版后，将应用拖入「应用程序」替换。也提供 ZIP 压缩包和 SHA-256 校验文件。
-
-**此版本仅采用 ad-hoc 签名，未进行 Developer ID 签名和 Apple 公证，需要手动安装；macOS 可能显示安全提示。** 不提供自动替换安装。
+**此版本仅采用 ad-hoc 签名，未进行 Developer ID 签名和 Apple 公证，需要手动安装；macOS 可能显示安全提示。不提供自动替换安装。**
 
 ## 验证范围
 
-本地 Swift 测试 291 项，10 项可选测试跳过，零失败；Apple 芯片和 Intel 双架构构建通过。包括私密收藏加密与错误处理、自动锁定、上手引导实际操作、跳过记忆、隐藏模块导航回退、邮件模板编码，以及授权持久化测试。
+完整 Swift 测试共 295 项，12 项按需测试跳过，零失败；发布质量脚本测试 20 项通过。
 
-真实 Touch ID/登录密码交互、锁屏/跨设备钥匙串恢复、邮件客户端兼容性、实际微信收款与发码，以及完整刘海/外接屏交互仍待实机验收。相关测试使用隔离偏好与模拟认证，不替代这些实机流程。
+授权回归测试覆盖静默读取、试用检查点写入、显式重试恢复、系统交互策略恢复、永久授权持久化及试用到期。设置页面已进行原生渲染检查。
+
+真实升级后的登录密码交互、锁屏/跨设备钥匙串恢复，以及完整刘海/外接屏交互仍待实机验收。自动测试与合成日历性能探针不替代这些流程。
 
 ## English
 
-Version 1.6.0 adds offline daily poetry, encrypted private bookmarks, a skippable first-use guide, optional insight modules, activation-request templates and voluntary author support. Existing 1.5.0 lifetime licenses remain valid. Complete activation requests usually receive a reply within 24 hours; personal-use replacement codes are free with proof of purchase, with no annual limit.
+### Improved
 
-Private bookmarks require the local encrypted file and its Keychain key for recovery and are excluded from app JSON backups. Links use the default browser and may be recorded in browser history.
+- Settings now uses a persistent top navigation bar with six categories and grouped cards in an 820 × 620 window.
+- Update, calendar-source and meeting-reminder actions open the relevant category directly. License access is available under General settings.
 
-This is an ad-hoc signed, manual-install build without Developer ID signing or Apple notarization. Physical-device and real payment acceptance remain incomplete as disclosed above.
+### Fixed
+
+- Startup and background license checks, including trial checkpoint writes, no longer open Keychain password dialogs. Only the explicit Retry reading license action permits system interaction.
+- Denied access preserves existing records and does not reset trials or grant access incorrectly.
+
+Existing lifetime licenses remain valid. Quit the previous version and replace the app using the DMG or ZIP. If authorization is needed, use Retry reading license and follow the macOS prompt. This is an ad-hoc signed, manual-install build without Developer ID signing or Apple notarization. Real authentication and physical-device acceptance remain pending.
