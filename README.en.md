@@ -6,6 +6,16 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
+## New in 1.6
+
+- Offline daily classical Chinese poetry, with saved verses and a collapsible card.
+- Encrypted private website bookmarks, protected by system authentication and automatic locking.
+- A skippable first-use guide for Calendar, Focus, or saving a poem.
+- Optional insight modules that can be hidden from navigation, shortcuts, and quick search.
+- Copyable activation requests and prefilled email drafts, plus voluntary author support.
+
+Private bookmarks are excluded from app JSON backups: keep the encrypted file and its Keychain key backed up together. Links open in your default browser and may appear in browser history. See [release notes](RELEASE_NOTES.md).
+
 Requires macOS 15 or later. Supports Apple silicon and Intel Macs. Download the DMG, move the app to Applications, and launch it.
 
 The new licensed distribution is closed source. At first launch, choose a **7-day free trial** or activate a permanent license. A **one-time CNY 9.90 payment** grants perpetual use, with no subscription. Activated users no longer receive automatic payment prompts. Historical MIT releases retain their original terms; check the release notes for the downloaded version.
@@ -17,6 +27,8 @@ The new licensed distribution is closed source. At first launch, choose a **7-da
 3. After manually confirming payment, the author sends an activation code. Paste it into the app to activate.
 
 Email: **498988598@qq.com** · Phone: **13191513539**
+
+We usually reply within **24 hours** after receiving a complete payment receipt and installation ID. Replacement codes for a new Mac or reinstallation are free with proof of purchase, with no annual limit, for your own use only. If your code is missing, reply to the same email with your receipt and current installation ID; do not pay again.
 
 ![WeChat payment QR code](images/payment.png)
 
