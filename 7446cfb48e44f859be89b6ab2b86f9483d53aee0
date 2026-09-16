@@ -1,0 +1,140 @@
+Sources/NotchCalendar/Features/Discussion/DiscussionModels.swift
+  s_82120018299ef1::t_7189be2a54b1b9 3-15
+  s_82120018299ef1::t_9aec69100af71f 1-2,16-123
+Sources/NotchCalendar/Features/Discussion/HackerNewsDiscussionClient.swift
+  s_82120018299ef1::t_9aec69100af71f 1-51,59-134
+  s_82120018299ef1::t_7189be2a54b1b9 52-58
+Tests/NotchCalendarTests/DiscussionTests.swift
+  s_82120018299ef1::t_6993c82edbd72a 1-63,65-80,103,105-106,108-167,170-184,243-309,318-320
+  s_82120018299ef1::t_7189be2a54b1b9 64,104,107
+  s_82120018299ef1::t_d28f6ddf28e438 81-102,197-210,213-234,310-317
+  s_82120018299ef1::t_a25ed557c5ba40 168-169
+  s_82120018299ef1::t_13bd95b56ab893 185-196,211-212,235-242
+docs/PRODUCT_ROADMAP.md
+  s_82120018299ef1::t_645e7268465672 23,25-28,30,32,34,36
+Sources/NotchCalendar/Features/Workspace/MainWorkspaceView.swift
+  s_82120018299ef1::t_e6cbc212ee37a4 73-78
+Sources/NotchCalendar/Resources/en.lproj/Localizable.strings
+  s_82120018299ef1::t_e6cbc212ee37a4 2-4
+Sources/NotchCalendar/Features/Workspace/WorkspaceSidebar.swift
+  s_82120018299ef1::t_807a226c7ee336 19-33
+  s_82120018299ef1::t_e6cbc212ee37a4 17-18,34-36,38,224-226
+marketing/v0.6.0/image-prompt.md
+  s_82120018299ef1::t_9372020bc8fdca 1-18
+Support/Info.plist
+  s_82120018299ef1::t_c9db91a93acf12 20
+  s_82120018299ef1::t_807a226c7ee336 22
+Sources/NotchCalendar/Resources/zh-Hans.lproj/Localizable.strings
+  s_82120018299ef1::t_e6cbc212ee37a4 259-261
+marketing/v0.6.0/narration.json
+  s_82120018299ef1::t_667c9b04901b92 1-4,7-10,13-16,19-22,25-28,31-33,37-40,43-46,49-52,55-58,61-64,67-70,73-76,79-82,85-88,91-93,97-100,103-106,109-112,115-118,121-124,127-129,133-136,139-142,145-148,151-154,157-160,163-166,169-172,175-178,181-182
+  s_82120018299ef1::t_0daa8800a0fc61 5,34-35,94-95,130-131
+  s_82120018299ef1::t_e616cc637a7f8b 6,11-12,17-18,23-24,29-30,36,41-42,47-48,53-54,59-60,65-66,71-72,77-78,83-84,89-90,96,101-102,107-108,113-114,119-120,125-126,132,137-138,143-144,149-150,155-156,161-162,167-168,173-174,179-180
+Sources/NotchCalendar/Features/Discussion/DiscussionWorkspaceView.swift
+  s_82120018299ef1::t_1879a2ec751d6a 1-5,9-12,23-56,59,61-63,66,68-85,88-110,112-150,152-161,163-164,166-314,316-323,325-369,371-430
+  s_82120018299ef1::t_20a0929afca05b 6-8,15-22
+  s_82120018299ef1::t_7189be2a54b1b9 13-14,57-58,60,64-65,67,86-87,162,324
+  s_82120018299ef1::t_a25ed557c5ba40 111,151,165,370
+  s_82120018299ef1::t_0576248f211bf6 315
+Sources/NotchCalendar/Features/Briefing/BriefingCache.swift
+  s_82120018299ef1::t_e18174eeb95ff3 1-44,46-82
+  s_82120018299ef1::t_e840d0302bb60c 45
+Sources/NotchCalendar/Features/Markets/MarketWorkspaceView.swift
+  s_82120018299ef1::t_4b0349b5c058f3 59,124-127
+  s_82120018299ef1::t_8e258173f16cea 1-58,60-123,128-324
+Sources/NotchCalendar/Features/Markets/AlphaVantageMarketClient.swift
+  s_82120018299ef1::t_3e2fafd30b3f7c 1-151
+Sources/NotchCalendar/Features/Briefing/BriefingFeedClient.swift
+  s_82120018299ef1::t_88bdfa38bb806b 1-70,72-86,110-201
+  s_82120018299ef1::t_16eb4fb6e6ee7a 71,87-109
+docs/markets-provider.md
+  s_82120018299ef1::t_78e97568a8210f 1-26
+Sources/NotchCalendar/Features/Markets/MarketKeychain.swift
+  s_82120018299ef1::t_a8be5a66fa736d 1-49
+README.md
+  s_82120018299ef1::t_02489f19f02f6f 11-13,34
+  s_82120018299ef1::t_2ee562476a5c62 35
+Sources/NotchCalendar/Features/Discussion/DiscussionStore.swift
+  s_82120018299ef1::t_7189be2a54b1b9 98-101
+  s_82120018299ef1::t_c341c7e9ebcfce 1-22,30-97,102-136,139-157
+  s_82120018299ef1::t_0576248f211bf6 23-29
+  s_82120018299ef1::t_a25ed557c5ba40 137-138
+docs/VALIDATION_V0.6.0.md
+  s_82120018299ef1::t_7f64992e4d27ac 1-2,4-26,28-45
+  s_82120018299ef1::t_4b894f29f5bc39 3,27
+Tests/NotchCalendarTests/BriefingTests.swift
+  s_82120018299ef1::t_c34c4b4d7c0552 166,182,199,222,254
+  s_82120018299ef1::t_1b1b44f2eccf86 1-54,93-165,167-181,183-198,200-221,223-253,255-296
+  s_82120018299ef1::t_16eb4fb6e6ee7a 55-92
+docs/briefing-sources.md
+  s_82120018299ef1::t_16eb4fb6e6ee7a 29
+  s_82120018299ef1::t_862f94f6600a13 39-40
+  s_82120018299ef1::t_e840d0302bb60c 1-28,30-38
+marketing/v0.6.0/output/小红书文案.md
+  s_82120018299ef1::t_b2b77150a7c5fa 1-34,40-46,48-51
+  s_82120018299ef1::t_645e7268465672 35-39,47
+marketing/v0.6.0/output/validation.md
+  s_82120018299ef1::t_233f3df4f1807d 10-16
+  s_82120018299ef1::t_946178b2d034f4 1-9
+Sources/NotchCalendar/Features/Workspace/WorkspacePalette.swift
+  s_82120018299ef1::t_e6cbc212ee37a4 23-25,36-38,49-51
+marketing/v0.6.0/README.md
+  s_82120018299ef1::t_7f64992e4d27ac 1-4,7-35
+  s_82120018299ef1::t_4b894f29f5bc39 5-6
+marketing/v0.6.0/prepare-voice.py
+  s_82120018299ef1::t_251a6100f953da 1-15,17-32
+  s_82120018299ef1::t_e616cc637a7f8b 16
+Support/NotchCalendarWidgets-Info.plist
+  s_82120018299ef1::t_c9db91a93acf12 20,22
+marketing/v0.6.0/build-media.cjs
+  s_82120018299ef1::t_645e7268465672 371,419
+  s_82120018299ef1::t_e616cc637a7f8b 380,420
+  s_82120018299ef1::t_0daa8800a0fc61 353,356
+  s_82120018299ef1::t_6699d469ad8dd3 1-70,72-352,354-355,357-370,372-379,381-418,421-425,427-434
+  s_82120018299ef1::t_beafe828859598 71,426
+docs/PRODUCT_ANALYSIS_V0.6.0.md
+  s_82120018299ef1::t_79e45e032e5874 1-42
+marketing/v0.6.0/scene-titles.json
+  s_82120018299ef1::t_667c9b04901b92 1
+Tests/NotchCalendarTests/MarketingCaptureTests.swift
+  s_82120018299ef1::t_4549ba57e24d80 1-19,22-24,29-35,38,40-49,53-57,59-61,63,74-83
+  s_82120018299ef1::t_645e7268465672 20-21,36-37,39,50-52,58,70
+  s_82120018299ef1::t_d885e332442d70 25-28,62,64-69,71-73
+Sources/NotchCalendar/Features/Briefing/BriefingWorkspaceView.swift
+  s_82120018299ef1::t_80df63d5a57f55 1-355
+Sources/NotchCalendar/Features/Markets/MarketModels.swift
+  s_82120018299ef1::t_3e2fafd30b3f7c 1-100
+Sources/NotchCalendar/Features/Briefing/BriefingModels.swift
+  s_82120018299ef1::t_88bdfa38bb806b 1-85,87-92,97-130
+  s_82120018299ef1::t_e840d0302bb60c 86,93-96
+Tests/NotchCalendarTests/MarketTests.swift
+  s_82120018299ef1::t_78e97568a8210f 1-222,226-261,266-326
+  s_82120018299ef1::t_4b0349b5c058f3 223-225,262-265
+Sources/NotchCalendar/Features/Markets/MarketStore.swift
+  s_82120018299ef1::t_4b0349b5c058f3 19
+  s_82120018299ef1::t_8e258173f16cea 29,114-123,130
+  s_82120018299ef1::t_a8be5a66fa736d 1-18,20-28,30-113,124-129,131-216
+Sources/NotchCalendar/Features/Briefing/BriefingStore.swift
+  s_82120018299ef1::t_e18174eeb95ff3 1-128
+CHANGELOG.md
+  s_82120018299ef1::t_02489f19f02f6f 7-8,11-25
+  s_82120018299ef1::t_4b894f29f5bc39 9-10
+marketing/v0.6.0/output/视频脚本.md
+  s_82120018299ef1::t_a5dd4239252f28 1-87
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "7446cfb48e44f859be89b6ab2b86f9483d53aee0",
+  "prompts": {},
+  "sessions": {
+    "s_82120018299ef1": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06e7d-d234-7813-b4b1-8bb544a391ff",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

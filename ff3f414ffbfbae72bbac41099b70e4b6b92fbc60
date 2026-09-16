@@ -1,0 +1,37 @@
+Tests/NotchCalendarTests/UpdateInstallerTests.swift
+  s_5a1b49bfe7d072::t_396e1fe127b13e 13
+.github/workflows/release.yml
+  s_5a1b49bfe7d072::t_3c32ad270c8499 24
+CHANGELOG.md
+  s_5a1b49bfe7d072::t_622df7afc832cb 5-16
+README.md
+  s_5a1b49bfe7d072::t_82aa3575cd6e6c 9,35
+Scripts/create_release.sh
+  s_5a1b49bfe7d072::t_dfcd667f274e0d 69
+Support/Info.plist
+  s_70afc2c5d6a468::t_9147baaaa91226 18,20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "ff3f414ffbfbae72bbac41099b70e4b6b92fbc60",
+  "prompts": {},
+  "sessions": {
+    "s_5a1b49bfe7d072": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06572-f293-7ea1-89fb-75f67a051511",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    },
+    "s_70afc2c5d6a468": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0669f-9261-7491-9b14-57317a3e25f4",
+        "model": "unknown"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

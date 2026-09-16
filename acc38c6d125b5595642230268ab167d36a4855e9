@@ -1,0 +1,21 @@
+docs/VALIDATION_V0.6.0.md
+  s_91279c3a96e9b9::t_5b0d5be0cf6ada 45
+.gitignore
+  s_91279c3a96e9b9::t_5b0d5be0cf6ada 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "acc38c6d125b5595642230268ab167d36a4855e9",
+  "prompts": {},
+  "sessions": {
+    "s_91279c3a96e9b9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f76e31702ffeq7l8CwIfWeDozK",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

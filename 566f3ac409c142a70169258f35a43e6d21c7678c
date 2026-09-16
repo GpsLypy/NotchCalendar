@@ -1,0 +1,163 @@
+Sources/NotchCalendar/Features/Radar/RadarWorkspaceView.swift
+  s_3c396ceb6230d1::t_4ad38a3dbba52c 1-6,12-30,34-64,66-122,124-146,148-239,259-261,268-428
+  s_3c396ceb6230d1::t_dbb13a042f79c0 7-11,31-33,65,123,147,240-258,262-267
+Sources/NotchCalendar/App/AppState.swift
+  s_3c396ceb6230d1::t_800e0dc09234fd 1,20,39,69-95,100-101
+  s_3c396ceb6230d1::t_f82e82b44d2b0f 59
+  s_3c396ceb6230d1::t_69ddb1cee2e40b 22,64,96-99
+  s_3c396ceb6230d1::t_54f5c37f1c431e 10,17-18,29,33,36,40,48-57,60-63,65-66,102
+  s_3c396ceb6230d1::t_0c246c0c3e9e31 58,67-68
+Sources/NotchCalendar/Features/Workspace/MainWorkspaceView.swift
+  s_3c396ceb6230d1::t_66e7ee0625cfb6 71-72
+Sources/NotchCalendar/Window/ScreenGeometry.swift
+  s_3c396ceb6230d1::t_54f5c37f1c431e 81-94
+  s_3c396ceb6230d1::t_5b755e997c9eca 7,58-59,64-68
+Sources/NotchCalendar/Calendar/CalendarManager.swift
+  s_3c396ceb6230d1::t_0c246c0c3e9e31 60-62,65,94
+  s_3c396ceb6230d1::t_5e03d349837fba 98-102
+Sources/NotchCalendar/Settings/SettingsView.swift
+  s_3c396ceb6230d1::t_8f4dfbd14b8b77 6,36-52,54-58,68-71
+  s_3c396ceb6230d1::t_4a014b36dda06e 27,29-31
+  s_3c396ceb6230d1::t_69ddb1cee2e40b 28,53,59-67,205-209
+  s_3c396ceb6230d1::t_2570c79b9ac7d2 72-73
+  s_3c396ceb6230d1::t_a5f10da268c63c 210-211
+.github/workflows/release.yml
+  s_3c396ceb6230d1::t_c884af13c04ee3 65
+  s_3c396ceb6230d1::t_4aa1aacc061b84 24,36-64,66-85
+docs/PRODUCT_ROADMAP.md
+  s_3c396ceb6230d1::t_ed8db2594c7f73 1-72
+Support/Info.plist
+  s_3c396ceb6230d1::t_303abc7b7d8923 20,22
+Sources/NotchCalendar/Features/Radar/HackerNewsRadarClient.swift
+  s_3c396ceb6230d1::t_4407f7440f2b95 171,173-174
+  s_3c396ceb6230d1::t_20de7fb5b93b37 1-56,58-64,66,71,73-75,100-101,103-106,113-132,143-170,175-178,180-184,186-199,201-277
+  s_3c396ceb6230d1::t_dbb13a042f79c0 57,65,67-70,72,76-99
+  s_3c396ceb6230d1::t_30954b66599764 102
+  s_3c396ceb6230d1::t_bd656e52c16953 133-142
+  s_3c396ceb6230d1::t_ea80a569245ff9 107-112,172,179,185,200
+Sources/NotchCalendar/Resources/zh-Hans.lproj/Localizable.strings
+  s_3c396ceb6230d1::t_5b755e997c9eca 257
+  s_3c396ceb6230d1::t_66e7ee0625cfb6 102-103,197-223
+  s_3c396ceb6230d1::t_4a014b36dda06e 13-14,16-23
+  s_3c396ceb6230d1::t_69ddb1cee2e40b 258
+  s_3c396ceb6230d1::t_f534d40c56435c 224
+CHANGELOG.md
+  s_3c396ceb6230d1::t_303abc7b7d8923 7-28
+Sources/NotchCalendarWidgets/MonthCalendarWidget.swift
+  s_3c396ceb6230d1::t_5dc92d49b54b2b 102
+  s_3c396ceb6230d1::t_206e687a43c281 43-45,53-55,75-79
+docs/auto-changelog/changelog-v0.4.0-v0.5.0.md
+  s_3c396ceb6230d1::t_91f9e24bf62e5b 1-59
+Sources/NotchCalendar/App/PresentationPolicy.swift
+  s_3c396ceb6230d1::t_5b755e997c9eca 18-28
+  s_3c396ceb6230d1::t_54f5c37f1c431e 1-17,29-47,50-59,65-67,80,89-90,93-109
+  s_3c396ceb6230d1::t_2a9e088cb2c733 48-49,60-64,70-72,76,84,86
+  s_3c396ceb6230d1::t_91d6b27a05994c 68-69,73-75,77-79,81-83,85,87-88,91-92
+Sources/NotchCalendar/App/NotchCalendarApp.swift
+  s_3c396ceb6230d1::t_54f5c37f1c431e 10-13
+Sources/NotchCalendar/Features/Radar/RadarCache.swift
+  s_3c396ceb6230d1::t_72c18fa27f50cd 1-78
+Sources/NotchCalendar/App/AppDelegate.swift
+  s_3c396ceb6230d1::t_2a9e088cb2c733 51-53,55-60
+  s_3c396ceb6230d1::t_54f5c37f1c431e 33,35,37-40,49-50,76,78-79,104,110
+  s_3c396ceb6230d1::t_b555416fd2127a 13-14,34,36,44-48,54,61,68,75,77,96-103,105-109
+  s_3c396ceb6230d1::t_a8d0fe1d4cde47 12,43
+  s_3c396ceb6230d1::t_f39aee6c846afa 74
+  s_3c396ceb6230d1::t_773f151add9661 111
+Sources/NotchCalendarWidgets/TodayAgendaWidget.swift
+  s_3c396ceb6230d1::t_206e687a43c281 43-45,53-55,87-91
+  s_3c396ceb6230d1::t_5dc92d49b54b2b 134
+Sources/NotchCalendar/Features/Notch/CompactNotchView.swift
+  s_3c396ceb6230d1::t_5b755e997c9eca 8-9,16,21,26,139-140,156-158,162-167
+  s_3c396ceb6230d1::t_38fd8380c8e078 35-42
+  s_2cee4059d26aa6::t_fe17717d81710b 168-169
+Sources/NotchCalendar/Features/Notch/NotchRootView.swift
+  s_3c396ceb6230d1::t_e5a7be0d7072f3 37,60
+  s_3c396ceb6230d1::t_5b755e997c9eca 8-9,14-16,21-22,66-67,73-75
+Sources/NotchCalendar/Calendar/CalendarModels.swift
+  s_3c396ceb6230d1::t_5e03d349837fba 3
+Sources/NotchCalendarWidgets/FocusTimerWidget.swift
+  s_3c396ceb6230d1::t_5dc92d49b54b2b 88
+  s_3c396ceb6230d1::t_206e687a43c281 40-42,60-64
+Sources/NotchCalendarWidgets/WidgetTheme.swift
+  s_3c396ceb6230d1::t_206e687a43c281 57-58,63-64,68-69,86-97,114-115,117-129,131-150,153-164,203
+  s_3c396ceb6230d1::t_5dc92d49b54b2b 151-152,167
+README.md
+  s_3c396ceb6230d1::t_c785dea1968cab 3,7-11,41-42,47
+  s_3c396ceb6230d1::t_303abc7b7d8923 12
+  s_3c396ceb6230d1::t_ff5483f7e49c16 48
+Tests/NotchCalendarTests/PresentationPolicyTests.swift
+  s_3c396ceb6230d1::t_937182c50370e5 1-5,13-14,23,41-42,60-86
+  s_3c396ceb6230d1::t_2a9e088cb2c733 24-33,35
+  s_3c396ceb6230d1::t_5b755e997c9eca 43-59
+  s_3c396ceb6230d1::t_91d6b27a05994c 6-12,15-22,34,36-40
+Sources/NotchCalendar/Features/Radar/RadarModels.swift
+  s_3c396ceb6230d1::t_614008fa74ebf0 50,54,56,60-61,81-82
+  s_3c396ceb6230d1::t_16bee5218106ab 51
+  s_3c396ceb6230d1::t_dbb13a042f79c0 97
+  s_3c396ceb6230d1::t_590958e3625bf3 57
+  s_3c396ceb6230d1::t_703ff6397cd23e 1-49,52-53,55,58-59,62-80,83-96,98
+Tests/NotchCalendarTests/RadarTests.swift
+  s_3c396ceb6230d1::t_0ac0f69b30719e 270-292,392-413
+  s_3c396ceb6230d1::t_7633b5937f77f6 1-20,22-24,26-65,157-201,207-217,219-220,222-224,227-228,231-269,293-388,390-391,414-433
+  s_3c396ceb6230d1::t_ec3f316432f0df 389
+  s_3c396ceb6230d1::t_df4b41c348ecda 66-130
+  s_3c396ceb6230d1::t_2653e28290284b 21,25,202-206,218,221,225-226,229-230
+  s_3c396ceb6230d1::t_dbb13a042f79c0 131-156
+Scripts/create_release.sh
+  s_3c396ceb6230d1::t_fa295f0efaa6a7 124-164
+  s_3c396ceb6230d1::t_c884af13c04ee3 59
+  s_3c396ceb6230d1::t_4aa1aacc061b84 24-25,43-58,60-78,102-107,115-116,121-123,182,190,193
+Sources/NotchCalendar/Window/NotchPanel.swift
+  s_3c396ceb6230d1::t_5b755e997c9eca 17-19
+Sources/NotchCalendar/Window/NotchWindowController.swift
+  s_3c396ceb6230d1::t_6ae7a695f985ac 46-48,55-56,111-115,117
+  s_3c396ceb6230d1::t_36cc04c15ab2a9 119,121-128,230-235
+  s_3c396ceb6230d1::t_07c6eddc9d8ee0 109-110,202,330-334
+  s_3c396ceb6230d1::t_e5a7be0d7072f3 7-10,30,66-76,146-147,150,219-226,228-229,240-241,253-256,259,324-327
+  s_3c396ceb6230d1::t_59fccf59383836 169,177-178,213-214
+  s_3c396ceb6230d1::t_458b6385725173 339-340,347-348,384-385,392-393,402,411,413-414,419-420,422,427-433
+  s_3c396ceb6230d1::t_69ddb1cee2e40b 116
+  s_3c396ceb6230d1::t_54f5c37f1c431e 17,28-29,31-32,38,94-101,136,145,148-149,153-154,170-172,181-188,190,192,196-198,200-201,207-208,218,275-277,403-410,412,415-418,421,423-426,434-447,451
+  s_3c396ceb6230d1::t_5714abd65a8b18 151-152
+  s_3c396ceb6230d1::t_1ab5ba313b0a12 6
+Sources/NotchCalendar/Features/Workspace/WorkspacePalette.swift
+  s_3c396ceb6230d1::t_66e7ee0625cfb6 22,32,42
+Support/NotchCalendarWidgets-Info.plist
+  s_3c396ceb6230d1::t_303abc7b7d8923 20,22
+Sources/NotchCalendar/Features/Workspace/WorkspaceSidebar.swift
+  s_3c396ceb6230d1::t_66e7ee0625cfb6 26-29,215
+Sources/NotchCalendar/Features/Radar/RadarStore.swift
+  s_3c396ceb6230d1::t_def296589aa44e 40-41,45-49,71-72
+  s_3c396ceb6230d1::t_0ac0f69b30719e 17,30-31,80,83,90,96-105
+  s_3c396ceb6230d1::t_a5c7b276f10ae9 1-16,18-29,32-39,42-44,50-70,73-79,81-82,84-89,91-95,106-107
+Sources/NotchCalendar/Window/MainCalendarWindowController.swift
+  s_3c396ceb6230d1::t_54f5c37f1c431e 68-72,82-87
+Tests/NotchCalendarTests/ScreenGeometryTests.swift
+  s_3c396ceb6230d1::t_4ae3dc4c679fb8 36-57
+  s_3c396ceb6230d1::t_937182c50370e5 68-89
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "566f3ac409c142a70169258f35a43e6d21c7678c",
+  "prompts": {},
+  "sessions": {
+    "s_2cee4059d26aa6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06d42-c552-72c2-b132-d8d242630c77",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    },
+    "s_3c396ceb6230d1": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06d4a-798a-7bf0-a3be-50883bcef6b2",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

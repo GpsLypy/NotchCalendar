@@ -1,0 +1,46 @@
+README.en.md
+  s_91279c3a96e9b9::t_08e4a4c52967f5 32,95
+.gitignore
+  s_91279c3a96e9b9::t_dbba6bd4714788 9-12
+README.md
+  s_91279c3a96e9b9::t_08e4a4c52967f5 40
+docs/quality/evidence/performance-1.2.1.json
+  s_91279c3a96e9b9::t_08e4a4c52967f5 1-10
+CHANGELOG.md
+  s_91279c3a96e9b9::t_08e4a4c52967f5 7-14,18-27
+  s_91279c3a96e9b9::t_50ab4cd16e25a6 15-17,28
+Support/NotchCalendarWidgets-Info.plist
+  s_91279c3a96e9b9::t_08e4a4c52967f5 20,22
+docs/quality/RELEASE_1.2.1.md
+  s_91279c3a96e9b9::t_08e4a4c52967f5 1-21
+docs/quality/README.md
+  s_91279c3a96e9b9::t_08e4a4c52967f5 3,24,47,64
+Sources/NotchCalendar/Window/NotchWindowController.swift
+  s_91279c3a96e9b9::t_50ab4cd16e25a6 39,165,213,333
+Sources/NotchCalendar/Window/ScreenGeometry.swift
+  s_91279c3a96e9b9::t_50ab4cd16e25a6 2,13-37,151-173
+  s_91279c3a96e9b9::t_b2785b9a4bd87a 174
+Tests/NotchCalendarTests/NotchScreenSelectionTests.swift
+  s_91279c3a96e9b9::t_dd4eee08692e8c 1-2,10-32
+  s_91279c3a96e9b9::t_50ab4cd16e25a6 3-9,33-80
+Support/Info.plist
+  s_91279c3a96e9b9::t_08e4a4c52967f5 20,22
+docs/quality/1.2.1.json
+  s_91279c3a96e9b9::t_08e4a4c52967f5 1-71
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "c05cbbc6aa990ce6ccafa90f74b027ecdeb7a653",
+  "prompts": {},
+  "sessions": {
+    "s_91279c3a96e9b9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f76e31702ffeq7l8CwIfWeDozK",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

@@ -1,0 +1,86 @@
+Sources/NotchCalendar/Features/Notch/AgendaView.swift
+  s_5a1b49bfe7d072::t_3ebf29391e7ad0 23,30-31
+  s_5a1b49bfe7d072::t_1d5b667637a9ef 14-22,24-27,29,40-42,44-52,67-76,80-81
+  s_5a1b49bfe7d072::t_b36e89b8a44ab1 43
+  s_5a1b49bfe7d072::t_be99bcadeb8d2b 53-66
+  s_847255f1e1a3e4::t_2d1cb15993b374 82-83
+.github/workflows/release.yml
+  s_5a1b49bfe7d072::t_b36e89b8a44ab1 25-26
+Support/Info.plist
+  s_5a1b49bfe7d072::t_67462fe1befbbb 18,20
+Sources/NotchCalendar/Calendar/MeetingLink.swift
+  s_5a1b49bfe7d072::t_69cce1d8e23e75 101-113,115,117-118,120,122,124-134
+  s_5a1b49bfe7d072::t_3ebf29391e7ad0 23-39,80,82-94,96-98,165-193
+  s_5a1b49bfe7d072::t_ceb88aebd33320 114,116,119,121,123
+  s_5a1b49bfe7d072::t_f5ffcee54588e5 1-22,40-79,81,95,99-100,135-164,194-195
+Sources/NotchCalendar/Window/NotchWindowController.swift
+  s_5a1b49bfe7d072::t_be99bcadeb8d2b 15
+  s_5a1b49bfe7d072::t_b71cc9a20e0842 180
+Sources/NotchCalendar/Features/Notch/NotchRootView.swift
+  s_5a1b49bfe7d072::t_b71cc9a20e0842 30-37
+Sources/NotchCalendar/Features/Notch/ExpandedCalendarView.swift
+  s_5a1b49bfe7d072::t_3ebf29391e7ad0 13-16,120-121,131-143,157-161,181-187
+  s_5a1b49bfe7d072::t_426146f042f8cc 1,8-9,12,20-33,40,51-55,110,112-119,122-130,144-146,148,162,167-180,189-209
+  s_5a1b49bfe7d072::t_be99bcadeb8d2b 188
+Sources/NotchCalendar/Utilities/MonthGrid.swift
+  s_5a1b49bfe7d072::t_b2598dfdb83043 1-67
+Package.swift
+  s_5a1b49bfe7d072::t_f5ffcee54588e5 19-22
+Tests/NotchCalendarTests/MeetingLinkResolverTests.swift
+  s_5a1b49bfe7d072::t_3ebf29391e7ad0 85-103
+  s_5a1b49bfe7d072::t_68d8b646e2c0b3 104-117
+  s_5a1b49bfe7d072::t_f5ffcee54588e5 1-84,118
+Sources/NotchCalendar/Calendar/CalendarModels.swift
+  s_5a1b49bfe7d072::t_3ebf29391e7ad0 13-18
+  s_5a1b49bfe7d072::t_b71cc9a20e0842 11
+Sources/NotchCalendar/Settings/SettingsView.swift
+  s_5a1b49bfe7d072::t_b71cc9a20e0842 11-12
+Tests/NotchCalendarTests/MonthGridTests.swift
+  s_5a1b49bfe7d072::t_b2598dfdb83043 1-6,8-17,19-25,40-49
+  s_5a1b49bfe7d072::t_61033436342342 7,18,26-39
+Tests/NotchCalendarTests/CalendarEventTests.swift
+  s_5a1b49bfe7d072::t_3ebf29391e7ad0 1-32
+Sources/NotchCalendar/Features/Notch/MonthCalendarView.swift
+  s_5a1b49bfe7d072::t_b36e89b8a44ab1 22,30,34-35,83-91
+  s_5a1b49bfe7d072::t_b2598dfdb83043 12,14-15,19,44-79
+  s_5a1b49bfe7d072::t_3ebf29391e7ad0 82
+CHANGELOG.md
+  s_5a1b49bfe7d072::t_671b76a9cee548 9
+  s_5a1b49bfe7d072::t_67462fe1befbbb 5-8,10-23
+Sources/NotchCalendar/Features/Notch/CompactNotchView.swift
+  s_5a1b49bfe7d072::t_b71cc9a20e0842 15,20,40-41,43-44,46-47
+  s_5a1b49bfe7d072::t_0cf76ef1df4fc5 34,42
+  s_5a1b49bfe7d072::t_3ebf29391e7ad0 45
+  s_847255f1e1a3e4::t_fe00b8facf9c21 48
+README.md
+  s_5a1b49bfe7d072::t_671b76a9cee548 9
+  s_5a1b49bfe7d072::t_67462fe1befbbb 3,10,14
+  s_847255f1e1a3e4::t_b2d4891506f05d 15
+Sources/NotchCalendar/Calendar/CalendarManager.swift
+  s_5a1b49bfe7d072::t_3ebf29391e7ad0 55-63,91-92
+  s_5a1b49bfe7d072::t_b71cc9a20e0842 95-101
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "b6527c7f53442fbd3e438c8017569e9297ed69f9",
+  "prompts": {},
+  "sessions": {
+    "s_5a1b49bfe7d072": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06572-f293-7ea1-89fb-75f67a051511",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    },
+    "s_847255f1e1a3e4": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "94880216-47a0-4941-8050-cad60e654738",
+        "model": "copilot/gpt-5.6-terra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}
