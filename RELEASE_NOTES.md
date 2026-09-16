@@ -26,6 +26,8 @@ macOS 15+ · Apple 芯片与 Intel · build 37 · 2026-09-16
 
 完整 Swift 测试共 304 项，12 项按需测试跳过，零失败；发布质量脚本测试 20 项通过。
 
+性能探针目前取得静置、专注、会议切换各一份有效样本，均在固定预算内。另有 11 份样本因鼠标活动或面板遮挡而不满足静置验收条件，原始记录保留；每种场景的第二份独立样本仍待补齐，本版按已记录的发布例外发行，不宣称性能验收已全部完成。
+
 回归验证覆盖一次性允许后的会话访问、授权保存、试用到期、授权交互期间的重入，以及开发者凭证签名与机器绑定。开发者机器已验证真实本机凭证、应用重启和后台检查后的访问状态。
 
 普通用户真实密码交互、锁屏和跨设备钥匙串恢复，以及完整刘海/外接屏交互仍待实机验收。开发机免购买激活不代表这些普通用户流程已完成验证。
@@ -44,3 +46,5 @@ macOS 15+ · Apple 芯片与 Intel · build 37 · 2026-09-16
 - Display Keychain error codes and avoid showing trial expiry when storage access failed.
 
 Existing lifetime licenses remain valid. This is an ad-hoc signed, manual-install build without Developer ID signing or Apple notarization. Developer-machine startup has been verified locally; real customer authentication, Keychain recovery and complete physical-display acceptance remain pending.
+
+Performance acceptance is partial: one valid sample for each of idle, focus and meeting switching passed its budget. Eleven interrupted samples are retained separately; a second independent sample per scenario remains pending under the recorded release exception.
