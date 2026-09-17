@@ -1,53 +1,43 @@
-# Notch Calendar 1.6.3
+# Notch Calendar 1.6.4
 
-macOS 15+ · Apple 芯片与 Intel · build 40 · 2026-09-16
+macOS 15+ · Apple 芯片与 Intel · build 48 · 2026-09-17
 
 ## 新增 / Added
 
-- **展开刘海便笺**：在「文件」后新增「便笺」入口，可直接编辑自动保存在本机的便笺，并使用 `⌘4` 快速切换。
-- **跨月小组件数据**：日历快照预先保存本月和下月事件。主应用在月末未运行时，月历和今日日程小组件跨月后仍可显示下月安排。
+- **外观与材质**：新增跟随系统、浅色、深色模式，以及标准、通透材质。已打开窗口即时更新，偏好支持备份恢复，小组件同步使用所选颜色模式。
 
 ## 修复 / Fixed
 
-- **私密收藏不再在阅读中自动锁定**：移除固定两分钟锁定；停留当前页面时保持解锁，离开页面、切换应用或所属窗口、锁屏和休眠仍会隐藏内容。
-- 身份验证和钥匙串访问后等待原窗口稳定恢复焦点，再显示解密内容；焦点未恢复时给出可操作提示。
-- 默认静默读取收藏密钥，确需许可时显示错误码和明确的钥匙串恢复入口；已批准密钥只在当前进程内复用，每次解锁仍要求系统身份验证。
-- 离开页面或取消解锁后，即使密钥创建刚刚完成，也不会发布过期的解锁结果或覆盖原收藏。
-- 修复主应用关闭时跨月后，小组件缺少下月日程的问题。
+- 修复工作区重绘和主题切换反复创建行情数据对象、读取钥匙串及发布未变化预算的问题，消除现场观察到的高 CPU 重建循环。
+- 展开刘海现在与摄像头外壳连续衔接，菜单栏两侧保持透明，内容避开摄像头和外接屏菜单栏。
+- 展开和回收使用合成遮罩；快速反向操作从当前可见位置继续，不再闪黑、闪强调色或逐帧拉伸内容。
+- 延迟到达的内容高度只应用于当前展示；过期动画、布局及紧凑视图回调不能再移动或提前结束新一轮展示。
+- 外观、语言和设置变化在主线程刷新小组件，且不会改变运行中专注计时的截止时间。
 
 ## 安装与升级
 
-下载 `NotchCalendar-1.6.3-macos.dmg`，退出旧版后拖入「应用程序」替换。也提供 ZIP 和 SHA-256 校验文件。已有永久授权继续有效，无需再次付款。
-
-普通用户升级后若需恢复钥匙串访问，可在应用内点击「重试读取授权」，按 macOS 提示允许访问。若仍失败，可提供界面显示的错误码排查；请保留原钥匙串记录。
+下载 `NotchCalendar-1.6.4-macos.dmg`，退出旧版后拖入「应用程序」替换。也提供 ZIP 和 SHA-256 校验文件。已有永久授权继续有效，无需再次付款。
 
 **本版采用 ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装；macOS 可能显示安全提示，不提供自动替换安装。**
 
 ## 验证范围
 
-完整 Swift 测试共 320 项，14 项按需测试跳过，零失败；发布质量脚本通过。
+完整 Swift 测试共 335 项，16 项按需测试跳过，零失败；20 项发布质量 Python 测试通过，universal2 Release 编译通过。
 
-6 份新性能样本均检测到持续鼠标活动，不满足静置验收条件，原始数据作为排除证据保留。本版没有可豁免的有效实测失败；每种场景两份有效样本以及实体刘海屏、外接屏验收仍待补齐，并按本版本记录的所有者发布例外发行。
-
-回归验证覆盖私密收藏解锁、焦点恢复、钥匙串恢复、取消与保存失败，以及主应用关闭时的跨月小组件快照。开发者机器上的真实系统身份验证与钥匙串恢复仍需最终人工确认。
-
-普通用户真实密码交互、锁屏和跨设备钥匙串恢复，以及完整刘海/外接屏交互仍待实机验收。开发机免购买激活不代表这些普通用户流程已完成验证。
+4 份新性能样本都检测到指针活动，随后采样因系统锁屏停止，因此没有无效样本被计为通过或有效失败。真实桌面合成的闪帧、完整刘海与外接屏交互，以及每种场景两份静置性能样本仍待实机验收。
 
 ## English
 
 ### Added
 
-- The expanded notch adds Scratchpad immediately after Files, with automatic local saving and Command-4 access.
-- Calendar snapshots now include this month and next month, keeping widget events available across month rollover while the host app is closed.
+- Added System, Light and Dark appearance modes and Standard or Translucent materials. Open windows update immediately, preferences support backup and restore, and widgets receive the selected color mode.
 
 ### Fixed
 
-- Private bookmarks no longer lock on a fixed two-minute timer while their page remains in use. They still lock when leaving, switching apps or windows, locking the screen, or sleeping.
-- Wait for the requesting window to regain stable focus after authentication and Keychain access before publishing decrypted content.
-- Read bookmark keys silently by default, provide explicit Keychain recovery with error codes, and retain approved keys only in process memory while requiring authentication for every unlock.
-- Cancelled or stale unlock attempts cannot publish content after vault-key creation.
-- Month and agenda widgets retain next-month events when the main app is closed at month rollover.
+- Workspace redraws and theme changes no longer recreate market data objects, repeatedly read Keychain, or publish unchanged request budgets, eliminating an observed high-CPU rebuild loop.
+- The expanded notch remains attached to the camera housing with transparent menu-bar shoulders and content below camera and menu-bar obstructions.
+- Compositor-mask transitions reverse from their visible geometry without black, opacity or accent-color flashes.
+- Stale animation, layout and compact-view callbacks cannot move or finish a newer presentation.
+- Appearance, locale and settings changes refresh widgets on the main thread without changing an active focus deadline.
 
-All six fresh performance attempts contained continuous pointer activity and were retained as excluded evidence rather than counted as passes or failures. No valid measured failure is waived; two valid samples per scenario and physical-display acceptance remain pending under this version's recorded owner exception.
-
-Existing lifetime licenses remain valid. This is an ad-hoc signed, manual-install build without Developer ID signing or Apple notarization. Real customer authentication, Keychain recovery and complete physical-display acceptance remain pending.
+This is an ad-hoc signed, manual-install build without Developer ID signing or Apple notarization. Four fresh performance attempts were invalidated by pointer activity and sampling then stopped when the Mac locked. Physical-display and final stationary performance acceptance remain pending.

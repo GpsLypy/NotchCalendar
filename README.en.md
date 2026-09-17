@@ -6,12 +6,11 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
-## New in 1.6.3
+## New in 1.6.4
 
-- The expanded notch adds Scratchpad immediately after Files, with automatic local saving and Command-4 access.
-- Private bookmarks remain unlocked while you stay on their page, then lock when you leave, switch apps or windows, lock the screen, or put the Mac to sleep.
-- Bookmark authentication waits for the original window to regain focus and provides an explicit Keychain recovery action with error codes when needed.
-- Widgets cache this month and next month so upcoming events remain available across month rollover while the main app is closed.
+- Choose System, Light or Dark appearance and Standard or Translucent materials; open windows and desktop widgets update with the preference.
+- Theme changes and workspace redraws no longer recreate market data objects, trigger repeated Keychain reads, or cause a high-CPU rebuild loop.
+- The expanded notch stays attached to the camera housing, and rapid opening, closing or content changes no longer flash or let stale animations alter its height.
 
 ## Personal workspace
 
