@@ -6,10 +6,10 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
-## New in 1.6.8
+## New in 1.6.9
 
-- Reuse the scratchpad editor after its first visit, preserving its text state and releasing focus while hidden.
-- Load and cache file icons in the background so system icon lookups cannot block Files/Scratchpad switching.
+- Make the full visible area of all four notch tabs respond to the first click.
+- Fix dropped clicks in transparent tab padding that could require a second click.
 
 ## Personal workspace
 
