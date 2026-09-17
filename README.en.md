@@ -6,11 +6,11 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
-## New in 1.6.4
+## New in 1.6.5
 
-- Choose System, Light or Dark appearance and Standard or Translucent materials; open windows and desktop widgets update with the preference.
-- Theme changes and workspace redraws no longer recreate market data objects, trigger repeated Keychain reads, or cause a high-CPU rebuild loop.
-- The expanded notch stays attached to the camera housing, and rapid opening, closing or content changes no longer flash or let stale animations alter its height.
+- The Calendar tab reuses unchanged EventKit query results instead of reloading the day and month whenever it is revisited.
+- Rapid switching among Calendar, Focus, Files and Scratchpad coalesces panel-height updates instead of resizing the system window after every click.
+- Re-selecting the active menu no longer publishes redundant state changes.
 
 ## Personal workspace
 
