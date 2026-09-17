@@ -1,0 +1,19 @@
+RELEASE_NOTES.md
+  s_ebc3da054c69d3::t_5b4558ad39aa17 25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "6e7407666f96770534caf4598726990648bdad06",
+  "prompts": {},
+  "sessions": {
+    "s_ebc3da054c69d3": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f55093f95ffeoS2xGpB5WIeRf8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}
