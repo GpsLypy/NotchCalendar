@@ -6,10 +6,10 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
-## New in 1.6.7
+## New in 1.6.8
 
-- Calendar and Files remain mounted in a shared layout envelope, avoiding page recreation and delayed window resizing when switching tabs.
-- Preserve loaded calendar events and file browsing state; hidden pages stop receiving input and the hidden calendar pauses its clock.
+- Reuse the scratchpad editor after its first visit, preserving its text state and releasing focus while hidden.
+- Load and cache file icons in the background so system icon lookups cannot block Files/Scratchpad switching.
 
 ## Personal workspace
 
