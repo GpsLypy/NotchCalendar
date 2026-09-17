@@ -6,10 +6,10 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
-## New in 1.6.6
+## New in 1.6.7
 
-- Fixed a compact-notch handoff race that could leave the collapsed surface covered after rapid opening and closing.
-- Narrowed the hover corridor between the hardware notch and expanded card so unrelated menu-bar items no longer keep the panel open.
+- Calendar and Files remain mounted in a shared layout envelope, avoiding page recreation and delayed window resizing when switching tabs.
+- Preserve loaded calendar events and file browsing state; hidden pages stop receiving input and the hidden calendar pauses its clock.
 
 ## Personal workspace
 
