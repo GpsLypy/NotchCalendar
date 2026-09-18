@@ -1,41 +1,63 @@
 # Notch Calendar
 
-A native macOS notch calendar and personal workspace for events, meetings, notes, focus sessions, and files.
+Open your calendar, focus timer, files, and scratchpad from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
-![Calendar workspace](images/calendar.png)
+![Expanded notch calendar and four activity tabs](images/notch-calendar.png)
 
-## New in 1.6.2
+## Open from the notch
 
-- GitHub and Check for Updates move into Settings → Software Update, retaining Support, License & trial, Share and Settings in the sidebar.
-- Improved license recovery after one-time Keychain approval, with session reuse and specific error codes on failure.
+Hover over or click the top entry for Calendar, Focus, and Scratchpad. Enable the optional file shelf in Settings to add Files; displays without a notch have a centered top entry.
+
+| Calendar | Focus |
+| --- | --- |
+| ![Expanded notch calendar](images/notch-calendar.png) | ![Expanded notch focus timer](images/notch-focus.png) |
+| Files (opt in) | Scratchpad |
+| ![Expanded notch file shelf with sample files](images/notch-files.png) | ![Expanded notch scratchpad](images/notch-scratchpad.png) |
+
+## Light, dark, and glass
+
+Set the full workspace to light, dark, or system appearance, with optional translucent glass material. The notch panel remains dark.
+
+| Light workspace | Dark workspace |
+| --- | --- |
+| ![Light calendar workspace with translucent material selected](images/workspace-light-glass.png) | ![Dark calendar workspace with translucent material selected](images/workspace-dark-glass.png) |
+
+These native SwiftUI offscreen captures use isolated demo events, files, and notes. They do not include a physical notch or desktop background and cannot demonstrate actual desktop refraction.
+
+## New in 1.6.12
+
+- Use the seven-day trial without repeated purchase prompts; a dismissible reminder appears only in the final 48 hours.
+- CNY 9.90 buys lifetime use including all future versions, with no subscription. Purchase details and manual code delivery are explained before you choose to reveal the QR code; payment does not activate automatically.
+- After expiry, My data remains available for read-only notes, focus history and file locations, ordinary backup export, and separately authenticated private-bookmark export.
+- Hide or show the workspace sidebar without losing navigation shortcuts. Optional tips do not purchase a license.
 
 ## Personal workspace
 
 - Offline daily classical Chinese poetry, with saved verses and a collapsible card.
 - Encrypted private website bookmarks, protected by system authentication and automatic locking.
-- A skippable first-use guide for Calendar, Focus, or saving a poem.
+- An optional guide in Settings for Calendar, Focus, or saving a poem.
 - Optional insight modules that can be hidden from navigation, shortcuts, and quick search.
 - Copyable activation requests and prefilled email drafts, plus voluntary author support.
 
-Private bookmarks are excluded from app JSON backups: keep the encrypted file and its Keychain key backed up together. Links open in your default browser and may appear in browser history. See [release notes](RELEASE_NOTES.md).
+Private bookmarks are excluded from ordinary JSON backups. After expiry, export them separately only after system authentication; the resulting file is not encrypted, so store it securely. Keep the encrypted vault and its Keychain key backed up together. Links open in your default browser and may appear in browser history. See [release notes](RELEASE_NOTES.md).
 
 Requires macOS 15 or later. Supports Apple silicon and Intel Macs. Download the DMG, move the app to Applications, and launch it.
 
-The new licensed distribution is closed source. At first launch, choose a **7-day free trial** or activate a permanent license. A **one-time CNY 9.90 payment** grants perpetual use, with no subscription. Activated users no longer receive automatic payment prompts. Historical MIT releases retain their original terms; check the release notes for the downloaded version.
+The new licensed distribution is closed source. First launch automatically starts a **7-day free trial** without opening a payment window. A **one-time CNY 9.90 payment** grants lifetime use **including all future versions**, with no subscription. After expiry, your local data remains readable and exportable. Activated users no longer receive automatic payment prompts. Historical MIT releases retain their original terms; check the release notes for the downloaded version.
 
 ## Permanent activation
 
-1. Scan the WeChat payment QR code in the launch window or Settings → General → License & trial, and pay CNY 9.90.
+1. Open License & trial from the workspace sidebar or Settings, read the manual purchase steps, then reveal the WeChat QR code and pay CNY 9.90.
 2. Send your payment receipt and the installation ID copied from the app to the author.
-3. After manually confirming payment, the author sends an activation code. Paste it into the app to activate.
+3. The author usually replies within 24 hours after receiving a complete receipt and installation ID. Paste the author-issued code into the app; payment does not activate the app automatically.
 
 Email: **498988598@qq.com** · Phone: **13191513539**
 
 We usually reply within **24 hours** after receiving a complete payment receipt and installation ID. Replacement codes for a new Mac or reinstallation are free with proof of purchase, with no annual limit, for your own use only. If your code is missing, reply to the same email with your receipt and current installation ID; do not pay again.
 
-![WeChat payment QR code](images/payment.png)
+![WeChat payment QR code for lifetime license; manual activation required](images/payment.png)
 
 Codes are verified offline and bound to an installation. Contact the author for a replacement when changing Macs or losing the installation's Keychain record. License records are stored in macOS Keychain and excluded from ordinary settings backups.
 
