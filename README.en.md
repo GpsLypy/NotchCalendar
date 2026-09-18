@@ -4,6 +4,16 @@ Open your calendar, focus timer, files, and scratchpad from the Mac notch. The f
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+### Separate notch-side activity islands
+
+The focus icon and countdown, or meeting title and progress, sit on separate islands beside the camera housing. The centre stays clear instead of becoming one wide black notch.
+
+| Focus timer | Active meeting |
+| --- | --- |
+| ![Separate focus icon and countdown beside the camera housing](images/compact-focus-islands.png) | ![Separate meeting title and progress beside the camera housing](images/compact-meeting-islands.png) |
+
+Native compact-view captures use isolated demo data; the menu bar and camera housing are composited, not a photo of the display.
+
 ![Expanded notch calendar and four activity tabs](images/notch-calendar.png)
 
 ## Open from the notch
@@ -25,6 +35,11 @@ Set the full workspace to light, dark, or system appearance, with optional trans
 | ![Light calendar workspace with translucent material selected](images/workspace-light-glass.png) | ![Dark calendar workspace with translucent material selected](images/workspace-dark-glass.png) |
 
 These native SwiftUI offscreen captures use isolated demo events, files, and notes. They do not include a physical notch or desktop background and cannot demonstrate actual desktop refraction.
+
+## New in 1.6.14
+
+- Compact activities occupy separate islands on either side of the notch; choose light, dark, or glass styling in the full workspace.
+- Refined Calendar, Focus, Files, and workspace interactions, with offline poetry and private bookmarks.
 
 ## New in 1.6.13
 

@@ -4,6 +4,16 @@
 
 [English](README.en.md) · [下载](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+### 刘海旁的独立状态岛
+
+专注图标与倒计时、会议标题与进度分别出现在刘海两侧，中间留空，不再连成一整条黑色宽块。
+
+| 专注计时 | 会议进行中 |
+| --- | --- |
+| ![刘海两侧独立的专注图标圆岛和倒计时胶囊](images/compact-focus-islands.png) | ![刘海两侧独立的会议标题胶囊和进度圆岛](images/compact-meeting-islands.png) |
+
+原生紧凑视图采用隔离演示数据，菜单栏与实体刘海为合成示意背景，非实拍。
+
 ![展开的刘海日历与四项功能菜单](images/notch-calendar.png)
 
 ## 从刘海展开
@@ -25,6 +35,11 @@
 | ![浅色日历工作台，半透明材质设置](images/workspace-light-glass.png) | ![深色日历工作台，半透明材质设置](images/workspace-dark-glass.png) |
 
 图片来自原生 SwiftUI 视图的离屏渲染，使用隔离演示日程、文件和笔记；不包含实体刘海或桌面背景，不能展示真实桌面上的折射效果。
+
+## 1.6.14：刘海状态岛与工作台
+
+- 紧凑状态分别显示在刘海两侧；工作台可选择浅色、深色和毛玻璃材质。
+- 更新日历、专注、文件及工作台交互，补充离线诗笺与私密收藏入口。
 
 ## 1.6.13：刘海展开与窗口适配
 
