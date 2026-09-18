@@ -36,6 +36,11 @@ Set the full workspace to light, dark, or system appearance, with optional trans
 
 These native SwiftUI offscreen captures use isolated demo events, files, and notes. They do not include a physical notch or desktop background and cannot demonstrate actual desktop refraction.
 
+## New in 1.6.15
+
+- Cancel a running or paused focus session from the notch panel to dismiss its capsule without counting it as completed.
+- Click to expand while focus or meeting islands are visible; idle behavior follows your hover or click preference.
+
 ## New in 1.6.14
 
 - Compact activities occupy separate islands on either side of the notch; choose light, dark, or glass styling in the full workspace.
