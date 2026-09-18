@@ -6,16 +6,17 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
-## New in 1.6.9
+## New in 1.6.10
 
-- Make the full visible area of all four notch tabs respond to the first click.
-- Fix dropped clicks in transparent tab padding that could require a second click.
+- Start a seven-day trial and open the workspace directly on first launch, without a payment modal.
+- Dismiss the purchase reminder at the top; check remaining trial days in the sidebar. Local data is kept when the trial ends.
+- Optional tips do not purchase or activate a lifetime license.
 
 ## Personal workspace
 
 - Offline daily classical Chinese poetry, with saved verses and a collapsible card.
 - Encrypted private website bookmarks, protected by system authentication and automatic locking.
-- A skippable first-use guide for Calendar, Focus, or saving a poem.
+- An optional guide in Settings for Calendar, Focus, or saving a poem.
 - Optional insight modules that can be hidden from navigation, shortcuts, and quick search.
 - Copyable activation requests and prefilled email drafts, plus voluntary author support.
 
@@ -23,11 +24,11 @@ Private bookmarks are excluded from app JSON backups: keep the encrypted file an
 
 Requires macOS 15 or later. Supports Apple silicon and Intel Macs. Download the DMG, move the app to Applications, and launch it.
 
-The new licensed distribution is closed source. At first launch, choose a **7-day free trial** or activate a permanent license. A **one-time CNY 9.90 payment** grants perpetual use, with no subscription. Activated users no longer receive automatic payment prompts. Historical MIT releases retain their original terms; check the release notes for the downloaded version.
+The new licensed distribution is closed source. First launch automatically starts a **7-day free trial** without opening a payment window. A **one-time CNY 9.90 payment** grants perpetual use, with no subscription. Activated users no longer receive automatic payment prompts. Historical MIT releases retain their original terms; check the release notes for the downloaded version.
 
 ## Permanent activation
 
-1. Scan the WeChat payment QR code in the launch window or Settings → General → License & trial, and pay CNY 9.90.
+1. Open License & trial from the workspace sidebar or Settings, scan the WeChat QR code, and pay CNY 9.90.
 2. Send your payment receipt and the installation ID copied from the app to the author.
 3. After manually confirming payment, the author sends an activation code. Paste it into the app to activate.
 
