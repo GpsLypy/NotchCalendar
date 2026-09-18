@@ -6,11 +6,11 @@ A native macOS notch calendar and personal workspace for events, meetings, notes
 
 ![Calendar workspace](images/calendar.png)
 
-## New in 1.6.10
+## New in 1.6.11
 
-- Start a seven-day trial and open the workspace directly on first launch, without a payment modal.
-- Dismiss the purchase reminder at the top; check remaining trial days in the sidebar. Local data is kept when the trial ends.
-- Optional tips do not purchase or activate a lifetime license.
+- After trial expiry, open read-only My data to see local notes, focus history and file locations, export an ordinary backup, or authenticate separately to export private bookmarks.
+- Hide the sidebar and restore access with Option-Command-S or the compact navigation menu.
+- See one dismissible reminder in the final 48 hours of the trial. The payment QR code appears on request; optional tips do not activate a license.
 
 ## Personal workspace
 
@@ -24,11 +24,11 @@ Private bookmarks are excluded from app JSON backups: keep the encrypted file an
 
 Requires macOS 15 or later. Supports Apple silicon and Intel Macs. Download the DMG, move the app to Applications, and launch it.
 
-The new licensed distribution is closed source. First launch automatically starts a **7-day free trial** without opening a payment window. A **one-time CNY 9.90 payment** grants perpetual use, with no subscription. Activated users no longer receive automatic payment prompts. Historical MIT releases retain their original terms; check the release notes for the downloaded version.
+The new licensed distribution is closed source. First launch automatically starts a **7-day free trial** without opening a payment window. After expiry, local data remains available to view and export in read-only mode. A **one-time CNY 9.90 payment** grants perpetual use including future versions, with no subscription. Activated users no longer receive automatic payment prompts. Historical MIT releases retain their original terms; check the release notes for the downloaded version.
 
 ## Permanent activation
 
-1. Open License & trial from the workspace sidebar or Settings, scan the WeChat QR code, and pay CNY 9.90.
+1. Open License & trial from the workspace sidebar or Settings, reveal the WeChat QR code and pay CNY 9.90.
 2. Send your payment receipt and the installation ID copied from the app to the author.
 3. After manually confirming payment, the author sends an activation code. Paste it into the app to activate.
 
