@@ -26,7 +26,11 @@ Set the full workspace to light, dark, or system appearance, with optional trans
 
 These native SwiftUI offscreen captures use isolated demo events, files, and notes. They do not include a physical notch or desktop background and cannot demonstrate actual desktop refraction.
 
-## New in 1.6.12
+## New in 1.6.13
+
+- Calendar updates no longer resize the notch panel in the middle of its opening reveal. Closing or reopening cancels an older height adjustment.
+- On short displays, expanded content scrolls vertically; narrow displays can scroll horizontally while keeping the top controls available.
+- The following trial, purchase, and data-access features continue from 1.6.12:
 
 - Use the seven-day trial without repeated purchase prompts; a dismissible reminder appears only in the final 48 hours.
 - CNY 9.90 buys lifetime use including all future versions, with no subscription. Purchase details and manual code delivery are explained before you choose to reveal the QR code; payment does not activate automatically.
