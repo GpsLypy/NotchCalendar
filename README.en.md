@@ -36,6 +36,11 @@ Set the full workspace to light, dark, or system appearance, with optional trans
 
 These native SwiftUI offscreen captures use isolated demo events, files, and notes. They do not include a physical notch or desktop background and cannot demonstrate actual desktop refraction.
 
+## New in 1.6.17
+
+- A check-in capsule appears to the left of the notch. Morning (08:00–10:00) and evening (18:00–20:00) reminders appear on launch, wake, or when the running app enters either window. Check-ins remain until completed or removed; click the capsule to reopen a closed reminder.
+- Set both time windows in Settings > General > Check-in reminders. The installed app requests launch at login by default; this can be disabled, and macOS may require approval in Login Items.
+
 ## New in 1.6.15
 
 - Cancel a running or paused focus session from the notch panel to dismiss its capsule without counting it as completed.
