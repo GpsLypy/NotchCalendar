@@ -36,6 +36,10 @@ Set the full workspace to light, dark, or system appearance, with optional trans
 
 These native SwiftUI offscreen captures use isolated demo events, files, and notes. They do not include a physical notch or desktop background and cannot demonstrate actual desktop refraction.
 
+## New in 1.6.19
+
+- The check-in reminder fits its pending items instead of showing a large empty panel. Hide reminder keeps the notch capsule and pending item; Remove clears that entry, separately from Done.
+
 ## Fixed in 1.6.18
 
 - Fix a crash in v1.6.17 when macOS posts the calendar-day change from a background thread. Check-in and meeting wake notifications now enter their main-thread handlers safely.
