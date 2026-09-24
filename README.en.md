@@ -36,6 +36,10 @@ Set the full workspace to light, dark, or system appearance, with optional trans
 
 These native SwiftUI offscreen captures use isolated demo events, files, and notes. They do not include a physical notch or desktop background and cannot demonstrate actual desktop refraction.
 
+## New in 1.6.20
+
+- The check-in popover now has only Hide reminder and Done. Completion is saved separately, so changing today's time window will not bring a finished check-in back. Editing a window can restore an empty legacy check-in when the new window includes the current time; older versions could not distinguish completion from removal.
+
 ## New in 1.6.19
 
 - The check-in reminder fits its pending items instead of showing a large empty panel. Hide reminder keeps the notch capsule and pending item; Remove clears that entry, separately from Done.
