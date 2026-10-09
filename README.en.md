@@ -36,6 +36,11 @@ Set the full workspace to light, dark, or system appearance, with optional trans
 
 These native SwiftUI offscreen captures use isolated demo events, files, and notes. They do not include a physical notch or desktop background and cannot demonstrate actual desktop refraction.
 
+## New in 1.6.21: Symmetric capsules and quiet check-in reminders
+
+- Circular capsules share mirrored sizing, spacing and centered content. Check-ins show a red pending-count badge and gently pulse above two pending items; Reduce Motion keeps the reminder static.
+- Details open only when you click the capsule, with no automatic popover on launch, wake or new reminders. Completing all items hides it.
+
 ## New in 1.6.20
 
 - The check-in popover now has only Hide reminder and Done. Completion is saved separately, so changing today's time window will not bring a finished check-in back. Editing a window can restore an empty legacy check-in when the new window includes the current time; older versions could not distinguish completion from removal.
