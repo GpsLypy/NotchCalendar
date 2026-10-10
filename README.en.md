@@ -4,6 +4,16 @@ Open your calendar, focus timer, files, and scratchpad from the Mac notch. The f
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## New in 1.6.22: Clearer daily work and purchase steps
+
+- Today prioritizes the next meeting, focus and note shortcuts, and available focus time. Add optional insights when needed; saved visibility choices are retained.
+- Smaller windows keep the month and selected-day agenda side by side. Primary buttons are clearer, and notch meeting titles wrap to two lines with full text on hover.
+- Purchase, Claim a code and I have a code each provide a direct path. The CNY 9.90 lifetime price, future updates and manual code delivery are explained before payment.
+
+| Today workspace | Compact calendar |
+| --- | --- |
+| ![Today prioritizes the next meeting, focus and notes](images/workspace-today.png) | ![Month and selected-day agenda in a compact window](images/workspace-calendar-compact.png) |
+
 ### Separate notch-side activity islands
 
 The focus icon and countdown, or meeting title and progress, sit on separate islands beside the camera housing. The centre stays clear instead of becoming one wide black notch.
@@ -95,9 +105,11 @@ The new licensed distribution is closed source. First launch automatically start
 
 ## Permanent activation
 
-1. Open License & trial from the workspace sidebar or Settings, read the manual purchase steps, then reveal the WeChat QR code and pay CNY 9.90.
-2. Send your payment receipt and the installation ID copied from the app to the author.
-3. The author usually replies within 24 hours after receiving a complete receipt and installation ID. Paste the author-issued code into the app; payment does not activate the app automatically.
+1. Open License & trial from the workspace sidebar or Settings, choose Purchase, read the manual steps, then reveal the WeChat QR code and pay CNY 9.90.
+2. Choose Claim a code to copy request details or prepare an email. Attach your payment receipt and send the email yourself.
+3. The author usually replies within 24 hours after receiving a complete receipt and installation ID. Choose I have a code, paste the author-issued code and press Return. Payment does not activate the app automatically.
+
+![Lifetime purchase details and direct purchase, claim and activation paths](images/license-purchase.png)
 
 Email: **498988598@qq.com** · Phone: **13191513539**
 
