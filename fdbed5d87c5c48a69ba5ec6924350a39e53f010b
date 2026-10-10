@@ -1,0 +1,23 @@
+README.en.md
+  s_1e8f3d7dca961f::t_a85ef99efe08a4 29-33
+README.md
+  s_1e8f3d7dca961f::t_3be8ff8541b006 29-33
+RELEASE_NOTES.md
+  s_1e8f3d7dca961f::t_4789f557b77b2a 1,3,5,7-9,13,19,21,25,27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "fdbed5d87c5c48a69ba5ec6924350a39e53f010b",
+  "prompts": {},
+  "sessions": {
+    "s_1e8f3d7dca961f": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f4c793b61ffeXhRS6Qnovei4dd",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

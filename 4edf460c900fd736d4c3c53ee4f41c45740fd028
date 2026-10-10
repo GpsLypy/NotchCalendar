@@ -1,0 +1,31 @@
+Scripts/create_release.sh
+  s_82e9070e2add04::t_3def07d3ba9986 16,43-47,49
+Support/Info.plist
+  s_82e9070e2add04::t_3def07d3ba9986 18,20
+Sources/NotchCalendar/App/UpdateChecker.swift
+  s_82e9070e2add04::t_d352999c8c7c77 32,85-86
+  s_82e9070e2add04::t_3def07d3ba9986 7,11-17,21,47-50,52-56,65-84,87-96,113-139,168,173-183,189
+CHANGELOG.md
+  s_82e9070e2add04::t_3def07d3ba9986 5-11
+Sources/NotchCalendar/Settings/SettingsView.swift
+  s_82e9070e2add04::t_3def07d3ba9986 28-29,36-50,52,57,61,79,82-85,91-106
+  s_82e9070e2add04::t_ee99a0a2dbec3c 107-109
+README.md
+  s_82e9070e2add04::t_3def07d3ba9986 28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "4edf460c900fd736d4c3c53ee4f41c45740fd028",
+  "prompts": {},
+  "sessions": {
+    "s_82e9070e2add04": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0612e-7058-7d32-9a24-42d1cc3319d4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

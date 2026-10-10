@@ -1,0 +1,27 @@
+LICENSE
+  s_befb64f7c19421::t_d7cd824d28f94f 1-24
+README.en.md
+  s_befb64f7c19421::t_818d323a416d28 1-27
+README.md
+  s_befb64f7c19421::t_8fa5e7bb2eebb2 1-34
+RELEASE_NOTES.md
+  s_befb64f7c19421::t_1dfcd38629aa1b 1-34
+THIRD_PARTY_NOTICES.md
+  s_befb64f7c19421::t_4d7168b25a8ead 1-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "33af26cd77afc3e233821709c7808ac86f154532",
+  "prompts": {},
+  "sessions": {
+    "s_befb64f7c19421": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f58193409ffeuEfk3jrkXurdKu",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

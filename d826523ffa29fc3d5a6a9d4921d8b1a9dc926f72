@@ -1,0 +1,97 @@
+CHANGELOG.md
+  s_da78974ba60664::t_84def2cd44e920 7-10
+  s_da78974ba60664::t_85c76d07b12f36 11-23,25
+  s_da78974ba60664::t_49525846baf58e 24
+Tests/NotchCalendarTests/WidgetSnapshotTests.swift
+  s_da78974ba60664::t_afc619b45c7c3e 6-72
+Sources/NotchCalendar/App/WidgetSnapshotCoordinator.swift
+  s_da78974ba60664::t_afc619b45c7c3e 115-117
+Sources/NotchCalendar/Features/Workspace/FocusHistory.swift
+  s_da78974ba60664::t_f6b50b25931a7f 1-59
+Sources/NotchCalendar/Resources/zh-Hans.lproj/Localizable.strings
+  s_da78974ba60664::t_b67f5b3a594a85 262-301
+  s_da78974ba60664::t_7d033b6d1c0580 302-328
+docs/PRODUCT_REVIEW_2026-09-05.md
+  s_da78974ba60664::t_3dd3a6eb79a62f 1-25,27-29,31-55
+  s_da78974ba60664::t_84def2cd44e920 26,56,64
+  s_da78974ba60664::t_85c76d07b12f36 30,57-63
+Support/Info.plist
+  s_da78974ba60664::t_84def2cd44e920 20,22
+Support/NotchCalendarWidgets-Info.plist
+  s_da78974ba60664::t_84def2cd44e920 20,22
+Tests/NotchCalendarTests/CalendarSelectionTests.swift
+  s_da78974ba60664::t_d9cf2ac8da4ec5 1-165
+Sources/NotchCalendar/Settings/SettingsView.swift
+  s_da78974ba60664::t_92b674d24be0db 7,37-38,202-205,211-263
+  s_da78974ba60664::t_00fb7f81a2442b 264-265
+Sources/NotchCalendar/Calendar/DayPlanEngine.swift
+  s_da78974ba60664::t_6fc55a8391c798 1-133
+Sources/NotchCalendar/Features/Workspace/FocusWorkspaceView.swift
+  s_da78974ba60664::t_8ff0ef31c4be45 301-302,359-366,373-376,383,397,399-400,405,407-408,415,438-490
+  s_da78974ba60664::t_2281cab30ba3ca 17,367-372,377-382
+  s_da78974ba60664::t_59530d5ff6e30e 3,10-16,29,61,85,103,107,111-113,130,152,161,168-169,173-178,181-186,196-283,285-300
+  s_da78974ba60664::t_54586017ad66a7 284,346,392,434
+  s_da78974ba60664::t_c176cbd188ebb3 303
+  s_da78974ba60664::t_c590782f96afd5 491
+docs/PRODUCT_ROADMAP.md
+  s_da78974ba60664::t_85c76d07b12f36 35-40,66-67
+  s_da78974ba60664::t_84def2cd44e920 34
+Sources/NotchCalendarWidgets/FocusTimerWidget.swift
+  s_da78974ba60664::t_afc619b45c7c3e 58-61,65,93,99
+Sources/NotchCalendar/Resources/en.lproj/Localizable.strings
+  s_da78974ba60664::t_b67f5b3a594a85 5-44
+  s_da78974ba60664::t_846191d2b90e2d 45-71
+Tests/NotchCalendarTests/DayPlanEngineTests.swift
+  s_da78974ba60664::t_1761065a04ca6f 1-120
+Sources/NotchCalendarWidgets/WidgetTheme.swift
+  s_da78974ba60664::t_afc619b45c7c3e 182,201
+docs/VALIDATION_V0.7.0.md
+  s_da78974ba60664::t_dafd617102c82f 1-41
+Sources/NotchCalendar/Calendar/CalendarSelection.swift
+  s_da78974ba60664::t_48b2dcaa49087a 1-88
+Sources/NotchCalendar/Calendar/CalendarManager.swift
+  s_da78974ba60664::t_4342cdde08bb1a 8-10,12-13,15-16,18-19,22-27,41-44,46,50-56,58,65-68,73,78-79,82,85-87,90-91,97-126,130,145-149,151,153-166,168-175,189-194
+  s_da78974ba60664::t_347da2453f9cf5 28-39
+Sources/NotchCalendar/Features/Workspace/TodayWorkspaceView.swift
+  s_da78974ba60664::t_ddb995e0c55c3a 10,22,101-103,137,228,234,239
+  s_da78974ba60664::t_5502e1ee8078f8 19-21,23-26
+Tests/NotchCalendarTests/PlanningCaptureTests.swift
+  s_da78974ba60664::t_8f6849199193de 1-55,57-84
+  s_da78974ba60664::t_d71cc527d07850 56
+Sources/NotchCalendar/Features/Notch/ExpandedCalendarView.swift
+  s_da78974ba60664::t_ddb995e0c55c3a 37,50-59
+Sources/NotchCalendarShared/WidgetSnapshots.swift
+  s_da78974ba60664::t_afc619b45c7c3e 99-107,115-117,125-135,161
+Tests/NotchCalendarTests/FocusHistoryTests.swift
+  s_da78974ba60664::t_dae9620a2fa270 1-206
+Sources/NotchCalendar/Features/Workspace/FocusTimerModel.swift
+  s_da78974ba60664::t_f6b50b25931a7f 7-8,11,14-16,18,25,29-39,42-66,69-77,81,87,90-102,104-108,110,113,115,124,126,129,135,138,143,148-160,163-167,171-183
+Sources/NotchCalendar/App/NotchCalendarApp.swift
+  s_da78974ba60664::t_92b674d24be0db 12-13
+Sources/NotchCalendar/Features/Workspace/DayPlanningCard.swift
+  s_da78974ba60664::t_5502e1ee8078f8 1-7,9-18,21,24-28,30-48,50-53,60-65,71-74,76-96,98-148,150-151,153-161,163-169,172-175,178-194,196-206,208-298
+  s_da78974ba60664::t_ddb995e0c55c3a 8,49,54-59
+  s_da78974ba60664::t_d71cc527d07850 19-20,22-23,29,66-70,75,97,149,152,162,170-171,176-177,195,207
+README.md
+  s_da78974ba60664::t_85c76d07b12f36 17-19
+  s_da78974ba60664::t_84def2cd44e920 57
+  s_da78974ba60664::t_e80c13784415aa 58
+Sources/NotchCalendar/Calendar/CalendarModels.swift
+  s_da78974ba60664::t_48b2dcaa49087a 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "d826523ffa29fc3d5a6a9d4921d8b1a9dc926f72",
+  "prompts": {},
+  "sessions": {
+    "s_da78974ba60664": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06f56-a7ef-7561-908f-8411ee9d1de5",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

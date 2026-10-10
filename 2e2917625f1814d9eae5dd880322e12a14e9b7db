@@ -1,0 +1,28 @@
+Sources/NotchCalendar/Window/ScreenGeometry.swift
+  s_5a1b49bfe7d072::t_e8be279f633917 4-6,55-59,61-67,69-71,73-76
+  s_5a1b49bfe7d072::t_d797dc708862f9 60,68,72
+  s_5a1b49bfe7d072::t_73e20a7473cf3e 51-53
+Sources/NotchCalendar/Features/Notch/NotchRootView.swift
+  s_5a1b49bfe7d072::t_e8be279f633917 3-11,22,28-31
+Tests/NotchCalendarTests/ScreenGeometryTests.swift
+  s_5a1b49bfe7d072::t_e8be279f633917 1-8,10-19,21-30,32-34,46-48
+  s_5a1b49bfe7d072::t_d797dc708862f9 9,20,31,35-45
+Sources/NotchCalendar/Window/NotchWindowController.swift
+  s_5a1b49bfe7d072::t_e8be279f633917 10,25-27,33,199
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "2e2917625f1814d9eae5dd880322e12a14e9b7db",
+  "prompts": {},
+  "sessions": {
+    "s_5a1b49bfe7d072": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a06572-f293-7ea1-89fb-75f67a051511",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

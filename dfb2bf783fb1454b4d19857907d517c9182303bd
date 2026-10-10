@@ -1,0 +1,19 @@
+RELEASE_NOTES.md
+  s_c6f945ad4c86bf::t_841fbc7ca9d561 29-30,49-50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "dfb2bf783fb1454b4d19857907d517c9182303bd",
+  "prompts": {},
+  "sessions": {
+    "s_c6f945ad4c86bf": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f5794ad7dffeSJyvLn0dAunp3r",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

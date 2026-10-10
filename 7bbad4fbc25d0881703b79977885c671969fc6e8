@@ -1,0 +1,23 @@
+README.en.md
+  s_32b608c370ce26::t_99eca247b2529c 7-16,39-43
+README.md
+  s_32b608c370ce26::t_52fcd9eee3251c 7-16,39-43
+RELEASE_NOTES.md
+  s_32b608c370ce26::t_4eb1198acc272e 1,3,5,7-9,13,19,21,25,27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "7bbad4fbc25d0881703b79977885c671969fc6e8",
+  "prompts": {},
+  "sessions": {
+    "s_32b608c370ce26": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f4bdff75bffeVQtYrwgQb3qB3j",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+Sources/NotchCalendar/Settings/SettingsView.swift
+  s_acc8e7377731a7::t_35228c5a1aa2dd 64-77
+README.en.md
+  s_acc8e7377731a7::t_16994d5a4d631d 38
+  s_acc8e7377731a7::t_5fe65c0668cf12 32
+  s_acc8e7377731a7::t_8bdcef8cecc269 28
+Sources/NotchCalendar/Features/Backup/LocalBackupDocument.swift
+  s_acc8e7377731a7::t_35228c5a1aa2dd 12-13,100-101
+Support/Info.plist
+  s_acc8e7377731a7::t_5fe65c0668cf12 20,22
+docs/quality/README.md
+  s_acc8e7377731a7::t_6b4dd53cec51c9 3,24,47,64
+Tests/NotchCalendarTests/FileShelfTests.swift
+  s_acc8e7377731a7::t_ce7deeadb3c72f 56-74
+  s_acc8e7377731a7::t_38400bb7c05553 102-105,108-110
+  s_acc8e7377731a7::t_22f5212b00fd1a 1,3,91-101,106-107,111-118
+  s_acc8e7377731a7::t_dadaa692804660 119
+Sources/NotchCalendar/Features/Files/FileShelfStore.swift
+  s_acc8e7377731a7::t_a85d8aa86860a1 355-365
+Sources/NotchCalendar/Window/NotchWindowController.swift
+  s_acc8e7377731a7::t_35228c5a1aa2dd 119-123,125,251,421-423
+  s_acc8e7377731a7::t_a85d8aa86860a1 71,94
+Sources/NotchCalendar/Features/Files/FileShelfView.swift
+  s_acc8e7377731a7::t_a85d8aa86860a1 10-14,114-129,138-141,143-144
+  s_acc8e7377731a7::t_ce7deeadb3c72f 310
+  s_acc8e7377731a7::t_22f5212b00fd1a 130,317
+  s_acc8e7377731a7::t_f576d5344e28a6 131
+Sources/NotchCalendar/Window/NotchPanel.swift
+  s_acc8e7377731a7::t_a85d8aa86860a1 2-6
+Sources/NotchCalendar/App/PresentationPolicy.swift
+  s_acc8e7377731a7::t_98b5ac49d143bc 29
+  s_acc8e7377731a7::t_35228c5a1aa2dd 18-28,30-49,66,89-95,109-110,123-124
+Tests/NotchCalendarTests/PresentationPolicyTests.swift
+  s_acc8e7377731a7::t_127ddb96fea347 69,81,86,89-94
+  s_acc8e7377731a7::t_18471905bcb944 95
+README.md
+  s_acc8e7377731a7::t_8bdcef8cecc269 36
+  s_acc8e7377731a7::t_5fe65c0668cf12 40
+  s_acc8e7377731a7::t_16994d5a4d631d 46
+Support/NotchCalendarWidgets-Info.plist
+  s_acc8e7377731a7::t_5fe65c0668cf12 20,22
+docs/auto-changelog/changelog-v1.4.0-v1.4.1.md
+  s_acc8e7377731a7::t_5fe65c0668cf12 1-20
+docs/quality/1.4.1.json
+  s_acc8e7377731a7::t_6b4dd53cec51c9 1-67
+docs/quality/RELEASE_1.4.1.md
+  s_acc8e7377731a7::t_5fe65c0668cf12 1-25
+docs/quality/evidence/performance-1.4.1.json
+  s_acc8e7377731a7::t_32d159dba56b81 1-1892
+Sources/NotchCalendar/Resources/en.lproj/Localizable.strings
+  s_acc8e7377731a7::t_d0e215885b6aa4 24-26,28
+  s_acc8e7377731a7::t_98b5ac49d143bc 27
+  s_acc8e7377731a7::t_a85d8aa86860a1 62
+Sources/NotchCalendar/Resources/zh-Hans.lproj/Localizable.strings
+  s_acc8e7377731a7::t_a85d8aa86860a1 53
+  s_acc8e7377731a7::t_d0e215885b6aa4 89-91,93
+  s_acc8e7377731a7::t_98b5ac49d143bc 92
+CHANGELOG.md
+  s_acc8e7377731a7::t_5fe65c0668cf12 7-10,19-24
+  s_acc8e7377731a7::t_16994d5a4d631d 18
+  s_acc8e7377731a7::t_8bdcef8cecc269 11-17,25
+Tests/NotchCalendarTests/LocalBackupTests.swift
+  s_acc8e7377731a7::t_127ddb96fea347 12,29,36,77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "580f60e74ebe84930f8bcea2446120a9815f3e4b",
+  "prompts": {},
+  "sessions": {
+    "s_acc8e7377731a7": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f5fffccdaffeW1kwKJdXBLy6mI",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

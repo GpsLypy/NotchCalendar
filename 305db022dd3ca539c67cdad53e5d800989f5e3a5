@@ -1,0 +1,32 @@
+README.md
+  s_1a44d167c8a2ee::t_b05adc6f898d18 39
+  s_afeac3b0052924::t_8dc58edcd2aac9 3,7,9,11-34,40,44,50,56,58,64
+README.en.md
+  s_afeac3b0052924::t_294b5a80a2947d 3,7,9,11-34,40,44,48,52,54,60
+RELEASE_NOTES.md
+  s_afeac3b0052924::t_e2d36da97e7d57 1,3,5,7-12,16,22,24,28,30,32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "305db022dd3ca539c67cdad53e5d800989f5e3a5",
+  "prompts": {},
+  "sessions": {
+    "s_1a44d167c8a2ee": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f52e4e028ffetsiK3IkZDZ58HV",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    },
+    "s_afeac3b0052924": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f4ca74b96ffeDbcKxwwvvYjv1L",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

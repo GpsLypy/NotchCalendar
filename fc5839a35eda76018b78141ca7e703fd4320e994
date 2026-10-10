@@ -1,0 +1,50 @@
+Support/Info.plist
+  s_91279c3a96e9b9::t_67747b18956dd0 20,22
+Sources/NotchCalendar/Settings/SettingsView.swift
+  s_91279c3a96e9b9::t_801b6f3e0fde6a 507
+Sources/NotchCalendar/Features/Workspace/WorkspaceSidebar.swift
+  s_91279c3a96e9b9::t_dac4a16cac0504 10-11,73-96,106-118
+docs/quality/1.2.0.json
+  s_91279c3a96e9b9::t_67747b18956dd0 1-71
+Sources/NotchCalendar/Resources/zh-Hans.lproj/Localizable.strings
+  s_91279c3a96e9b9::t_801b6f3e0fde6a 3-21
+docs/quality/RELEASE_1.2.0.md
+  s_91279c3a96e9b9::t_67747b18956dd0 1-22
+README.md
+  s_91279c3a96e9b9::t_67747b18956dd0 40
+docs/quality/evidence/performance-1.2.0.json
+  s_91279c3a96e9b9::t_67747b18956dd0 1-10
+Sources/NotchCalendar/App/UpdateChecker.swift
+  s_91279c3a96e9b9::t_dac4a16cac0504 662
+README.en.md
+  s_91279c3a96e9b9::t_67747b18956dd0 32,95
+CHANGELOG.md
+  s_91279c3a96e9b9::t_0ac3604dd3b3f6 19-22
+  s_91279c3a96e9b9::t_67747b18956dd0 7-18,23-29
+Support/NotchCalendarWidgets-Info.plist
+  s_91279c3a96e9b9::t_67747b18956dd0 20,22
+docs/quality/README.md
+  s_91279c3a96e9b9::t_67747b18956dd0 3,24,47,64
+Sources/NotchCalendar/Resources/en.lproj/Localizable.strings
+  s_91279c3a96e9b9::t_801b6f3e0fde6a 2-20
+Sources/NotchCalendar/Features/Workspace/ShareCalendarView.swift
+  s_91279c3a96e9b9::t_dac4a16cac0504 1-188
+Tests/NotchCalendarTests/ShareCalendarPosterTests.swift
+  s_91279c3a96e9b9::t_659ccac1222b68 1-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "fc5839a35eda76018b78141ca7e703fd4320e994",
+  "prompts": {},
+  "sessions": {
+    "s_91279c3a96e9b9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f76e31702ffeq7l8CwIfWeDozK",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}

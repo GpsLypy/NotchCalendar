@@ -1,0 +1,23 @@
+README.en.md
+  s_60c90b24a29407::t_4084c56019b653 39-43
+README.md
+  s_60c90b24a29407::t_16c22f97f3f491 39-43
+RELEASE_NOTES.md
+  s_60c90b24a29407::t_a4f211773615d7 1,3,7,11-12,16,22,26,28-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "598b77f193f62812e6e317668d76801573724c56",
+  "prompts": {},
+  "sessions": {
+    "s_60c90b24a29407": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a12049-285a-77f3-bf17-626dbdd5b0fd",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "yupeng.li <yupeng.li@ly.com>"
+    }
+  }
+}
