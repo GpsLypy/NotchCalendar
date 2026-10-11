@@ -1,8 +1,20 @@
 # Notch Calendar
 
-Open your calendar, focus timer, files, and scratchpad from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
+Open your calendar, focus timer, music controls, files, and scratchpad from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## New in 1.7.0: Music beside the notch
+
+- Album art and a gentle rhythm appear on separate sides of the notch during playback. Meetings and focus take priority; turn off Show music beside the notch in Settings when needed.
+- Open Music in the notch to see the system's current track, artist, album, artwork and source player. Previous, play/pause, next and seeking follow the capabilities reported by the player.
+- Swipe horizontally across the artwork and track area to change tracks, or use the buttons. Space plays or pauses; Reduce Motion keeps the rhythm still.
+
+The rhythm is a decorative playback animation, not a live audio waveform. This version does not claim unverified Lossless, Dolby Atmos or exclusive audio formats, and it does not add a lock-screen music widget. Actual Apple Music, Spotify and other player compatibility remains pending live playback acceptance; controlled demo playback does not establish full compatibility. See [release notes](RELEASE_NOTES.md).
+
+![Music controls in the notch](images/notch-music.png)
+
+Native SwiftUI capture with synthetic song metadata and artwork; no physical camera housing or desktop background.
 
 ## New in 1.6.22: Clearer daily work and purchase steps
 
@@ -28,7 +40,7 @@ Native compact-view captures use isolated demo data; the menu bar and camera hou
 
 ## Open from the notch
 
-Hover over or click the top entry for Calendar, Focus, and Scratchpad. Enable the optional file shelf in Settings to add Files; displays without a notch have a centered top entry.
+Hover over or click the top entry for Calendar, Focus, Scratchpad, and Music. Enable the optional file shelf in Settings to add Files; displays without a notch have a centered top entry.
 
 | Calendar | Focus |
 | --- | --- |
