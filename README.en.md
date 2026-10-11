@@ -4,6 +4,14 @@ Open your calendar, focus timer, music controls, files, and scratchpad from the 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## New in 1.7.2: A more compact and clearer notch panel
+
+- Music fits its content without a large empty area below the player. Artwork, track information and playback controls have balanced spacing, and an album name that repeats the song title is omitted.
+- Labeled navigation at the standard panel width and consistent hover, pressed, focus and disabled feedback make controls clearer. The translucent panel reduces desktop color tint for better contrast.
+- Tab changes retain calendar and file browsing state, as well as the scratchpad's selection and undo history.
+
+Requires macOS 15+ and supports Apple silicon and Intel. This ad-hoc signed build requires manual installation and has no Developer ID signing or Apple notarization. See the [1.7.2 release notes](RELEASE_NOTES.md) for download and validation details.
+
 ## New in 1.7.1: Smoother notch opening and closing
 
 - The shell expands first, then content fades in with a slight scale and downward movement. Content fades out before the shell finishes closing.
@@ -22,7 +30,7 @@ The rhythm is a decorative playback animation, not a live audio waveform. This v
 
 ![Music controls in the notch](images/notch-music.png)
 
-Native SwiftUI capture with synthetic song metadata and artwork; no physical camera housing or desktop background.
+Native window compositor capture at measured content height, with synthetic song metadata and artwork; this does not establish physical-notch or live-player acceptance.
 
 ## New in 1.6.22: Clearer daily work and purchase steps
 

@@ -1,3 +1,43 @@
+# Notch Calendar 1.7.2
+
+macOS 15+ · Apple 芯片与 Intel · build 69 · 2026-10-11
+
+## 视觉与细节体验
+
+- 音乐页按实际内容调整高度，移除播放器下方的大块空白；封面、歌曲信息与播放控件采用更紧凑的间距。
+- 标准宽度下的导航补充文字，工具栏按钮统一悬停、按下、键盘焦点与禁用反馈。专辑名与曲名相同时不再重复显示，律动收纳到播放状态，进度条改为中性色。
+- 加深半透明刘海面板，减少壁纸染色，提升文字与控件的对比度。
+- 切换音乐页时保留日历与文件浏览状态，便笺保留编辑器、选区与撤销记录；隐藏页面不接收鼠标、键盘或无障碍输入。
+- 沿用 1.7.1 的刘海展开与收起动画，以及系统「减少动态效果」下的淡入淡出。
+
+## 安装与升级
+
+下载 `NotchCalendar-1.7.2-macos.dmg`，退出旧版后拖入「应用程序」替换，再重新启动。另提供 ZIP 和 SHA-256 校验文件。正常覆盖安装不会清除已有授权或本地数据。
+
+**本版采用 ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装；macOS 可能显示安全提示，不提供自动替换安装。**
+
+## 验证范围
+
+Swift 全量执行 416 项，22 项按需或环境条件跳过，零失败；21 项 Python 质量检查及授权配置通过。39 项界面、音乐与外观定向检查通过，已核对合成歌曲、封面及隔离配置下的原生界面截图。
+
+arm64/x86_64 通用安装包、ad-hoc 签名、快捷指令元数据、ZIP/DMG 内容、安装链接和本地 SHA-256 核验通过。截图不代表实体屏幕或真实播放器验收。
+
+实体刘海及外接屏、真实休眠唤醒与登录启动、静置性能、真实付款激活、钥匙串弹窗、VoiceOver，以及 Apple Music、Spotify 及其他播放器的真实播放兼容性 **仍待验收**。本版保留人工核实付款、人工发码；音乐能力及其验收范围沿用 1.7.0 的说明。
+
+## English
+
+Version 1.7.2 refines the notch's visual details. Music now fits its actual content without a large empty area below the player. Artwork, track information and playback controls have balanced spacing; an album name that repeats the song title is omitted, the rhythm sits beside playback status, and the progress control uses a neutral color.
+
+Navigation includes labels at the standard panel width, with consistent hover, pressed, keyboard focus and disabled feedback. A darker translucent surface reduces desktop color tint and improves contrast. Tab changes retain calendar and file browsing state, as well as the scratchpad's editor, selection and undo history. Hidden pages do not receive pointer, keyboard or accessibility input. The opening and closing animation from 1.7.1, including Reduce Motion's fade-only behavior, is retained.
+
+Download `NotchCalendar-1.7.2-macos.dmg`, quit the older app, replace it in Applications, and relaunch. ZIP and SHA-256 files are also provided. A normal replacement preserves existing licenses and local data. This ad-hoc signed build requires manual installation and has no Developer ID signing or Apple notarization.
+
+Executed 416 Swift tests with 22 optional/environment skips and zero failures; 21 Python quality checks and licensing validation passed. The 39 targeted UI, music and appearance checks passed, and native captures using synthetic music and isolated configuration were reviewed. Universal arm64/x86_64 packaging, ad-hoc signatures, Shortcuts metadata, ZIP/DMG contents, installation link and local SHA-256 checks passed. Captures do not establish physical-display or live-player acceptance.
+
+Physical displays, real sleep/wake/login behavior, stationary performance, live payment/activation, Keychain dialogs, VoiceOver and live Apple Music, Spotify and other player compatibility remain **pending**. Manual payment verification and code delivery continue. Music capabilities and their acceptance scope remain as documented for 1.7.0 below.
+
+---
+
 # Notch Calendar 1.7.1
 
 macOS 15+ · Apple 芯片与 Intel · build 68 · 2026-10-11
