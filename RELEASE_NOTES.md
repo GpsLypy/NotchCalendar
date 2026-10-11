@@ -1,3 +1,38 @@
+# Notch Calendar 1.7.1
+
+macOS 15+ · Apple 芯片与 Intel · build 68 · 2026-10-11
+
+## 刘海动画改进
+
+- 参考 Pulse 的外壳与内容分段动画：外壳先展开，内容稍后淡入，配合轻微缩放与下移；收起时内容先淡出，轮廓随后平稳回收。
+- 展开约 0.44 秒，收起约 0.32 秒。内容延迟 0.10 秒后出现，让阅读区域在外壳展开后进入。
+- 快速反复展开、收起时从当前可见轮廓继续衔接，收起末尾不再挤压到紧凑刘海以下；隐藏的便笺等编辑器退出输入焦点。
+- 系统「减少动态效果」开启时只淡入淡出，不播放轮廓形变动画、不移动或缩放内容。
+
+## 安装与升级
+
+下载 `NotchCalendar-1.7.1-macos.dmg`，退出旧版后拖入「应用程序」替换，再重新启动。另提供 ZIP 和 SHA-256 校验文件。正常覆盖安装不会清除已有授权或本地数据。
+
+**本版采用 ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装；macOS 可能显示安全提示，不提供自动替换安装。**
+
+## 验证范围
+
+Swift 全量执行 415 项，18 项按需跳过，零失败；21 项 Python 质量检查及授权配置通过。arm64/x86_64 通用安装包、ad-hoc 签名、快捷指令元数据、ZIP/DMG 内容、安装链接和本地 SHA-256 核验通过。
+
+实体刘海及外接屏、真实休眠唤醒与登录启动、静置性能、真实付款激活、钥匙串弹窗、VoiceOver，以及 Apple Music、Spotify 及其他播放器的真实播放兼容性 **仍待验收**。本版保留人工核实付款、人工发码；音乐能力及其验收范围沿用 1.7.0 的说明。
+
+## English
+
+Version 1.7.1 improves notch opening and closing with separate shell and content timing inspired by Pulse. The shell expands first; content follows with a short delay, fade, slight scale and downward movement. On dismissal, content fades before the shell finishes closing. Opening takes approximately 0.44 seconds and closing 0.32 seconds; content begins appearing after 0.10 seconds.
+
+Reversing an in-progress transition continues from the currently visible shape. The final compact notch no longer squeezes below its destination, and hidden text editors release input focus. Reduce Motion uses a fade-only transition, without shell animation or content movement and scaling.
+
+Download `NotchCalendar-1.7.1-macos.dmg`, quit the older app, replace it in Applications, and relaunch. ZIP and SHA-256 files are also provided. A normal replacement preserves existing licenses and local data. This ad-hoc signed build requires manual installation and has no Developer ID signing or Apple notarization.
+
+Executed 415 Swift tests with 18 optional skips and zero failures; 21 Python quality checks and licensing checks passed. Universal arm64/x86_64 packages, ad-hoc signatures, Shortcuts metadata, ZIP/DMG contents, installation link and local SHA-256 checks passed. Physical displays, real sleep/wake/login behavior, stationary performance, live payment/activation, Keychain dialogs, VoiceOver and live Apple Music, Spotify and other player compatibility remain **pending**. Manual payment verification and code delivery continue. Music capabilities and their acceptance scope remain as documented for 1.7.0 below.
+
+---
+
 # Notch Calendar 1.7.0
 
 macOS 15+ · Apple 芯片与 Intel · build 67 · 2026-10-11

@@ -4,6 +4,14 @@ Open your calendar, focus timer, music controls, files, and scratchpad from the 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## New in 1.7.1: Smoother notch opening and closing
+
+- The shell expands first, then content fades in with a slight scale and downward movement. Content fades out before the shell finishes closing.
+- Quickly reversing the transition continues from the visible shape. The compact notch no longer squeezes past its final size, and hidden editors release input focus.
+- Reduce Motion uses fading without moving or scaling content.
+
+Requires macOS 15+ and supports Apple silicon and Intel. This ad-hoc signed build requires manual installation and has no Developer ID signing or Apple notarization. See [release notes](RELEASE_NOTES.md) for the validation scope.
+
 ## New in 1.7.0: Music beside the notch
 
 - Album art and a gentle rhythm appear on separate sides of the notch during playback. Meetings and focus take priority; turn off Show music beside the notch in Settings when needed.

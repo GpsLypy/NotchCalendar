@@ -4,6 +4,14 @@
 
 [English](README.en.md) · [下载](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## 1.7.1：更连贯的刘海展开与收起
+
+- 外壳先展开，内容稍后淡入，配合轻微缩放与下移；收起时内容先淡出，轮廓平稳回收。
+- 快速反复开关可从当前轮廓连续衔接，收起末尾不再过度挤压；隐藏的编辑器退出输入焦点。
+- 系统「减少动态效果」开启时只淡入淡出，不移动或缩放内容。
+
+本版支持 macOS 15+、Apple 芯片与 Intel，采用 ad-hoc 签名，需手动安装，未进行 Developer ID 签名或 Apple 公证。验证范围详见 [本版发行说明](RELEASE_NOTES.md)。
+
 ## 1.7.0：刘海旁的音乐播放器
 
 - 播放音乐时，封面与轻柔律动分别出现在刘海两侧。会议与专注优先；可在设置中关闭「在刘海旁显示音乐」。
