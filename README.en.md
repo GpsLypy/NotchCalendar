@@ -4,6 +4,15 @@ Open your calendar, focus timer, music controls, files, and scratchpad from the 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## New in 1.7.4: Click to open Music, leave to close Calendar
+
+- Compact music artwork and rhythm open only on a click; hovering no longer opens the player.
+- Beside a hardware notch, music input is limited to the two visible circles. Transparent shoulders and rounded corners pass clicks through to the menu bar, and the input region updates promptly during fast pointer movement to prevent accidental opening.
+- With hover opening enabled, clicking Music and then switching to Calendar allows the panel to close after the exit grace period when the pointer leaves, including when it rests on neighboring menu-bar controls.
+- Scratchpad, Files and Focus editing, the global click-only preference, and native popovers, sheets and modal dialogs retain continued interaction sessions.
+
+Version 1.7.4 (build 71, 2026-10-12) requires macOS 15+ and supports Apple silicon and Intel. This ad-hoc signed build requires manual installation and has no Developer ID signing or Apple notarization. Physical displays, real desktop frame rate, energy use and stationary performance, live-player compatibility, VoiceOver, Keychain dialogs, live payment/activation and real sleep/wake/login behavior remain pending; see the [1.7.4 release notes](RELEASE_NOTES.md) for the validation scope.
+
 ## New in 1.7.3: Keep working after a glance
 
 - A brief pointer exit gets a grace period after hover opening. Clicking the panel keeps the interaction open while the pointer moves away; click outside, press Esc, or use Close to dismiss it.

@@ -1,3 +1,33 @@
+# Notch Calendar 1.7.4
+
+macOS 15+ · Apple Silicon and Intel · build 71 · 2026-10-12
+
+下载 / Download `NotchCalendar-1.7.4-macos.dmg`，退出旧版后拖入「应用程序」替换并重新启动。另提供 ZIP 和 SHA-256 校验文件。/ Quit the older app, replace it in Applications, and relaunch; ZIP and SHA-256 files are also available.
+
+## [1.7.4] - 2026-10-12
+
+macOS 15+ · Apple Silicon and Intel · build 71 · Ad-hoc signed, manual installation; no Developer ID signing or notarization.
+
+### Added / 新增
+
+- Add regression coverage for compact music click targets, pointer departure after switching from Music to Calendar, and retained editing, click-only and native-dialog sessions. / 新增紧凑音乐点击区域、音乐切换日历后的指针移出，以及编辑、仅点击模式和原生弹窗持续会话的回归覆盖。
+
+### Fixed / 修复
+
+- Open Music from its compact artwork or rhythm only on a click, preventing pointer hover from opening the player. / 紧凑音乐封面与律动仅在点击后打开音乐页，悬停不再弹出播放器。
+- Limit compact music input beside a hardware notch to the two visible circles. Transparent shoulders and rounded corners pass clicks through to the menu bar, and window input updates promptly as the pointer moves, so neighboring menu-bar controls no longer open the panel. / 实体刘海旁的紧凑音乐点击范围限制在可见的两个圆圈内；透明肩部和圆角将点击传递给菜单栏，指针快速移动时及时更新窗口输入，避免点击相邻菜单栏控件时误开面板。
+- With hover opening enabled, clicking compact Music and then switching to Calendar no longer keeps the calendar open indefinitely. Moving the pointer away, including onto neighboring menu-bar controls, closes it after the exit grace period. / 启用悬停打开时，点击紧凑音乐后切换日历不再一直停留；移开指针，包括停在相邻菜单栏控件上，均会在移出宽限结束后收起。
+- Preserve continued interaction while editing Scratchpad, Files or Focus, using the global click-only preference, or operating native popovers, sheets and modal dialogs. / 便笺、文件和专注编辑、全局「仅点击打开」偏好，以及原生子弹窗、sheet 和模态对话框仍保持持续操作会话。
+
+### Validation / 验证
+
+- The targeted run executed 71 tests: 69 passed, 2 opt-in checks skipped, zero failures. / 本轮相关测试执行 71 项，69 项通过，2 项按需检查跳过，零失败。
+- The full Swift release regression executed 471 tests with 22 optional/environment skips and zero failures; all 21 Python quality checks, licensing validation and localization syntax checks passed. / Swift 全量发行回归执行 471 项，22 项按需或环境条件跳过，零失败；21 项 Python 质量检查、授权配置及本地化语法检查通过。
+- Universal arm64/x86_64 app, updater, widget and music bridge, ad-hoc signatures, Shortcuts metadata, complete ZIP/DMG payloads, installation link and local SHA-256 checks passed. / 主应用、更新器、小组件及音乐桥接库的 arm64/x86_64 双架构、ad-hoc 签名、快捷指令元数据、ZIP/DMG 完整内容、安装链接和本地 SHA-256 核验通过。
+- Physical displays, real desktop frame rate, energy use and stationary performance, live-player compatibility, VoiceOver, Keychain dialogs, live payment/activation and real sleep/wake/login behavior remain pending. Controlled native windows and simulated notch sizes do not establish hardware or live-player acceptance. / 实体屏幕、真实桌面帧率、能耗与静置性能、真实播放器兼容性、VoiceOver、钥匙串弹窗、真实付款激活，以及真实休眠唤醒与登录行为仍待验收；受控原生窗口及模拟刘海尺寸不等同于实体硬件或真实播放器验收。
+
+---
+
 # Notch Calendar 1.7.3
 
 macOS 15+ · Apple 芯片与 Intel · build 70 · 2026-10-12
