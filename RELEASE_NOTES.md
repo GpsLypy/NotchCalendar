@@ -1,3 +1,21 @@
+# Notch Calendar 1.7.5
+
+macOS 15+ · Apple Silicon and Intel · build 72 · 2026-10-12
+
+下载 / Download `NotchCalendar-1.7.5-macos.dmg`，退出旧版后拖入「应用程序」替换并重新启动。另提供 ZIP 和 SHA-256 校验文件。/ Quit the older app, replace it in Applications, and relaunch; ZIP and SHA-256 files are also available.
+
+### Fixed / 修复
+
+- Restore hover opening over the central hardware notch during music playback. The artwork and rhythm circles remain click targets, and moving the pointer away closes the browsing panel after the exit grace period. / 恢复音乐播放时实体刘海中间区域的悬停展开；封面与律动双圆仍需点击打开，移开指针后浏览面板在宽限结束时收起。
+- Keep the compact focus countdown within the right shoulder, preventing clipped time text and capsule edges after opening and closing the panel. / 将紧凑专注倒计时限定在右侧肩部内，避免面板展开再收起后时间文字及胶囊边缘被裁切。
+
+### Validation / 验证
+
+- At the user's explicit request for immediate publication, release regression tests, artifact checks and SHA-256 verification were skipped. Tests were not rerun after the focus layout fix; this release does not claim those checks passed. / 按用户明确要求立即发布，跳过发行回归、安装包检查与 SHA-256 核验；专注布局修复后未重新运行测试，本版不宣称上述检查通过。
+- Ad-hoc signed for manual installation; no Developer ID signing or Apple notarization. / 本版采用 ad-hoc 签名，需手动安装，未进行 Developer ID 签名或 Apple 公证。
+
+---
+
 # Notch Calendar 1.7.4
 
 macOS 15+ · Apple Silicon and Intel · build 71 · 2026-10-12

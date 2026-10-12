@@ -4,6 +4,13 @@ Open your calendar, focus timer, music controls, files, and scratchpad from the 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## Fixed in 1.7.5: Central notch hover and compact focus countdown
+
+- Restore hover opening over the central hardware notch during music playback. The artwork and rhythm circles remain click targets, and moving the pointer away closes the browsing panel after the exit grace period.
+- Keep the compact focus countdown within the right shoulder, preventing clipped time text and capsule edges after opening and closing the panel.
+
+Version 1.7.5 (build 72, 2026-10-12) requires macOS 15+ and supports Apple silicon and Intel. This ad-hoc signed build requires manual installation and has no Developer ID signing or Apple notarization. At the user's explicit request for immediate publication, release regression tests, artifact checks and SHA-256 verification were skipped. Tests were not rerun after the focus layout fix; this release does not claim those checks passed. See the [1.7.5 release notes](RELEASE_NOTES.md).
+
 ## New in 1.7.4: Click to open Music, leave to close Calendar
 
 - Compact music artwork and rhythm open only on a click; hovering no longer opens the player.

@@ -4,6 +4,13 @@
 
 [English](README.en.md) · [下载](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## 1.7.5：恢复刘海中间悬停，修复专注倒计时裁切
+
+- 音乐播放时，实体刘海中间区域恢复悬停展开；封面与律动双圆仍需点击打开，移开指针后浏览面板在宽限结束时收起。
+- 紧凑专注倒计时限定在右侧肩部内，避免展开再收起后时间文字及胶囊边缘被裁切。
+
+本版为 1.7.5（build 72，2026-10-12），支持 macOS 15+、Apple 芯片与 Intel，采用 ad-hoc 签名，需手动安装，未进行 Developer ID 签名或 Apple 公证。按用户明确要求立即发布，跳过发行回归、安装包检查与 SHA-256 核验；专注布局修复后未重新运行测试，不宣称上述检查通过。详见 [1.7.5 发行说明](RELEASE_NOTES.md)。
+
 ## 1.7.4：音乐仅点击打开，日历按时收起
 
 - 紧凑音乐封面与律动仅点击打开，悬停不再弹出播放器。
