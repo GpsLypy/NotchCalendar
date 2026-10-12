@@ -4,6 +4,16 @@ Open your calendar, focus timer, music controls, files, and scratchpad from the 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## New in 1.7.3: Keep working after a glance
+
+- A brief pointer exit gets a grace period after hover opening. Clicking the panel keeps the interaction open while the pointer moves away; click outside, press Esc, or use Close to dismiss it.
+- Opening takes about 0.32 seconds, closing 0.24 seconds, and pages fade in over 0.14 seconds. Narrow navigation keeps fixed icon widths when switching pages.
+- A complete close and reopen retains the scratchpad's selection and independent undo history, plus file selection and scroll position. External note updates invalidate old undo actions while respecting input-method composition.
+- File-open, copy, and child-folder failures show a dismissible message while keeping the current directory. Reads made obsolete by a collapsed parent or directory change cannot write back.
+- The file list supports arrow navigation, left/right collapse and expansion, Home/End, Return to open, ⌘C to copy, and Tab/Shift-Tab focus navigation. Hidden pages do not intercept keys.
+
+Requires macOS 15+ and supports Apple silicon and Intel. This ad-hoc signed build requires manual installation and has no Developer ID signing or Apple notarization. Real desktop frame rate and energy use, physical displays, and live-player compatibility remain pending; see the [1.7.3 release notes](RELEASE_NOTES.md) for the validation scope.
+
 ## New in 1.7.2: A more compact and clearer notch panel
 
 - Music fits its content without a large empty area below the player. Artwork, track information and playback controls have balanced spacing, and an album name that repeats the song title is omitted.

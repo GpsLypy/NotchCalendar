@@ -1,3 +1,52 @@
+# Notch Calendar 1.7.3
+
+macOS 15+ · Apple 芯片与 Intel · build 70 · 2026-10-12
+
+## 刘海展开、悬停与收起
+
+- 悬停展开后，短暂移出面板会留出宽限，返回时取消收起；点击面板后保持操作会话，移开指针不再打断便笺编辑或文件操作。点击外部、按 Esc 或关闭按钮可收起，原生菜单和文件选择框仍属于当前操作。
+- 展开约 0.32 秒、收起约 0.24 秒，轮廓在设定时长内连续到达目标；快速反向开关继续使用当前可见轮廓。切页只对进入页面做 0.14 秒淡入，窄屏导航固定使用图标，避免按钮宽度随选择变化。
+- 完整收起后保留便笺编辑器、选区和独立撤销/重做记录，以及文件选择与滚动位置；再次展开不会因紧凑尺寸挤压编辑器。外部更新便笺时清理旧撤销，输入法组合期间也按提交后的文本同步。
+- 隐藏页面释放输入焦点，停用快捷键与无障碍输入；隐藏的日历停止页面刷新，专注和音乐页面停止各自的显示计时与动画。系统「减少动态效果」下不播放外壳形变，内容只淡入淡出，切页立即完成。
+
+## 文件浏览与错误反馈
+
+- 打开、复制或子目录读取失败时，显示可关闭的就地提示，当前目录和文件列表继续保留；目录本身读取失败可直接重试。
+- 收起父目录会取消后代读取；切换目录、停用文件架或刷新后删除目录时，过期读取不会写回列表或错误提示。
+- 文件列表支持上下选择、左右展开/收起及返回父级、Home/End、回车打开、⌘C 复制，并保持所选项可见；Tab 和 Shift-Tab 可进入或离开列表焦点。复制与打开按键只由当前文件列表处理，不占用便笺的文本操作。
+
+## 安装与升级
+
+下载 `NotchCalendar-1.7.3-macos.dmg`，退出旧版后拖入「应用程序」替换，再重新启动。另提供 ZIP 和 SHA-256 校验文件。正常覆盖安装不会清除已有授权或本地数据。
+
+**本版采用 ad-hoc 签名，提供 arm64/x86_64 双架构包，未进行 Developer ID 签名或 Apple 公证，需手动安装；macOS 可能显示安全提示，不提供自动替换安装。**
+
+## 验证范围
+
+Swift 全量发行回归执行 462 项，22 项按需或环境条件跳过，零失败；21 项 Python 质量检查及授权配置检查通过。本轮定向检查执行 105 项，102 项通过，3 项需要桌面条件的检查跳过，零失败，涵盖刘海开关与重开布局、便笺选区及实际撤销/重做、外部更新、文件键盘交互和过期目录读取。
+
+主应用、更新器、小组件与音乐桥接库均包含 arm64/x86_64；ad-hoc 签名、快捷指令元数据、ZIP/DMG 完整内容、安装链接和本地 SHA-256 核验通过。
+
+真实桌面帧率、能耗与静置性能，实体刘海及外接屏，真实休眠唤醒与登录启动，真实付款激活、钥匙串弹窗、VoiceOver，以及 Apple Music、Spotify 及其他播放器的真实播放兼容性 **仍待验收**。受控原生窗口和模拟刘海尺寸检查不代表实体硬件或真实播放器验收。本版保留人工核实付款、人工发码；音乐能力及其验收范围沿用 1.7.0 的说明。
+
+## English
+
+Version 1.7.3 gives hover interactions a brief exit grace period and keeps a clicked panel open while the pointer moves away. Click outside, press Esc, or use Close to dismiss it; native menus and file dialogs remain part of the interaction. Opening takes about 0.32 seconds and closing 0.24 seconds, with continuous shell motion and reversals from the visible shape. Incoming pages fade in over 0.14 seconds. Narrow navigation keeps fixed icon widths.
+
+A complete close and reopen retains the scratchpad editor, selection and independent undo/redo history, plus file selection and scroll position. Compact geometry does not squeeze the retained editor. External note updates invalidate old undo actions, including updates during input-method composition, while undo and redo synchronize the saved text. Hidden pages release focus and do not receive shortcuts or accessibility input; hidden calendar pages stop refreshing, and hidden Focus and Music pages stop their display timers and animations. Reduce Motion disables shell deformation, keeps content fading and makes page changes immediate.
+
+File-open, copy and child-folder failures show dismissible messages while keeping the directory and rows. An unreadable directory offers Retry. Collapsing an ancestor, changing directories, disabling the shelf or removing a directory during refresh invalidates obsolete reads. The file list supports arrows, left/right expansion and parent navigation, Home/End, Return, ⌘C and Tab/Shift-Tab, with the selected row kept visible. File commands remain local to the focused list and leave scratchpad text editing alone.
+
+Download `NotchCalendar-1.7.3-macos.dmg`, quit the older app, replace it in Applications, and relaunch. ZIP and SHA-256 files are also provided. A normal replacement preserves existing licenses and local data. This ad-hoc signed arm64/x86_64 build requires manual installation and has no Developer ID signing or Apple notarization.
+
+The full Swift release regression executed 462 tests with 22 optional/environment skips and zero failures. All 21 Python quality checks and licensing validation passed. The targeted run executed 105 checks: 102 passed, 3 desktop-dependent checks were skipped, and none failed. Coverage includes notch closing and reopening layout, scratchpad selection and actual undo/redo, external updates, file keyboard interaction and stale directory reads.
+
+The app, updater, widget and music bridge contain arm64/x86_64. Ad-hoc signatures, Shortcuts metadata, complete ZIP/DMG contents, installation link and local SHA-256 checks passed.
+
+Real desktop frame rate, energy use and stationary performance, physical notch and external displays, real sleep/wake/login behavior, live payment/activation, Keychain dialogs, VoiceOver and live Apple Music, Spotify and other player compatibility remain **pending**. Controlled native windows and simulated notch sizes do not establish physical-hardware or live-player acceptance. Manual payment verification and code delivery continue; music capabilities and their acceptance scope remain as documented for 1.7.0 below.
+
+---
+
 # Notch Calendar 1.7.2
 
 macOS 15+ · Apple 芯片与 Intel · build 69 · 2026-10-11
