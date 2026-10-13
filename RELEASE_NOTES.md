@@ -1,3 +1,38 @@
+# Notch Calendar 1.8.3
+
+macOS 15+ · Apple Silicon and Intel · build 76 · 2026-10-13
+
+## 日历恢复与空白修复
+
+- 恢复左侧日期与当天安排、右侧月历的布局；当天没有日程也保留左栏。
+- 修复从音乐切回、收起后重开时，日期和未来日程看不见但仍可点击的问题。
+- 刘海弹窗恢复固定黑底；520 点宽度保留中文活动标签文字，包括系统语言为中文的情况。
+- 月历只在空间不足时滚动，六周月份与调整尺寸后仍能完整浏览日期；未来日程保持独立滚动。
+
+## 安装与验证
+
+下载 `NotchCalendar-1.8.3-macos.dmg`，退出旧版后拖入「应用程序」替换并重新启动。另提供 ZIP 和 `SHA256SUMS.txt`。本版沿用 **ad-hoc 签名和手动安装**，未进行 Developer ID 签名或 Apple 公证。
+
+Swift 全量执行 516 项：492 项通过、24 项按需或环境条件跳过，零失败；21 项 Python 质量检查通过。双架构 Release 构建、签名、快捷指令元数据、DMG 与 ZIP 完整性及包内容核对通过。
+
+27 项日历定向检查通过。四个真实窗口合成截图场景覆盖首次从音乐切回、再次切换、收起重开及调整至 600 × 460 点，日期与未来日程文字均可见。测试使用独立偏好和模拟日程，不修改用户日历。
+
+完整实体屏幕矩阵、真实休眠唤醒与登录、静置性能、VoiceOver、钥匙串弹窗、真实付款激活和播放器集成仍待验收。
+
+## English
+
+Restore the date and daily agenda on the left and the month on the right, including empty days. Fix invisible but clickable dates and upcoming events after returning from Music or closing and reopening the notch. The notch uses a solid black background, Chinese tabs retain their text at 520 pt, and scrolling keeps six-week months and resized viewports fully reachable.
+
+Quit the previous app, open the DMG, replace Notch Calendar in Applications, and relaunch. ZIP and SHA-256 files are also available. This **ad-hoc signed manual-install build** has no Developer ID signing or Apple notarization.
+
+The full Swift suite executed 516 tests: 492 passed, 24 optional/environment checks skipped, zero failures. All 21 Python quality checks passed. Universal Release builds, signatures, Shortcuts metadata, DMG and ZIP integrity and package contents passed verification.
+
+All 27 targeted calendar checks passed. Four real-window compositor captures confirm visible date and upcoming-event text after the initial Music transition, another tab change, reopening, and resizing to 600 × 460 pt. These checks use isolated preferences and synthetic calendar data.
+
+The full physical-display matrix, real sleep/wake/login, stationary performance, VoiceOver, Keychain dialogs, live payment/activation and player integrations remain pending.
+
+---
+
 # Notch Calendar 1.8.2
 
 macOS 15+ · Apple 芯片与 Intel · build 75 · 2026-10-13

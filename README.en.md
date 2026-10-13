@@ -4,6 +4,15 @@ Open your calendar, focus timer, music controls, files, and scratchpad from the 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## 1.8.3: Restore the calendar layout and fix blank content
+
+- Restore the date and daily agenda on the left, with the month on the right, including days with no events.
+- Fix invisible but clickable dates and upcoming events after switching from Music or closing and reopening the notch.
+- Restore a solid black notch background and keep Chinese tab labels at 520 pt, including Chinese selected through the system language.
+- Scroll the month only when space is limited; six-week months and viewport changes keep all dates reachable.
+
+Version 1.8.3 (build 76, 2026-10-13) supports macOS 15+, Apple silicon and Intel. It is ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. 492 Swift tests passed, 24 optional/environment checks skipped, zero failures; 21 Python quality checks, 27 targeted calendar checks and four real-window compositor cases passed. See the [1.8.3 release notes](RELEASE_NOTES.md) for validation and pending acceptance.
+
 ## 1.8.2: Continuous music controls and a clearer compact agenda
 
 - Add synchronized lyrics, preserving the current line after pausing, reopening and resizing, with lyrics and progress visible together.
