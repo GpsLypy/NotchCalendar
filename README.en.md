@@ -4,6 +4,14 @@ Open your calendar, focus timer, music controls, files, and scratchpad from the 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## Fixed in 1.8.1: Turning off check-in reminders takes effect immediately
+
+- Turning off “Enable check-in reminders” immediately hides the notch capsule and reminder panel and stops new reminders. Wake, day changes and restarts preserve the disabled state.
+- The off state saved by earlier versions is honored. Pending check-ins are retained for when you turn reminders on again; completed check-ins do not repeat.
+- The setting explains login and reminder behavior, and time controls are disabled while reminders are off.
+
+Version 1.8.1 (build 74, 2026-10-13) requires macOS 15+ and supports Apple silicon and Intel. It is ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. 473 Swift tests passed, 23 optional/environment checks skipped, zero failures; all 21 Python quality checks and 14 targeted check-in tests passed. See the [1.8.1 release notes](RELEASE_NOTES.md) for downloads, checksums and pending acceptance.
+
 ## New in 1.8.0: Adjustable notch size and adaptive content
 
 - The default expanded panel is 520 × 390 pt, about 27% smaller in area. Choose Compact, Standard, Spacious, or custom dimensions.

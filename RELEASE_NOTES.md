@@ -1,3 +1,32 @@
+# Notch Calendar 1.8.1
+
+> **Manual installation / 手动安装：** Open the DMG, drag Notch Calendar to Applications, then relaunch it. Automatic app replacement remains disabled in this release. / 打开 DMG，将 Notch Calendar 拖入“应用程序”，然后重新启动；此版本仍未启用自动替换安装。
+
+## [1.8.1] - 2026-10-13
+
+macOS 15+ · Apple Silicon and Intel · build 74 · Ad-hoc signed, manual installation; no Developer ID signing or notarization.
+
+### Added / 新增
+
+- Add regression coverage for turning reminders off, disabled startup with pending items, wake/day changes, preference reload, and reenabling without duplicate check-ins. / 增加关闭提醒、带待办启动、唤醒与跨日、重新读取设置及重新开启不重复打卡的回归验证。
+
+### Fixed / 修复
+
+- Turning off check-in reminders now immediately hides both the notch capsule and reminder panel and stops new reminders. The disabled state is honored on wake, day changes and app restarts; existing pending records are retained. / 关闭打卡提醒后，刘海胶囊与提醒弹窗立即隐藏，并停止生成新提醒；唤醒、跨日和重启均遵守关闭状态，已有待打卡记录保留。
+- Honor the off state saved by earlier versions, whose switch only controlled launching at login. Reenabling restores pending items without reopening details automatically or repeating completed check-ins. / 兼容旧版已保存的关闭状态，修复原开关只控制登录启动的问题；重新开启后恢复待打卡项，不自动展开详情，也不重复已完成的打卡。
+
+### Changed / 调整
+
+- Rename the setting to “Enable check-in reminders,” explain its login and reminder behavior, and disable time controls while reminders are off. / 开关改为「启用打卡提醒」，明确登录启动与关闭后的行为；关闭时禁用时间设置。
+
+### Validation / 验证
+
+- The full Swift suite executed 496 tests: 473 passed, 23 optional/environment checks skipped, zero failures. All 21 Python quality checks and 14 targeted check-in tests passed. / Swift 全量测试执行 496 项，473 项通过，23 项按需或环境条件跳过，零失败；21 项 Python 质量检查与 14 项打卡定向测试全部通过。
+- Reviewed native Chinese and English settings captures with reminders on and off. Physical displays, real sleep/wake/login, stationary performance, frame rate, live players, VoiceOver, Keychain dialogs and payment/activation remain pending. / 已核对中英文设置在开启与关闭状态下的原生截图；实体屏幕、真实休眠唤醒与登录、静置性能、桌面帧率、真实播放器、VoiceOver、钥匙串弹窗及付款激活仍待验收。
+
+
+---
+
 # Notch Calendar 1.8.0
 
 macOS 15+ · Apple Silicon and Intel · build 73 · 2026-10-13
