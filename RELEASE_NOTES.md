@@ -1,3 +1,36 @@
+# Notch Calendar 1.8.2
+
+macOS 15+ · Apple 芯片与 Intel · build 75 · 2026-10-13
+
+## 更新内容
+
+- **歌词与红心收藏**：音乐页显示匹配当前录音的同步歌词，居中突出当前行；暂停、重开和调整尺寸保留对应位置。网易云音乐可点击红心收藏或取消收藏，需辅助功能授权，确认实际状态后才更新红心。
+- **操作更连贯**：收藏等待时保留心形，收藏与播放请求分开处理；播放、切歌及进度控件不再因短暂请求一起置灰闪动。
+- **更充分使用弹窗空间**：优化标准与紧凑排布，未来安排独立滚动；「查看全部」显示完整日程及标题，空日程展示全宽月历，并明确显示日程开始与结束时间。
+- **保留编辑状态**：便笺切页及收起重开保留选区与编辑状态，隐藏编辑器不再进入当前页面的无障碍树。
+
+歌词仅在找到匹配录音时提供；红心收藏目前支持网易云音乐。
+
+## 下载与验证
+
+下载 [DMG 安装包](https://github.com/GpsLypy/NotchCalendar/releases/download/v1.8.2/NotchCalendar-1.8.2-macos.dmg)，退出旧版后拖入「应用程序」替换，再重新启动。另提供 ZIP 与 SHA-256 校验文件。采用 ad-hoc 签名，需手动安装，未进行 Developer ID 签名或 Apple 公证。
+
+Swift 全量执行 515 项：492 项通过，23 项按需或环境跳过，零失败；21 项 Python 质量检查与 31 项音乐定向检查通过。紧凑与标准尺寸的原生画面对比检查确认收藏等待期间画面不变、确认后仅红心变化。主应用、更新器、小组件及音乐桥接库均为 arm64/x86_64 通用构建；本地签名、安装包内容与 SHA-256 检查通过。
+
+最终交互修复的实机复验尚未完成；进度拖拽、外部收藏同步、完整实体屏幕矩阵、真实休眠唤醒与登录、静置性能、VoiceOver、钥匙串弹窗、真实付款激活及 Apple Music/Spotify 兼容性仍待验收。
+
+## English
+
+Version 1.8.2 adds matched synchronized lyrics and NetEase Cloud Music favorites to Music. The current lyric remains centered after pausing, reopening and resizing. The heart requires Accessibility permission and changes only after the player's actual state is confirmed. Lyrics depend on a matching recording; favorites currently support NetEase Cloud Music.
+
+Favorite requests preserve the heart and run independently from playback. Short commands no longer dim transport controls and progress together. Compact and standard panels make better use of space: upcoming events scroll independently, a complete agenda displays full titles, and empty days use a full-width month. Scratchpad selection and editing survive tab changes and close/reopen; hidden editors stay out of the active page's accessibility tree.
+
+The full Swift suite executed 515 tests: 492 passed, 23 optional/environment checks skipped, zero failures. All 21 Python quality checks and 31 targeted music checks passed. Native pixel comparisons cover held favorite requests at compact and standard sizes. Universal arm64/x86_64 app, updater, widget and music bridge, local signatures, package contents and SHA-256 checks passed.
+
+Final live acceptance of the interaction fix is incomplete. Pointer dragging, external favorite synchronization, the full physical-display matrix, real sleep/wake/login, stationary performance, VoiceOver, Keychain dialogs, live payment/activation and Apple Music/Spotify compatibility remain pending. This ad-hoc signed build requires manual installation and has no Developer ID signing or Apple notarization.
+
+---
+
 # Notch Calendar 1.8.1
 
 > **Manual installation / 手动安装：** Open the DMG, drag Notch Calendar to Applications, then relaunch it. Automatic app replacement remains disabled in this release. / 打开 DMG，将 Notch Calendar 拖入“应用程序”，然后重新启动；此版本仍未启用自动替换安装。

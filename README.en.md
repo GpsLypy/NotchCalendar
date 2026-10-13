@@ -4,6 +4,15 @@ Open your calendar, focus timer, music controls, files, and scratchpad from the 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## 1.8.2: Continuous music controls and a clearer compact agenda
+
+- Add synchronized lyrics, preserving the current line after pausing, reopening and resizing, with lyrics and progress visible together.
+- Favorite or unfavorite the current NetEase Cloud Music song from the heart button, using Accessibility permission and confirmed player state.
+- Keep the heart visible while confirming a favorite; short commands no longer dim playback buttons and progress together.
+- Reduce unused panel space, scroll upcoming events independently, open a complete agenda with full titles, and use a full-width month on empty days.
+
+Version 1.8.2 (build 75, 2026-10-13) supports macOS 15+, Apple silicon and Intel. It is ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. 492 Swift tests passed, 23 optional/environment checks skipped, zero failures; 21 Python quality checks and 31 targeted music checks passed. Final live acceptance is incomplete; see the [1.8.2 release notes](RELEASE_NOTES.md).
+
 ## Fixed in 1.8.1: Turning off check-in reminders takes effect immediately
 
 - Turning off “Enable check-in reminders” immediately hides the notch capsule and reminder panel and stops new reminders. Wake, day changes and restarts preserve the disabled state.
