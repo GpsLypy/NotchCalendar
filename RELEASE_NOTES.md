@@ -1,3 +1,34 @@
+# Notch Calendar 1.8.0
+
+macOS 15+ · Apple Silicon and Intel · build 73 · 2026-10-13
+
+## 刘海窗口大小与自适应布局
+
+- 默认展开尺寸为 **520 × 390 点**，面积比旧版 600 × 460 点缩小约 **27%**。支持紧凑、标准、宽敞和自定义宽高；自定义范围为宽 440–880 点、高 340–680 点。
+- 在 **设置 → 通用设置 → 刘海窗口大小** 调整，或点击刘海窗口右上角双向箭头切换预设。调整立即生效，重启和本地备份恢复后保留。
+- 日历采用更清晰的日期层级与紧凑日程；窄窗优先展示当天安排，宽窗使用双栏。文件页在窄窗收起次要列，专注和音乐调整间距与封面，便笺使用可用编辑高度并保留选区和撤销记录。
+- 工具栏固定在顶部，更多内容纵向滚动；日程变化及切换页面保持用户选择的窗口大小。
+
+## 安装与验证
+
+下载 `NotchCalendar-1.8.0-macos.dmg`，退出旧版，将应用拖入「应用程序」替换后重新启动。另提供 ZIP 和 `SHA256SUMS.txt`。正常覆盖安装保留已有授权和本地数据。本版沿用 **ad-hoc 签名和手动安装**，未进行 Developer ID 签名或 Apple 公证。
+
+Swift 全量测试执行 491 项：467 项通过，24 项按需或环境条件跳过，零失败；21 项 Python 质量测试全部通过。原生界面捕获覆盖五个页面的三种尺寸、空日历、英文长标题和设置。双架构 Release 构建、安装包内容、签名与本地 SHA-256 检查通过。
+
+实体刘海及外接屏、真实休眠唤醒与登录、静置性能和桌面帧率、真实播放器兼容性、VoiceOver、钥匙串弹窗及付款激活仍待验收；受控原生测试和模拟数据不代表这些项目已经通过。
+
+## English
+
+The expanded notch panel defaults to **520 × 390 pt**, about **27% smaller in area** than 600 × 460 pt. Choose Compact, Standard, Spacious, or custom dimensions of 440–880 pt wide and 340–680 pt tall in **Settings → General Settings → Notch Window Size**, or switch presets using the arrows in the notch toolbar. Changes apply immediately and persist through restarts and local backup restore.
+
+Calendar prioritizes the date and today's agenda, switching between one and two columns. Files hides secondary columns in narrow panels, Focus and Music adapt spacing and artwork, and Scratchpad uses the available editing height while retaining selection and undo history. The toolbar stays at the top; content scrolls vertically and tab changes keep the chosen panel size.
+
+Quit the older app, open the DMG, replace the app in Applications, and relaunch. ZIP and SHA-256 files are also available. A normal replacement preserves existing licenses and local data. This **ad-hoc signed manual-install build** has no Developer ID signing or Apple notarization.
+
+491 Swift tests executed: 467 passed, 24 optional/environment checks skipped, zero failures. All 21 Python quality tests passed. Native captures cover all five pages at three sizes, an empty calendar, long English titles and settings. Universal Release build, package contents, signatures and local SHA-256 checks passed. Physical displays, real sleep/wake/login, stationary performance, frame rate, live players, VoiceOver, Keychain dialogs and payment/activation remain pending.
+
+---
+
 # Notch Calendar 1.7.5
 
 macOS 15+ · Apple Silicon and Intel · build 72 · 2026-10-12

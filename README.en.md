@@ -4,6 +4,18 @@ Open your calendar, focus timer, music controls, files, and scratchpad from the 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## New in 1.8.0: Adjustable notch size and adaptive content
+
+- The default expanded panel is 520 × 390 pt, about 27% smaller in area. Choose Compact, Standard, Spacious, or custom dimensions.
+- Adjust width and height in Settings → General Settings → Notch Window Size, or switch presets with the arrows in the notch toolbar. Changes apply immediately and persist through restarts and local backup restore.
+- Calendar switches between one and two columns, prioritizing the date and today's agenda. Files, Focus, Scratchpad and Music adapt to the viewport; switching tabs keeps the selected size.
+
+Version 1.8.0 (build 73, 2026-10-13) requires macOS 15+ and supports Apple silicon and Intel. It is ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. 467 Swift tests passed, 24 optional/environment checks were skipped, and there were zero failures; all 21 Python quality tests passed. See the [1.8.0 release notes](RELEASE_NOTES.md) for downloads, checksums and pending acceptance.
+
+![1.8.0 compact-size preview](images/notch-size-1.8.0-preview.png)
+
+This native SwiftUI capture uses isolated data and a composited background; it is not a photograph of a physical display.
+
 ## Fixed in 1.7.5: Central notch hover and compact focus countdown
 
 - Restore hover opening over the central hardware notch during music playback. The artwork and rhythm circles remain click targets, and moving the pointer away closes the browsing panel after the exit grace period.
