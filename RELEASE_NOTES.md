@@ -1,3 +1,41 @@
+# Notch Calendar 1.8.4
+
+macOS 15+ · Apple Silicon and Intel · build 77 · 2026-10-14
+
+## 刘海计算器
+
+- 点击刘海工具栏中的计算器图标，或按 ⌘6，打开简单计算器。
+- 支持加、减、乘、除、小数、正负号、百分比、连续等号、退格和清空；可点击按键或直接使用键盘，点击复制或按 ⌘C 复制结果。
+- 按输入顺序计算；百分比结合当前运算，例如 `200 + 10% = 220`。
+- 切换页面、收起重开和调整尺寸保留当前计算，退出应用后重置。除零或数值超出范围时显示提示，输入新数字或清空后继续。
+- 窄面板导航使用图标，宽面板保留文字。计算器隐藏后释放键盘焦点，便笺选区与后续输入保持正常。
+
+## 安装与验证
+
+下载 `NotchCalendar-1.8.4-macos.dmg`，退出旧版后拖入「应用程序」替换，再重新启动。另提供 ZIP 与 `SHA256SUMS.txt`。本版沿用 **ad-hoc 签名和手动安装**，未进行 Developer ID 签名或 Apple 公证。
+
+Swift 全量执行 542 项：518 项通过、24 项按需或环境条件跳过，零失败；21 项 Python 质量检查通过。26 项计算器定向检查覆盖算术、本地化、键盘焦点与原生面板交互；已核对中英文共 14 个尺寸组合及可恢复错误截图。
+
+主应用、更新器、小组件与音乐桥均为 arm64/x86_64 通用构建；签名、快捷指令元数据、DMG/ZIP 完整内容、安装链接与本地 SHA-256 核验通过。
+
+完整实体屏幕矩阵、真实休眠唤醒与登录、静置性能、VoiceOver、钥匙串弹窗、真实付款激活和播放器集成仍待验收。原生面板交互与隔离数据截图不代表这些完整实机验收。
+
+## English
+
+Open the new notch calculator from its toolbar icon or ⌘6. It supports basic arithmetic, decimals, sign changes, contextual percentages, repeated equals, backspace, clear and result copying. Use its keypad or type directly, and copy with the button or ⌘C. Operations run in input order, such as `200 + 10% = 220`.
+
+The calculation survives tab changes, closing and resizing until the app quits. Division by zero and out-of-range values show recoverable messages. Narrow panels use navigation icons; wider panels keep labels. A hidden calculator releases keyboard focus, preserving scratchpad selection and subsequent typing.
+
+Quit the previous app, open the DMG, replace Notch Calendar in Applications, and relaunch. ZIP and SHA-256 files are also available. This **ad-hoc signed manual-install build** has no Developer ID signing or Apple notarization.
+
+The full Swift suite executed 542 tests: 518 passed, 24 optional/environment checks skipped, zero failures. All 21 Python quality checks passed. The 26 calculator checks cover arithmetic, localization, keyboard ownership and native panel interaction. Captures cover 14 Chinese/English size combinations and a recoverable error.
+
+The app, updater, widgets and music bridge are universal arm64/x86_64 builds. Signatures, Shortcuts metadata, complete ZIP/DMG contents, installation link and local SHA-256 checks passed.
+
+The full physical-display matrix, real sleep/wake/login, stationary performance, VoiceOver, Keychain dialogs, live payment/activation and player integrations remain pending. Native panel interactions and isolated captures do not establish this complete live acceptance.
+
+---
+
 # Notch Calendar 1.8.3
 
 macOS 15+ · Apple Silicon and Intel · build 76 · 2026-10-13
