@@ -4,6 +4,14 @@ Open your calendar, focus timer, music controls, calculator, files, and scratchp
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## 1.8.5: Retract the calculator and recover music permission
+
+- Fix calculator retraction after clicking or typing; reopening retains the result and respects click-only preferences.
+- Add reinstall recovery instructions for music favorites and “Show this app in Finder” to locate the correct app copy.
+- Read fresh favorite state on explicit recheck or return to the music page, preserve pending confirmation, and dismiss recovered help.
+
+Version 1.8.5 (build 78, 2026-10-14) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. 550 Swift tests executed: 526 passed, 24 optional/environment checks skipped, zero failures; all 21 Python quality checks passed. Physical-device and full live acceptance remain pending. See the [1.8.5 release notes](RELEASE_NOTES.md) for installation and permission recovery.
+
 ## 1.8.4: Quick calculations from the notch
 
 - Open the calculator toolbar icon or press ⌘6 for addition, subtraction, multiplication, division, decimals, sign changes and percentages.
