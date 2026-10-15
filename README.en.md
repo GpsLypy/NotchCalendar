@@ -2,7 +2,18 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history and AI chat from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.2: Refine the details you use every day
+
+- Give notch navigation a subtle grouped surface and selected border, with keyboard shortcuts in tooltips.
+- Make hover, press and keyboard feedback consistent across dates, month controls, agenda items and meeting notes. Label the notes button in narrow cards for easier recognition and clicking.
+- Show overnight events compactly as “23:30 – Next day 00:15” in the displayed time zone. Longer events retain an absolute end date.
+- Use short weekday names in the smallest notch calendar to prevent English truncation, while retaining the full spoken weekday for accessibility.
+
+Version 2.0.2 (build 85, 2026-10-15) supports macOS 15+, Apple silicon and Intel. Full Swift regression: 625 tests, 604 passed, 21 conditional skips, zero failures; all 21 Python quality checks passed. Ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. Physical-device, stationary-performance and complete live integration acceptance remain pending. See the [2.0.2 release notes](RELEASE_NOTES.md).
+
+[Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/NotchCalendar-2.0.2-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/NotchCalendar-2.0.2-macos.zip) · [SHA-256 checksums](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/SHA256SUMS.txt)
 
 ## 2.0.1: Keep chatting after saving your key
 
@@ -11,7 +22,7 @@ Open your calendar, focus timer, music controls, calculator, files, scratchpad, 
 - Credentials stay separate for each service. Removing or replacing a key invalidates its old session cache, and switching services never reuses the previous service's key.
 - Keep the light/dark surfaces, sidebar, cards and notch motion introduced in 2.0.
 
-Version 2.0.1 (build 84, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation, without Developer ID signing or Apple notarization. Upgraded-user Keychain authorization dialogs and live model integration remain pending acceptance. See the [2.0.1 release notes](RELEASE_NOTES.md).
+Version 2.0.1 (build 84, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation, without Developer ID signing or Apple notarization. Upgraded-user Keychain authorization dialogs and live model integration remain pending acceptance. See the [2.0.1 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.1).
 
 [Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/NotchCalendar-2.0.1-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/NotchCalendar-2.0.1-macos.zip) · [SHA-256 checksums](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/SHA256SUMS.txt)
 
@@ -56,7 +67,7 @@ Full regression: 588 Swift tests executed, 563 passed, 25 optional/environment s
 - Pausing, resetting, restarting the app or restoring an already completed timer does not replay its reminder.
 - The check-in capsule draws its tick when a reminder appears or the capsule is clicked. Details open immediately; Reduce Motion shows a complete static tick.
 
-Version 1.8.6 (build 79, 2026-10-14) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. 560 Swift tests executed: 535 passed, 25 optional/environment checks skipped, zero failures; all 21 Python quality checks passed. Background reminders, muting, rapid clicks and Chinese/English layouts at two widths have been verified locally. Full physical-device and live integration acceptance remain pending. See the [1.8.6 release notes](RELEASE_NOTES.md).
+Version 1.8.6 (build 79, 2026-10-14) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. 560 Swift tests executed: 535 passed, 25 optional/environment checks skipped, zero failures; all 21 Python quality checks passed. Background reminders, muting, rapid clicks and Chinese/English layouts at two widths have been verified locally. Full physical-device and live integration acceptance remain pending. See the [1.8.6 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.8.6).
 
 ## 1.8.5: Retract the calculator and recover music permission
 
@@ -82,7 +93,7 @@ Version 1.8.4 (build 77, 2026-10-14) supports macOS 15+, Apple silicon and Intel
 - Restore a solid black notch background and keep Chinese tab labels at 520 pt, including Chinese selected through the system language.
 - Scroll the month only when space is limited; six-week months and viewport changes keep all dates reachable.
 
-Version 1.8.3 (build 76, 2026-10-13) supports macOS 15+, Apple silicon and Intel. It is ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. 492 Swift tests passed, 24 optional/environment checks skipped, zero failures; 21 Python quality checks, 27 targeted calendar checks and four real-window compositor cases passed. See the [1.8.3 release notes](RELEASE_NOTES.md) for validation and pending acceptance.
+Version 1.8.3 (build 76, 2026-10-13) supports macOS 15+, Apple silicon and Intel. It is ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. 492 Swift tests passed, 24 optional/environment checks skipped, zero failures; 21 Python quality checks, 27 targeted calendar checks and four real-window compositor cases passed. See the [1.8.3 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.8.3) for validation and pending acceptance.
 
 ## 1.8.2: Continuous music controls and a clearer compact agenda
 

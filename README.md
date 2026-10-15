@@ -2,7 +2,18 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板和 AI 聊天；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.2：打磨每天触达的细节
+
+- 刘海工具导航增加轻薄分组底色与选中描边，悬停提示带有对应快捷键。
+- 统一日期、翻月、日程与会议笔记的悬停、按压和键盘反馈；窄栏笔记入口增加文字，更容易辨认与点击。
+- 跨午夜日程紧凑显示为「23:30 – 次日 00:15」，按显示时区判断；多日事件仍保留完整结束日期。
+- 最小刘海日历使用简短星期，避免英文截断，无障碍朗读仍保留完整星期。
+
+2.0.2（build 85，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel。Swift 全量 625 项：604 通过、21 条件跳过、零失败；21 项 Python 质量检查通过。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。实体设备、静置性能与完整真实集成仍待验收。详见 [2.0.2 发行说明](RELEASE_NOTES.md)。
+
+[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/NotchCalendar-2.0.2-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/NotchCalendar-2.0.2-macos.zip) · [SHA-256 校验文件](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/SHA256SUMS.txt)
 
 ## 2.0.1：保存密钥后继续聊天
 
@@ -11,7 +22,7 @@
 - 各服务的密钥保持隔离；删除或替换密钥时使旧会话缓存失效，切换服务不会沿用上一服务的密钥。
 - 保留 2.0 的浅深色界面、侧栏、卡片和刘海动效更新。
 
-2.0.1（build 84，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel，ad-hoc 签名、手动安装，未进行 Developer ID 签名或 Apple 公证。真实用户升级后的钥匙串授权弹窗及真实模型联调仍待验收。详见 [2.0.1 发行说明](RELEASE_NOTES.md)。
+2.0.1（build 84，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel，ad-hoc 签名、手动安装，未进行 Developer ID 签名或 Apple 公证。真实用户升级后的钥匙串授权弹窗及真实模型联调仍待验收。详见 [2.0.1 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.1)。
 
 [下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/NotchCalendar-2.0.1-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/NotchCalendar-2.0.1-macos.zip) · [SHA-256 校验文件](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/SHA256SUMS.txt)
 
@@ -56,7 +67,7 @@
 - 提示音只响一次；暂停、重置以及重新启动或恢复已结束的计时不会重复提醒。
 - 「打卡」胶囊的对号在提醒出现和点击时描画一下；点击立即打开详情，开启系统“减少动态效果”时显示完整静态对号。
 
-本版为 1.8.6（build 79，2026-10-14），支持 macOS 15+、Apple 芯片与 Intel，沿用 ad-hoc 签名与手动安装。Swift 全量执行 560 项：535 项通过、25 项按需或环境跳过，零失败；21 项 Python 质量检查通过。后台提醒、静音开关、连续点击与中英文宽窄窗口已本地验证；完整实体设备和真实集成验收仍待完成。详见 [1.8.6 发行说明](RELEASE_NOTES.md)。
+本版为 1.8.6（build 79，2026-10-14），支持 macOS 15+、Apple 芯片与 Intel，沿用 ad-hoc 签名与手动安装。Swift 全量执行 560 项：535 项通过、25 项按需或环境跳过，零失败；21 项 Python 质量检查通过。后台提醒、静音开关、连续点击与中英文宽窄窗口已本地验证；完整实体设备和真实集成验收仍待完成。详见 [1.8.6 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.8.6)。
 
 ## 1.8.5：计算器及时收起，音乐授权更易恢复
 
@@ -82,7 +93,7 @@
 - 刘海弹窗恢复固定黑底；520 点宽度下中文活动标签保留文字，包括「跟随系统」中文。
 - 月历仅在空间不足时滚动，六周月份与尺寸变化后仍可完整浏览日期。
 
-本版为 1.8.3（build 76，2026-10-13），支持 macOS 15+、Apple 芯片与 Intel，采用 ad-hoc 签名，需手动安装，未进行 Developer ID 签名或 Apple 公证。492 项 Swift 测试通过，24 项按需或环境跳过，零失败；21 项 Python 质量检查、27 项日历定向检查和四个真实窗口合成场景通过。详细验证与待验收范围见 [1.8.3 发行说明](RELEASE_NOTES.md)。
+本版为 1.8.3（build 76，2026-10-13），支持 macOS 15+、Apple 芯片与 Intel，采用 ad-hoc 签名，需手动安装，未进行 Developer ID 签名或 Apple 公证。492 项 Swift 测试通过，24 项按需或环境跳过，零失败；21 项 Python 质量检查、27 项日历定向检查和四个真实窗口合成场景通过。详细验证与待验收范围见 [1.8.3 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.8.3)。
 
 ## 1.8.2：更连贯的音乐操作与紧凑日程
 
