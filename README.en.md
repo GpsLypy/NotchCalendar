@@ -4,13 +4,21 @@ Open your calendar, focus timer, music controls, calculator, files, scratchpad, 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## 1.8.9: Image chat, pointer-exit retraction and conversation cleanup
+
+- Paste screenshots, images and local image files into Chat, with previews, image-only sending and retry. Use a model that supports images.
+- Chat, clipboard history and scratchpad retract on pointer exit in hover mode and retain content on reopening.
+- Confirm deletion of one exchange, or clear all messages, drafts and attachments to release their memory references.
+
+Version 1.8.9 (build 82, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. Full regression executed 604 Swift tests: 578 passed, 26 optional/environment skips, zero failures. All 21 Python quality checks passed. See the [1.8.9 release notes](RELEASE_NOTES.md).
+
 ## 1.8.8: Fix stuck chat settings and overlapping windows
 
 - Fix an outside click collapsing the notch while Chat settings remained visible, disabling its fields and Cancel button.
 - Keep the parent panel active while settings are open. Dismiss settings on activity changes or forced collapse, so they cannot cover the calendar on reopening.
 - Verify model input, Cancel, Escape, Save, repeated opening and keyboard focus after delayed parent clicks through the real notch-to-sheet flow.
 
-Version 1.8.8 (build 81, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. Full regression executed 590 Swift tests: 565 passed, 25 optional/environment skips, zero failures. All 21 Python quality checks passed. See the [1.8.8 release notes](RELEASE_NOTES.md).
+Version 1.8.8 (build 81, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. Full regression executed 590 Swift tests: 565 passed, 25 optional/environment skips, zero failures. All 21 Python quality checks passed. See the [1.8.8 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.8.8).
 
 ## 1.8.7: Standalone clipboard history and AI chat
 

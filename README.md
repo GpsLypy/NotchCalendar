@@ -4,13 +4,21 @@
 
 [English](README.en.md) · [下载](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## 1.8.9：图片聊天、移开自动收回与对话清理
+
+- 聊天支持粘贴截图、图片和本地图片文件，支持图片预览、只发图片及重试；需使用支持图片的模型。
+- 悬停模式下，聊天、剪贴板和便笺在鼠标移开后自动收回，重开保留输入与内容。
+- 经确认可删除一轮提问和回复，或清空全部对话、草稿及附件，释放对应内存引用。
+
+1.8.9（build 82，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel，ad-hoc 签名、手动安装。Swift 全量执行 604 项：578 项通过、26 项按需或环境跳过，零失败。21 项 Python 质量检查全部通过。 详见 [1.8.9 发行说明](RELEASE_NOTES.md)。
+
 ## 1.8.8：修复聊天设置卡住与窗口叠加
 
 - 修复聊天设置打开后，点击外部导致刘海收起、输入框与取消按钮一起失效的问题。
 - 设置窗口打开时保持父面板活动；切换工具或强制收起时关闭设置，避免再次展开后覆盖日历。
 - 验证模型输入、取消、Esc、保存、重复打开，以及延迟点击不会抢走设置窗口的键盘焦点。
 
-1.8.8（build 81，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel，ad-hoc 签名、手动安装。Swift 全量执行 590 项：565 项通过、25 项按需或环境跳过，零失败。 21 项 Python 质量检查通过。详见 [1.8.8 发行说明](RELEASE_NOTES.md)。
+1.8.8（build 81，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel，ad-hoc 签名、手动安装。Swift 全量执行 590 项：565 项通过、25 项按需或环境跳过，零失败。 21 项 Python 质量检查通过。详见 [1.8.8 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.8.8)。
 
 ## 1.8.7：独立剪贴板历史与 AI 聊天
 
