@@ -1,37 +1,43 @@
-# Notch Calendar 1.8.9
+# Notch Calendar 2.0.0
 
-macOS 15+ · Apple Silicon and Intel · build 82 · 2026-10-15
+macOS 15+ · Apple Silicon and Intel · build 83 · 2026-10-15
 
-## 新增与调整
+## 聊天设置保存修复
 
-- AI 聊天支持直接粘贴截图、复制的图片及本地图片文件，也可通过附件选择器添加图片；支持只发图片、缩略图预览、移除和重试。使用具备图片能力的模型。
-- 聊天、剪贴板和便笺在悬停模式下，鼠标移开后自动收回，包括点击或输入之后；再次展开保留草稿、图片、便笺内容和剪贴板搜索。沿用仅点击模式和原生弹窗保护。
-- 聊天新增「清空对话」和「删除这一轮」。删除经原生确认后同时移除该轮提问、回复、图片及模型上下文；保留未发送草稿。清空对话会停止生成，并清除全部记录、草稿和附件，释放对应的内存引用。
-- 图片和文本附件合计最多 4 个。图片按最长边 2048 像素规范化为 PNG，每个图片附件最多 10 MB；文本附件最多 256 KB。图片只在明确发送时提交给配置的模型服务。
+- 点击「保存」时允许 macOS 请求钥匙串授权，并读回确认 API Key；启动时继续静默读取，避免无操作时弹出授权。
+- 保存成功后关闭设置，在聊天页显示「聊天设置已保存」。没有密钥时明确提示需要添加 API Key。
+- 保存失败时保留输入，显示「聊天设置未保存」、恢复指引和钥匙串错误码；取消授权或读回失败不会提交新配置。可在授权后直接重试。
+
+## 视觉与交互更新
+
+- 浅色与深色界面采用冷灰、石墨层次，蓝色区分操作，珊瑚红标识日期；保留各日历来源颜色。
+- 简化侧栏选中态，悬停或键盘聚焦时显示快捷键；设置采用系统分段控件，统一卡片边界、系统字体和按钮反馈。
+- 刘海展开为 280 ms、收起为 210 ms，滚动内容保持位置并淡入淡出；主窗口切页遵循「减少动态效果」。
+- 保留图片聊天、聊天/剪贴板/便笺鼠标移开自动收回，以及单轮删除和清空对话。
 
 ## 安装
 
-退出旧版，打开 `NotchCalendar-1.8.9-macos.dmg`，拖入「应用程序」替换并重新启动。另提供 ZIP 和 `SHA256SUMS.txt`。退出会清除仅存在内存中的聊天记录和草稿；已保存的模型设置、钥匙串密钥、便笺和剪贴板历史保留。
+退出旧版，打开 `NotchCalendar-2.0.0-macos.dmg`，拖入「应用程序」替换并重新启动。另提供 ZIP 和 `SHA256SUMS.txt`。如果保存时 macOS 请求钥匙串授权，请允许访问；无需把密钥发送给作者。退出会清除仅存在内存中的聊天记录和草稿，已保存设置、钥匙串密钥、便笺和剪贴板历史保留。
 
 沿用 **ad-hoc 签名、手动安装**，未进行 Developer ID 签名或 Apple 公证。
 
 ## 验证范围
 
-Swift 全量执行 604 项：578 项通过、26 项按需或环境跳过，零失败。21 项 Python 质量检查全部通过。
+Swift 全量执行 611 项：584 项通过、27 项按需或环境跳过，零失败。21 项 Python 质量检查全部通过。
 
-原生交互验证图片 ⌘V、文字粘贴与撤销、中英文五档面板尺寸，以及宽窄窗口中的删除、取消、确认与清空。鼠标退出回归验证三种工具自动收回与内容保留；受控网络验证双协议图片请求、重试、删除后上下文和清空时拒绝过期回复。
+原生交互覆盖中英文宽窄窗口中的保存失败、保留输入、再次保存、成功提示与重新打开设置；隔离测试钥匙串项完成真实新增、更新、读回及删除，未访问用户实际 API Key，未请求真实模型服务。此前专注右肩的测试沿用旧版红色断言，现已与实际蓝色倒计时对齐并纳入回归。
 
-完整实体屏幕矩阵、真实休眠唤醒与登录、静置性能、VoiceOver、钥匙串弹窗、真实付款激活、完整播放器集成和真实模型联调仍待验收。网络测试使用受控响应，未使用真实服务商密钥。
+完整实体屏幕矩阵、真实休眠唤醒与登录、静置性能、VoiceOver、真实用户升级后的钥匙串授权弹窗、付款激活、完整播放器集成和真实模型联调仍待验收。
 
 ## English
 
-- Paste screenshots, copied images and local image files into AI Chat, or choose images with the attachment picker. Preview, remove, send image-only messages and retry them. Select a model that supports images.
-- Chat, clipboard history and scratchpad retract after pointer exit in hover mode, including after clicks or typing. Reopening retains drafts, images, notes and clipboard search. Click-only mode and native dialog protection still apply.
-- Clear the conversation or delete one exchange after native confirmation. Deleting removes the paired question, reply, images and model context while preserving an unsent draft. Clearing stops generation and drops all messages, drafts and attachments.
-- Attach up to four images and text files combined. Images become PNG at a maximum 2048-pixel longest edge and 10 MB per attachment; text files are limited to 256 KB. Images go to the configured provider only when explicitly sent.
+- Allow macOS Keychain authorization during explicit Save and verify the stored key before committing chat settings. Startup reads remain silent.
+- Confirm successful saves in Chat. On failure, keep the entered fields and show recovery steps and the Keychain error code. Retry after allowing access; settings saved without a key explicitly say a key is still required.
+- Refine light/dark surfaces, sidebar selection, native settings segments, typography and button feedback. Use blue actions and coral dates while preserving calendar source colors.
+- Reveal the notch in 280 ms and retract in 210 ms; preserve scroll positions and respect Reduce Motion. Keep image chat, pointer-exit retraction and conversation cleanup.
 
-Quit the old app, replace it in Applications using the DMG, and relaunch. Quitting clears in-memory chat history and drafts; saved model settings, Keychain credentials, notes and clipboard history remain. This is an ad-hoc signed manual-install build without Developer ID signing or Apple notarization.
+Quit the old app, replace it in Applications using the DMG, and relaunch. Allow Keychain access if macOS asks during Save. Quitting clears in-memory chats and drafts; saved settings, credentials, notes and clipboard history remain. This is an ad-hoc signed manual-install build without Developer ID signing or Apple notarization.
 
-Full regression executed 604 Swift tests: 578 passed, 26 optional/environment skips, zero failures. All 21 Python quality checks passed.
+Full regression executed 611 Swift tests: 584 passed, 27 optional/environment skips, zero failures. All 21 Python quality checks passed.
 
-Native checks cover image paste, text undo, Chinese/English at five panel sizes, narrow/wide cleanup confirmations, pointer exit and content retention. Controlled requests verify both image protocols, retry, deletion context and rejection of late replies after clearing. Physical displays, real sleep/wake/login, stationary performance, VoiceOver, Keychain dialogs, live payment/activation, full player integration and real-provider calls remain pending.
+Native checks cover failure retention, retry, success and reopening in Chinese/English at narrow/wide sizes. Real Keychain operations use an isolated test item; no user API key was accessed and no real model request was sent. The focus rendering assertion now checks the blue countdown used by the current palette. Physical displays, real sleep/wake/login, stationary performance, VoiceOver, upgraded-user authorization prompts, payment/activation, full player integration and live models remain pending.

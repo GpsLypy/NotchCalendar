@@ -4,13 +4,21 @@ Open your calendar, focus timer, music controls, calculator, files, scratchpad, 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## 2.0.0: Save feedback and a visual update
+
+- Fix Keychain authorization during Chat settings Save. Verify the stored key before committing settings; retain failed input with recovery steps and an error code, and confirm success in Chat.
+- Refine light/dark surfaces, sidebar selection, native settings segments, cards and button feedback, with blue actions and coral dates.
+- Reveal the notch in 280 ms and retract in 210 ms while preserving scroll positions and respecting Reduce Motion. Keep image chat, pointer-exit retraction and conversation cleanup.
+
+Version 2.0.0 (build 83, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. Full regression executed 611 Swift tests: 584 passed, 27 optional/environment skips, zero failures. All 21 Python quality checks passed. See the [2.0.0 release notes](RELEASE_NOTES.md).
+
 ## 1.8.9: Image chat, pointer-exit retraction and conversation cleanup
 
 - Paste screenshots, images and local image files into Chat, with previews, image-only sending and retry. Use a model that supports images.
 - Chat, clipboard history and scratchpad retract on pointer exit in hover mode and retain content on reopening.
 - Confirm deletion of one exchange, or clear all messages, drafts and attachments to release their memory references.
 
-Version 1.8.9 (build 82, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. Full regression executed 604 Swift tests: 578 passed, 26 optional/environment skips, zero failures. All 21 Python quality checks passed. See the [1.8.9 release notes](RELEASE_NOTES.md).
+Version 1.8.9 (build 82, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. Full regression executed 604 Swift tests: 578 passed, 26 optional/environment skips, zero failures. All 21 Python quality checks passed. See the [1.8.9 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.8.9).
 
 ## 1.8.8: Fix stuck chat settings and overlapping windows
 
