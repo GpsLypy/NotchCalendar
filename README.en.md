@@ -4,6 +4,14 @@ Open your calendar, focus timer, music controls, calculator, files, scratchpad, 
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## 1.8.8: Fix stuck chat settings and overlapping windows
+
+- Fix an outside click collapsing the notch while Chat settings remained visible, disabling its fields and Cancel button.
+- Keep the parent panel active while settings are open. Dismiss settings on activity changes or forced collapse, so they cannot cover the calendar on reopening.
+- Verify model input, Cancel, Escape, Save, repeated opening and keyboard focus after delayed parent clicks through the real notch-to-sheet flow.
+
+Version 1.8.8 (build 81, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. Full regression executed 590 Swift tests: 565 passed, 25 optional/environment skips, zero failures. All 21 Python quality checks passed. See the [1.8.8 release notes](RELEASE_NOTES.md).
+
 ## 1.8.7: Standalone clipboard history and AI chat
 
 - Open a standalone clipboard history list with ⌘7, with no calendar alongside it. Opt in to save up to 100 text, image and file copies locally, with search, copy, pin, delete, clear and pause.
@@ -11,7 +19,7 @@ Open your calendar, focus timer, music controls, calculator, files, scratchpad, 
 - Stream replies, keep multi-turn context, stop, retry and explicitly attach text files. New configurations default to Responses; existing ones can switch protocols while reusing the same provider key.
 - Clipboard recording is off by default. Other tools are never attached automatically. Chat and drafts stay in process memory until the app quits.
 
-Version 1.8.7 (build 80, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. All 26 targeted feature tests and native Chinese/English checks at five panel sizes passed. Network checks use controlled responses; no real provider key was used. See the [1.8.7 release notes](RELEASE_NOTES.md).
+Version 1.8.7 (build 80, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. All 26 targeted feature tests and native Chinese/English checks at five panel sizes passed. Network checks use controlled responses; no real provider key was used. See the [1.8.7 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v1.8.7).
 
 Full regression: 588 Swift tests executed, 563 passed, 25 optional/environment skips, zero failures; all 21 Python quality checks passed.
 
