@@ -2,7 +2,18 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板和 AI 聊天；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.1：保存密钥后继续聊天
+
+- 修复设置显示保存成功后，发送消息仍反复要求钥匙串授权的问题。API Key 继续保存在本机钥匙串，当前应用会话复用已经读回验证的密钥。
+- 启动保持静默读取；如尚未取得密钥，首次发送或重试允许 macOS 请求授权。取消授权会保留草稿与图片附件，可再次发送。
+- 各服务的密钥保持隔离；删除或替换密钥时使旧会话缓存失效，切换服务不会沿用上一服务的密钥。
+- 保留 2.0 的浅深色界面、侧栏、卡片和刘海动效更新。
+
+2.0.1（build 84，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel，ad-hoc 签名、手动安装，未进行 Developer ID 签名或 Apple 公证。真实用户升级后的钥匙串授权弹窗及真实模型联调仍待验收。详见 [2.0.1 发行说明](RELEASE_NOTES.md)。
+
+[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/NotchCalendar-2.0.1-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/NotchCalendar-2.0.1-macos.zip) · [SHA-256 校验文件](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/SHA256SUMS.txt)
 
 ## 2.0.0：保存反馈与视觉更新
 
@@ -10,7 +21,7 @@
 - 重整浅深色界面、侧栏、系统设置分段控件、卡片与按钮反馈；以蓝色区分操作、珊瑚红标识日期。
 - 刘海展开 280 ms、收起 210 ms，保留滚动位置并适配减少动态效果；继续支持图片聊天、鼠标移开自动收回与对话清理。
 
-2.0.0（build 83，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel，ad-hoc 签名、手动安装。Swift 全量执行 611 项：584 项通过、27 项按需或环境跳过，零失败。21 项 Python 质量检查全部通过。 详见 [2.0.0 发行说明](RELEASE_NOTES.md)。
+2.0.0（build 83，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel，ad-hoc 签名、手动安装。Swift 全量执行 611 项：584 项通过、27 项按需或环境跳过，零失败。21 项 Python 质量检查全部通过。 详见 [2.0.0 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.0)。
 
 ## 1.8.9：图片聊天、移开自动收回与对话清理
 

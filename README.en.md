@@ -2,7 +2,18 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history and AI chat from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.1: Keep chatting after saving your key
+
+- Fix repeated Keychain authorization errors when sending after settings were successfully saved. Your API key remains stored in this Mac's Keychain; the current app session reuses the key after it has been read and verified.
+- Startup reads remain silent. If a key has not yet been obtained, the first Send or Retry permits macOS to request access. Cancelling authorization keeps your draft and image attachments ready to send again.
+- Credentials stay separate for each service. Removing or replacing a key invalidates its old session cache, and switching services never reuses the previous service's key.
+- Keep the light/dark surfaces, sidebar, cards and notch motion introduced in 2.0.
+
+Version 2.0.1 (build 84, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation, without Developer ID signing or Apple notarization. Upgraded-user Keychain authorization dialogs and live model integration remain pending acceptance. See the [2.0.1 release notes](RELEASE_NOTES.md).
+
+[Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/NotchCalendar-2.0.1-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/NotchCalendar-2.0.1-macos.zip) · [SHA-256 checksums](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.1/SHA256SUMS.txt)
 
 ## 2.0.0: Save feedback and a visual update
 
@@ -10,7 +21,7 @@ Open your calendar, focus timer, music controls, calculator, files, scratchpad, 
 - Refine light/dark surfaces, sidebar selection, native settings segments, cards and button feedback, with blue actions and coral dates.
 - Reveal the notch in 280 ms and retract in 210 ms while preserving scroll positions and respecting Reduce Motion. Keep image chat, pointer-exit retraction and conversation cleanup.
 
-Version 2.0.0 (build 83, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. Full regression executed 611 Swift tests: 584 passed, 27 optional/environment skips, zero failures. All 21 Python quality checks passed. See the [2.0.0 release notes](RELEASE_NOTES.md).
+Version 2.0.0 (build 83, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. Full regression executed 611 Swift tests: 584 passed, 27 optional/environment skips, zero failures. All 21 Python quality checks passed. See the [2.0.0 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.0).
 
 ## 1.8.9: Image chat, pointer-exit retraction and conversation cleanup
 
