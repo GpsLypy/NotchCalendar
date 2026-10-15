@@ -1,8 +1,19 @@
 # Notch Calendar
 
-Open your calendar, focus timer, music controls, calculator, files, and scratchpad from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
+Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history and AI chat from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
 [简体中文](README.md) · [Download](https://github.com/GpsLypy/NotchCalendar/releases/latest) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 1.8.7: Standalone clipboard history and AI chat
+
+- Open a standalone clipboard history list with ⌘7, with no calendar alongside it. Opt in to save up to 100 text, image and file copies locally, with search, copy, pin, delete, clear and pause.
+- Open AI Chat with ⌘8 for OpenAI Responses and compatible Chat Completions services. Configure the base URL and model; keep the API key in this Mac’s Keychain.
+- Stream replies, keep multi-turn context, stop, retry and explicitly attach text files. New configurations default to Responses; existing ones can switch protocols while reusing the same provider key.
+- Clipboard recording is off by default. Other tools are never attached automatically. Chat and drafts stay in process memory until the app quits.
+
+Version 1.8.7 (build 80, 2026-10-15) supports macOS 15+, Apple silicon and Intel, with ad-hoc signing and manual installation. All 26 targeted feature tests and native Chinese/English checks at five panel sizes passed. Network checks use controlled responses; no real provider key was used. See the [1.8.7 release notes](RELEASE_NOTES.md).
+
+Full regression: 588 Swift tests executed, 563 passed, 25 optional/environment skips, zero failures; all 21 Python quality checks passed.
 
 ## 1.8.6: Hear timer completion and see the check-in tick draw
 
