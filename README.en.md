@@ -2,7 +2,18 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history and AI chat from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.6) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.6: Calendar authorization before the welcome
+
+- Store AI Chat API keys in local app data so replacing or reinstalling the app with that data retained keeps them available without repeated Keychain authorization. Silently migrate readable legacy keys; blocked legacy keys need one explicit Save. Keep providers separate and respect key removal; ordinary note backups exclude credentials.
+- Resolve Calendar access, present the notch introduction, then enter the workspace. Allow, deny and errors all continue; determined authorization never triggers another initial prompt.
+- Re-offer the corrected introduction once on upgrade, then respect explicit completion on later restarts.
+- Preserve startup progress and queued destinations during Dock reopens, widget links and screen changes.
+
+macOS 15+, Apple silicon and Intel, build 89; ad-hoc signed for manual installation. [2.0.6 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.6).
+
+[Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.6/NotchCalendar-2.0.6-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.6/NotchCalendar-2.0.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.6/SHA256SUMS.txt)
 
 ## 2.0.5: Smoother notch retraction
 
@@ -29,7 +40,7 @@ macOS 15+, Apple silicon and Intel, build 87; ad-hoc signed, manual installation
 
 ## 2.0.3: A welcome from your notch
 
-New and upgrading users receive a brief, skippable introduction before calendar authorization. The default appearance now combines the classic notch, glass panel and translucent workspace; saved choices stay intact. Replay the welcome from Settings or the Window menu.
+Starting in 2.0.6, new and upgrading users resolve Calendar authorization before the brief, skippable introduction, then enter the workspace. The default appearance now combines the classic notch, glass panel and translucent workspace; saved choices stay intact. Replay the welcome from Settings or the Window menu.
 
 Includes daily update reminders with release notes and hydration, stretch and end-of-day care reminders. Core checks and universal package verification precede publication; detailed regression continues afterward. macOS 15+, Apple silicon and Intel, build 86; ad-hoc signed, manual installation. [2.0.3 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.3).
 
