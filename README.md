@@ -2,7 +2,17 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板和 AI 聊天；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.4) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.5) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.5：刘海收回更连贯
+
+- 修复「空壳 → 宽黑条 → 两侧胶囊」的突变，卡片与正文同步淡出，真实紧凑视图提前衔接。
+- 收回曲线持续平稳，中途重新进入可连续反向展开；修复经典样式胶囊裁切，保留草稿、选区及撤销。
+- 33 项定向动画测试和原生合成帧检查通过；完整 Swift 回归 822 项：790 通过、32 条件或环境跳过、零失败；21 项 Python 质量检查通过。实体悬停、外接屏、休眠唤醒与静置性能仍待完整验收。
+
+macOS 15+，Apple 芯片与 Intel，build 88；ad-hoc 签名、手动安装。[2.0.5 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.5)。
+
+[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.5/NotchCalendar-2.0.5-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.5/NotchCalendar-2.0.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.5/SHA256SUMS.txt)
 
 ## 2.0.4：先说 hello，再开始使用
 

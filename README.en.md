@@ -2,7 +2,17 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history and AI chat from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.5: Smoother notch retraction
+
+- Fix the empty shell and wide black bar before the compact islands appear. The card and content fade together, with the compact view retained throughout.
+- Keep retraction continuous and reversible. Fix classic-style island clipping while preserving drafts, selection and undo history.
+- All 33 targeted animation checks and native compositor inspection passed. Full Swift regression: 822 tests, 790 passed, 32 conditional or environment skips, zero failures; all 21 Python quality checks passed. Physical hover, external displays, sleep/wake and stationary performance remain pending complete acceptance.
+
+macOS 15+, Apple silicon and Intel, build 88; ad-hoc signed for manual installation. [2.0.5 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.5).
+
+[Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.5/NotchCalendar-2.0.5-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.5/NotchCalendar-2.0.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.5/SHA256SUMS.txt)
 
 ## 2.0.4: Say hello before getting started
 
