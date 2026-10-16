@@ -2,13 +2,26 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history and AI chat from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.4: Say hello before getting started
+
+- Fix system reopen events skipping the welcome and requesting calendar access too early. Reopening the app during the introduction brings it forward; calendar access is requested, if needed, only after choosing Skip, Get started or customization.
+- Show the corrected welcome once when upgrading from 2.0.3. After an explicit completion, ordinary launches stay quiet.
+- Remove the extra 30 pt click targets on each side of the idle, collapsed notch so clicks pass through to the menu bar. By default, the notch expands after the pointer settles nearby; existing activity indicators remain.
+- Shorten automatic progression through the first four steps from about 21 seconds to about 14 seconds. The final greeting still waits for you to continue; pause, navigation and replay remain available.
+- Reveal welcome headings and introductory text character by character with a typewriter effect. Reduce Motion and VoiceOver show the full text immediately.
+- Align the AI Chat placeholder with the text cursor, and prevent the configuration button’s focus indicator and error messages from being clipped or squeezed.
+
+macOS 15+, Apple silicon and Intel, build 87; ad-hoc signed, manual installation. [2.0.4 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.4).
+
+[Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.4/NotchCalendar-2.0.4-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.4/NotchCalendar-2.0.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.4/SHA256SUMS.txt)
 
 ## 2.0.3: A welcome from your notch
 
 New and upgrading users receive a brief, skippable introduction before calendar authorization. The default appearance now combines the classic notch, glass panel and translucent workspace; saved choices stay intact. Replay the welcome from Settings or the Window menu.
 
-Includes daily update reminders with release notes and hydration, stretch and end-of-day care reminders. Core checks and universal package verification precede publication; detailed regression continues afterward. macOS 15+, Apple silicon and Intel, build 86; ad-hoc signed, manual installation. [Release notes](RELEASE_NOTES.md).
+Includes daily update reminders with release notes and hydration, stretch and end-of-day care reminders. Core checks and universal package verification precede publication; detailed regression continues afterward. macOS 15+, Apple silicon and Intel, build 86; ad-hoc signed, manual installation. [2.0.3 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.3).
 
 [Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/NotchCalendar-2.0.3-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/NotchCalendar-2.0.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/SHA256SUMS.txt)
 

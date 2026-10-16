@@ -2,13 +2,26 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板和 AI 聊天；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.4) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.4：先说 hello，再开始使用
+
+- 修复系统重复打开应用时跳过欢迎、提前弹出日历权限的问题。欢迎期间再次打开应用只唤回介绍；选择「跳过」「开始使用」或前往自定义后，才请求尚未授予的日历权限。
+- 从 2.0.3 升级后重新展示一次修复后的欢迎介绍；明确完成后，普通重启不再播放。
+- 空闲收起时取消左右各 30 pt 的额外点击入口，让这些区域的点击穿透到菜单栏；默认在刘海附近停稳后悬停展开，已有活动指示保持。
+- 前四幕自动换幕总时长由约 21 秒缩短为约 14 秒，最后一幕仍等待主动继续；支持暂停、前后翻页及重播。
+- 欢迎标题与介绍以打字机效果逐字出现；开启减少动态效果或旁白时直接显示全文。
+- 修复 AI 聊天输入框占位文字与光标的对齐，避免配置按钮的焦点提示和错误信息被裁切或挤压。
+
+macOS 15+，Apple 芯片与 Intel，build 87；ad-hoc 签名、手动安装。[2.0.4 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.4)。
+
+[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.4/NotchCalendar-2.0.4-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.4/NotchCalendar-2.0.4-macos.zip) · [SHA-256 校验文件](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.4/SHA256SUMS.txt)
 
 ## 2.0.3：从刘海开始，说一声 hello
 
 新安装和升级用户先看到可跳过的欢迎介绍，结束后再请求日历权限。默认采用经典刘海、玻璃面板与通透工作台，保留已保存的个人选择；设置与窗口菜单均可重播欢迎动画。
 
-包含每日更新与版本说明提醒，以及喝水、舒展、下班关怀。核心检查和通用安装包验证完成后发布，详细回归在发布后继续。macOS 15+，Apple 芯片与 Intel，build 86；ad-hoc 签名、手动安装。[发行说明](RELEASE_NOTES.md)。
+包含每日更新与版本说明提醒，以及喝水、舒展、下班关怀。核心检查和通用安装包验证完成后发布，详细回归在发布后继续。macOS 15+，Apple 芯片与 Intel，build 86；ad-hoc 签名、手动安装。[2.0.3 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.3)。
 
 [下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/NotchCalendar-2.0.3-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/NotchCalendar-2.0.3-macos.zip) · [SHA-256 校验文件](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/SHA256SUMS.txt)
 
