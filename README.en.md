@@ -2,7 +2,15 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history and AI chat from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.3: A welcome from your notch
+
+New and upgrading users receive a brief, skippable introduction before calendar authorization. The default appearance now combines the classic notch, glass panel and translucent workspace; saved choices stay intact. Replay the welcome from Settings or the Window menu.
+
+Includes daily update reminders with release notes and hydration, stretch and end-of-day care reminders. Core checks and universal package verification precede publication; detailed regression continues afterward. macOS 15+, Apple silicon and Intel, build 86; ad-hoc signed, manual installation. [Release notes](RELEASE_NOTES.md).
+
+[Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/NotchCalendar-2.0.3-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/NotchCalendar-2.0.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/SHA256SUMS.txt)
 
 ## 2.0.2: Refine the details you use every day
 
@@ -11,7 +19,7 @@ Open your calendar, focus timer, music controls, calculator, files, scratchpad, 
 - Show overnight events compactly as “23:30 – Next day 00:15” in the displayed time zone. Longer events retain an absolute end date.
 - Use short weekday names in the smallest notch calendar to prevent English truncation, while retaining the full spoken weekday for accessibility.
 
-Version 2.0.2 (build 85, 2026-10-15) supports macOS 15+, Apple silicon and Intel. Full Swift regression: 625 tests, 604 passed, 21 conditional skips, zero failures; all 21 Python quality checks passed. Ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. Physical-device, stationary-performance and complete live integration acceptance remain pending. See the [2.0.2 release notes](RELEASE_NOTES.md).
+Version 2.0.2 (build 85, 2026-10-15) supports macOS 15+, Apple silicon and Intel. Full Swift regression: 625 tests, 604 passed, 21 conditional skips, zero failures; all 21 Python quality checks passed. Ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. Physical-device, stationary-performance and complete live integration acceptance remain pending. See the [2.0.2 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.2).
 
 [Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/NotchCalendar-2.0.2-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/NotchCalendar-2.0.2-macos.zip) · [SHA-256 checksums](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/SHA256SUMS.txt)
 

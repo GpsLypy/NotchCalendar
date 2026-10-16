@@ -2,7 +2,15 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板和 AI 聊天；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.3：从刘海开始，说一声 hello
+
+新安装和升级用户先看到可跳过的欢迎介绍，结束后再请求日历权限。默认采用经典刘海、玻璃面板与通透工作台，保留已保存的个人选择；设置与窗口菜单均可重播欢迎动画。
+
+包含每日更新与版本说明提醒，以及喝水、舒展、下班关怀。核心检查和通用安装包验证完成后发布，详细回归在发布后继续。macOS 15+，Apple 芯片与 Intel，build 86；ad-hoc 签名、手动安装。[发行说明](RELEASE_NOTES.md)。
+
+[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/NotchCalendar-2.0.3-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/NotchCalendar-2.0.3-macos.zip) · [SHA-256 校验文件](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.3/SHA256SUMS.txt)
 
 ## 2.0.2：打磨每天触达的细节
 
@@ -11,7 +19,7 @@
 - 跨午夜日程紧凑显示为「23:30 – 次日 00:15」，按显示时区判断；多日事件仍保留完整结束日期。
 - 最小刘海日历使用简短星期，避免英文截断，无障碍朗读仍保留完整星期。
 
-2.0.2（build 85，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel。Swift 全量 625 项：604 通过、21 条件跳过、零失败；21 项 Python 质量检查通过。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。实体设备、静置性能与完整真实集成仍待验收。详见 [2.0.2 发行说明](RELEASE_NOTES.md)。
+2.0.2（build 85，2026-10-15），支持 macOS 15+、Apple 芯片与 Intel。Swift 全量 625 项：604 通过、21 条件跳过、零失败；21 项 Python 质量检查通过。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。实体设备、静置性能与完整真实集成仍待验收。详见 [2.0.2 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.2)。
 
 [下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/NotchCalendar-2.0.2-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/NotchCalendar-2.0.2-macos.zip) · [SHA-256 校验文件](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.2/SHA256SUMS.txt)
 
