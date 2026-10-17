@@ -1,33 +1,48 @@
-# Notch Calendar 2.0.6
+# Notch Calendar 2.0.7
 
-macOS 15+ · Apple Silicon and Intel · build 89 · 2026-10-16
+macOS 15+ · Apple Silicon and Intel · build 90 · 2026-10-17
 
-## 修复
+## 刘海外观与动效
 
-- AI 聊天 API Key 改存本机应用数据目录，替换或重装应用且保留应用数据时可继续使用；保存与发送不再依赖钥匙串授权。旧密钥可静默读取时自动迁移，否则重新保存一次。各服务独立保存，主动删除后不会从旧钥匙串恢复；普通笔记备份不包含密钥。
-- 启动顺序改为「日历授权 → 刘海欢迎 → 工作台」。等待系统授权处理完，再开始欢迎动画；允许、拒绝或请求失败都能继续。已处理过日历授权时直接进入欢迎，不重复请求。
-- 修复升级后旧版完成记录导致欢迎被跳过的问题。升级到本版重新展示一次；明确跳过、开始使用或前往自定义后，普通重启不再播放。
-- 等待授权或欢迎期间重复点击 Dock、打开小组件链接或切换屏幕，继续等待当前步骤，并保留待打开的工作台目标。
-- 保留 2.0.5 的刘海收回连续动画修复。
+- 面板按当前工具调整宽高，减少便笺、专注等页面的留白，为日历、聊天和计算器保留合适的操作空间；仍可通过设置调整尺寸偏好。
+- 八个工具集中到底部胶囊导航，选中项显示名称与颜色，支持鼠标、键盘快捷键 ⌘1–⌘8 和无障碍标签。
+- 左上图标与标题增加内侧留白，顶部控件围绕镜头保持稳定对齐；导航与外壳同步调整位置，减少快速切换时的边缘裁切。
+- 展开、收起与工具尺寸变化连续衔接，外形、内容和选中状态保持协调；中途重新进入或切换工具时从当前状态继续，减少空壳、跳变与文字叠影。
+- 保留原生文本编辑、选区、撤销和页面状态；调整紧凑页面的输入区、按钮与滚动区域，并适配「减少动态效果」「减少透明度」及增强对比度。
+
+## 授权与更新
+
+- 永久授权改存本机应用数据目录，沿用现有公钥、NC1 激活码和原安装标识。成功迁移后，应用重启无需再次访问授权钥匙串；替换或重装应用且保留应用数据时可继续使用。
+- 旧永久授权首次从钥匙串迁移时保留原记录。若系统拒绝读取，请在「授权与试用」点击「重试读取授权」允许一次访问。保存失败不覆盖原记录；本机授权文件损坏时保留文件并提示恢复，不静默替换。
+- 新的永久激活不要求写入钥匙串。试用记录仍保存在钥匙串中，7 天期限与防时钟回拨检查保持不变；升级不会重置试用。普通设置备份不包含授权，换机或丢失原安装记录时仍需联系作者补发。
+- 「软件更新」使用独立窗口，试用到期、授权读取失败或尚未进入工作台时也可检查更新、下载并打开安装包；更新不会重置试用或授予永久授权。
+- 修复延后更新提醒与手动检查结果不一致的问题：最新检查确认无新版本时清除旧提醒，发现更新版本时显示最新版本说明。
+- 延续 2.0.6 的聊天 API Key 本机保存方式，加强跨重启、旧密钥迁移失败恢复、文件权限、删除及服务隔离的回归检查；保存与发送不依赖钥匙串授权。旧密钥无法静默迁移时仍需重新保存一次。
 
 ## 验证与安装
 
-本轮回归覆盖密钥跨实例读取、迁移失败恢复、权限、删除与服务隔离；启动顺序回归覆盖允许、拒绝、错误、延迟回调、旧记录迁移和原生欢迎窗口；发布前执行完整回归、双架构构建与安装包校验。授权测试使用隔离数据源，未重置本机系统权限；全新真实 TCC 提示、实体刘海、外接屏、休眠唤醒、VoiceOver、真实模型联调和静置性能仍待完整验收。
+本轮回归重点包括连续动画、八工具切换和紧凑布局、原生输入与撤销、永久授权迁移和失败重试、激活码兼容、试用到期与时钟回拨、独立更新窗口及提醒一致性。授权与网络检查使用隔离数据和受控响应；真实用户旧钥匙串授权弹窗、完整付费发码、真实模型与播放器联调、实体刘海和外接屏、休眠唤醒、VoiceOver 及长时间性能仍待完整验收。
 
-[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.6/NotchCalendar-2.0.6-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.6/NotchCalendar-2.0.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.6/SHA256SUMS.txt)
+[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.7/NotchCalendar-2.0.7-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.7/NotchCalendar-2.0.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.7/SHA256SUMS.txt)
 
-退出旧版，将 DMG 中的应用拖入「应用程序」替换并重新启动。通用安装包支持 Apple 芯片与 Intel，最低 macOS 15；沿用 ad-hoc 签名、手动安装，未进行 Developer ID 签名或 Apple 公证。
+退出旧版，将 DMG 中的应用拖入「应用程序」替换并重新启动。通用安装包支持 Apple 芯片与 Intel，最低 macOS 15；沿用 ad-hoc 签名、手动安装，未进行 Developer ID 签名或 Apple 公证。独立更新窗口不代表本版支持自动替换安装。
 
 ## English
 
-- Store AI Chat API keys in local app data so replacing or reinstalling the app with that data retained keeps them available without repeated Keychain authorization. Silently migrate readable legacy keys; blocked legacy keys need one explicit Save. Keep providers separate and respect key removal; ordinary note backups exclude credentials.
-- Resolve Calendar authorization first, then show the notch welcome, then start the workspace. Allow, deny and request errors all continue to the introduction. Previously determined authorization does not trigger another prompt.
-- Re-offer the corrected introduction once to upgrading users whose old completion flag previously suppressed it. Skip, Get started or customization completes it; ordinary subsequent restarts remain quiet.
-- Dock reopens, widget links and screen changes wait for the current startup step and preserve the queued workspace destination.
-- Retain the continuous notch retraction fix from 2.0.5.
+- Adapt the notch panel to each tool, keeping Scratchpad and Focus compact while giving Calendar, Chat and Calculator room to work. Size preferences remain adjustable.
+- Bring all eight tools into a bottom capsule dock, with a name and color for the selected tool, ⌘1–⌘8 shortcuts and accessibility labels.
+- Add breathing room beside the upper-left icon and title, keep the header aligned around the camera, and move navigation with the shell to avoid edge clipping during rapid tool changes.
+- Coordinate opening, closing and tool size changes across the panel shape, content and selected state. Reentry and tool changes continue from the current animation state to reduce empty frames, jumps and overlapping labels.
+- Preserve native text input, selection, undo and page state. Refine inputs, controls and scrolling at compact sizes, with support for Reduce Motion, Reduce Transparency and increased contrast.
+- Store permanent licenses in local app data without changing the public key, NC1 code format or original installation ID. After migration, restarts no longer access the licensing Keychain. Replacing or reinstalling the app retains activation when app data is kept.
+- Keep the original Keychain record during migration. If macOS blocks the first read, choose Retry reading license in License & trial to allow access once. Failed saves keep the previous record; damaged local license files are preserved with a recovery message instead of being silently replaced.
+- New permanent activation does not require a Keychain write. Trial records remain in Keychain with the same seven-day limit and clock rollback checks. Upgrades do not restart a trial. Ordinary settings backups exclude licenses; changing Macs or losing the original installation record still requires a replacement code from the author.
+- Open Software Update independently of license status or workspace startup, including after trial expiry or a license read failure. Check for updates, download and open the installer without activating first. Updating does not reset the trial or grant a permanent license.
+- Keep deferred update reminders consistent with manual checks: clear an old reminder when the latest check finds no update, and use the latest release details when a newer version becomes available.
+- Retain the local Chat API key storage introduced in 2.0.6, with reinforced regression checks for persistence, migration recovery, file permissions, removal and provider isolation. Save and Send do not require Keychain authorization; an unreadable legacy key still needs one explicit Save.
 
-Credential regression covers persistence across instances, migration recovery, private file permissions, removal and provider isolation. Startup regression covers allow, deny, errors, delayed callbacks, completion migration and real AppKit welcome panels using isolated calendar sources. Full regression, universal build and package verification run before publication. No real TCC preferences were reset; fresh system permission prompts, physical notch, external displays, sleep/wake, VoiceOver, live model integration and stationary performance remain pending complete acceptance.
+Regression focuses on continuous motion, eight-tool navigation and compact layouts, native editing and undo, permanent license migration and retries, activation compatibility, trial expiry and clock rollback, and independent update windows and reminders. License and network checks use isolated data and controlled responses. Real upgraded-user Keychain prompts, the complete payment and code delivery flow, live model and player integration, physical notches and external displays, sleep/wake, VoiceOver and sustained performance remain pending complete acceptance.
 
-Quit the old app, replace it in Applications using the DMG, and relaunch. Universal macOS 15+ package for Apple silicon and Intel; ad-hoc signed for manual installation, without Developer ID signing or Apple notarization.
+Quit the old app, replace it in Applications using the DMG, and relaunch. Universal macOS 15+ package for Apple silicon and Intel; ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. The independent update window does not enable automatic app replacement for this release.
 
-Previous release: [2.0.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.5).
+Previous release: [2.0.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.6).

@@ -2,7 +2,19 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板和 AI 聊天；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.6) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.7) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.7：随内容伸展，操作更连贯
+
+- 刘海面板按当前工具调整尺寸：便笺与专注更紧凑，日历、聊天和计算器保留需要的空间。八个工具集中到底部胶囊导航，当前工具显示名称，支持 ⌘1–⌘8。
+- 展开、收起和切换工具时，外形、内容与导航按同一节奏衔接；动画中途重新进入也能连续展开。保留原生输入、选区、撤销与页面状态，并适配系统「减少动态效果」。
+- 永久授权改存本机应用数据目录，保留原安装标识与激活码；已激活用户从旧钥匙串迁移后，重启无需再次读取授权钥匙串。首次迁移若被系统阻止，请点击「重试读取授权」允许一次访问；试用记录与 7 天期限不变。
+- 「软件更新」使用独立窗口，试用到期或授权读取失败时也可打开。最新成功检查确认没有更新后清除旧提醒，发现更新版本时改用最新说明。
+- 延续 2.0.6 的聊天 API Key 本机保存方式，并加强跨重启、旧密钥迁移失败恢复、删除与服务隔离的回归检查。
+
+macOS 15+，Apple 芯片与 Intel，build 90；ad-hoc 签名、手动安装，未进行 Developer ID 签名或 Apple 公证。[2.0.7 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.7)。
+
+[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.7/NotchCalendar-2.0.7-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.7/NotchCalendar-2.0.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.7/SHA256SUMS.txt)
 
 ## 2.0.6：先授权，后欢迎
 
@@ -244,7 +256,9 @@ macOS 15+，Apple 芯片与 Intel，build 87；ad-hoc 签名、手动安装。[2
 
 ## 从刘海展开
 
-悬停或点击顶部入口，切换 **日历、专注、便笺、音乐、计算器**；在设置中启用文件浮窗后，还可从 **文件** 菜单浏览收藏目录。无刘海的外接显示器使用顶部居中入口。
+悬停或点击顶部入口展开面板，再通过底部导航切换 **日历、专注、便笺、音乐、计算器、剪贴板和 AI 聊天**；在设置中启用文件浮窗后，还可从 **文件** 页面浏览收藏目录。剪贴板记录需单独开启，AI 聊天需配置服务。无刘海的外接显示器使用顶部居中入口。
+
+下方功能截图来自较早版本；2.0.7 使用底部胶囊导航，并按当前工具调整面板尺寸。
 
 | 日历 | 专注 |
 | --- | --- |
@@ -337,7 +351,7 @@ macOS 15+，Apple 芯片与 Intel，build 87；ad-hoc 签名、手动安装。[2
 
 ![微信扫码购买永久授权（¥9.9，需人工领码）](images/payment.png)
 
-授权码在本机离线验证，绑定安装标识。换机或丢失钥匙串记录后，请联系作者补发。授权信息保存在 macOS 钥匙串中，不包含在普通设置备份内。
+授权码在本机离线验证，绑定安装标识。从 2.0.7 起，永久授权保存在本机应用数据目录；替换或重装应用且保留应用数据时可继续使用，不包含在普通设置备份内。旧永久授权会从钥匙串迁移，原记录保留；若系统阻止读取，请在「授权与试用」点击「重试读取授权」允许一次访问。试用记录仍保存在 macOS 钥匙串中，不会因升级重新计时。换机或丢失原安装记录时，请联系作者补发。
 
 ## 数据与权限
 

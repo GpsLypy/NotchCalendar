@@ -2,7 +2,19 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history and AI chat from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.6) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.7) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.7: A notch that fits each tool
+
+- The panel adapts to the active tool: Scratchpad and Focus stay compact, while Calendar, Chat and Calculator keep the space they need. All eight tools share a bottom capsule dock, with a label for the current tool and ⌘1–⌘8 shortcuts.
+- Opening, closing and changing tools coordinate the panel shape, content and navigation. Reentering during an animation continues smoothly. Native text input, selection, undo and page state stay intact, with support for Reduce Motion.
+- Store permanent licenses in local app data while preserving the original installation ID and activation code. After migration, restarting no longer reads the licensing Keychain. If macOS blocks the initial migration, choose Retry reading license to allow access once. Trial records and the seven-day limit remain unchanged.
+- Open Software Update in an independent window even after trial expiry or a license read failure. Clear an old reminder when the latest successful check finds no update, and use the latest details when a newer version is available.
+- Retain the local Chat API key storage introduced in 2.0.6, with reinforced regression checks for persistence, legacy migration recovery, removal and provider isolation.
+
+macOS 15+, Apple silicon and Intel, build 90; ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. [2.0.7 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.7).
+
+[Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.7/NotchCalendar-2.0.7-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.7/NotchCalendar-2.0.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.7/SHA256SUMS.txt)
 
 ## 2.0.6: Calendar authorization before the welcome
 
@@ -244,7 +256,9 @@ Native compact-view captures use isolated demo data; the menu bar and camera hou
 
 ## Open from the notch
 
-Hover over or click the top entry for Calendar, Focus, Scratchpad, Music, and Calculator. Enable the optional file shelf in Settings to add Files; displays without a notch have a centered top entry.
+Hover over or click the top entry to expand the panel, then use the bottom dock for Calendar, Focus, Scratchpad, Music, Calculator, Clipboard and AI Chat. Enable the optional file shelf in Settings to add Files. Clipboard recording needs a separate opt-in, and AI Chat requires a configured service. Displays without a notch have a centered top entry.
+
+The feature screenshots below show earlier versions. Version 2.0.7 uses a bottom capsule dock and adjusts the panel size for the active tool.
 
 | Calendar | Focus |
 | --- | --- |
@@ -333,7 +347,7 @@ We usually reply within **24 hours** after receiving a complete payment receipt 
 
 ![WeChat payment QR code for lifetime license; manual activation required](images/payment.png)
 
-Codes are verified offline and bound to an installation. Contact the author for a replacement when changing Macs or losing the installation's Keychain record. License records are stored in macOS Keychain and excluded from ordinary settings backups.
+Codes are verified offline and bound to an installation. Starting in 2.0.7, permanent licenses are stored in local app data, so replacing or reinstalling the app with that data retained keeps activation available. Ordinary settings backups exclude license records. Legacy permanent licenses migrate from Keychain without deleting the original; if macOS blocks access, choose Retry reading license in License & trial to allow access once. Trial records remain in macOS Keychain, and an upgrade does not restart the trial. Contact the author for a replacement when changing Macs or losing the original installation record.
 
 Calendar access uses EventKit. Notes and focus history remain local. Public feeds and update checks use network access. WeChat handles payment; the app does not automatically confirm payment or access payment accounts.
 
