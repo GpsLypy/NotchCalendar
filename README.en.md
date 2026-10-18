@@ -1,8 +1,23 @@
 # Notch Calendar
 
-Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history and AI chat from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
+Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets and news from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.9](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.9) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.10](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.10) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.10: Market and news glances in the notch
+
+- Add Markets (⌘9) and News (⌘0) to the notch toolbar while retaining ⌘1–⌘8, the shared window size and top/bottom placement. More Tools holds entries when space is limited; optional tools can still be hidden in Settings.
+- View prices, changes and source timestamps for the SSE Composite, SZSE Component, ChiNext, CSI 300 and STAR 50, plus up to eight Shanghai/Shenzhen A-share watchlist entries. Manage the watchlist in the full workspace; existing US-market Alpha Vantage settings and quota remain available.
+- Draw intraday lines from the minute points returned by the source. The full workspace includes volume bars; turning off its intraday chart hides both the line and bars. The notch mini-chart has its own toggle, and available quotes remain visible when intraday data is missing.
+- Use Eastmoney industry classifications for gainers and losers, excluding concept sectors. When the industry source is unavailable, show its status and retain available cached data while quotes update independently.
+- News shows up to three headlines with Unread / Latest / Saved filters. Share content language, reading state and saved headlines with the full Briefing page. Local reading filters preserve its search, reading filter and source selection; changing the shared content language still clears an incompatible source under the existing rules. View all opens the complete reading workspace.
+- Retain Radar, Markets, Discussion Room and Briefing as four workspace modules with their existing sidebar preferences. The new notch entries support brief checks; full reading and management remain in the main window.
+
+Tencent quotes and intraday data passed this round's actual application network-transport and production-parser checks. Industry requests timed out or returned empty responses, so successful live industry access is not established. Load on entry, instrument changes or manual refresh, without background polling. Public endpoints do not guarantee real-time data or continued availability; the interface shows source times, cached state and errors.
+
+Prepublication validation ran 232 targeted cases serially in separate processes: 226 passed, 6 optional checks skipped, zero failures. All 21 Python quality checks passed. Universal packages passed executable-content, strict-signature, App Intents metadata and complete ZIP/DMG content checks. Four initial native-fixture failures were corrected, then the complete selected set passed again; this is not a full-app regression. Physical notches, external displays, sleep/wake, real VoiceOver and complete stationary CPU/energy acceptance remain pending. macOS 15+, Apple silicon and Intel, build 93; ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. Automatic application replacement remains disabled. [2.0.10 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.10).
+
+[Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.10/NotchCalendar-2.0.10-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.10/NotchCalendar-2.0.10-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.10/SHA256SUMS.txt)
 
 ## 2.0.9: Arrange files and navigation your way
 
@@ -279,9 +294,9 @@ Native compact-view captures use isolated demo data; the menu bar and camera hou
 
 ## Open from the notch
 
-Hover over or click the top entry to expand the panel, then use the bottom dock for Calendar, Focus, Scratchpad, Music, Calculator, Clipboard and AI Chat. Enable the optional file shelf in Settings to add Files. Clipboard recording needs a separate opt-in, and AI Chat requires a configured service. Displays without a notch have a centered top entry.
+Hover over or click the top entry to expand the panel, then use the toolbar for Calendar, Focus, Scratchpad, Music, Calculator, Clipboard, AI Chat, Markets and News. Enable the optional file shelf in Settings to add Files. Use More Tools when space is limited. Clipboard recording needs a separate opt-in, and AI Chat requires a configured service. Displays without a notch have a centered top entry.
 
-The feature screenshots below show earlier versions. Version 2.0.9 offers a top or bottom dock, defaulting to bottom, while tools continue to share the Calendar window size.
+The feature screenshots below show earlier versions. Version 2.0.10 retains top or bottom placement, defaulting to bottom, and adds Markets and News while tools continue to share the Calendar window size.
 
 | Calendar | Focus |
 | --- | --- |
@@ -291,7 +306,7 @@ The feature screenshots below show earlier versions. Version 2.0.9 offers a top 
 
 ## Light, dark, and glass
 
-Set the full workspace to light, dark, or system appearance, with optional translucent glass material. The notch panel remains dark.
+Set the full workspace to light, dark, or system appearance, with optional translucent glass material. The expanded notch follows the selected appearance; the compact notch stays dark to blend with the camera housing.
 
 | Light workspace | Dark workspace |
 | --- | --- |
