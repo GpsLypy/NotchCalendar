@@ -1,49 +1,54 @@
-# Notch Calendar 2.0.8
+# Notch Calendar 2.0.9
 
-macOS 15+ · Apple Silicon and Intel · build 91 · 2026-10-18
+macOS 15+ · Apple Silicon and Intel · build 92 · 2026-10-18
 
-## 稳定的窗口与紧凑导航
+## 文件左右分栏与列表
 
-- 八个工具共用日历页面的窗口尺寸。切换日历、专注、文件、便笺、音乐、计算器、剪贴板和 AI 聊天时，外框、标题与导航位置保持稳定；仍可在设置中调整整体尺寸。
-- 底部胶囊导航更窄、更轻，贴近窗口底边，减少大块留白。选中工具显示名称与颜色，保留鼠标操作、⌘1–⌘8 快捷键和无障碍标签。
-- 页面内容与导航切换连贯衔接；快速切换和动画中途重新进入保留当前状态。继续保留原生文本编辑、选区、撤销与页面状态，并适配「减少动态效果」。
-- 调整各页内容空间，让专注图表的七个星期、音乐进度、计算器底排、便笺保存状态和聊天底部操作完整可见。
+- 文件浮窗默认使用左右分栏：左侧显示个人收藏与添加文件夹，右侧显示文件列表。紧凑尺寸下仍保留侧栏，并根据可用宽度收起次要列。
+- 在「设置 → 数据与文件 → 文件浮窗 → 文件布局」选择分栏或列表。列表模式通过个人收藏按钮切换目录、添加或管理收藏。
+- 切换保留当前目录、选中文件与滚动位置，不移动或删除原文件；文件布局随本地备份恢复，目录访问授权仍仅在本机保存。
 
-## 未来七天安排
+## 功能栏位置与可见工具
 
-- 优化日历下方「未来 7 天的其他安排」布局，为较多安排保留可滚动的阅读空间；继续显示日期、时间、日程名称与日历颜色，避免重复展示上方已出现的安排。
-- 完善「查看全部」的点击区域与完整七天列表，确保较多安排和仍在进行中的安排可查看，保留完整标题、日历来源与返回月历入口。
-- 月历和安排列表分别使用可用空间，较多内容可滚动查看；新增日程与「查看全部」保持可点击。
+- 在「设置 → 通用设置 → 刘海功能栏」选择顶部或底部，默认保留底部。顶部位于头部控制栏下方，避开实体摄像头区域；切换不改变正文可用空间，保留原生编辑器、草稿与选区。
+- 自选是否显示专注、文件、便笺、音乐、计算器、剪贴板和 AI 聊天入口。日历始终显示；文件仍需先启用文件浮窗。
+- 隐藏入口不删除数据、不停止计时或音乐，也不取消进行中的聊天请求。当前工具被隐藏时回到日历，重新启用入口后可继续访问。
+- 文件布局、功能栏位置与可见入口立即保存，并支持本地备份的导出、恢复和撤销；旧备份缺少这些设置时使用分栏、底部和全部可用入口。
 
-## 授权后的欢迎与启动
+## 中文简报
 
-- 等待日历授权结果后展示欢迎，再进入工作台；允许、拒绝或请求失败均可继续，已有授权结果时不重复发起初始请求。
-- 若授权结束时应用尚未激活或屏幕暂不可用，在应用重新激活、唤醒或显示器恢复时继续尚未完成的启动流程，避免欢迎停留在等待状态。
-- 欢迎完成记录与安装版本和构建号绑定。升级后展示一次；明确完成或跳过后，普通重启不重播。中途退出仍可在下次启动看到介绍。
-- 沿用本机永久授权与聊天 API Key 保存方式，以及独立的软件更新窗口。
+- 信息差简报新增少数派与 IT之家公开 RSS，保留 GitHub Blog、Swift.org 与 NASA。选择全部／中文／英文查看对应来源，语言选择保存在本机。
+- 先筛选语言，再应用最多 20 条的展示上限。切换到不兼容的语言时清空当前来源选择，来源按钮与状态也随语言更新。
+- 保留发布者原文标题、原始日期和原文链接；中文内容来自发布者订阅源，不依赖英文机器翻译。继续提供本地搜索、阅读状态、收藏、30 分钟缓存与单源失败降级，不加载远端全文或图片。
 
 ## 验证与安装
 
-本轮界面与欢迎流程 126 项针对性测试通过；另有授权、更新及密钥保存 97 项检查，96 项通过、1 项可选 Finder 集成检查跳过。合计 223 项、222 项通过、零失败；21 项 Python 质量检查通过。界面验证覆盖固定窗口、原生 Dock 交互、连续展开收起、日历列表、欢迎启动及输入状态保留；已检查原生合成截图中的八工具布局。测试使用隔离数据与受控环境。本轮定向验证不等于重新完成全部回归；原生录制也不构成硬件稳定 60 fps 的结论。真实用户旧钥匙串迁移与授权弹窗、完整付款发码、真实模型与播放器、实体刘海及外接屏、休眠唤醒、VoiceOver 和长时间性能仍待完整验收。
+发布前 218 项定向测试以独立进程串行执行：216 项通过、2 项可选联网／Finder 集成检查跳过、零失败；21 项 Python 质量检查通过，本地 Release 产品构建通过。覆盖文件布局切换后的目录、选择与滚动位置，功能栏位置与工具可见性，原生设置保存，备份恢复与撤销，以及中英文简报筛选。原生窗口使用隔离数据，包含中英文与紧凑尺寸交互；本轮通过的是独立进程运行模式，同进程原生测试仍存在状态干扰。
 
-[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.8/NotchCalendar-2.0.8-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.8/NotchCalendar-2.0.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.8/SHA256SUMS.txt)
+少数派和 IT之家实际 RSS 请求均返回 HTTP 200，生产解析器分别接受 10 条和最新 20 条文章。这是独立下载与生产解析验证，不等同于应用内完整联网会话；常规测试中的联网检查仍按默认跳过。本轮不是整应用全量回归，也不构成硬件帧率或长期性能结论。实体刘海屏、外接屏、休眠唤醒、真实 VoiceOver、完整简报联网会话、真实模型与播放器、旧用户钥匙串迁移和完整付款发码仍待完整验收。
+
+[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.9/NotchCalendar-2.0.9-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.9/NotchCalendar-2.0.9-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.9/SHA256SUMS.txt)
 
 退出旧版，将 DMG 中的应用拖入「应用程序」替换并重新启动。通用安装包支持 Apple 芯片与 Intel，最低 macOS 15；沿用 ad-hoc 签名、手动安装，未进行 Developer ID 签名或 Apple 公证。独立更新窗口不代表本版支持自动替换安装。
 
+沿用 7 天试用、¥9.9 一次买断与人工领码流程。更新不会重新开始试用或授予永久授权；保留本机应用数据时，永久授权与聊天 API Key 继续使用原有保存方式。
+
 ## English
 
-- All eight tools share the Calendar window size. Changing tools keeps the outer frame, header and navigation in place; the overall size remains adjustable in Settings.
-- A narrower, lighter capsule dock sits close to the bottom edge with less unused space. The selected tool shows its name and color, with mouse input, ⌘1–⌘8 shortcuts and accessibility labels.
-- Coordinate content and navigation transitions while retaining state through rapid changes and mid-animation reentry. Preserve native text input, selection, undo and page state, with Reduce Motion support.
-- Refine content space so all seven Focus weekdays, Music progress, the bottom Calculator row, Scratchpad save status and Chat controls remain visible.
-- Improve the “More in the next 7 days” layout with scrollable space for longer agendas. Keep dates, times, event titles and calendar colors, and omit occurrences already shown above from this preview.
-- Refine the “View all” click target and complete seven-day list so longer agendas and ongoing events remain accessible, with full titles, calendar names and a return to the month. Calendar and agenda content can scroll within their allotted space; New event and View all remain clickable.
-- Resolve Calendar authorization before presenting the welcome and starting the workspace. Allow, deny and errors all continue; a determined authorization state does not trigger another initial request.
-- Resume unfinished startup when the app becomes active, the Mac wakes or the display becomes available after authorization. Record welcome completion per version and build: show it once on upgrade, retain completion or Skip across ordinary restarts, and offer it again after an interrupted introduction.
-- Retain local permanent-license and Chat API key storage, plus the independent Software Update window.
+- Files defaults to a split layout with favorites and Add folder on the left and files on the right. Compact panels retain the sidebar and hide secondary columns as needed. Choose split or list in Settings → Data & Files; list mode uses the favorites button for folder selection and management.
+- Switching file layouts preserves the current folder, selected file and scroll position without moving or deleting files. Local backups include the layout preference; folder-access permissions remain on this Mac.
+- Choose a top or bottom dock in Settings → General → Notch toolbar. Bottom remains the default. The top dock sits below the header controls, outside the camera area; changing position retains content space, native editors, drafts and selection.
+- Choose whether Focus, Files, Scratchpad, Music, Calculator, Clipboard and AI Chat appear. Calendar always remains available; Files still requires File Shelf to be enabled. Hiding an entry keeps its data and ongoing timers, playback and Chat requests. Hiding the current tool returns to Calendar; showing it again restores access.
+- Save file layout, dock position and visible tools immediately, with local-backup export, restore and undo. Older backups without these preferences restore split layout, bottom placement and all available tools.
+- Add SSPai and ITHome public RSS feeds to Briefing alongside GitHub Blog, Swift.org and NASA. Save an All / Chinese / English filter locally and apply it before the 20-headline limit. Changing language clears only an incompatible selected source, and updates source buttons and statuses.
+- Keep publishers’ original headlines, dates and links without machine-translating English titles. Retain local search, reading state, bookmarks, 30-minute caching and partial-source recovery, without loading full articles or remote images.
 
-The 126 targeted UI and welcome tests passed. A further 97 licensing, update and credential checks had 96 passes and one optional Finder integration skip: 223 targeted cases, 222 passed, zero failures. All 21 Python quality checks passed. UI coverage includes the fixed viewport, native Dock input, continuous reveal and retraction, calendar lists, welcome startup and retained input state. Native compositor captures were inspected across all eight tools. Tests use isolated data and controlled conditions. This focused validation is not a new full regression, and native recording does not establish sustained hardware performance at 60 fps. Real upgraded-user Keychain migration and prompts, the complete payment and code-delivery flow, live model and player integration, physical notches and external displays, sleep/wake, VoiceOver and sustained performance remain pending complete acceptance.
+Prepublication validation ran 218 targeted cases serially in separate processes: 216 passed, two optional live-network/Finder integration checks skipped, zero failures. All 21 Python quality checks and the local Release product build passed. Coverage includes retained folder, selection and scroll state across layout changes; dock placement and tool visibility; native settings persistence; backup restore and undo; and Chinese/English filtering. Native windows use isolated data and include compact sizes in both languages. The passing run uses separate processes; shared-process native tests still have state interference.
+
+Live RSS requests to SSPai and ITHome returned HTTP 200; the production parser accepted 10 and the newest 20 articles respectively. These separate download/parser checks do not establish a complete in-app live-client session; the ordinary network test remains skipped by default. This is not a full-app regression or evidence of hardware frame rate or sustained performance. Physical notches, external displays, sleep/wake, real VoiceOver, complete live Briefing sessions, real models and players, upgraded-user Keychain migration and the complete payment/code-delivery flow remain pending complete acceptance.
 
 Quit the old app, replace it in Applications using the DMG, and relaunch. Universal macOS 15+ package for Apple silicon and Intel; ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. The independent update window does not enable automatic app replacement for this release.
 
-Previous release: [2.0.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.7).
+The seven-day trial, ¥9.9 one-time purchase and manual activation-code delivery remain in place. Updating does not restart the trial or grant a permanent license. Keeping local app data preserves the existing permanent-license and Chat API key storage.
+
+Previous release: [2.0.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.8).

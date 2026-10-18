@@ -2,7 +2,18 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板和 AI 聊天；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.8) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.9](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.9) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.9：按习惯配置文件与功能栏
+
+- 文件默认使用左右分栏，也可在「设置 → 数据与文件 → 文件浮窗」切换为列表；切换保留当前目录、选中文件和滚动位置。
+- 在「设置 → 通用设置 → 刘海功能栏」选择顶部或底部，默认底部；切换位置保持正文空间与原生编辑状态。
+- 自选功能栏中显示的工具，日历始终保留。隐藏入口不删除数据或停止正在进行的专注、音乐与聊天；隐藏当前工具时回到日历，重新显示后可继续访问。
+- 信息差简报新增少数派与 IT之家 RSS，支持全部／中文／英文筛选，保留原文标题、日期与链接；语言筛选先于 20 条展示上限应用。
+
+发布前 218 项定向测试以独立进程串行执行：216 项通过、2 项可选联网／Finder 集成检查跳过、零失败；21 项 Python 质量检查和本地 Release 产品构建通过，中文 RSS 实际下载与生产解析另行验证。这不是整应用全量回归，实体设备与完整真实集成仍待验收。macOS 15+，Apple 芯片与 Intel，build 92；ad-hoc 签名、手动安装，未进行 Developer ID 签名或 Apple 公证。[2.0.9 发行说明](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.9)。
+
+[下载 DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.9/NotchCalendar-2.0.9-macos.dmg) · [下载 ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.9/NotchCalendar-2.0.9-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.9/SHA256SUMS.txt)
 
 ## 2.0.8：窗口更稳定，切换更从容
 
@@ -270,7 +281,7 @@ macOS 15+，Apple 芯片与 Intel，build 87；ad-hoc 签名、手动安装。[2
 
 悬停或点击顶部入口展开面板，再通过底部导航切换 **日历、专注、便笺、音乐、计算器、剪贴板和 AI 聊天**；在设置中启用文件浮窗后，还可从 **文件** 页面浏览收藏目录。剪贴板记录需单独开启，AI 聊天需配置服务。无刘海的外接显示器使用顶部居中入口。
 
-下方功能截图来自较早版本；2.0.8 使用紧凑贴底的胶囊导航，八个工具共用日历页面的窗口尺寸。
+下方功能截图来自较早版本；2.0.9 可选择顶部或底部功能栏，默认底部，工具继续共用日历页面的窗口尺寸。
 
 | 日历 | 专注 |
 | --- | --- |

@@ -2,7 +2,18 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history and AI chat from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.8) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.9](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.9) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.9: Arrange files and navigation your way
+
+- Files opens in a split layout by default, with a list option in Settings → Data & Files. Switching layouts preserves the current folder, selected file and scroll position.
+- Choose a top or bottom dock in Settings → General → Notch toolbar. Bottom remains the default; changing its position preserves content space and native editing state.
+- Choose which optional tools appear in the dock. Calendar always remains available. Hiding an entry keeps its data and ongoing Focus, Music and Chat activity; hiding the current tool returns to Calendar, and showing it again restores access.
+- Add SSPai and ITHome RSS feeds to Briefing, with All / Chinese / English filtering and original headlines, dates and links. Language filtering applies before the 20-headline display limit.
+
+Prepublication validation ran 218 targeted cases serially in separate processes: 216 passed, two optional live-network/Finder integration checks skipped, zero failures. All 21 Python quality checks and the local Release product build passed, with separate live downloads and production-parser checks for the Chinese feeds. This is not a full-app regression; physical-device and complete real-service acceptance remain pending. macOS 15+, Apple silicon and Intel, build 92; ad-hoc signed for manual installation, without Developer ID signing or Apple notarization. [2.0.9 release notes](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.9).
+
+[Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.9/NotchCalendar-2.0.9-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.9/NotchCalendar-2.0.9-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.9/SHA256SUMS.txt)
 
 ## 2.0.8: A steadier window, smoother tool changes
 
@@ -270,7 +281,7 @@ Native compact-view captures use isolated demo data; the menu bar and camera hou
 
 Hover over or click the top entry to expand the panel, then use the bottom dock for Calendar, Focus, Scratchpad, Music, Calculator, Clipboard and AI Chat. Enable the optional file shelf in Settings to add Files. Clipboard recording needs a separate opt-in, and AI Chat requires a configured service. Displays without a notch have a centered top entry.
 
-The feature screenshots below show earlier versions. Version 2.0.8 uses a compact capsule dock near the bottom edge, with all eight tools sharing the Calendar window size.
+The feature screenshots below show earlier versions. Version 2.0.9 offers a top or bottom dock, defaulting to bottom, while tools continue to share the Calendar window size.
 
 | Calendar | Focus |
 | --- | --- |
