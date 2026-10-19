@@ -2,7 +2,24 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.12](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.12) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.13](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.13) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.13: A little companion beside the notch
+
+- Add an optional Notch companion in Settings → General → Notch companion. Enable it to choose one cream cat or apricot puppy.
+- Peek, stroll from left to right and back, click to pet, or settle into a static nap. Secondary click for actions or hide; settings offer Hide for now / Come back and equivalent action buttons.
+- Name each animal separately and choose Quiet or Playful. Store the animal, names, personality and automatic activity choice locally, including backup and restore.
+- Turn automatic activity off completely. Quiet companions act about every 8–15 minutes and playful companions every 5–10 minutes; animation updates stop at rest.
+- Respect Reduce Motion with static expressions and pause automatic activity in Low Power Mode. Yield to notch expansion/collapse, meetings, and music/focus status.
+- Scarves, bows and further companion moments are planned for later versions.
+
+Final prepublication targeted regression: 189 cases, 188 passed, 1 optional check skipped, zero failures; 21 Python quality checks and universal package validation passed.
+
+Native automation checks this Mac’s actual notch geometry, window travel, petting without opening Calendar, and expansion/collapse handoff. External-display coordinates, reduced motion, low power and suspension also use injected states or geometry tests. Human menu-bar interactions, VoiceOver speech, physical display hotplug, real sleep/wake, complete full-screen/sharing scenarios and stationary CPU/energy remain pending. No full-app or strict hardware-gate pass is claimed.
+
+macOS 15+, Apple silicon and Intel, build 96. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Keeping local app data preserves existing licenses and Chat API keys.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.13/NotchCalendar-2.0.13-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.13/NotchCalendar-2.0.13-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.13/SHA256SUMS.txt)
 
 ## 2.0.12: More room for replies
 

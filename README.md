@@ -2,7 +2,24 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板、AI 聊天、行情、资讯、翻译与隔空投送；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.12](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.12) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.13](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.13) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.13：刘海旁，多一个小伴侣
+
+- 新增可选的「刘海小伴侣」，在「设置 → 通用 → 刘海小伴侣」主动开启；奶油小猫与杏色小狗一次选择一只。
+- 支持探头、左右往返、点击摸头和静态打盹；右键选择动作或隐藏，设置提供「暂时隐藏／叫出来」和同等动作按钮。
+- 两只角色分别取名，选择安静或活泼性格；角色、名字、性格与自动活动偏好保存在本机，并支持备份恢复。
+- 自动活动可完全关闭。安静型约每 8–15 分钟活动一次，活泼型约每 5–10 分钟；静止时停止动画刷新。
+- 尊重系统「减少动态效果」，使用静态表情；低电源模式暂停自动活动。主刘海展开／收起、会议和音乐／专注状态优先，宠物让位。
+- 围巾、蝴蝶结及更多彩蛋留作后续扩展。
+
+最终定向回归 189 项：188 项通过、1 项可选检查跳过、0 失败；21 项 Python 质量检查与通用安装包核验通过。
+
+已读取本机真实刘海几何，检查原生窗口往返、摸头不展开日历和展开／收起交接；外屏坐标、减少动态效果、低电源及睡眠暂停也有注入状态或几何测试。真人菜单栏操作、VoiceOver 语音、实体外屏插拔、真实睡眠唤醒、完整全屏／共享场景和持续 CPU／能耗仍待验收；不宣称全量回归或严格设备门禁通过。
+
+macOS 15+，Apple 芯片与 Intel，build 96。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装。退出旧版，将 DMG 内应用拖入“应用程序”替换并重新启动。保留本机应用数据时，已有授权与聊天 API Key 可继续使用。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.13/NotchCalendar-2.0.13-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.13/NotchCalendar-2.0.13-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.13/SHA256SUMS.txt)
 
 ## 2.0.12：发送后收起输入区，留更多空间给回答
 
