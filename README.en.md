@@ -2,7 +2,23 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.11](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.11) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.12](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.12) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.12: More room for replies
+
+- Use your DeepSeek website account in AI Chat without an API key; retain the existing API mode and its separate draft and images.
+- Fold the website composer into a small “Continue typing” button after a send clears the input, giving replies more room. Click to restore and focus it. IME composition, Shift+Enter and unsent drafts stay expanded.
+- Default the notch website to 75% zoom, with 75%, 85%, 100% and 125% choices. Move the same live page between the notch and a separate window while retaining its session and draft.
+- Fix translation waiting indefinitely with installed language packs. Default to English → Simplified Chinese, with repeat translation, cancellation and timeout recovery.
+- Slow the notch opening motion while retaining continuous closing, quick reversals and native editing state.
+
+Prepublication targeted regression: 182 cases, 180 passed, 2 optional checks skipped, zero failures; 21 Python quality checks and universal package validation passed.
+
+DeepSeek folding, drafts and window transfer were checked with local WebKit pages; authenticated sends, uploads and compatibility with website updates remain unverified. The translation fix has separate local English-to-Chinese acceptance evidence; this run checks system translation only when its language packs are available. macOS 15 hardware, initial downloads and other pairs remain unverified. Physical notches, external displays, sleep/wake, VoiceOver and stationary energy acceptance remain pending; no full-app or strict hardware-gate pass is claimed.
+
+macOS 15+, Apple silicon and Intel, build 95. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Keeping local app data preserves existing licenses and Chat API keys.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.12/NotchCalendar-2.0.12-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.12/NotchCalendar-2.0.12-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.12/SHA256SUMS.txt)
 
 ## 2.0.11: Translate, AirDrop and hover switching
 
