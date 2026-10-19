@@ -1,8 +1,25 @@
 # Notch Calendar
 
-Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets and news from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
+Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.10](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.10) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.11](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.11) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.11: Translate, AirDrop and hover switching
+
+- Add Translate (⌥⌘T) with language detection, language selection, swap and copy, plus local image-text recognition through import, paste or drop. Use side-by-side panes in wider windows and stacked panes in narrow windows; retain drafts across tools. Uses macOS Translation and Vision without an API key; the system may need to download language packs.
+- Add AirDrop (⇧⌘R): stage up to 50 local files or folders, then choose a recipient in the macOS system window. Remove or clear references and retry after closing the chooser without moving or deleting source files.
+- Switch tools after the pointer rests on an icon for about 160 ms, using fixed-width targets. Disable this in Settings → General → Notch toolbar if preferred. Clicks and existing ⌘1–0 shortcuts remain available; system menus and file/sharing dialogs pause hover switching.
+- Combine Radar, Discussion Room and Briefing into News (⌘5), with Latest / Popular / Saved, source, language, unread and search filters. Retain saved items, reading state, notes and stances; legacy routes select the corresponding section. Markets remains separate (⌘6).
+- Fix hydration and stretch reminders restarting their full interval on repeated screen-parameter changes; reposition visible reminders while retaining due times.
+- Combine Classic top navigation and window actions into one row, removing the duplicate title and adding 38 points of content height while retaining window dimensions and native editing state.
+
+Universal build, complete local ZIP/DMG content checks, 3 focused desktop tests and 21 Python quality tests completed successfully. Remaining regression was stopped at the publisher’s request for direct release. The complete selected regression and physical-device acceptance are incomplete; no full-suite pass is claimed.
+
+Translation language packs are not installed on this Mac, so actual translated output and the first-download flow are unverified; layout screenshots use fixture translations. Real image-text recognition and cancellation recovery in the system AirDrop chooser were checked; no cross-device file transfer was attempted. News checks use isolated data. Complete publisher/HN network sessions, physical notches, external displays, sleep/wake, real VoiceOver and stationary CPU/energy remain pending. An existing system WritingToolsUI publishing diagnostic remains unresolved; tested input, save, reopen and navigation passed.
+
+macOS 15+, Apple silicon and Intel, build 94. Ad-hoc signed for manual installation, without Developer ID signing or Apple notarization; automatic application replacement remains disabled. Quit the old app, replace it in Applications using the DMG, and relaunch. Updating does not restart the trial; keeping local app data preserves existing licenses and Chat API keys.
+
+[Download DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.11/NotchCalendar-2.0.11-macos.dmg) · [Download ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.11/NotchCalendar-2.0.11-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.11/SHA256SUMS.txt)
 
 ## 2.0.10: Market and news glances in the notch
 
