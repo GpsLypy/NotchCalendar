@@ -2,7 +2,18 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.15](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.15) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.16](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.16) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.16: Rounded capsules and stable Classic clock
+
+- Use fully rounded capsules for the center date/time strip and both reminder bubbles on displays without a notch, with smaller black reminder backgrounds.
+- Fix Classic date/time flicker during expansion and collapse by retaining the clock view and correcting the mask handoff at animation completion.
+
+Additional release regression was skipped at the owner's request; no regression pass is claimed for this version. Universal compilation, package integrity and uploaded asset metadata verification passed. Manual pointer use, VoiceOver, physical display hotplug/lid close, sleep/wake, live services and sustained CPU/energy acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 99. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.16/NotchCalendar-2.0.16-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.16/NotchCalendar-2.0.16-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.16/SHA256SUMS.txt)
 
 ## 2.0.15: Compact top spacing on external displays
 
