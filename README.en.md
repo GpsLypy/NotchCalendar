@@ -2,7 +2,23 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.14](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.14) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.15](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.15) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.15: Compact top spacing on external displays
+
+- Reduce the empty top band in Edge-attached mode on external displays without a notch. Move the title and window controls upward to make more room for content.
+- Support both top and bottom navigation while preserving note drafts and selections during resizing and style changes.
+- Keep the Classic date/time display and respect physical camera and system top safe areas.
+
+Earlier native toolbar runs failed; diagnostics observed inconsistent foreground ownership and pointer movement. After test-only foreground waits, brief mouse-input suppression and explicit single-click state, two disjoint groups completed all selected checks on identical frozen inputs. The causes of all earlier failures remain unproven. Product code and button assertions were unchanged; original records are retained.
+
+Frozen-source targeted regression: 215 cases, 215 passed, 0 optional checks skipped, zero failures; 21 Python quality checks and universal package validation passed.
+
+Isolated native windows on the connected external screen and simulated geometry cover layout, controls, resizing and editor state. Manual pointer use, VoiceOver, display hotplug/lid close, sleep/wake, live AI services and stationary CPU/energy remain pending. This is not a full-app regression or strict hardware-gate pass.
+
+macOS 15+, Apple silicon and Intel, build 98. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Keeping local app data preserves existing licenses and Chat API keys.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.15/NotchCalendar-2.0.15-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.15/NotchCalendar-2.0.15-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.15/SHA256SUMS.txt)
 
 ## 2.0.14: Display choice, window resizing and companion gestures
 

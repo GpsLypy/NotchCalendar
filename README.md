@@ -2,7 +2,23 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板、AI 聊天、行情、资讯、翻译与隔空投送；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.14](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.14) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.15](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.15) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.15：收紧外接屏顶部留白
+
+- 优化无刘海外接屏的贴边模式：标题和窗口按钮靠近顶部，减少空白并增加正文空间。
+- 顶部和底部导航均适用；缩放窗口、切换样式时继续保留便笺草稿与选区。
+- 经典模式继续显示顶部日期时间；实体刘海和系统顶部安全区保留对应避让。
+
+早期原生工具栏测试曾失败，观察到系统前台归属不一致和鼠标移动；测试补充前台稳定等待、短暂鼠标输入隔离与明确单击状态后，最终同一冻结副本分两组完成全部定向检查。未证明所有早期失败的原因；产品代码和按钮断言保持不变，原始记录已保留。
+
+冻结源码定向回归 215 项：215 通过、0 项可选检查跳过、0 失败；21 项 Python 质量检查与通用安装包核验通过。
+
+已使用连接外接屏上的隔离原生窗口及模拟几何验证布局、按钮、缩放和编辑器状态。人工鼠标手感、VoiceOver、实体屏幕拔插／合盖、睡眠唤醒、真实 AI 服务和持续 CPU／能耗仍待验收；不宣称全量回归或严格设备门禁通过。
+
+macOS 15+，Apple 芯片与 Intel，build 98。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装。退出旧版，将 DMG 内应用拖入“应用程序”替换并重新启动。保留本机应用数据时，已有授权与聊天 API Key 可继续使用。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.15/NotchCalendar-2.0.15-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.15/NotchCalendar-2.0.15-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.15/SHA256SUMS.txt)
 
 ## 2.0.14：显示屏选择、窗口缩放与小伴侣交互
 
