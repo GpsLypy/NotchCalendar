@@ -2,7 +2,23 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板、AI 聊天、行情、资讯、翻译与隔空投送；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.16](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.16) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.17](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.17) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.17：专注陪伴、累计装扮与每周分享卡
+
+- 侧栏底部改为设置、打赏、漏洞报告和分享四个快捷入口，移除试用引导卡与原更多菜单；授权规则保持原样。
+- 专注／休息运行时，小猫或小狗在原计时圆岛安静打盹；暂停仍显示暂停图标。专注完成后短暂庆祝一次，可关闭，尊重减少动态效果和低电源模式。
+- 新增个人每周分享卡，可从侧栏或所选周回顾打开，预览、复制或保存 PNG；仅展示角色资料、日期和完成统计，不展示任务名、日历标题或笔记，零记录如实显示。
+- 累计 3 个专注日解锁蓝围巾，7 天解锁星星配饰；不要求连续，可先预览再穿戴。资格根据保留的专注记录重算，偏好支持备份恢复。
+- 专注结束后可直接前往「今日」记录小收获。
+
+冻结源码定向回归 115 项：115 通过、0 项可选跳过、0 失败；21 项 Python 质量检查及通用安装包核验通过。不是全应用全量回归。
+
+原生截图使用隔离的合成记录。真人 VoiceOver、实体多屏／全屏、睡眠唤醒和持续能耗仍待验收；14 天真实用户试用尚未开展，不宣称已提高留存。未新增遥测。
+
+macOS 15+，Apple 芯片与 Intel，build 100。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装。退出旧版，将 DMG 内应用拖入“应用程序”替换并重新启动。保留本机应用数据时，原授权及聊天 API Key 可继续使用。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.17/NotchCalendar-2.0.17-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.17/NotchCalendar-2.0.17-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.17/SHA256SUMS.txt)
 
 ## 2.0.16：椭圆胶囊与日期条跳闪修复
 

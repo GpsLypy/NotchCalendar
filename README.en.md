@@ -2,7 +2,23 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.16](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.16) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.17](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.17) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.17: Focus companionship, accessories and weekly cards
+
+- Replace the sidebar footer with Settings, Support the developer, Report a bug and Share shortcuts, removing the trial guidance card and former More menu while preserving licensing rules.
+- Let the cat or dog rest inside the existing compact timer island during focus or breaks; keep the pause icon when paused. Celebrate a completed focus once with optional finite feedback that respects Reduce Motion and Low Power Mode.
+- Add personal weekly cards from the sidebar or a selected weekly review, with preview, image copy and PNG export. Cards show the character, dates and completed statistics, excluding task names, calendar titles and notes; empty weeks show zero.
+- Unlock a blue scarf after 3 cumulative focus days and a star charm after 7. No consecutive streak is required. Preview before wearing; eligibility follows retained focus history, and preferences support backup and restore.
+- Open Today directly after a focus session to record a small win.
+
+Frozen targeted regression: 115 cases, 115 passed, 0 optional skips and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Native captures use isolated synthetic records. Human VoiceOver, physical multi-display/full-screen use, sleep/wake and sustained energy acceptance remain pending. A 14-day real-user trial has not started; no retention improvement is claimed. No telemetry was added.
+
+macOS 15+, Apple silicon and Intel, build 100. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.17/NotchCalendar-2.0.17-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.17/NotchCalendar-2.0.17-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.17/SHA256SUMS.txt)
 
 ## 2.0.16: Rounded capsules and stable Classic clock
 
