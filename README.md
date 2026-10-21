@@ -2,7 +2,21 @@
 
 从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板、AI 聊天、行情、资讯、翻译与隔空投送；完整工作台支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.18](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.18) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.19](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.19) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.19：小猫小狗会说话了
+
+- 小猫小狗会说话了：新增心情、打卡、喝水、陪伴与休息气泡，摸摸时也会回应；支持设置和右键“说句话”。
+- 新增“偶尔说说话”独立开关。安静型每 20–30 分钟、活泼型每 10–20 分钟主动问候；气泡 12 秒后收起，点击即可关闭。关闭打卡提醒后不再轮播打卡问候。
+- 气泡避开摄像头和宠物，适配浅色与深色外观；拖动、展开内容、隐藏、休眠或专注休息时收起，不补播。低电量停止主动问候，减少动态效果时保留静态文字。问候在本地运行，不开麦、不调用模型、不保存心情信息。
+
+冻结源码定向回归 168 项：168 通过、0 项可选跳过、0 失败；21 项 Python 质量检查及通用安装包核验通过。不是全应用全量回归。
+
+原生渲染及事件测试使用隔离偏好和测试几何；不等于各款硬件的实际摄像头贴合验收。真人 VoiceOver、实体多屏／全屏、真实睡眠唤醒与持续能耗仍待验收。
+
+macOS 15+，Apple 芯片与 Intel，build 102。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装。退出旧版，将 DMG 内应用拖入“应用程序”替换并重新启动。保留本机应用数据时，原授权及聊天 API Key 可继续使用。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/NotchCalendar-2.0.19-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/NotchCalendar-2.0.19-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/SHA256SUMS.txt)
 
 ## 2.0.18：吊绳滑梯与更舒展的贴心提醒
 

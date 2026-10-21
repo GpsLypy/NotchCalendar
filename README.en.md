@@ -2,7 +2,21 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.18](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.18) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.19](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.19) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.19: Talking cats and dogs
+
+- Cats and dogs can now speak in bubbles about your mood, check-ins, water, company and breaks. Petting gets a reply, with Say something available in Settings and the context menu.
+- Add an independent Occasional greetings switch. Quiet companions greet every 20–30 minutes; playful companions every 10–20 minutes. Bubbles close after 12 seconds or a click. Disabling check-in reminders also removes check-in questions.
+- Bubbles stay clear of the camera and pet and adapt to light and dark appearances. Dragging, expanded content, hiding, sleep and focus rest dismiss them without queuing. Low Power Mode stops automatic greetings; Reduce Motion keeps static text. Greetings run locally without a microphone, model requests or stored mood information.
+
+Frozen targeted regression: 168 cases, 168 passed, 0 optional skips and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Native rendering and event tests use isolated preferences and test geometry; they do not prove physical camera fit on every Mac. Human VoiceOver, physical multi-display/full-screen use, actual sleep/wake and sustained energy acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 102. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/NotchCalendar-2.0.19-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/NotchCalendar-2.0.19-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/SHA256SUMS.txt)
 
 ## 2.0.18: Rope slides and roomier care reminders
 

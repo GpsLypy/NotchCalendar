@@ -1,29 +1,29 @@
-# Notch Calendar 2.0.18
+# Notch Calendar 2.0.19
 
-- 新增小伴侣吊绳滑梯：拖动小猫或小狗时显示吊绳，把它放到左右任一端点松手，即可抓绳滑下、轻荡后跑回家。滑行中可以重新抓起；在其他位置松手仍按原路线回家。
-- 设置和宠物右键菜单新增“滑滑梯”入口。吊绳只在拖动和滑行时显示，绳子本身不拦截鼠标；展开日历、隐藏、休眠或屏幕变更会取消动作。减少动态效果时保留静态开心回应。
-- 改善贴心提醒的刘海两侧布局：向下调整位置，随收起状态刘海区域居中并留出顶部间距；黑色胶囊可见高度从 20pt 增至 30pt，正文从 12pt 调为 13pt，图标和关闭按钮同步放大，中英文仍按文案自适应宽度。
+- 小猫小狗会说话了：新增心情、打卡、喝水、陪伴与休息气泡，摸摸时也会回应；支持设置和右键“说句话”。
+- 新增“偶尔说说话”独立开关。安静型每 20–30 分钟、活泼型每 10–20 分钟主动问候；气泡 12 秒后收起，点击即可关闭。关闭打卡提醒后不再轮播打卡问候。
+- 气泡避开摄像头和宠物，适配浅色与深色外观；拖动、展开内容、隐藏、休眠或专注休息时收起，不补播。低电量停止主动问候，减少动态效果时保留静态文字。问候在本地运行，不开麦、不调用模型、不保存心情信息。
 
-冻结源码定向回归 163 项：163 通过、0 项可选跳过、0 失败；21 项 Python 质量检查及通用安装包核验通过。不是全应用全量回归。
+冻结源码定向回归 168 项：168 通过、0 项可选跳过、0 失败；21 项 Python 质量检查及通用安装包核验通过。不是全应用全量回归。
 
 原生渲染及事件测试使用隔离偏好和测试几何；不等于各款硬件的实际摄像头贴合验收。真人 VoiceOver、实体多屏／全屏、真实睡眠唤醒与持续能耗仍待验收。
 
-macOS 15+，Apple 芯片与 Intel，build 101。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装。退出旧版，将 DMG 内应用拖入“应用程序”替换并重新启动。保留本机应用数据时，原授权及聊天 API Key 可继续使用。
+macOS 15+，Apple 芯片与 Intel，build 102。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装。退出旧版，将 DMG 内应用拖入“应用程序”替换并重新启动。保留本机应用数据时，原授权及聊天 API Key 可继续使用。
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.18/NotchCalendar-2.0.18-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.18/NotchCalendar-2.0.18-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.18/SHA256SUMS.txt)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/NotchCalendar-2.0.19-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/NotchCalendar-2.0.19-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/SHA256SUMS.txt)
 
 ## English
 
-- Add a rope slide for the notch companion. Drag the cat or dog to reveal the rope, release at either endpoint, and it slides down, gently swings and runs home. Pick it up again during the ride; releases elsewhere keep the existing running return.
-- Add Rope slide to Settings and the pet context menu. The rope appears only during dragging or sliding and never intercepts clicks. Opening Calendar, hiding, sleep or display changes cancel play. Reduce Motion retains a static happy response.
-- Refine care reminders beside the notch: lower and align both wings with the compact notch region, with space below the screen edge. Increase the visible pill height from 20pt to 30pt and text from 12pt to 13pt, with larger icons and close targets. Widths still fit the current Chinese or English message.
+- Cats and dogs can now speak in bubbles about your mood, check-ins, water, company and breaks. Petting gets a reply, with Say something available in Settings and the context menu.
+- Add an independent Occasional greetings switch. Quiet companions greet every 20–30 minutes; playful companions every 10–20 minutes. Bubbles close after 12 seconds or a click. Disabling check-in reminders also removes check-in questions.
+- Bubbles stay clear of the camera and pet and adapt to light and dark appearances. Dragging, expanded content, hiding, sleep and focus rest dismiss them without queuing. Low Power Mode stops automatic greetings; Reduce Motion keeps static text. Greetings run locally without a microphone, model requests or stored mood information.
 
-Frozen targeted regression: 163 cases, 163 passed, 0 optional skips and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+Frozen targeted regression: 168 cases, 168 passed, 0 optional skips and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
 
 Native rendering and event tests use isolated preferences and test geometry; they do not prove physical camera fit on every Mac. Human VoiceOver, physical multi-display/full-screen use, actual sleep/wake and sustained energy acceptance remain pending.
 
-macOS 15+, Apple silicon and Intel, build 101. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained.
+macOS 15+, Apple silicon and Intel, build 102. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained.
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.18/NotchCalendar-2.0.18-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.18/NotchCalendar-2.0.18-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.18/SHA256SUMS.txt)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/NotchCalendar-2.0.19-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/NotchCalendar-2.0.19-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.19/SHA256SUMS.txt)
 
-Previous release: [2.0.17](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.17).
+Previous release: [2.0.18](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.18).
