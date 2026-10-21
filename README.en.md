@@ -2,7 +2,21 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.19](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.19) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.20](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.20) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.20: Adaptive reminders, focus suggestions and chat refinements
+
+- Align idle care reminders with the notch instead of lowering them. When music or a meeting occupies its sides, combine the icon, message and close action into one capsule below the notch. Placement changes keep the original reading time; acknowledgements stay centered.
+- Add focus suggestions between meetings using the local calendar. A quiet capsule retracts after five seconds. Prepare a 25-minute focus timer without starting it, or choose Later to pause suggestions for 30 minutes. Includes a switch, preview, occurrence deduplication and backup support.
+- Refine the DeepSeek web composer: reopening an existing conversation keeps an empty composer compact; Continue typing restores the same editor. Drafts, input-method composition, newlines and rejected sends stay expanded.
+
+Frozen targeted regression: 228 cases, 228 passed, 0 optional skips and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Native rendering and event tests use isolated preferences and test geometry; they do not prove physical camera fit on every Mac. Human VoiceOver, physical multi-display/full-screen use, actual sleep/wake and sustained energy acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 103. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.20/NotchCalendar-2.0.20-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.20/NotchCalendar-2.0.20-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.20/SHA256SUMS.txt)
 
 ## 2.0.19: Talking cats and dogs
 
