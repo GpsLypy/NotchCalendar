@@ -1,8 +1,26 @@
 # Notch Calendar
 
-从 Mac 刘海展开日历、专注、音乐、计算器、文件、便笺、剪贴板、AI 聊天、行情、资讯、翻译与隔空投送；完整工作台支持浅色、深色与可选毛玻璃材质。
+从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.23](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.23) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.24](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.24) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.24：全新设置与功能库，开发工具和系统监控随手可用
+
+- 重新设计设置页：分组侧边栏、设置搜索与刘海预览让显示、外观、功能入口和权限更容易找到；⌘F 可直接搜索设置。
+- 新增刘海「功能库」：从顶部功能按钮、功能栏或 ⌘K 打开，按分组或中英文名称查找已启用工具；隐藏的功能不会被搜索重新显示，空间不足时通过更多菜单继续访问。
+- 切换工具、打开功能库或调整窗口时保留草稿；功能库盖住原生编辑器时暂停编辑，关闭后恢复选区与输入焦点。窄窗口中的开发工具也能同时查看输入与结果。
+- 新增 8 类开发工具：JSON 格式化／压缩／校验、时间戳转换、UUID 批量生成、二维码生成、变量命名转换、图片压缩、Base64 和 URL 编解码。文字转换在本机完成，可编辑和复制结果；时间戳可选择秒／毫秒与本地时区／UTC，二维码可复制或保存为 PNG。
+- 图片压缩默认在本机进行，支持 PNG、JPEG 和 WebP 输入，输出 JPEG 或 PNG，并可调整 JPEG 画质与最长边。显示前后文件大小，另存副本并保护原图；可选 TinyPNG 仅在主动点击「上传至 TinyPNG」后上传，API 密钥只保留在当前应用会话中。
+- 新增系统监控：查看 CPU 使用率、内存估算、启动磁盘容量、活跃物理网络接口速率，以及 CPU／网络趋势。仅在监控页可见时采样；切换工具、打开功能库或收起刘海后停止采样。
+- 在展开的刘海中，可用 ⌥⌘J 打开开发工具、⌥⌘U 打开系统监控；保留原有工具快捷键和可自定义的功能栏位置。
+
+冻结源码定向回归 202 项：201 通过、1 项可选跳过、0 失败；21 项 Python 质量检查及通用安装包核验通过。不是全应用全量回归。
+
+原生渲染及键鼠事件测试使用隔离偏好、测试几何与演示数据；系统监控的界面及暂停行为使用合成计数器验证。TinyPNG 上传流程仅使用模拟响应验证，尚未用真实 API 密钥联网验收。各类硬件的实际摄像头贴合与监控读数、真人 VoiceOver、实体多屏／全屏、真实睡眠唤醒和持续能耗仍待验收。
+
+macOS 15+，Apple 芯片与 Intel，build 107。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装。退出旧版，将 DMG 内应用拖入“应用程序”替换并重新启动。保留本机应用数据时，原授权及聊天 API Key 可继续使用。开发工具草稿与 TinyPNG API 密钥仅保留在当前应用会话中。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.24/NotchCalendar-2.0.24-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.24/NotchCalendar-2.0.24-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.24/SHA256SUMS.txt)
 
 ## 2.0.23：音乐中也能收到专注结束提醒，小伴侣持续陪伴
 

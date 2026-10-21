@@ -1,8 +1,26 @@
 # Notch Calendar
 
-Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
+Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.23](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.23) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.24](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.24) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.24: Redesigned Settings, Tool Library, developer tools and System Monitor
+
+- Redesign Settings with a grouped sidebar, search and a notch preview, making display, appearance, tool and permission controls easier to find. Press ⌘F to search settings.
+- Add a Tool Library to the notch. Open it from the top tool button, the activity rail or ⌘K, then browse groups or search enabled tools in English or Chinese. Search respects hidden tools, and an overflow menu keeps tools reachable when space is limited.
+- Keep drafts when switching tools, browsing the library or resizing. Covered native editors stop accepting input; closing the library restores their selection and keyboard focus. Narrow developer workspaces show input and output together.
+- Add eight developer tools: JSON formatting, compacting and validation; timestamp conversion; batch UUID generation; QR codes; naming conversion; image compression; Base64; and URL encoding/decoding. Text transforms run on this Mac with editable, copyable results. Choose seconds or milliseconds and local time or UTC for timestamps; copy or save QR codes as PNG.
+- Compress PNG, JPEG and WebP images locally by default, exporting JPEG or PNG with JPEG quality and maximum-dimension controls. Compare file sizes, save a copy and preserve the original. Optional TinyPNG compression uploads only after you click Upload to TinyPNG; its API key stays in the current app session.
+- Add System Monitor for CPU usage, estimated memory use, startup volume capacity, active physical network interface rates, and CPU/network trends. Sample only while the monitor page is visible; switching tools, opening the library or collapsing the notch stops sampling.
+- Use ⌥⌘J for Developer tools and ⌥⌘U for System monitor while the notch is expanded. Existing tool shortcuts and configurable activity rail placement remain available.
+
+Frozen targeted regression: 202 cases, 201 passed, 1 optional skip and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Native rendering and mouse/keyboard tests use isolated preferences, test geometry and demonstration data; monitor UI and sampling suspension use synthetic counters. TinyPNG uploads were checked with fixture responses, without acceptance against the live service using a real API key. Physical camera fit and monitor readings across hardware, human VoiceOver, physical multi-display/full-screen use, actual sleep/wake and sustained energy acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 107. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained. Developer drafts and the TinyPNG API key stay in the current app session only.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.24/NotchCalendar-2.0.24-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.24/NotchCalendar-2.0.24-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.24/SHA256SUMS.txt)
 
 ## 2.0.23: Focus completion during music and continuous companion presence
 
