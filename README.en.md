@@ -2,7 +2,23 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.22](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.22) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.23](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.23) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.23: Focus completion during music and continuous companion presence
+
+- Add an independent 20-second completion capsule below the notch so focus endings remain visible while music is playing; dismiss it with the close button.
+- Move the capsule below care reminders, music status or expanded panels when they overlap, without taking keyboard focus. Muting the chime keeps the visual reminder available.
+- Use a retained audio player for the completion chime with a checked fallback. Keep the existing sound switch and other audio volumes. Break endings also show a reminder; restoring an expired timer does not replay feedback.
+- Keep your companion visible beside music, focus status, focus suggestions and expanded notch content; move it below the content when a narrow display has no side space.
+- Keep walking, drag-return routes, rope rides and speech bubbles clear of the camera, controls and expanded content, following the actual panel bounds during resizing.
+
+Frozen targeted regression: 202 cases, 201 passed, 1 optional skips and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Native rendering and event tests use isolated preferences and test geometry; they do not prove physical camera fit on every Mac. Human VoiceOver, physical multi-display/full-screen use, actual sleep/wake and sustained energy acceptance remain pending, as does subjective listening with third-party music apps or headphones.
+
+macOS 15+, Apple silicon and Intel, build 106. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.23/NotchCalendar-2.0.23-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.23/NotchCalendar-2.0.23-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.23/SHA256SUMS.txt)
 
 ## 2.0.22: Keep your companion during meetings and reveal chat resizing
 
