@@ -2,7 +2,21 @@
 
 Open your calendar, focus timer, music controls, calculator, files, scratchpad, clipboard history, AI chat, markets, news, translation and AirDrop from the Mac notch. The full workspace offers light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.17](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.17) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.18](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.18) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.18: Rope slides and roomier care reminders
+
+- Add a rope slide for the notch companion. Drag the cat or dog to reveal the rope, release at either endpoint, and it slides down, gently swings and runs home. Pick it up again during the ride; releases elsewhere keep the existing running return.
+- Add Rope slide to Settings and the pet context menu. The rope appears only during dragging or sliding and never intercepts clicks. Opening Calendar, hiding, sleep or display changes cancel play. Reduce Motion retains a static happy response.
+- Refine care reminders beside the notch: lower and align both wings with the compact notch region, with space below the screen edge. Increase the visible pill height from 20pt to 30pt and text from 12pt to 13pt, with larger icons and close targets. Widths still fit the current Chinese or English message.
+
+Frozen targeted regression: 163 cases, 163 passed, 0 optional skips and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Native rendering and event tests use isolated preferences and test geometry; they do not prove physical camera fit on every Mac. Human VoiceOver, physical multi-display/full-screen use, actual sleep/wake and sustained energy acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 101. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.18/NotchCalendar-2.0.18-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.18/NotchCalendar-2.0.18-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.18/SHA256SUMS.txt)
 
 ## 2.0.17: Focus companionship, accessories and weekly cards
 
