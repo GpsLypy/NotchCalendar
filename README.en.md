@@ -2,7 +2,19 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.25](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.25) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.26](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.26) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.26: Repair file drag and drop
+
+Repair file-shelf drag and drop: copy local files and folders into the current directory, subfolders or favorites while preserving originals and reporting name conflicts. Outgoing drags use native macOS file dragging for Finder; the notch stays open during transfer, with double-click and context menus retained.
+
+Frozen targeted regression: 265 cases, 262 passed, 3 optional skips and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Frozen tests cover file copying, native drag payloads and row event routing. Actual pointer dragging to Finder or Desktop still requires manual verification after installation. Human VoiceOver, physical displays, sleep/wake and sustained energy acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 109. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained. Developer drafts and the TinyPNG API key stay in the current app session only.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.26/NotchCalendar-2.0.26-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.26/NotchCalendar-2.0.26-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.26/SHA256SUMS.txt)
 
 ## 2.0.25: Pin the notch and compare translations side by side
 
