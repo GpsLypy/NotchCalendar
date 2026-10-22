@@ -2,7 +2,19 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.26](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.26) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.27](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.27) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.27：唱片音乐布局与文件内隔空投送
+
+音乐页参考网易云播放器布局：左侧黑胶唱片，右侧歌曲信息与同步歌词，底部统一进度、居中播放控制、收藏和播放器入口；适配小窗口、深浅色、中英文与减少动态效果。隔空投送整合到文件页，可拖入文件或发送所选文件，在系统界面选择接收人；保留待发送列表和取消重试，兼容旧入口与快捷键。
+
+冻结源码定向回归 306 项：302 通过、4 项可选跳过、0 失败；21 项 Python 质量检查及通用安装包核验通过。不是全应用全量回归。
+
+音乐截图和歌词使用示例数据；真实网易云联动、跨设备隔空投送及实际拖到 Finder／桌面仍待人工确认。真人 VoiceOver、实体多屏／全屏、真实睡眠唤醒与持续能耗仍待验收。
+
+macOS 15+，Apple 芯片与 Intel，build 110。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装。退出旧版，将 DMG 内应用拖入“应用程序”替换并重新启动。保留本机应用数据时，原授权及聊天 API Key 可继续使用。开发工具草稿与 TinyPNG API 密钥仅保留在当前应用会话中。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.27/NotchCalendar-2.0.27-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.27/NotchCalendar-2.0.27-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.27/SHA256SUMS.txt)
 
 ## 2.0.26：修复文件拖入与拖出
 

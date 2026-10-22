@@ -2,7 +2,19 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.26](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.26) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.27](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.27) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.27: Record-player layout and AirDrop in Files
+
+The music page adopts a record-player layout: a vinyl record on the left, track details and synchronized lyrics on the right, with progress, centered playback controls, favorites and the player shortcut below. It adapts to small windows, light/dark appearances, both languages and Reduce Motion. AirDrop is integrated into Files: drop files or send the selected file, then choose a recipient in the system interface. The retry queue, cancellation and legacy routes/shortcuts are preserved.
+
+Frozen targeted regression: 306 cases, 302 passed, 4 optional skips and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Music previews use synthetic metadata and lyrics. Live third-party player behavior, cross-device AirDrop and pointer dragging to Finder or Desktop still require manual acceptance. Human VoiceOver, physical displays, sleep/wake and sustained energy acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 110. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained. Developer drafts and the TinyPNG API key stay in the current app session only.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.27/NotchCalendar-2.0.27-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.27/NotchCalendar-2.0.27-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.27/SHA256SUMS.txt)
 
 ## 2.0.26: Repair file drag and drop
 
