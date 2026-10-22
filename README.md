@@ -2,7 +2,22 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.24](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.24) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.25](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.25) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.25：钉住刘海持续操作，翻译左右对照
+
+- 新增钉住刘海：展开后点击图钉，移开鼠标或点击外部也保持展开；切换工具时保留钉住状态。取消钉住恢复自动收起，手动关闭结束本次钉住。
+- 翻译改为左右双栏：左侧原文、右侧译文，窄刘海也能并排对照；等宽编辑区、字符计数和独立滚动让长文更好读。
+- 翻译操作集中到顶部：语言选择、交换、粘贴、图片识别、清空和翻译；保留复制译文、原生输入法与工具切换后的草稿。
+
+
+冻结源码定向回归 218 项：217 通过、1 项可选跳过、0 失败；21 项 Python 质量检查及通用安装包核验通过。不是全应用全量回归。
+
+翻译双栏与钉住交互使用隔离偏好、测试几何、演示译文与合成通知验证，不代表真实翻译语言包或硬件验收。系统监控的界面及暂停行为使用合成计数器验证。TinyPNG 上传流程仅使用模拟响应验证，尚未用真实 API 密钥联网验收。各类硬件的实际摄像头贴合与监控读数、真人 VoiceOver、实体多屏／全屏、真实睡眠唤醒和持续能耗仍待验收。
+
+macOS 15+，Apple 芯片与 Intel，build 108。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证，需手动安装。退出旧版，将 DMG 内应用拖入“应用程序”替换并重新启动。保留本机应用数据时，原授权及聊天 API Key 可继续使用。开发工具草稿与 TinyPNG API 密钥仅保留在当前应用会话中。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.25/NotchCalendar-2.0.25-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.25/NotchCalendar-2.0.25-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.25/SHA256SUMS.txt)
 
 ## 2.0.24：全新设置与功能库，开发工具和系统监控随手可用
 

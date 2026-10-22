@@ -2,7 +2,22 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.24](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.24) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.25](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.25) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.25: Pin the notch and compare translations side by side
+
+- Pin the expanded notch to keep it open when the pointer leaves or you click outside. Pinning survives tool changes; unpinning restores automatic dismissal, and closing ends the current pin.
+- Translation now uses equal side-by-side source and result panes, including narrow notch layouts, with character counts and independent scrolling for comparison.
+- Translation actions move above the reading panes: language selection, swapping, paste, image recognition, clear and Translate. Copying results, native input methods and retained drafts remain available.
+
+
+Frozen targeted regression: 218 cases, 217 passed, 1 optional skip and zero failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Translation layout and pinning tests use isolated preferences, fixture translations, test geometry and synthetic notifications, without acceptance of live language-pack translation or physical hardware; monitor UI and sampling suspension use synthetic counters. TinyPNG uploads were checked with fixture responses, without acceptance against the live service using a real API key. Physical camera fit and monitor readings across hardware, human VoiceOver, physical multi-display/full-screen use, actual sleep/wake and sustained energy acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 108. Ad-hoc signed without Developer ID signing or Apple notarization; manual installation is required. Quit the old app, replace it in Applications using the DMG, and relaunch. Existing licensing and chat API keys remain available when local app data is retained. Developer drafts and the TinyPNG API key stay in the current app session only.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.25/NotchCalendar-2.0.25-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.25/NotchCalendar-2.0.25-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.25/SHA256SUMS.txt)
 
 ## 2.0.24: Redesigned Settings, Tool Library, developer tools and System Monitor
 
