@@ -2,7 +2,18 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.27](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.27) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.28](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.28) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.28：刘海 AI 用量与核心设置
+
+- 在刘海查看 Codex、Claude、Gemini、Z.ai、GLM、Kimi Code 和 Copilot 的额度与用量。
+- 新增统一 AI 用量设置：服务启停、登录指导、密钥管理、连接测试、自动刷新及系统代理／直连。
+- 支持本地 Token 统计与强制重扫，以及额度阈值、耗尽、恢复和连续读取失败提醒；后台刷新与提醒可独立开启。
+- 精简设置说明，保留必要操作与状态。
+
+macOS 15+，Apple 芯片与 Intel，build 111。ad-hoc 签名，未进行 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/NotchCalendar-2.0.28-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/NotchCalendar-2.0.28-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/SHA256SUMS.txt)
 
 ## 2.0.27：唱片音乐布局与文件内隔空投送
 

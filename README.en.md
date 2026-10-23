@@ -2,7 +2,18 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.27](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.27) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.28](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.28) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.28: AI usage in the notch and essential settings
+
+- View quota and usage for Codex, Claude, Gemini, Z.ai, GLM, Kimi Code and Copilot in the notch.
+- Unified AI usage settings cover service switches, sign-in guidance, credentials, connection tests, automatic refresh and system-proxy/direct connections.
+- Local token statistics and rescanning, plus threshold, exhausted, restored and repeated-read-failure alerts. Background refresh and notifications can be enabled independently.
+- Simplified settings copy keeps essential controls and status.
+
+macOS 15+, Apple silicon and Intel, build 111. Ad-hoc signed without Apple notarization; quit the old app and replace it manually using the DMG.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/NotchCalendar-2.0.28-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/NotchCalendar-2.0.28-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/SHA256SUMS.txt)
 
 ## 2.0.27: Record-player layout and AirDrop in Files
 
