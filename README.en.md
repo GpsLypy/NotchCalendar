@@ -2,7 +2,23 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.28](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.28) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.29](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.29) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.29: Compact usage rings, display selection and collapse tolerance
+
+- AI usage now uses small rings and service icons in a compact horizontal row, with scrolling for additional services. Used percentages and unavailable states stay explicit.
+- Hover a ring for quota windows and reset times; move into the readout to keep reading, or click to open full service details.
+- A 10px buffer below the bottom toolbar helps prevent accidental collapse. A subtle dashed hint appears when slowly approaching the boundary.
+- Select an individual display, including external displays with identical names. A disconnected display falls back safely and the saved selection returns when reconnected.
+- Fixed reopening a running music player's window after it has been closed.
+
+macOS 15+, Apple silicon and Intel, build 112. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Frozen-source targeted regression: 183 cases, 179 passed, 4 optional skips, no failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Ring screenshots and interactions use isolated preferences and fixture data. Live service quotas, human VoiceOver use, dual external-display hardware, sleep/wake and sustained energy use remain pending manual acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/NotchCalendar-2.0.29-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/NotchCalendar-2.0.29-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/SHA256SUMS.txt)
 
 ## 2.0.28: AI usage in the notch and essential settings
 

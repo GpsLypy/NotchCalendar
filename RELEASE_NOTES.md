@@ -1,23 +1,33 @@
-# Notch Calendar 2.0.28
+# Notch Calendar 2.0.29
 
-## 2.0.28：刘海 AI 用量与核心设置
+## 2.0.29：紧凑用量圆环、多屏选择与收起缓冲
 
-- 在刘海查看 Codex、Claude、Gemini、Z.ai、GLM、Kimi Code 和 Copilot 的额度与用量。
-- 新增统一 AI 用量设置：服务启停、登录指导、密钥管理、连接测试、自动刷新及系统代理／直连。
-- 支持本地 Token 统计与强制重扫，以及额度阈值、耗尽、恢复和连续读取失败提醒；后台刷新与提醒可独立开启。
-- 精简设置说明，保留必要操作与状态。
+- AI 用量改为小圆环与服务图标，从左到右紧凑排列，服务较多时可横向滚动；保留已用百分比与未知状态。
+- 鼠标停留在圆环上可查看额度周期、重置时间和各额度窗口，移入详情卡片继续查看，点击打开完整服务详情。
+- 底部功能栏下方增加 10px 收起缓冲；缓慢移向边缘时显示轻量虚线提示，减少误收起。
+- 显示设置可选择具体显示器，同名外接屏可区分；断开时回退，重新连接后恢复所选屏幕。
+- 修复已运行的音乐播放器关闭窗口后，点击播放器入口无法重新显示窗口的问题。
 
-macOS 15+，Apple 芯片与 Intel，build 111。ad-hoc 签名，未进行 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+macOS 15+，Apple 芯片与 Intel，build 112。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/NotchCalendar-2.0.28-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/NotchCalendar-2.0.28-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/SHA256SUMS.txt)
+冻结源码定向回归 183 项：179 通过、4 项可选跳过、0 失败；21 项 Python 质量检查与通用安装包核验通过。不是全应用全量回归。
 
-## 2.0.28: AI usage in the notch and essential settings
+圆环截图与交互使用隔离偏好和示例数据验证。真实服务额度、真人 VoiceOver、双外接显示器硬件、睡眠唤醒与持续能耗仍待人工确认。
 
-- View quota and usage for Codex, Claude, Gemini, Z.ai, GLM, Kimi Code and Copilot in the notch.
-- Unified AI usage settings cover service switches, sign-in guidance, credentials, connection tests, automatic refresh and system-proxy/direct connections.
-- Local token statistics and rescanning, plus threshold, exhausted, restored and repeated-read-failure alerts. Background refresh and notifications can be enabled independently.
-- Simplified settings copy keeps essential controls and status.
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/NotchCalendar-2.0.29-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/NotchCalendar-2.0.29-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/SHA256SUMS.txt)
 
-macOS 15+, Apple silicon and Intel, build 111. Ad-hoc signed without Apple notarization; quit the old app and replace it manually using the DMG.
+## 2.0.29: Compact usage rings, display selection and collapse tolerance
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/NotchCalendar-2.0.28-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/NotchCalendar-2.0.28-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.28/SHA256SUMS.txt)
+- AI usage now uses small rings and service icons in a compact horizontal row, with scrolling for additional services. Used percentages and unavailable states stay explicit.
+- Hover a ring for quota windows and reset times; move into the readout to keep reading, or click to open full service details.
+- A 10px buffer below the bottom toolbar helps prevent accidental collapse. A subtle dashed hint appears when slowly approaching the boundary.
+- Select an individual display, including external displays with identical names. A disconnected display falls back safely and the saved selection returns when reconnected.
+- Fixed reopening a running music player's window after it has been closed.
+
+macOS 15+, Apple silicon and Intel, build 112. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Frozen-source targeted regression: 183 cases, 179 passed, 4 optional skips, no failures; 21 Python quality checks and universal package verification passed. This is not a full application regression.
+
+Ring screenshots and interactions use isolated preferences and fixture data. Live service quotas, human VoiceOver use, dual external-display hardware, sleep/wake and sustained energy use remain pending manual acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/NotchCalendar-2.0.29-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/NotchCalendar-2.0.29-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/SHA256SUMS.txt)

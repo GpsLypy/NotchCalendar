@@ -2,7 +2,23 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.28](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.28) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.29](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.29) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.29：紧凑用量圆环、多屏选择与收起缓冲
+
+- AI 用量改为小圆环与服务图标，从左到右紧凑排列，服务较多时可横向滚动；保留已用百分比与未知状态。
+- 鼠标停留在圆环上可查看额度周期、重置时间和各额度窗口，移入详情卡片继续查看，点击打开完整服务详情。
+- 底部功能栏下方增加 10px 收起缓冲；缓慢移向边缘时显示轻量虚线提示，减少误收起。
+- 显示设置可选择具体显示器，同名外接屏可区分；断开时回退，重新连接后恢复所选屏幕。
+- 修复已运行的音乐播放器关闭窗口后，点击播放器入口无法重新显示窗口的问题。
+
+macOS 15+，Apple 芯片与 Intel，build 112。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+
+冻结源码定向回归 183 项：179 通过、4 项可选跳过、0 失败；21 项 Python 质量检查与通用安装包核验通过。不是全应用全量回归。
+
+圆环截图与交互使用隔离偏好和示例数据验证。真实服务额度、真人 VoiceOver、双外接显示器硬件、睡眠唤醒与持续能耗仍待人工确认。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/NotchCalendar-2.0.29-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/NotchCalendar-2.0.29-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.29/SHA256SUMS.txt)
 
 ## 2.0.28：刘海 AI 用量与核心设置
 
