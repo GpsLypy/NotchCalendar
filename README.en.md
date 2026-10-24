@@ -2,7 +2,24 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.33](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.33) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.34](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.34) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.34: Keep icons collected during notifications and improve menu compatibility
+
+- Notifications, clock-area interaction and system panels no longer deliberately return collected icons to the system menu bar.
+- Native menus open below the corresponding tray button, improving unresponsive clicks and menus appearing at the upper-left corner. Checkmarks, shortcuts, separators and submenus are preserved.
+- Apps whose custom popups cannot open directly offer an explicitly labelled application-menu fallback. Doubao uses this fallback; its original custom quick panel is not provided.
+- Added collection for Input Sources. Battery, clock, Control Center and Weather remain in the system menu bar and cannot currently be collected.
+- Preserve collection choices and ordering. Disabling the organizer, quitting or losing permission restores icons.
+
+The organizer requires macOS 27, installation in Applications and Accessibility permission. Other features support macOS 15+.
+
+Apple silicon and Intel, build 117. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+No additional release regression tests or live acceptance were run, as requested by the owner. Prior development work passed 31 targeted tests and checked native integration for Tongcheng, sftpty, Doubao application menus and Input Sources. This is separate from frozen-release regression; notification-click, full tray mouse-click and screenshot acceptance remain incomplete.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.34/NotchCalendar-2.0.34-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.34/NotchCalendar-2.0.34-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.34/SHA256SUMS.txt)
+
 
 ## 2.0.33: Keep collected icons in the tray
 

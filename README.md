@@ -2,7 +2,24 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.33](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.33) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.34](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.34) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.34：通知期间保持收纳，改善菜单兼容
+
+- 通知弹出、经过时钟或打开系统面板时，不再主动把已收纳图标恢复到系统菜单栏。
+- 原生菜单在对应收纳图标下方打开，改善点击无响应和菜单出现在屏幕左上角的问题；保留菜单勾选、快捷键、分隔线与子菜单。
+- 对无法直接打开自定义弹窗的应用，提供明确标注的「应用菜单」入口。豆包使用此入口，暂不提供原自定义快捷面板。
+- 新增输入法图标收纳。电池、时钟、控制中心和天气暂不支持收纳，继续保留在系统菜单栏。
+- 保留原有收纳选择与排列；关闭收纳、退出或权限失效时恢复图标。
+
+状态栏收纳需要 macOS 27、安装至“应用程序”并授予辅助功能权限。应用其他功能支持 macOS 15+。
+
+Apple 芯片与 Intel，build 117。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+
+按所有者要求，本次发布不追加回归测试或现场验收。此前开发阶段完成 31 项定向测试，以及同程管家、sftpty、豆包应用菜单和输入法的本机集成检查。这些记录不等同于新发布回归；通知点击与完整收纳栏鼠标、截图验收仍未完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.34/NotchCalendar-2.0.34-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.34/NotchCalendar-2.0.34-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.34/SHA256SUMS.txt)
+
 
 ## 2.0.33：收纳图标留在收纳栏
 
