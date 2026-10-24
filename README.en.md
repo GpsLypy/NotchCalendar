@@ -2,7 +2,22 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.29](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.29) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.30](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.30) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.30: Toolbar feedback and workspace layout improvements
+
+- Added haptic feedback and optional sounds for notch toolbar actions, with separate Settings switches. Haptics are on by default and require a supported trackpad; sounds are off by default.
+- Refined Tool Library grouping and list layout. The library covers the bottom toolbar while open, with better control spacing beside the camera in narrow notches.
+- Added dates, token scales and daily readings to the last 14 days of AI usage history. Fixed quota hover details appearing after switching to another page.
+- Positioned the DeepSeek composer at the bottom of the notch while preserving folding and standalone-window layout.
+- Made AirDrop drop and send controls prominent when file browsing is disabled.
+- Improved compact focus layouts, Today workspace hierarchy and responsive columns, and sidebar navigation.
+
+macOS 15+, Apple silicon and Intel, build 113. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Regression testing for this release was skipped at the owner's request.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/NotchCalendar-2.0.30-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/NotchCalendar-2.0.30-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/SHA256SUMS.txt)
 
 ## 2.0.29: Compact usage rings, display selection and collapse tolerance
 

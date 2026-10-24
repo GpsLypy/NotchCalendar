@@ -2,7 +2,22 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.29](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.29) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.30](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.30) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.30：工具反馈与工作台布局优化
+
+- 刘海工具栏新增触觉反馈与可选音效，设置中可分别开关；默认开启触觉、关闭声音，触觉需要受支持的触控板。
+- 优化功能库的分组与列表布局，打开时覆盖底部功能栏；调整摄像头两侧的按钮空间，方便在窄刘海中操作。
+- AI 用量图表增加最近 14 天的日期、数量刻度与每日读数；修复切换页面后仍触发额度悬停详情的问题。
+- DeepSeek 输入框在刘海中贴底显示，保留输入框收起与独立窗口布局。
+- 关闭文件浏览时，文件页突出显示 AirDrop 拖放与发送入口。
+- 改善专注页的小窗口布局、今日工作台的信息层级和响应式分栏，以及侧栏导航。
+
+macOS 15+，Apple 芯片与 Intel，build 113。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+
+按所有者要求跳过本次回归测试。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/NotchCalendar-2.0.30-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/NotchCalendar-2.0.30-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/SHA256SUMS.txt)
 
 ## 2.0.29：紧凑用量圆环、多屏选择与收起缓冲
 
