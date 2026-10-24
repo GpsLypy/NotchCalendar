@@ -2,7 +2,21 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.31](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.31) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.32](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.32) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.32：修复状态栏收纳突然失效
+
+- 修复鼠标经过右上角时钟区域后，已收纳图标可能全部回到菜单栏且无法自动恢复的问题。
+- 排除通知中心常驻桌面层窗口，避免误认为系统面板一直打开；保留真实系统面板交互期间的临时暂停。
+- 保留已有收纳应用选择与排列，无需重新配置。
+
+状态栏收纳需要 macOS 27、安装至“应用程序”并授予辅助功能权限。应用其他功能支持 macOS 15+。
+
+Apple 芯片与 Intel，build 115。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+
+按所有者要求，本次发布不追加回归测试或现场验收；修复开发阶段已有 13 项定向测试通过。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/NotchCalendar-2.0.32-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/NotchCalendar-2.0.32-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/SHA256SUMS.txt)
 
 ## 2.0.31：状态栏收纳
 

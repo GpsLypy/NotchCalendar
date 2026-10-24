@@ -1,33 +1,30 @@
-# Notch Calendar 2.0.31
+# Notch Calendar 2.0.32
 
-## 2.0.31：状态栏收纳
+## 2.0.32：修复状态栏收纳突然失效
 
-- 新增状态栏收纳，默认随应用显示「…」入口，点击展开独立收纳条。
-- 在设置中选择收纳应用；支持拖动、右键和辅助功能排序，自动保存排列与显隐。
-- 点击收纳图标打开原应用菜单；同一应用多个状态项整组收纳，可选择具体菜单。
-- 关闭功能、退出或授权到期时恢复图标，保留系统固定项目。
-- 桌面伙伴避让打卡提醒，回家路径避开刘海内容；底部收起缓冲调整为 20px。
+- 修复鼠标经过右上角时钟区域后，已收纳图标可能全部回到菜单栏且无法自动恢复的问题。
+- 排除通知中心常驻桌面层窗口，避免误认为系统面板一直打开；保留真实系统面板交互期间的临时暂停。
+- 保留已有收纳应用选择与排列，无需重新配置。
 
-状态栏收纳需要 macOS 27、将应用放入“应用程序”并主动允许辅助功能权限。应用其他功能仍支持 macOS 15+。
+状态栏收纳需要 macOS 27、安装至“应用程序”并授予辅助功能权限。应用其他功能支持 macOS 15+。
 
-Apple 芯片与 Intel，build 114。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+Apple 芯片与 Intel，build 115。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
 
-按所有者要求跳过本次新增回归与现场交互验证。真实第三方菜单、通知中心、多屏及全屏场景仍待现场验收。
+按所有者要求，本次发布不追加回归测试或现场验收；修复开发阶段已有 13 项定向测试通过。
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/NotchCalendar-2.0.31-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/NotchCalendar-2.0.31-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/SHA256SUMS.txt)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/NotchCalendar-2.0.32-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/NotchCalendar-2.0.32-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/SHA256SUMS.txt)
 
-## 2.0.31: Menu bar organizer
+## 2.0.32: Restore menu bar collection after system interaction
 
-- Added a menu bar organizer, enabled by default, with an ellipsis icon that opens a compact tray.
-- Choose apps to collect in Settings. Drag, use context menus or accessibility actions to reorder icons; arrangement and visibility are saved.
-- Open original app menus from the tray. Multiple status items from the same app are collected together with a choice of menu.
-- Disabling the organizer, quitting or license expiry restores icons. System items remain available.
-- The desktop companion avoids check-in reminders and notch content on its return path. Increased bottom collapse tolerance to 20px.
+- Fixed collected icons returning to the menu bar and failing to hide again after the pointer passes the clock area.
+- Exclude persistent Notification Center desktop-layer windows from open-panel detection, while keeping temporary suspension for real system panels.
+- Preserve saved collection choices and icon ordering.
 
-The organizer requires macOS 27, installation in Applications and explicit Accessibility permission. Other app features continue to support macOS 15+.
+The organizer requires macOS 27, installation in Applications and Accessibility permission. Other features support macOS 15+.
 
-Apple silicon and Intel, build 114. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+Apple silicon and Intel, build 115. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
 
-New regression and live interaction validation were skipped at the owner's request. Real third-party menus, Notification Center, multiple displays and full-screen behavior still require live acceptance.
+No additional release regression tests or live acceptance were run, as requested by the owner. The fix passed 13 targeted tests during development before the publication request.
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/NotchCalendar-2.0.31-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/NotchCalendar-2.0.31-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/SHA256SUMS.txt)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/NotchCalendar-2.0.32-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/NotchCalendar-2.0.32-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/SHA256SUMS.txt)
+

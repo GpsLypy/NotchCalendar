@@ -2,7 +2,21 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.31](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.31) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.32](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.32) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.32: Restore menu bar collection after system interaction
+
+- Fixed collected icons returning to the menu bar and failing to hide again after the pointer passes the clock area.
+- Exclude persistent Notification Center desktop-layer windows from open-panel detection, while keeping temporary suspension for real system panels.
+- Preserve saved collection choices and icon ordering.
+
+The organizer requires macOS 27, installation in Applications and Accessibility permission. Other features support macOS 15+.
+
+Apple silicon and Intel, build 115. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+No additional release regression tests or live acceptance were run, as requested by the owner. The fix passed 13 targeted tests during development before the publication request.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/NotchCalendar-2.0.32-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/NotchCalendar-2.0.32-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.32/SHA256SUMS.txt)
 
 ## 2.0.31: Menu bar organizer
 
