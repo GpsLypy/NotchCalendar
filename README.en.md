@@ -2,7 +2,23 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.32](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.32) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.33](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.33) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.33: Keep collected icons in the tray
+
+- Open the original app menu directly while keeping its icon collected, without temporarily returning it to the system menu bar.
+- Fixed unresponsive clicks after visibility changes. Menus can open again after closing, and persistent floating panels no longer hold the menu session open.
+- Keep icons collected when hovering over or passing the clock area, while preserving temporary suspension during actual system panel interaction.
+- Fixed the notch companion's dog head being covered by the system menu bar.
+- Preserve saved collection choices and ordering. Collecting macOS system items is not yet supported.
+
+The organizer requires macOS 27, installation in Applications and Accessibility permission. Other features support macOS 15+.
+
+Apple silicon and Intel, build 116. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+No additional release regression tests or live acceptance were run, as requested by the owner. Prior development work passed 27 targeted tests and checked two open/close cycles of the real Pulse and Docker menus. Full shelf mouse-click and screenshot acceptance was blocked by system capture and is not marked as passed.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.33/NotchCalendar-2.0.33-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.33/NotchCalendar-2.0.33-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.33/SHA256SUMS.txt)
 
 ## 2.0.32: Restore menu bar collection after system interaction
 
