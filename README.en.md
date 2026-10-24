@@ -2,7 +2,22 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.34](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.34) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.35](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.35) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.35: A consistent finish across every notch panel
+
+- Unify all 14 notch tools, the tool library and supporting panels with consistent corners, system typography, spacing and surface depth. Improve dark-mode clarity and light-mode symbol contrast.
+- Refine active Dock items, button hover feedback and panel transitions while preserving reduced motion, increased contrast and reduced transparency.
+- Improve calendar hierarchy, file lists and AirDrop, translation columns and language menus, and the calculator's light result digits and filled equals button.
+- Polish Focus, Scratchpad, Music, Clipboard, AI Chat, Markets, News, Developer Tools, System Monitor and AI Usage.
+- Fix narrow-window clipping of deeply nested filenames, the DeepSeek toolbar, AI Usage cards and the credential save button.
+
+macOS 15+, Apple silicon and Intel, build 118. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+No additional release regression was run at the owner's request. Prior development work passed 108 regression tests, skipped one live AirDrop drag test, and passed seven appearance tests with 28 native panel screenshots reviewed. Cross-device AirDrop, multiple displays, sleep/wake, VoiceOver, live services and sustained resource use remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.35/NotchCalendar-2.0.35-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.35/NotchCalendar-2.0.35-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.35/SHA256SUMS.txt)
+
 
 ## 2.0.34: Keep icons collected during notifications and improve menu compatibility
 

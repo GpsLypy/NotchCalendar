@@ -1,5 +1,33 @@
 # Notch Calendar 2.0.34
 
+## 2.0.35：全部刘海面板视觉统一
+
+- 统一全部 14 个刘海工具及工具库、隔空投送等子面板的圆角、字体、留白和背景层级，暗色内容更清楚，浅色图标更易辨认。
+- 改进底部 Dock 的激活状态、按钮悬停反馈和面板过渡，保留减少动态效果、高对比度和减少透明度支持。
+- 优化日历日期与日程布局、文件列表与投送区、翻译双栏和语言菜单、计算器轻字重结果及实心等号按钮。
+- 同步打磨专注、速记、音乐、剪贴板、AI 对话、行情、资讯、开发工具、系统监控与 AI 用量。
+- 修复窄窗下深层文件名被挤压、DeepSeek 工具栏超宽，以及 AI 用量卡片和保存按钮越界。
+
+macOS 15+，Apple 芯片与 Intel，build 118。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+
+按所有者要求，本次发布不追加回归测试。此前开发阶段 108 项回归通过、1 项真实 AirDrop 拖动测试跳过，另有 7 项外观测试通过及 28 张原生面板截图复查。实际跨设备 AirDrop、多屏、睡眠唤醒、VoiceOver、真实服务与持续能耗仍待验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.35/NotchCalendar-2.0.35-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.35/NotchCalendar-2.0.35-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.35/SHA256SUMS.txt)
+
+## 2.0.35: A consistent finish across every notch panel
+
+- Unify all 14 notch tools, the tool library and supporting panels with consistent corners, system typography, spacing and surface depth. Improve dark-mode clarity and light-mode symbol contrast.
+- Refine active Dock items, button hover feedback and panel transitions while preserving reduced motion, increased contrast and reduced transparency.
+- Improve calendar hierarchy, file lists and AirDrop, translation columns and language menus, and the calculator's light result digits and filled equals button.
+- Polish Focus, Scratchpad, Music, Clipboard, AI Chat, Markets, News, Developer Tools, System Monitor and AI Usage.
+- Fix narrow-window clipping of deeply nested filenames, the DeepSeek toolbar, AI Usage cards and the credential save button.
+
+macOS 15+, Apple silicon and Intel, build 118. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+No additional release regression was run at the owner's request. Prior development work passed 108 regression tests, skipped one live AirDrop drag test, and passed seven appearance tests with 28 native panel screenshots reviewed. Cross-device AirDrop, multiple displays, sleep/wake, VoiceOver, live services and sustained resource use remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.35/NotchCalendar-2.0.35-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.35/NotchCalendar-2.0.35-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.35/SHA256SUMS.txt)
+
 ## 2.0.34：通知期间保持收纳，改善菜单兼容
 
 - 通知弹出、经过时钟或打开系统面板时，不再主动把已收纳图标恢复到系统菜单栏。
