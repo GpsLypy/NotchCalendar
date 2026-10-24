@@ -1,31 +1,33 @@
-# Notch Calendar 2.0.30
+# Notch Calendar 2.0.31
 
-## 2.0.30：工具反馈与工作台布局优化
+## 2.0.31：状态栏收纳
 
-- 刘海工具栏新增触觉反馈与可选音效，设置中可分别开关；默认开启触觉、关闭声音，触觉需要受支持的触控板。
-- 优化功能库的分组与列表布局，打开时覆盖底部功能栏；调整摄像头两侧的按钮空间，方便在窄刘海中操作。
-- AI 用量图表增加最近 14 天的日期、数量刻度与每日读数；修复切换页面后仍触发额度悬停详情的问题。
-- DeepSeek 输入框在刘海中贴底显示，保留输入框收起与独立窗口布局。
-- 关闭文件浏览时，文件页突出显示 AirDrop 拖放与发送入口。
-- 改善专注页的小窗口布局、今日工作台的信息层级和响应式分栏，以及侧栏导航。
+- 新增状态栏收纳，默认随应用显示「…」入口，点击展开独立收纳条。
+- 在设置中选择收纳应用；支持拖动、右键和辅助功能排序，自动保存排列与显隐。
+- 点击收纳图标打开原应用菜单；同一应用多个状态项整组收纳，可选择具体菜单。
+- 关闭功能、退出或授权到期时恢复图标，保留系统固定项目。
+- 桌面伙伴避让打卡提醒，回家路径避开刘海内容；底部收起缓冲调整为 20px。
 
-macOS 15+，Apple 芯片与 Intel，build 113。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+状态栏收纳需要 macOS 27、将应用放入“应用程序”并主动允许辅助功能权限。应用其他功能仍支持 macOS 15+。
 
-按所有者要求跳过本次回归测试。
+Apple 芯片与 Intel，build 114。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/NotchCalendar-2.0.30-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/NotchCalendar-2.0.30-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/SHA256SUMS.txt)
+按所有者要求跳过本次新增回归与现场交互验证。真实第三方菜单、通知中心、多屏及全屏场景仍待现场验收。
 
-## 2.0.30: Toolbar feedback and workspace layout improvements
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/NotchCalendar-2.0.31-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/NotchCalendar-2.0.31-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/SHA256SUMS.txt)
 
-- Added haptic feedback and optional sounds for notch toolbar actions, with separate Settings switches. Haptics are on by default and require a supported trackpad; sounds are off by default.
-- Refined Tool Library grouping and list layout. The library covers the bottom toolbar while open, with better control spacing beside the camera in narrow notches.
-- Added dates, token scales and daily readings to the last 14 days of AI usage history. Fixed quota hover details appearing after switching to another page.
-- Positioned the DeepSeek composer at the bottom of the notch while preserving folding and standalone-window layout.
-- Made AirDrop drop and send controls prominent when file browsing is disabled.
-- Improved compact focus layouts, Today workspace hierarchy and responsive columns, and sidebar navigation.
+## 2.0.31: Menu bar organizer
 
-macOS 15+, Apple silicon and Intel, build 113. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+- Added a menu bar organizer, enabled by default, with an ellipsis icon that opens a compact tray.
+- Choose apps to collect in Settings. Drag, use context menus or accessibility actions to reorder icons; arrangement and visibility are saved.
+- Open original app menus from the tray. Multiple status items from the same app are collected together with a choice of menu.
+- Disabling the organizer, quitting or license expiry restores icons. System items remain available.
+- The desktop companion avoids check-in reminders and notch content on its return path. Increased bottom collapse tolerance to 20px.
 
-Regression testing for this release was skipped at the owner's request.
+The organizer requires macOS 27, installation in Applications and explicit Accessibility permission. Other app features continue to support macOS 15+.
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/NotchCalendar-2.0.30-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/NotchCalendar-2.0.30-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.30/SHA256SUMS.txt)
+Apple silicon and Intel, build 114. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+New regression and live interaction validation were skipped at the owner's request. Real third-party menus, Notification Center, multiple displays and full-screen behavior still require live acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/NotchCalendar-2.0.31-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/NotchCalendar-2.0.31-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/SHA256SUMS.txt)

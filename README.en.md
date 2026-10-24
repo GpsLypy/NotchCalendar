@@ -2,7 +2,23 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.30](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.30) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.31](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.31) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.31: Menu bar organizer
+
+- Added a menu bar organizer, enabled by default, with an ellipsis icon that opens a compact tray.
+- Choose apps to collect in Settings. Drag, use context menus or accessibility actions to reorder icons; arrangement and visibility are saved.
+- Open original app menus from the tray. Multiple status items from the same app are collected together with a choice of menu.
+- Disabling the organizer, quitting or license expiry restores icons. System items remain available.
+- The desktop companion avoids check-in reminders and notch content on its return path. Increased bottom collapse tolerance to 20px.
+
+The organizer requires macOS 27, installation in Applications and explicit Accessibility permission. Other app features continue to support macOS 15+.
+
+Apple silicon and Intel, build 114. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+New regression and live interaction validation were skipped at the owner's request. Real third-party menus, Notification Center, multiple displays and full-screen behavior still require live acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/NotchCalendar-2.0.31-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/NotchCalendar-2.0.31-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.31/SHA256SUMS.txt)
 
 ## 2.0.30: Toolbar feedback and workspace layout improvements
 
