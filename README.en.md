@@ -2,7 +2,19 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.37](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.37) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.0.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.0.0: Stable workspace opening and one-click Notification Center
+
+- Fix the empty first frame and flicker when opening the main window from the notch. Lay out the requested page before presentation and preserve the saved window size.
+- Fix the first date/time click only flashing collected icons. Open Notification Center with one click, restore collection after closing, and allow the next single click to reopen it.
+- Include the current calendar, focus, music, files, notes, AI chat, developer tools and system monitor. Update checks continue to use this repository's official GitHub Release API.
+
+macOS 15+, universal Apple silicon/Intel, build 123. The menu bar organizer requires macOS 27, installation in Applications and Accessibility permission. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG. Re-add Accessibility permission if macOS does not retain it after updating.
+
+At the owner's request, performance sampling was stopped and no additional regression or independent package acceptance was performed. Before that instruction, 109 targeted window, menu-bar and update tests completed: 108 passed, one optional capture skipped, zero failures. Interrupted or incomplete performance samples are not counted as passed. Full application regression, multiple displays, full screen, real sleep/wake, VoiceOver, Intel runtime and sustained energy remain unvalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.0/NotchCalendar-3.0.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.0/NotchCalendar-3.0.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.0/SHA256SUMS.txt)
 
 ## 2.0.37: Fix Notification Center with the menu bar organizer enabled
 

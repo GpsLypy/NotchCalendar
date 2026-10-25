@@ -2,7 +2,19 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.37](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.37) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.0.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.0) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.0.0：主窗口展开更稳定，通知中心单击打开
+
+- 修复从刘海打开主窗口时出现首帧空白和跳闪：显示前完成目标页面布局，保持已保存的窗口尺寸。
+- 修复收纳开启时，第一次点击日期时间只闪现图标、需要重复点击才能打开通知中心的问题；关闭后恢复收纳，再次单击仍可打开。
+- 包含当前代码中的完整日历、专注、音乐、文件、便笺、AI 对话、开发工具和系统监控功能。检查更新继续使用本仓库的 GitHub 官方 Release API。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 123。状态栏收纳需要 macOS 27、安装到“应用程序”并授予辅助功能权限。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。若更新后辅助功能授权未沿用，请重新添加并开启当前应用。
+
+本次发布按所有者要求停止性能采样，不追加回归或独立安装包验收。停止指令前已完成 109 项主窗口、菜单栏及更新逻辑相关测试：108 通过、1 项可选截图跳过、0 失败。未将中断或不完整的性能样本记为通过。完整应用回归、多屏、全屏、真实睡眠唤醒、VoiceOver、Intel 实机运行及持续能耗仍未验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.0/NotchCalendar-3.0.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.0/NotchCalendar-3.0.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.0/SHA256SUMS.txt)
 
 ## 2.0.37：修复收纳开启后无法打开通知中心
 
