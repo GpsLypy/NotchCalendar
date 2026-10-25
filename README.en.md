@@ -2,7 +2,26 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.35](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.35) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.36](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.36) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.36: Smaller packages and less background work
+
+- Strip debug and local symbols from distributed binaries while preserving universal Apple silicon/Intel support and matching crash debugging symbols outside the app.
+- Create the main workspace on first presentation. Stop clipboard polling and automatic menu-bar scans when their features are disabled.
+- Read AI usage logs incrementally, bound historical records kept in memory, and reuse model price lookups while preserving session branches, rewinds and error recovery.
+- Store clipboard images separately and serialize history writes in the background, reducing repeated image encoding and main-thread disk work with migration and recovery safeguards.
+- Preserve input method composition and selection in the daily rhythm editor when resizing the window.
+- Reduce continuous refresh work in record and rhythm animations, preserving rotation speed and phase while stopping motion when paused, hidden or reduced motion is requested.
+- Fix native editor and input method handoff when collapsing the notch or changing pages, retaining clipboard search, notes and chat drafts.
+- Add an independent launch-at-login switch in General settings with system approval status.
+
+macOS 15+, Apple silicon and Intel, build 119. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+The full Swift regression executed 1,337 tests: 1,281 passed, 56 skipped and zero failed. The isolated Release probe measured six scenarios twice, at least 30 seconds per run; all 12 runs met the original CPU, p95 and wakeup budgets. Automated native input on a physical built-in notched display passed 114 checks. The universal candidate passed 295 static/archive checks; local candidate app / DMG / ZIP sizes are 24.65 / 11.68 / 10.51 MB.
+
+The probe uses synthetic data and an empty AX menu fixture; it does not cover all installed-app services or total system energy. Native input checks are automated, not manual or end-to-end installed-release acceptance; Intel checks are static only. Six hardware checks remain pending: real built-in-display sleep/wake, external-display hover/click/activity/keyboard and cross-screen wake. Actual reboot/login for launch at login, cross-device AirDrop, VoiceOver, live services and sustained energy use are also unvalidated. WindowServer/GPU work is not measured separately.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.36/NotchCalendar-2.0.36-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.36/NotchCalendar-2.0.36-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.36/SHA256SUMS.txt)
 
 ## 2.0.35: A consistent finish across every notch panel
 

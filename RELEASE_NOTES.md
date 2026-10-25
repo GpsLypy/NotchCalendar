@@ -1,4 +1,42 @@
-# Notch Calendar 2.0.34
+# Notch Calendar 2.0.36
+
+## 2.0.36：安装包瘦身与后台资源优化
+
+- 精简分发程序中的调试与本地符号，保留 Apple 芯片和 Intel 通用支持，并在安装包外保留匹配的崩溃调试符号。
+- 主工作台改为首次打开时创建；关闭剪贴板记录或菜单栏收纳后，停止相应后台轮询与自动扫描。
+- AI 用量改为增量读取日志并限制内存中保留的历史记录，兼顾会话分支、回退和异常恢复；重复模型的价格解析复用结果。
+- 剪贴板图片独立保存，历史记录在后台串行写入，减少重复图片编码与主线程磁盘操作，并保留迁移及故障恢复。
+- 修复调整窗口宽度时今日节奏输入框的输入法组合文本和选区丢失。
+- 优化音乐唱片和节奏动画的持续刷新开销，保持旋转速度与相位，暂停、隐藏或减少动态效果时停止相应动画。
+- 修复刘海收起或切页时原生编辑器与输入法的交接顺序，保留剪贴板搜索、便笺与聊天草稿。
+- 在通用设置中提供独立的“开机自启动”开关，并显示系统授权状态。
+
+macOS 15+，Apple 芯片与 Intel，build 119。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+
+完整 Swift 回归执行 1,337 项：1,281 通过、56 跳过、0 失败。Release 隔离探针的六种场景各采样两轮，每轮至少 30 秒，十二轮均通过原 CPU、p95 与唤醒预算。物理内置刘海屏上的自动原生输入验证共 114 项检查通过；通用候选包的 295 项静态与归档检查通过，本地候选 app / DMG / ZIP 分别为 24.65 / 11.68 / 10.51 MB。
+
+探针使用合成数据与空 AX 菜单夹具，未覆盖已安装应用的全部服务或系统总能耗；原生输入检查属于自动化，非人工或正式安装包全流程验收，Intel 仅作静态验证。六项硬件检查仍待验收：内置屏真实睡眠 / 唤醒、外屏悬停 / 点击 / 活动 / 键盘，以及跨屏唤醒。实际重启 / 登录后的自启动、跨设备 AirDrop、VoiceOver、真实服务与持续能耗也未标记通过，WindowServer / GPU 未单独测量。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.36/NotchCalendar-2.0.36-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.36/NotchCalendar-2.0.36-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.36/SHA256SUMS.txt)
+
+## 2.0.36: Smaller packages and less background work
+
+- Strip debug and local symbols from distributed binaries while preserving universal Apple silicon/Intel support and matching crash debugging symbols outside the app.
+- Create the main workspace on first presentation. Stop clipboard polling and automatic menu-bar scans when their features are disabled.
+- Read AI usage logs incrementally, bound historical records kept in memory, and reuse model price lookups while preserving session branches, rewinds and error recovery.
+- Store clipboard images separately and serialize history writes in the background, reducing repeated image encoding and main-thread disk work with migration and recovery safeguards.
+- Preserve input method composition and selection in the daily rhythm editor when resizing the window.
+- Reduce continuous refresh work in record and rhythm animations, preserving rotation speed and phase while stopping motion when paused, hidden or reduced motion is requested.
+- Fix native editor and input method handoff when collapsing the notch or changing pages, retaining clipboard search, notes and chat drafts.
+- Add an independent launch-at-login switch in General settings with system approval status.
+
+macOS 15+, Apple silicon and Intel, build 119. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+The full Swift regression executed 1,337 tests: 1,281 passed, 56 skipped and zero failed. The isolated Release probe measured six scenarios twice, at least 30 seconds per run; all 12 runs met the original CPU, p95 and wakeup budgets. Automated native input on a physical built-in notched display passed 114 checks. The universal candidate passed 295 static/archive checks; local candidate app / DMG / ZIP sizes are 24.65 / 11.68 / 10.51 MB.
+
+The probe uses synthetic data and an empty AX menu fixture; it does not cover all installed-app services or total system energy. Native input checks are automated, not manual or end-to-end installed-release acceptance; Intel checks are static only. Six hardware checks remain pending: real built-in-display sleep/wake, external-display hover/click/activity/keyboard and cross-screen wake. Actual reboot/login for launch at login, cross-device AirDrop, VoiceOver, live services and sustained energy use are also unvalidated. WindowServer/GPU work is not measured separately.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.36/NotchCalendar-2.0.36-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.36/NotchCalendar-2.0.36-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.36/SHA256SUMS.txt)
 
 ## 2.0.35：全部刘海面板视觉统一
 
