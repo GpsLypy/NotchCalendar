@@ -2,7 +2,19 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 2.0.36](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.36) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 2.0.37](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.37) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.37：修复收纳开启后无法打开通知中心
+
+- 修复开启状态栏收纳后，点击右上角日期时间无法打开通知中心的问题。
+- 点击日期时间时暂时显示已收纳图标，通知中心关闭后恢复收纳；保留原有收纳选择和顺序。
+- 普通鼠标经过和新通知不会主动展开已收纳图标。
+
+菜单栏收纳需要 macOS 27、安装至“应用程序”并授予辅助功能权限；其他功能支持 macOS 15+。Apple 芯片与 Intel，build 120。ad-hoc 签名，未进行 Apple 公证；退出旧版后使用 DMG 手动替换安装。
+
+验证：53 项菜单栏相关定向检查通过，1 项可选截图测试跳过，0 失败；本机同一修复源码的通知中心打开行为已由用户确认。未重复全应用回归，多显示器、全屏、真实睡眠唤醒及关闭通知中心后的现场恢复仍待验；Intel 仅验证通用包结构。十二轮独立 Release 探针采样通过原定 CPU、p95 和唤醒预算；821 项源码、架构、签名及归档检查通过。探针使用隔离数据和空 AX 菜单夹具，不代表真实跨应用收纳或系统总能耗验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.37/NotchCalendar-2.0.37-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.37/NotchCalendar-2.0.37-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.37/SHA256SUMS.txt)
 
 ## 2.0.36：安装包瘦身与后台资源优化
 

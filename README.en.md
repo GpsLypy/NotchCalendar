@@ -2,7 +2,19 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 2.0.36](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.36) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 2.0.37](https://github.com/GpsLypy/NotchCalendar/releases/tag/v2.0.37) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 2.0.37: Fix Notification Center with the menu bar organizer enabled
+
+- Fix unresponsive date/time clicks when the menu bar organizer is enabled.
+- Temporarily show collected icons while opening Notification Center and restore collection after it closes, preserving saved choices and order.
+- Hovering over the clock and incoming notifications do not expand collected icons.
+
+The organizer requires macOS 27, installation in Applications and Accessibility permission; other features support macOS 15+. Apple silicon and Intel, build 120. Ad-hoc signed without Apple notarization; quit the old app and replace it manually using the DMG.
+
+Validation: 53 targeted menu-bar-related checks passed, one optional screenshot test skipped, zero failures. The owner manually confirmed Notification Center opening on the same fix source. The full application regression was not repeated. Multiple displays, full screen, real sleep/wake and live recollection after panel dismissal remain unvalidated; Intel receives static package checks only. All 12 independent Release probe runs met the original CPU, p95 and wakeup budgets; 821 source, architecture, signature and archive checks passed. The probe uses isolated data and an empty AX menu fixture; this is not live cross-app collection or total-system energy acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.37/NotchCalendar-2.0.37-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.37/NotchCalendar-2.0.37-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v2.0.37/SHA256SUMS.txt)
 
 ## 2.0.36: Smaller packages and less background work
 
