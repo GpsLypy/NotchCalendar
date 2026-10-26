@@ -2,8 +2,23 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.0.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+
+## 3.0.2: System tray colors and external-display lyric interactions
+
+- Keep tray glyphs and the settings gear black in light appearance and white in dark appearance, fixing inherited blue button tint.
+- Enable timed lyrics by default in the compact player on displays without a notch. Preserve an explicit off preference and fall back to the track title when timed lyrics are unavailable.
+- Scroll overflowing lyric lines horizontally and restart at each new line. Stop scrolling when paused, hidden or Reduce Motion is enabled.
+- Reveal external-display music and lyric capsules on hover and retract after pointer exit; click opening remains available.
+- Retract unpinned Quick Tools after pointer exit while keeping started countdowns and stopwatches running.
+
+macOS 15+, universal Apple silicon and Intel, build 125. Tray organization requires macOS 27, installation in Applications and Accessibility permission. Ad-hoc signed; not Developer ID signed or Apple notarized. Quit the old app and replace it manually using the DMG.
+
+At the owner’s latest request, additional validation was stopped and this version was built for direct publication. Final regression, independent package acceptance and performance sampling were not run. Development checks separately covered native tray controls and appearances, lyric synchronization, Quick Tools dismissal with a retained countdown, hover on a physical external display and actual compositor lyric movement. These development results are not a complete frozen-release regression pass. Full third-party playback, full-screen, real sleep/wake, VoiceOver and Intel hardware workflows remain unaccepted.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.2/NotchCalendar-3.0.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.2/NotchCalendar-3.0.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.2/SHA256SUMS.txt)
 
 ## 3.0.1: Quick tools and refined native interactions
 

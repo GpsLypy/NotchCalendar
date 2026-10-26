@@ -2,8 +2,23 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.0.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+
+## 3.0.2：收纳栏系统配色与外屏歌词交互
+
+- 收纳栏图标和设置齿轮跟随系统前景色：浅色外观为黑色、深色外观为白色，修复整排图标变蓝的问题。
+- 无刘海屏幕的紧凑播放条默认显示当前逐句歌词；保留手动关闭的选择，没有同步歌词时显示歌名。
+- 长歌词横向滚动，换行时回到行首；暂停、隐藏或开启系统“减少动态效果”后停止滚动。
+- 外接无刘海显示器上的音乐／歌词胶囊支持悬停展开，移开后收起；保留点击打开。
+- 便捷工具在未固定时随鼠标离开收起，已启动的倒计时和秒表继续运行。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 125。状态栏收纳需要 macOS 27、安装到“应用程序”并授予辅助功能权限。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后用 DMG 手动替换安装。
+
+按所有者最新要求，本次停止追加验证，直接构建发布；未执行最终回归或独立安装包验收，也未进行性能采样。开发阶段分别完成收纳栏原生点击／排序与明暗显示、紧凑歌词同步、便捷工具收起后计时保留、实际外屏悬停及歌词合成层滚动检查；不将这些过程记录表述为完整发行回归通过。完整第三方播放、全屏、真实休眠唤醒、VoiceOver 和 Intel 实机流程未验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.2/NotchCalendar-3.0.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.2/NotchCalendar-3.0.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.2/SHA256SUMS.txt)
 
 ## 3.0.1：便捷工具与原生交互打磨
 
