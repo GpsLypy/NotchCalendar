@@ -1,8 +1,24 @@
 # Notch Calendar
 
-从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
+从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.0.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.0) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+
+## 3.0.1：便捷工具与原生交互打磨
+
+- 新增便捷工具：独立倒计时、秒表、保持唤醒和只读电池状态，可从功能库或 `⌥⌘K` 打开。保持唤醒默认关闭，支持定时结束。
+- 无刘海屏幕的紧凑播放条可显示当前逐句歌词。在「设置 → 刘海 → 交互」开启；默认关闭，无可用歌词时显示歌名，保留原有胶囊尺寸。
+- 刘海玻璃内卡与外壳采用一致的材质层次，顶栏左右控件靠两侧对齐，保留摄像头中央留白；展开与收起更利落，阅读内容保持稳定。
+- 日历工具栏在窄窗口下自动分行，保持时区、新建日程等操作可见；调整窗口时保留当前控件与时区弹出面板。
+- 专注页切换横向和纵向布局时保留任务输入框、选区和尚未完成的输入法组合。
+- 补齐快捷搜索、关闭和更多工具按钮的悬停、按下与键盘焦点反馈；侧栏显示快捷键时不再挤动文字。状态栏收纳采用单色图标并改善明暗外观下的可读性。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 124。状态栏收纳需要 macOS 27、安装到“应用程序”并授予辅助功能权限。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+最终源码完成 67 项定向功能检查：66 通过、1 项可选截图跳过、0 失败，包含原生鼠标与键盘交互、调整窗口时输入法状态保留，以及真实窗口合成与动效检查。未执行全应用回归；按所有者要求不进行性能采样。外接屏完整流程、全屏、真实睡眠唤醒、VoiceOver、Intel 实机和持续能耗未验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.1/NotchCalendar-3.0.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.1/NotchCalendar-3.0.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.1/SHA256SUMS.txt)
 
 ## 3.0.0：主窗口展开更稳定，通知中心单击打开
 

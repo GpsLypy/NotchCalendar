@@ -1,8 +1,24 @@
 # Notch Calendar
 
-Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
+Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.0.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+
+## 3.0.1: Quick tools and refined native interactions
+
+- Add Quick Tools with an independent countdown, stopwatch, Keep Awake and read-only battery status. Open it from the Tool Library or `⌥⌘K`. Keep Awake is off by default and supports timed sessions.
+- Optionally show the current timed lyric in the compact music capsule on displays without a notch. Enable it in Settings → Notch → Interaction. The option is off by default, falls back to the track title and preserves the capsule size.
+- Give the glass shell and inset cards consistent material depth, align the top controls to both sides and preserve the camera's clear center. Refine opening and closing motion while keeping reading content stable.
+- Reflow the calendar toolbar in narrow windows so time-zone and event actions remain visible. Preserve the existing controls and time-zone popover during resizing.
+- Preserve the focus task field, selection and unfinished input method composition when switching between horizontal and vertical layouts.
+- Add consistent hover, press and keyboard-focus feedback to command search, close and More Tools buttons. Keep sidebar labels steady when shortcuts appear. Use monochrome organizer icons with clearer light and dark appearances.
+
+macOS 15+, universal Apple silicon/Intel, build 124. The menu bar organizer requires macOS 27, installation in Applications and Accessibility permission. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+The final runtime source completed 67 targeted functional checks: 66 passed, one optional capture skipped and zero failed. Coverage includes native mouse and keyboard interaction, input method state during resizing, and real WindowServer composition and motion. A full application regression was not run. Performance sampling was omitted at the owner's request. Complete external-display workflows, full screen, real sleep/wake, VoiceOver, Intel runtime and sustained energy remain unvalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.1/NotchCalendar-3.0.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.1/NotchCalendar-3.0.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.1/SHA256SUMS.txt)
 
 ## 3.0.0: Stable workspace opening and one-click Notification Center
 
