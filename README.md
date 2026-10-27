@@ -2,7 +2,20 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.0.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.6) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.0.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.7) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.0.7：音乐歌词胶囊、灵动眼睛与更自然的收回动画
+
+- 外接屏及无刘海屏空闲时显示小胶囊，不占用日期时间空间。音乐播放时自动舒展显示歌词，无同步歌词时显示歌曲信息，暂停后回到小胶囊；保留会议与专注优先级，以及原有悬停／点击展开设置。
+- 小胶囊眼睛偶尔轻轻左右看看、随机眨眼，大部分时间保持安静；开启系统“减少动态效果”后保持静止。
+- 专注新增深度工作、专注和休息模式选择，分别为 45、25、5 分钟。
+- 优化刘海收回时的大阴影与两侧图标突然出现的问题，移除经典样式中多余的模拟刘海黑色连接区域；展开与收回支持中途反向，原生编辑器保持固定尺寸，保留文字选区和滚动状态。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 130。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证。退出旧应用后用 DMG 手动替换安装。
+
+用户已确认同一运行代码的本机测试版可用。本版冻结清单绑定的定向 Swift 测试执行 107 项：106 通过、1 跳过、0 失败；跳过项为需主动开启录屏的原生背景检查。60 项 Python 质量检查与独立安装包静态校验通过，覆盖通用架构、签名、快捷指令、小组件及 ZIP／DMG 内容。完整多屏／全屏／睡眠唤醒、VoiceOver、Intel 实机和持续性能／能耗仍待验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/NotchCalendar-3.0.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/NotchCalendar-3.0.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/SHA256SUMS.txt)
 
 ## 3.0.6：恢复激活入口，修复启动崩溃与收纳点击
 

@@ -2,7 +2,20 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.0.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.6) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.0.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.7) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.0.7: Music and lyrics capsule, quiet animated eyes and smoother retraction
+
+- External and notchless displays use a small idle capsule without a date or clock. Playback expands it for lyrics, with song information as the fallback; pausing returns it to the small capsule. Meeting/focus priority and existing hover/click settings are preserved.
+- Idle eyes occasionally glance sideways and blink at random, remaining quiet most of the time. They stay still when Reduce Motion is enabled.
+- Choose Deep Work, Focus or Break modes with 45-, 25- and 5-minute durations.
+- Refine the large retraction shadow and abrupt side-icon appearance; remove the unnecessary simulated-notch connector in Classic style. Motion can reverse mid-transition while native editors retain fixed geometry, text selection and scroll position.
+
+macOS 15+, universal Apple silicon/Intel, build 130. Ad-hoc signed without Developer ID signing or Apple notarization. Quit the old app and replace it manually using the DMG.
+
+The owner accepted a local candidate with identical runtime sources. Fresh targeted Swift tests bound to the frozen input manifest: 107 executed, 106 passed, 1 skipped, no failures. The skip is an opt-in native backdrop recording check. All 60 Python quality checks and independent static package checks passed, covering universal architectures, signatures, App Intents, widgets and ZIP/DMG integrity. Complete multi-display/full-screen/sleep-wake flows, VoiceOver, Intel hardware and sustained performance/energy acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/NotchCalendar-3.0.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/NotchCalendar-3.0.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/SHA256SUMS.txt)
 
 ## 3.0.6: Restore activation and fix startup crashes and collected-item actions
 

@@ -1,4 +1,30 @@
-# Notch Calendar 3.0.6
+# Notch Calendar 3.0.7
+
+## 3.0.7：音乐歌词胶囊、灵动眼睛与更自然的收回动画
+
+- 外接屏及无刘海屏空闲时显示小胶囊，不占用日期时间空间。音乐播放时自动舒展显示歌词，无同步歌词时显示歌曲信息，暂停后回到小胶囊；保留会议与专注优先级，以及原有悬停／点击展开设置。
+- 小胶囊眼睛偶尔轻轻左右看看、随机眨眼，大部分时间保持安静；开启系统“减少动态效果”后保持静止。
+- 专注新增深度工作、专注和休息模式选择，分别为 45、25、5 分钟。
+- 优化刘海收回时的大阴影与两侧图标突然出现的问题，移除经典样式中多余的模拟刘海黑色连接区域；展开与收回支持中途反向，原生编辑器保持固定尺寸，保留文字选区和滚动状态。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 130。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证。退出旧应用后用 DMG 手动替换安装。
+
+用户已确认同一运行代码的本机测试版可用。本版冻结清单绑定的定向 Swift 测试执行 107 项：106 通过、1 跳过、0 失败；跳过项为需主动开启录屏的原生背景检查。60 项 Python 质量检查与独立安装包静态校验通过，覆盖通用架构、签名、快捷指令、小组件及 ZIP／DMG 内容。完整多屏／全屏／睡眠唤醒、VoiceOver、Intel 实机和持续性能／能耗仍待验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/NotchCalendar-3.0.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/NotchCalendar-3.0.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/SHA256SUMS.txt)
+
+## 3.0.7: Music and lyrics capsule, quiet animated eyes and smoother retraction
+
+- External and notchless displays use a small idle capsule without a date or clock. Playback expands it for lyrics, with song information as the fallback; pausing returns it to the small capsule. Meeting/focus priority and existing hover/click settings are preserved.
+- Idle eyes occasionally glance sideways and blink at random, remaining quiet most of the time. They stay still when Reduce Motion is enabled.
+- Choose Deep Work, Focus or Break modes with 45-, 25- and 5-minute durations.
+- Refine the large retraction shadow and abrupt side-icon appearance; remove the unnecessary simulated-notch connector in Classic style. Motion can reverse mid-transition while native editors retain fixed geometry, text selection and scroll position.
+
+macOS 15+, universal Apple silicon/Intel, build 130. Ad-hoc signed without Developer ID signing or Apple notarization. Quit the old app and replace it manually using the DMG.
+
+The owner accepted a local candidate with identical runtime sources. Fresh targeted Swift tests bound to the frozen input manifest: 107 executed, 106 passed, 1 skipped, no failures. The skip is an opt-in native backdrop recording check. All 60 Python quality checks and independent static package checks passed, covering universal architectures, signatures, App Intents, widgets and ZIP/DMG integrity. Complete multi-display/full-screen/sleep-wake flows, VoiceOver, Intel hardware and sustained performance/energy acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/NotchCalendar-3.0.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/NotchCalendar-3.0.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.7/SHA256SUMS.txt)
 
 ## 3.0.6：恢复激活入口，修复启动崩溃与收纳点击
 
