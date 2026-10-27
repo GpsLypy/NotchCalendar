@@ -1,4 +1,30 @@
-# Notch Calendar 3.0.3
+# Notch Calendar 3.0.4
+
+## 3.0.4：刘海柔弹动效与原始图标恢复
+
+- 刘海展开更柔和：宽度先舒展，底边随后拉伸回弹，标题、正文和底部图标依次浮现。
+- 点击与悬停使用统一动画，等待时间单独设置；连续快速移入移出可顺畅反向，保留编辑器选区、滚动与输入状态。
+- 修复旧收纳项缺少原图时出现虚线占位的问题。在已有屏幕录制权限时自动补采并恢复收纳，无权限时提供明确的读取入口。
+- 补齐应用原始图标资源识别，保留彩色图标；关闭收纳、撤销权限或退出后不再写回过期恢复结果。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 127。收纳需要 macOS 27、安装到“应用程序”及辅助功能权限；实时采集原图需要屏幕录制权限。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+当前运行源码完成 143 项定向 Swift 检查、60 项 Python 质量检查，全部通过、零跳过，含原生动效录制和桌面焦点交互。安装包通过 862 项独立静态校验，覆盖双架构、签名、快捷指令、小组件及 ZIP／DMG 内容。完整多屏／全屏／真实睡眠唤醒、VoiceOver、Intel 实机与持续性能／能耗验收仍未覆盖。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.4/NotchCalendar-3.0.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.4/NotchCalendar-3.0.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.4/SHA256SUMS.txt)
+
+## 3.0.4: Softer notch springs and original-icon recovery
+
+- Give notch expansion a softer spring: width opens first, the lower edge stretches and rebounds next, and titles, content and navigation fade in with a staged rhythm.
+- Use the same motion for click and hover opening, independently of hover dwell. Rapid reversals remain continuous while preserving native editor selection, scrolling and input state.
+- Recover original artwork for legacy collected icons that showed dashed placeholders. Automatically recapture missing artwork with existing screen-recording permission; provide an explicit action when permission is needed.
+- Recognize more original app icon resources and retain color. Discard stale recovery results after collection is disabled, permission is revoked or the app exits.
+
+macOS 15+, universal Apple silicon/Intel, build 127. Collection requires macOS 27, installation in Applications and Accessibility permission; live original-artwork capture needs screen-recording permission. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+All 143 targeted Swift checks and 60 Python quality checks passed with no skips, including native motion capture and desktop focus interactions. The packages passed 862 independent static checks covering both architectures, signatures, App Intents, widgets and ZIP/DMG contents. Complete multi-display/full-screen/real sleep-wake flows, VoiceOver, Intel runtime and sustained performance/energy acceptance remain unvalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.4/NotchCalendar-3.0.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.4/NotchCalendar-3.0.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.4/SHA256SUMS.txt)
 
 ## 新增
 
