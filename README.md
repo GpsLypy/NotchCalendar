@@ -2,7 +2,22 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.0.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.5) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.0.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.6) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.0.6：恢复激活入口，修复启动崩溃与收纳点击
+
+- 未激活用户更新后，即使授权钥匙串读取失败，仍可填写激活码并重试。显式激活可请求系统许可读取原记录；取消、重试及更正激活码均保留输入，不重建安装标识或重置试用。
+- 修复 3.0.5 启动读取菜单栏原图时，后台无障碍检测回调自身窗口引起的线程断言崩溃。
+- 收纳项恢复并操作原菜单栏按钮，由原应用决定打开菜单、弹窗或切换主窗口；输入法使用系统原生输入菜单，保留完整动态选项、收纳选择与排序。
+- 已识别的电池、时钟、控制中心、天气及 Wi-Fi 系统图标支持独立收纳，点击时打开原生系统面板，关闭后恢复收纳。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 129。菜单栏收纳需要 macOS 27、安装到“应用程序”及辅助功能权限；读取系统当前原图需要屏幕录制权限。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后用 DMG 手动替换安装。
+
+本版冻结源码定向 Swift 测试执行 115 项：112 通过、3 跳过、0 失败；跳过项为两项 opt-in 原图实测和当前锁屏阻挡的实机窗口命中测试。后者此前已在解锁桌面以相同生产实现完成 12 次真实窗口回归。60 项 Python 质量检查与 864 项独立安装包静态校验通过。相关生产菜单栏源码的实测覆盖哔哩哔哩、FlClash、微信输入法，以及电池、控制中心、时钟和天气；Wi-Fi 本机未显示，未现场验证。微信主程序曾出现一次点击无响应，独立复测两轮通过，仍保留为已知兼容性边界。
+
+授权恢复测试使用注入的读取失败与临时存储，未复现客户机器的钥匙串 ACL 根因；系统拒绝读取时仍需允许访问，无法恢复原记录时按原流程补发。完整升级、多屏／全屏／睡眠唤醒、VoiceOver、Intel 实机和持续性能／能耗仍待验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.6/NotchCalendar-3.0.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.6/NotchCalendar-3.0.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.6/SHA256SUMS.txt)
 
 ## 3.0.5：统一读取菜单栏原图
 

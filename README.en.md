@@ -2,7 +2,22 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.0.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.0.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.6) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.0.6: Restore activation and fix startup crashes and collected-item actions
+
+- Keep the activation-code field and retry action available when an unactivated installation cannot read its Keychain record after an update. Explicit activation may request native permission to read the original record. Preserve entered codes after cancellation, retry or correction, without replacing the installation ID or resetting the trial.
+- Fix the 3.0.5 startup assertion caused by a background accessibility hit test synchronously entering the app's own native window.
+- Reveal and operate the original menu-bar button so its owner determines whether to show a menu, panel or app window. Use the native system input menu for input methods, retaining dynamic options, collection choices and order.
+- Allow recognized battery, clock, Control Center, weather and Wi-Fi items to be collected individually; open their native panels and restore collection after dismissal.
+
+macOS 15+, universal Apple silicon/Intel, build 129. Collection requires macOS 27, installation in Applications and Accessibility permission; current system artwork requires screen-recording permission. Ad-hoc signed without Developer ID signing or Apple notarization. Quit the old app and replace it manually using the DMG.
+
+Frozen-source targeted Swift tests: 115 executed, 112 passed, 3 skipped, no failures. Skips cover two opt-in capture checks and an own-window hit test blocked by the currently locked desktop; the latter previously passed 12 real-window reads with the same production implementation on an unlocked desktop. All 60 Python quality checks and 864 independent static package checks passed. Live checks using matching production menu-bar sources covered Bilibili, FlClash, WeType, battery, Control Center, clock and weather. Wi-Fi was not displayed and was not tested live. WeChat's main app had one no-response result, then passed two independent retest rounds; intermittent compatibility remains a known limitation.
+
+License recovery uses injected read failures and temporary storage; the customer's Keychain ACL cause has not been reproduced. Native read permission is still required, and unrecoverable original records use the existing replacement-code process. Complete installation upgrades, multi-display/full-screen/sleep-wake flows, VoiceOver, Intel runtime and sustained performance/energy acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.6/NotchCalendar-3.0.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.6/NotchCalendar-3.0.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.6/SHA256SUMS.txt)
 
 ## 3.0.5: Read original menu-bar artwork through one capture flow
 
