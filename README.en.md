@@ -2,8 +2,25 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.0.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.0.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+
+## 3.0.3: Settings, notch personalization and original menu-bar artwork
+
+## What's changed
+
+- Embed Settings in the main window with Back navigation, clearer grouping, consistent sidebar colors and an official website/recommendations link.
+- Add remembered notch tools, a precise hover delay in seconds and custom tool ordering by dragging or buttons, with a more visible reorder action.
+- Make sharing compact with refreshed introduction artwork, consistent card proportions and existing copy/save/link actions.
+- Open a compact check-in capsule with Checked in and Later actions. Preserve pending entries and dismiss with Escape or an outside click.
+- Preserve original menu-bar artwork using captured images and native/Electron tray resources. Remove app initials and guessed symbols; retain color and wide artwork proportions.
+
+macOS 15+, universal Apple silicon/Intel, build 126. Collection requires macOS 27, installation in Applications and Accessibility permission; live icon capture uses existing screen recording permission. Legacy collected items without a saved/readable original need to be returned to the menu bar, refreshed and collected again. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Frozen sources ran 148 targeted Swift checks: 146 passed, two optional display-settings capture / Finder missing-DMG integration tests skipped and zero failures; all 60 Python quality checks passed. The packages passed 861 independent static checks covering both architectures, signatures, App Intents, widgets and ZIP/DMG contents. Full application regression, complete multi-display/full-screen/real sleep-wake flows, VoiceOver, Intel runtime and sustained performance/energy acceptance are not claimed.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.3/NotchCalendar-3.0.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.3/NotchCalendar-3.0.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.3/SHA256SUMS.txt)
 
 
 ## 3.0.2: System tray colors and external-display lyric interactions
