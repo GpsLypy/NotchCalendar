@@ -2,7 +2,19 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.0.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.0.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.0.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.0.5: Read original menu-bar artwork through one capture flow
+
+- Use a common capture flow for collected icons: temporarily reveal each item, rediscover its position and read the system-rendered artwork, including apps with multiple status items. Resource fallbacks no longer stop attempts to capture the current image.
+- Verify the process, identity and bounds before and after capture to avoid saving another icon after a layout change. Recapture legacy unverified caches while preserving collection choices and order.
+- Extend generic native/macOS tray-resource fallbacks and keep the capture-permission action available when a static fallback exists but a current system image is missing.
+
+macOS 15+, universal Apple silicon/Intel, build 128. Collection requires macOS 27, installation in Applications and Accessibility permission; reading current system artwork needs screen-recording permission. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+All 61 targeted Swift tests passed on the matching runtime source; all 60 Python quality checks rerun for this release also passed, with no skips. The packages passed 864 independent static checks covering both architectures, signatures, App Intents, widgets and ZIP/DMG contents. Read-only live capture retrieved 8 visible status items without any app-resource lookup. Actual hide/reveal and installation upgrades, complete multi-display/full-screen/sleep-wake flows, VoiceOver, Intel runtime and sustained performance/energy acceptance remain unvalidated. Capture is not guaranteed for every third-party implementation or macOS version.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.5/NotchCalendar-3.0.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.5/NotchCalendar-3.0.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.5/SHA256SUMS.txt)
 
 ## 3.0.4: Softer notch springs and original-icon recovery
 

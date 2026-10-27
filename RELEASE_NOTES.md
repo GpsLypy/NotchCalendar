@@ -1,4 +1,28 @@
-# Notch Calendar 3.0.4
+# Notch Calendar 3.0.5
+
+## 3.0.5：统一读取菜单栏原图
+
+- 收纳栏采用统一的系统原图采集流程：逐项临时恢复、重新定位并读取实际显示内容，支持同一应用的多个状态项；资源兜底也会继续尝试取得系统当前图像。
+- 采集前后核对状态项的进程、标识和位置，防止菜单栏布局变化时保存成其他图标；旧版未经核对的缓存会重新采集，保留收纳选择和排序。
+- 补齐通用原生与 macOS 托盘资源读取；已有静态兜底但尚无系统原图时，仍提供原图读取授权入口。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 128。收纳需要 macOS 27、安装到“应用程序”及辅助功能权限；读取系统当前原图需要屏幕录制权限。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+61 项定向 Swift 测试和本版重跑的 60 项 Python 质量检查全部通过、零跳过；安装包通过 864 项独立静态校验，覆盖双架构、签名、快捷指令、小组件及 ZIP／DMG 内容。真实菜单栏只读检查采集了 8 个可见状态项，全程未查询应用资源。真实隐藏／恢复与安装升级、完整多屏／全屏／睡眠唤醒、VoiceOver、Intel 实机及持续性能／能耗仍待验收；不保证所有第三方实现或 macOS 版本均可读取。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.5/NotchCalendar-3.0.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.5/NotchCalendar-3.0.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.5/SHA256SUMS.txt)
+
+## 3.0.5: Read original menu-bar artwork through one capture flow
+
+- Use a common capture flow for collected icons: temporarily reveal each item, rediscover its position and read the system-rendered artwork, including apps with multiple status items. Resource fallbacks no longer stop attempts to capture the current image.
+- Verify the process, identity and bounds before and after capture to avoid saving another icon after a layout change. Recapture legacy unverified caches while preserving collection choices and order.
+- Extend generic native/macOS tray-resource fallbacks and keep the capture-permission action available when a static fallback exists but a current system image is missing.
+
+macOS 15+, universal Apple silicon/Intel, build 128. Collection requires macOS 27, installation in Applications and Accessibility permission; reading current system artwork needs screen-recording permission. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+All 61 targeted Swift tests passed on the matching runtime source; all 60 Python quality checks rerun for this release also passed, with no skips. The packages passed 864 independent static checks covering both architectures, signatures, App Intents, widgets and ZIP/DMG contents. Read-only live capture retrieved 8 visible status items without any app-resource lookup. Actual hide/reveal and installation upgrades, complete multi-display/full-screen/sleep-wake flows, VoiceOver, Intel runtime and sustained performance/energy acceptance remain unvalidated. Capture is not guaranteed for every third-party implementation or macOS version.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.5/NotchCalendar-3.0.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.5/NotchCalendar-3.0.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.0.5/SHA256SUMS.txt)
 
 ## 3.0.4：刘海柔弹动效与原始图标恢复
 
