@@ -1,4 +1,32 @@
-# Notch Calendar 3.0.7
+# Notch Calendar 3.1
+
+## 3.1：视觉焕新、大时钟与刘海窗口分屏
+
+- 拖动应用窗口到刘海，即可选择五区、四分屏、左右分屏、专注或铺满布局。预览落点后松手安排窗口，支持取消和最小尺寸约束，结束后恢复原工具与编辑状态。需要辅助功能权限。
+- 更新圆体标题、菜单图标字重与分组底色，统一深色层次；保留浅色模式、材质选择与高对比适配。
+- 专注页采用自适应大圆环时钟和进度圆点，薄荷绿表示专注、暖杏色表示休息；侧边摘要、日程和主要操作重新排布，主窗口与小尺寸刘海保持一致。
+- 简化聊天模式与输入区视觉，修复中型刘海中错误恢复入口被挤出可视区的问题，保留中文输入法、会话草稿和编辑状态。
+- 修复点击应用自身控件时，分屏监听从后台辅助功能查询进入原生视图引发的线程断言崩溃；将查询限制在外部窗口，并正确处理系统透明浮层。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 131。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后用 DMG 手动替换安装。
+
+本版冻结输入的定向 Swift 测试：86 项，82 通过、4 项跳过（2 项可选截图、2 项需连接外接屏）、0 失败；64 项 Python 质量检查及独立安装包静态校验通过。修复后的运行代码完成内置屏真实鼠标菜单切换、展开收回和窗口分屏验证。最新代码的完整多屏／睡眠唤醒、VoiceOver、Intel 实机及持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1/NotchCalendar-3.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1/NotchCalendar-3.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1/SHA256SUMS.txt)
+
+## 3.1: Refreshed visuals, a larger Focus clock and notch window layouts
+
+- Drag an app window to the notch to choose five-zone, quarter, split, focus or fill layouts. Preview the destination and release to place the captured window. Cancellation, minimum-size constraints and restoration of the previous tool are supported. Accessibility permission is required.
+- Refine rounded headings, menu-symbol weights and grouped surfaces while retaining light appearance, material settings and increased contrast.
+- Focus gains an adaptive circular clock with a progress dot, mint focus and warm break accents, reorganized summaries and primary actions in both the notch and workspace.
+- Simplify chat mode and composer styling; keep error recovery visible in medium-sized notches while preserving IME composition and conversation drafts.
+- Fix the thread assertion when background window-snap accessibility queries hit the app's own controls. Queries now target foreign windows and account for transparent system overlays.
+
+macOS 15+, universal Apple silicon/Intel, build 131. Ad-hoc signed without Developer ID signing or Apple notarization. Quit the old app and replace it manually using the DMG.
+
+Fresh targeted Swift tests bound to frozen inputs: 86 executed, 82 passed, 4 skipped (two optional captures and two requiring an external monitor), no failures. All 64 Python quality checks and independent static package checks passed. The fixed runtime was exercised with real mouse input for menus, reveal/retraction and window placement on the built-in display. Complete current-build multi-display/sleep-wake, VoiceOver, Intel hardware and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1/NotchCalendar-3.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1/NotchCalendar-3.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1/SHA256SUMS.txt)
 
 ## 3.0.7：音乐歌词胶囊、灵动眼睛与更自然的收回动画
 
