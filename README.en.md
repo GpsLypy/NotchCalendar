@@ -2,7 +2,19 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.1.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.1.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.1.2: Recoverable AI scheduling
+
+- Add clear waiting feedback and a 30-second deadline to Understand with AI. Keep the input on timeout and offer retry or local event generation.
+- Keep Generate event available while AI is running, support cancellation, and prevent late replies from replacing a newer draft.
+- Stop adding chat's high-effort reasoning option to event extraction. Keep the existing provider and model, with chat preferences, conversation and attachments separate.
+
+macOS 15+, universal Apple silicon/Intel, build 133. Ad-hoc signed without Developer ID signing or Apple notarization. Quit the old app and replace it manually using the DMG.
+
+Fresh version-bound validation passed: 39 targeted Swift tests, including 5 native interaction tests, and 64 Python quality checks, with no failures or skips. The same runtime produced an editable event through the real provider and correctly recovered from timeouts. Intermittent provider timeouts do not establish the original screenshot's root cause. Complete multi-display, sleep-wake, VoiceOver, Intel hardware and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.2/NotchCalendar-3.1.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.2/NotchCalendar-3.1.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.2/SHA256SUMS.txt)
 
 ## 3.1.1: Stable notch expansion and smaller system-monitor icons
 
