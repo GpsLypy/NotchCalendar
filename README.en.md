@@ -2,7 +2,19 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.1.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.1.1: Stable notch expansion and smaller system-monitor icons
+
+- Fix the notch unexpectedly collapsing and reopening while the pointer stays inside the expanded area. Screen-parameter notifications preserve the current expansion, motion and editing state when placement has not changed; actual screen-geometry changes, Space transitions and sleep retain their required resets.
+- Reduce system-monitor metric symbols, heading symbols and network arrows for a more balanced compact layout.
+- Update the in-app product link to the official HTTPS website.
+
+macOS 15+, universal Apple silicon/Intel, build 132. Ad-hoc signed without Developer ID signing or Apple notarization. Quit the old app and replace it manually using the DMG.
+
+Fresh targeted Swift tests bound to frozen inputs: 56 executed, all passed, no skips or failures. All 64 Python quality checks and independent static package checks passed. Coverage includes hover/display notifications, editor retention, Space resets, window placement and the system monitor. Complete multi-display/sleep-wake, VoiceOver, Intel hardware and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.1/NotchCalendar-3.1.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.1/NotchCalendar-3.1.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.1/SHA256SUMS.txt)
 
 ## 3.1: Refreshed visuals, a larger Focus clock and notch window layouts
 

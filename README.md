@@ -2,7 +2,19 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.1.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.1.1：刘海展开稳定性与系统监控图标
+
+- 修复鼠标仍停留在展开区域内时，刘海意外收回又重新展开的问题。屏幕参数通知未改变实际显示位置时保持当前展开、动效与编辑状态；屏幕几何变化、空间切换和睡眠等必要重置继续生效。
+- 缩小系统监控的指标图标、标题图标与网络方向箭头，让紧凑区域更协调。
+- 将应用内产品入口更新为官网 HTTPS 地址。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 132。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后用 DMG 手动替换安装。
+
+本版冻结输入的定向 Swift 测试：56 项，全部通过，0 跳过、0 失败；64 项 Python 质量检查及独立安装包静态校验通过。覆盖悬停与屏幕通知、编辑状态保留、空间切换重置、窗口分屏及系统监控。完整多屏／睡眠唤醒、VoiceOver、Intel 实机及持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.1/NotchCalendar-3.1.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.1/NotchCalendar-3.1.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.1/SHA256SUMS.txt)
 
 ## 3.1：视觉焕新、大时钟与刘海窗口分屏
 
