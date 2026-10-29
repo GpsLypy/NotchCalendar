@@ -2,7 +2,20 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.1.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.6) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.1.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.7) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.1.7: Compact tool tiles and adaptive navigation
+
+- Show all 16 tools as independent tiles in both the compact preset and the default 526 by 355 point window. Retain search, shortcuts, ordering and editor state.
+- Adapt bottom navigation to the actual window width, showing two more tools at compact size and all tools when space permits.
+- Merge duplicate file controls into one centered AirDrop icon while retaining selected-file sending, file management and drag-to-send.
+- Default to dark appearance, translucent app surfaces, an edge-attached notch, solid expanded/collapsed surfaces, no bottom fades and a custom 526 by 355 point size. Preserve saved personal settings.
+
+macOS 15+, universal Apple silicon/Intel, build 138. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted functional, native-window and package checks use frozen inputs. Full multi-display, sleep/wake, VoiceOver, Intel hardware and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/NotchCalendar-3.1.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/NotchCalendar-3.1.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/SHA256SUMS.txt)
 
 ## 3.1.6: Restore Calendar height and keep camera-edge hover
 

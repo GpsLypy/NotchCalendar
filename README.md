@@ -2,7 +2,20 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.1.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.6) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.1.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.7) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.1.7：更紧凑的工具库与自适应导航
+
+- 功能库改为独立小块，紧凑窗口和默认 526×355pt 窗口均可一屏展示全部 16 个工具，保留搜索、快捷键、用户排序和编辑状态。
+- 底部工具栏随窗口宽度动态显示工具；紧凑尺寸多容纳两个，空间足够时显示全部工具。
+- 文件区合并重复入口，使用居中的隔空投送图标，保留选中文件直接发送、文件管理与拖入发送。
+- 默认使用深色、通透界面、刘海贴边；展开和收起均为实色且关闭底边渐隐，默认自定义 526×355pt；保留已保存的个人设置。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 138。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行冻结输入下的定向功能、原生窗口及安装包检查。完整多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/NotchCalendar-3.1.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/NotchCalendar-3.1.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/SHA256SUMS.txt)
 
 ## 3.1.6：恢复日历高度，修复摄像头区域误收回
 

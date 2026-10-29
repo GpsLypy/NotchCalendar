@@ -1,3 +1,31 @@
+# Notch Calendar 3.1.7
+
+## 3.1.7：更紧凑的工具库与自适应导航
+
+- 功能库改为独立小块，紧凑窗口和默认 526×355pt 窗口均可一屏展示全部 16 个工具，保留搜索、快捷键、用户排序和编辑状态。
+- 底部工具栏随窗口宽度动态显示工具；紧凑尺寸多容纳两个，空间足够时显示全部工具。
+- 文件区合并重复入口，使用居中的隔空投送图标，保留选中文件直接发送、文件管理与拖入发送。
+- 默认使用深色、通透界面、刘海贴边；展开和收起均为实色且关闭底边渐隐，默认自定义 526×355pt；保留已保存的个人设置。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 138。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行冻结输入下的定向功能、原生窗口及安装包检查。完整多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/NotchCalendar-3.1.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/NotchCalendar-3.1.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/SHA256SUMS.txt)
+
+## 3.1.7: Compact tool tiles and adaptive navigation
+
+- Show all 16 tools as independent tiles in both the compact preset and the default 526 by 355 point window. Retain search, shortcuts, ordering and editor state.
+- Adapt bottom navigation to the actual window width, showing two more tools at compact size and all tools when space permits.
+- Merge duplicate file controls into one centered AirDrop icon while retaining selected-file sending, file management and drag-to-send.
+- Default to dark appearance, translucent app surfaces, an edge-attached notch, solid expanded/collapsed surfaces, no bottom fades and a custom 526 by 355 point size. Preserve saved personal settings.
+
+macOS 15+, universal Apple silicon/Intel, build 138. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted functional, native-window and package checks use frozen inputs. Full multi-display, sleep/wake, VoiceOver, Intel hardware and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/NotchCalendar-3.1.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/NotchCalendar-3.1.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.7/SHA256SUMS.txt)
+
 ## 3.1.6：恢复日历高度，修复摄像头区域误收回
 
 - 从内容较少的截屏或录屏页面切回日历时，立即恢复完整窗口高度，无需先把鼠标移出底部功能栏。
