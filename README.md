@@ -2,7 +2,20 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.1.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.1.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.1.3：刘海截屏、录屏与更简洁的设置
+
+- 从刘海选择区域、窗口或屏幕，保存 PNG 截图或 MP4 录屏；截图同时复制到剪贴板。
+- 录屏可选系统声音、麦克风和鼠标指针。窗口支持搜索；录制中可从刘海紧凑态或临时菜单栏入口停止，等待文件保存完成。
+- 采集历史支持预览、复制和在 Finder 中显示，也可将结果复制到共享文件架的收藏目录。
+- 设置统一原生分组，移除刘海布局预览，将长说明放进问号帮助；权限、错误及必要校验保持直接可见。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 134。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+定向功能及原生界面检查通过；隔离窗口和区域已实际生成 PNG、MP4 并解码。真实系统声音／麦克风、整屏及多屏切换、VoiceOver、Intel 实机和持续性能验收仍待完成。实现参考 NotchShot 的 ScreenCaptureKit 流程，保留 MIT 版权与许可；不含截图标注编辑器或录屏暂停功能。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/NotchCalendar-3.1.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/NotchCalendar-3.1.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/SHA256SUMS.txt)
 
 ## 3.1.2：一句话安排的 AI 等待与恢复
 

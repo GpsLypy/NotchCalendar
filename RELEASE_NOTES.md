@@ -1,4 +1,30 @@
-# Notch Calendar 3.1.2
+# Notch Calendar 3.1.3
+
+## 3.1.3：刘海截屏、录屏与更简洁的设置
+
+- 从刘海选择区域、窗口或屏幕，保存 PNG 截图或 MP4 录屏；截图同时复制到剪贴板。
+- 录屏可选系统声音、麦克风和鼠标指针。窗口支持搜索；录制中可从刘海紧凑态或临时菜单栏入口停止，等待文件保存完成。
+- 采集历史支持预览、复制和在 Finder 中显示，也可将结果复制到共享文件架的收藏目录。
+- 设置统一原生分组，移除刘海布局预览，将长说明放进问号帮助；权限、错误及必要校验保持直接可见。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 134。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+定向功能及原生界面检查通过；隔离窗口和区域已实际生成 PNG、MP4 并解码。真实系统声音／麦克风、整屏及多屏切换、VoiceOver、Intel 实机和持续性能验收仍待完成。实现参考 NotchShot 的 ScreenCaptureKit 流程，保留 MIT 版权与许可；不含截图标注编辑器或录屏暂停功能。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/NotchCalendar-3.1.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/NotchCalendar-3.1.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/SHA256SUMS.txt)
+
+## 3.1.3: Capture from the notch and simpler settings
+
+- Capture an area, window or display as a PNG screenshot or MP4 recording. Screenshots are also copied to the clipboard.
+- Choose system audio, microphone and pointer options. Search windows before capture; stop from the compact notch or temporary menu-bar control and wait for the file to finish saving.
+- Preview, copy and reveal recent captures in Finder, or copy them to a favorite folder in the shared file shelf.
+- Simplify settings with native groups and contextual question-mark help. Remove the notch layout preview while keeping permissions, errors and required validation visible.
+
+macOS 15+, universal Apple silicon/Intel, build 134. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted functional and native UI checks passed. Isolated window/area capture produced real PNG and MP4 files with decoded video frames. Real system/microphone audio, full-display and multi-display capture, VoiceOver, Intel hardware and sustained performance acceptance remain pending. The ScreenCaptureKit flow references NotchShot with its MIT attribution retained; screenshot annotation and recording pause are not included.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/NotchCalendar-3.1.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/NotchCalendar-3.1.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/SHA256SUMS.txt)
 
 ## 3.1.2：一句话安排的 AI 等待与恢复
 

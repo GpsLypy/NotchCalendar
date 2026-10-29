@@ -2,7 +2,20 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.1.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.1.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.1.3: Capture from the notch and simpler settings
+
+- Capture an area, window or display as a PNG screenshot or MP4 recording. Screenshots are also copied to the clipboard.
+- Choose system audio, microphone and pointer options. Search windows before capture; stop from the compact notch or temporary menu-bar control and wait for the file to finish saving.
+- Preview, copy and reveal recent captures in Finder, or copy them to a favorite folder in the shared file shelf.
+- Simplify settings with native groups and contextual question-mark help. Remove the notch layout preview while keeping permissions, errors and required validation visible.
+
+macOS 15+, universal Apple silicon/Intel, build 134. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted functional and native UI checks passed. Isolated window/area capture produced real PNG and MP4 files with decoded video frames. Real system/microphone audio, full-display and multi-display capture, VoiceOver, Intel hardware and sustained performance acceptance remain pending. The ScreenCaptureKit flow references NotchShot with its MIT attribution retained; screenshot annotation and recording pause are not included.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/NotchCalendar-3.1.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/NotchCalendar-3.1.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.3/SHA256SUMS.txt)
 
 ## 3.1.2: Recoverable AI scheduling
 
