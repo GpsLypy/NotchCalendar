@@ -1,3 +1,29 @@
+## 3.1.6：恢复日历高度，修复摄像头区域误收回
+
+- 从内容较少的截屏或录屏页面切回日历时，立即恢复完整窗口高度，无需先把鼠标移出底部功能栏。
+- 自动缩小继续保留底部功能栏保护、内容区停留确认与短暂的过渡保护，减少连续切换时误收回。
+- 统一文件工具栏图标的实际绘制尺寸，修正不同符号看起来大小不一致的问题。
+- 修复鼠标停在摄像头区域最顶边时被误判为离开的问题；移到外侧仍正常回收，菜单栏与其他显示器的边界保持独立。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 137。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行冻结输入下的定向功能、原生窗口及安装包检查。完整多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.6/NotchCalendar-3.1.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.6/NotchCalendar-3.1.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.6/SHA256SUMS.txt)
+
+## 3.1.6: Restore Calendar height and keep camera-edge hover
+
+- Restore the full viewport immediately when returning from the smaller Capture page to Calendar, even while the pointer remains over bottom navigation.
+- Preserve navigation protection, safe-content dwell and the short transition grace when shrinking the viewport.
+- Normalize visible glyph sizes in the file toolbar so different symbols have consistent visual weight.
+- Keep the expanded notch open when the pointer rests at the exact top edge of the camera corridor. Moving outside still retracts; neighboring menu items and other displays retain their own boundaries.
+
+macOS 15+, universal Apple silicon/Intel, build 137. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted functional, native-window and package checks use frozen inputs. Full multi-display, sleep/wake, VoiceOver, Intel hardware and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.6/NotchCalendar-3.1.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.6/NotchCalendar-3.1.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.6/SHA256SUMS.txt)
+
 # Notch Calendar 3.1.5
 
 ## 3.1.5：有序的面板，更连贯的刘海交互
