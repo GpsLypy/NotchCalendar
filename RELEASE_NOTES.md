@@ -1,4 +1,30 @@
-# Notch Calendar 3.1.3
+# Notch Calendar 3.1.4
+
+## 3.1.4：试用倒计时与更清楚的授权入口
+
+- 试用从第一天起显示剩余天、小时、分钟和到期时间，主界面收起侧栏后仍可查看。
+- 通用设置顶部增加「购买 / 激活授权」按钮；设置侧栏固定显示「授权与试用」，切换分类、滚动或搜索时均可找到。
+- 试用提示更新为「到期后需要一杯咖啡钱 9.9 元人民币永久激活授权，谢谢支持」，同步英文说明。
+- 临近到期和已到期状态使用警示色。永久授权用户不显示主界面试用提醒，保留原有激活记录及购买、领码、数据恢复和软件更新流程。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 135。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版完成定向授权、试用与原生界面检查，覆盖中英文、深浅色及窄窗口。完整多屏、睡眠唤醒、VoiceOver、Intel 实机和持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.4/NotchCalendar-3.1.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.4/NotchCalendar-3.1.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.4/SHA256SUMS.txt)
+
+## 3.1.4: Trial countdown and clearer licensing access
+
+- Show days, hours, minutes and the trial deadline from day one, including when the workspace sidebar is hidden.
+- Add a prominent Purchase / activate button at the top of General settings and a fixed License & trial entry that stays available while browsing or searching settings.
+- Explain that a cup of coffee — CNY 9.90 — provides lifetime activation after the trial ends, with thanks for your support.
+- Highlight approaching and expired trials. Hide workspace trial notices for lifetime license holders, while preserving activation records, code delivery, data recovery and software updates.
+
+macOS 15+, universal Apple silicon/Intel, build 135. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted licensing, trial and native UI checks cover Chinese/English, light/dark appearances and narrow windows. Full multi-display, sleep/wake, VoiceOver, Intel hardware and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.4/NotchCalendar-3.1.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.4/NotchCalendar-3.1.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.4/SHA256SUMS.txt)
 
 ## 3.1.3：刘海截屏、录屏与更简洁的设置
 

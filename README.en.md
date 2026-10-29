@@ -2,7 +2,20 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.1.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.1.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.1.4: Trial countdown and clearer licensing access
+
+- Show days, hours, minutes and the trial deadline from day one, including when the workspace sidebar is hidden.
+- Add a prominent Purchase / activate button at the top of General settings and a fixed License & trial entry that stays available while browsing or searching settings.
+- Explain that a cup of coffee — CNY 9.90 — provides lifetime activation after the trial ends, with thanks for your support.
+- Highlight approaching and expired trials. Hide workspace trial notices for lifetime license holders, while preserving activation records, code delivery, data recovery and software updates.
+
+macOS 15+, universal Apple silicon/Intel, build 135. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted licensing, trial and native UI checks cover Chinese/English, light/dark appearances and narrow windows. Full multi-display, sleep/wake, VoiceOver, Intel hardware and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.4/NotchCalendar-3.1.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.4/NotchCalendar-3.1.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.4/SHA256SUMS.txt)
 
 ## 3.1.3: Capture from the notch and simpler settings
 
