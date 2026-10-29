@@ -1,4 +1,33 @@
-# Notch Calendar 3.1.4
+# Notch Calendar 3.1.5
+
+## 3.1.5：有序的面板，更连贯的刘海交互
+
+- 日历、便签、专注、文件、剪贴板、系统监控与截屏面板统一间距、圆角和蓝色强调；优化信息分组与深浅色可读性。
+- 便签增加分组阅读、命令复制与编辑切换；文件浏览改善路径、滚动、行操作与隔空投送入口。
+- 截屏页按内容收紧高度。鼠标仍在底部功能栏附近时暂缓尺寸变化，移入内容区稳定停留后再调整，减少误收回。
+- 修复再次展开时从左上向右下偏移的问题：从刘海中央向左右对称展开，并保留原有回收和中途反向效果。
+- 保留原生编辑器选区、滚动及撤销，延续试用倒计时和清晰的购买、授权入口。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 136。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行冻结输入下的定向功能、原生窗口及安装包检查。完整多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.5/NotchCalendar-3.1.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.5/NotchCalendar-3.1.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.5/SHA256SUMS.txt)
+
+## 3.1.5: Ordered panels and continuous notch interaction
+
+- Unify spacing, corner radii and the blue accent across Calendar, Notes, Focus, Files, Clipboard, System Monitor and Capture, with clearer grouping and appearance support.
+- Add grouped note reading, command copying and an editing toggle; refine file paths, scrolling, row actions and AirDrop access.
+- Fit Capture to its content. Defer size changes while the pointer remains near bottom navigation, then resize after a stable dwell inside content to reduce accidental dismissal.
+- Fix diagonal reopening caused by stale compact-window coordinates. Open symmetrically from the notch center while preserving retraction and midflight reversals.
+- Retain native editor selection, scrolling and undo, together with the existing trial countdown and licensing access.
+
+macOS 15+, universal Apple silicon/Intel, build 136. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted functional, native-window and package checks use frozen inputs. Full multi-display, sleep/wake, VoiceOver, Intel hardware and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.5/NotchCalendar-3.1.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.5/NotchCalendar-3.1.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.5/SHA256SUMS.txt)
+
 
 ## 3.1.4：试用倒计时与更清楚的授权入口
 

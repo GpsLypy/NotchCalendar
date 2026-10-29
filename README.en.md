@@ -2,7 +2,21 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.1.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.1.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.1.5: Ordered panels and continuous notch interaction
+
+- Unify spacing, corner radii and the blue accent across Calendar, Notes, Focus, Files, Clipboard, System Monitor and Capture, with clearer grouping and appearance support.
+- Add grouped note reading, command copying and an editing toggle; refine file paths, scrolling, row actions and AirDrop access.
+- Fit Capture to its content. Defer size changes while the pointer remains near bottom navigation, then resize after a stable dwell inside content to reduce accidental dismissal.
+- Fix diagonal reopening caused by stale compact-window coordinates. Open symmetrically from the notch center while preserving retraction and midflight reversals.
+- Retain native editor selection, scrolling and undo, together with the existing trial countdown and licensing access.
+
+macOS 15+, universal Apple silicon/Intel, build 136. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted functional, native-window and package checks use frozen inputs. Full multi-display, sleep/wake, VoiceOver, Intel hardware and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.5/NotchCalendar-3.1.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.5/NotchCalendar-3.1.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.5/SHA256SUMS.txt)
 
 ## 3.1.4: Trial countdown and clearer licensing access
 
