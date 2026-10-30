@@ -1,4 +1,32 @@
-# Notch Calendar 3.1.7
+# Notch Calendar 3.1.8
+
+## 3.1.8：更清晰的工具栏与保持唤醒快捷入口
+
+- 顶部图标加大、加粗并提高对比度，主窗口入口改为房屋图标；tab 始终只显示图标，当前页面名称放在左上角。
+- 文件选中态改为整行高亮，移除行内对号，保留多选、键盘和拖放操作。
+- 顶部新增保持唤醒快捷菜单，可选 15、30、60、120 分钟或手动结束，与便捷工具页面共享状态。
+- 系统监控四张卡片统一高度，移除网络趋势曲线，保留上传与下载速率。
+- 修复菜单栏不透明图标背景的处理，改善深浅色下的图标辨识。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 139。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行冻结输入下的定向功能、原生窗口及安装包检查。完整多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.8/NotchCalendar-3.1.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.8/NotchCalendar-3.1.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.8/SHA256SUMS.txt)
+
+## 3.1.8: Clearer controls and a Keep Awake shortcut
+
+- Increase toolbar icon size, weight and contrast, and use a house icon for the main window. Keep tabs as icons and show the current page name at the upper left.
+- Highlight selected file rows and remove inline checkmarks while retaining multiple selection, keyboard actions and drag and drop.
+- Add a toolbar Keep Awake menu for 15, 30, 60 or 120 minutes, or until stopped. Share its state with Quick Tools.
+- Align the four system monitor cards to one height. Remove the network trend chart and retain upload and download speeds.
+- Improve opaque menu bar icon processing for clearer glyphs in light and dark appearances.
+
+macOS 15+, universal Apple silicon/Intel, build 139. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs targeted functional, native-window and package checks against frozen inputs. Full multi-display, sleep/wake, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.8/NotchCalendar-3.1.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.8/NotchCalendar-3.1.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.8/SHA256SUMS.txt)
 
 ## 3.1.7：更紧凑的工具库与自适应导航
 

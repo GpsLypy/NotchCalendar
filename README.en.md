@@ -2,7 +2,21 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.1.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.7) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.1.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.8) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+## 3.1.8: Clearer controls and a Keep Awake shortcut
+
+- Increase toolbar icon size, weight and contrast, and use a house icon for the main window. Keep tabs as icons and show the current page name at the upper left.
+- Highlight selected file rows and remove inline checkmarks while retaining multiple selection, keyboard actions and drag and drop.
+- Add a toolbar Keep Awake menu for 15, 30, 60 or 120 minutes, or until stopped. Share its state with Quick Tools.
+- Align the four system monitor cards to one height. Remove the network trend chart and retain upload and download speeds.
+- Improve opaque menu bar icon processing for clearer glyphs in light and dark appearances.
+
+macOS 15+, universal Apple silicon/Intel, build 139. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs targeted functional, native-window and package checks against frozen inputs. Full multi-display, sleep/wake, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.8/NotchCalendar-3.1.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.8/NotchCalendar-3.1.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.1.8/SHA256SUMS.txt)
 
 ## 3.1.7: Compact tool tiles and adaptive navigation
 
