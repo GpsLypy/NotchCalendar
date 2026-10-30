@@ -2,8 +2,21 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.2.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.2.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.2.2: A little feedback when a task is done
+
+- A completed checkbox gives a small pop and confetti burst, with a strikethrough on the task title.
+- Keep the checked row briefly, then shrink and fade it out as the next task moves up. The final task transitions into the empty state too.
+- Apply the same feedback to overdue tasks and completion of the last subtask; support undo and reopening during the feedback.
+- Save completion, recurring tasks and reminder cancellation immediately. Skip visual effects when task animations are off or Reduce Motion is enabled.
+
+macOS 15+, universal Apple silicon/Intel, build 142. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted functional, native-animation and package checks use frozen inputs. Full multi-display, sleep/wake, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.2/NotchCalendar-3.2.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.2/NotchCalendar-3.2.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.2/SHA256SUMS.txt)
 
 ## 3.2.1: Companion tasks and a saved desktop position
 
