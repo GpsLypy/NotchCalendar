@@ -1,4 +1,30 @@
-# Notch Calendar 3.1.8
+# Notch Calendar 3.2.0
+
+## 3.2.0：一句话安排与更精致的刘海体验
+
+- 一句话生成紧凑日程卡；中文上午、下午和晚上请求可查找已选日历中的连续空档，确认后才添加。
+- 添加前核对时间、日历和冲突，可选择提前 5、10、15、30 分钟的系统日历提醒。
+- 珊瑚色标识今天，日程时间与来源点沿用日历颜色；顶部操作、固定、保持唤醒和关闭反馈使用克制的语义配色。
+- 顶部新增爪印召唤：小伴侣歪头回应、向外慢跑一小段再回位。支持减少动态效果、重复点击保护、拖动中断和内容避让。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 140。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行冻结输入下的定向功能、原生窗口及安装包检查。完整多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/NotchCalendar-3.2.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/NotchCalendar-3.2.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/SHA256SUMS.txt)
+
+## 3.2.0: Sentence scheduling and a refined notch experience
+
+- Preview a compact event card from a sentence. Chinese morning, afternoon and evening requests can find a continuous free slot in the selected calendars; adding requires confirmation.
+- Review times, calendar and conflicts, and choose a system-calendar alert 5, 10, 15 or 30 minutes before the event.
+- Mark today with coral and retain calendar-source colors for event times and dots. Give toolbar actions, pinning, Keep Awake and dismissal restrained semantic colors.
+- Summon your companion with the new paw button. It tilts its head, takes a short run outward and returns. Supports Reduce Motion, repeated-click protection, drag interruption and occupied-content avoidance.
+
+macOS 15+, universal Apple silicon/Intel, build 140. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs targeted functional, native-window and package checks against frozen inputs. Full multi-display, sleep/wake, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/NotchCalendar-3.2.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/NotchCalendar-3.2.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/SHA256SUMS.txt)
 
 ## 3.1.8：更清晰的工具栏与保持唤醒快捷入口
 

@@ -2,7 +2,21 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.1.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.8) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.2.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.0) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+
+## 3.2.0：一句话安排与更精致的刘海体验
+
+- 一句话生成紧凑日程卡；中文上午、下午和晚上请求可查找已选日历中的连续空档，确认后才添加。
+- 添加前核对时间、日历和冲突，可选择提前 5、10、15、30 分钟的系统日历提醒。
+- 珊瑚色标识今天，日程时间与来源点沿用日历颜色；顶部操作、固定、保持唤醒和关闭反馈使用克制的语义配色。
+- 顶部新增爪印召唤：小伴侣歪头回应、向外慢跑一小段再回位。支持减少动态效果、重复点击保护、拖动中断和内容避让。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 140。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行冻结输入下的定向功能、原生窗口及安装包检查。完整多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/NotchCalendar-3.2.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/NotchCalendar-3.2.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/SHA256SUMS.txt)
 
 ## 3.1.8：更清晰的工具栏与保持唤醒快捷入口
 

@@ -2,7 +2,21 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.1.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.1.8) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.2.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+
+
+## 3.2.0: Sentence scheduling and a refined notch experience
+
+- Preview a compact event card from a sentence. Chinese morning, afternoon and evening requests can find a continuous free slot in the selected calendars; adding requires confirmation.
+- Review times, calendar and conflicts, and choose a system-calendar alert 5, 10, 15 or 30 minutes before the event.
+- Mark today with coral and retain calendar-source colors for event times and dots. Give toolbar actions, pinning, Keep Awake and dismissal restrained semantic colors.
+- Summon your companion with the new paw button. It tilts its head, takes a short run outward and returns. Supports Reduce Motion, repeated-click protection, drag interruption and occupied-content avoidance.
+
+macOS 15+, universal Apple silicon/Intel, build 140. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs targeted functional, native-window and package checks against frozen inputs. Full multi-display, sleep/wake, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/NotchCalendar-3.2.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/NotchCalendar-3.2.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.0/SHA256SUMS.txt)
 
 ## 3.1.8: Clearer controls and a Keep Awake shortcut
 
