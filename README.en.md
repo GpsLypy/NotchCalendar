@@ -2,8 +2,21 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.2.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.2.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.2.3: A steadier companion on hover
+
+- Remove the drop-down animation and its settings and context-menu entries. Hovering now keeps the companion in place.
+- Pause automatic activities while expanded panels or tasks are open, or while the pointer is over the companion, preventing surprise walks or downward motion before a click.
+- Recheck interaction state when the automatic timer fires. Leaving the companion starts a fresh idle interval.
+- Keep explicit double-click walks, drag placement or return, rope slides, summons and notch avoidance. Update the Chinese and English behavior help.
+
+macOS 15+, universal Apple silicon/Intel, build 143. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Companion interaction, native settings and package checks use frozen inputs. Full multi-display, sleep/wake, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.3/NotchCalendar-3.2.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.3/NotchCalendar-3.2.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.3/SHA256SUMS.txt)
 
 ## 3.2.2: A little feedback when a task is done
 
