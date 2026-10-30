@@ -1,3 +1,35 @@
+# Notch Calendar 3.2.1
+
+## 3.2.1：小伴侣待办与桌面固定落点
+
+- 单击小伴侣打开或收起原生毛玻璃待办，支持拖动、缩放和固定悬浮。
+- 小伴侣默认拖到哪里就停在哪里，重启后恢复落点；右键可回到刘海旁，也可恢复自动回家。
+- 待办提供四状态、分类、子任务进度、原位编辑与撤销，以及今日、近三日和逾期筛选。
+- 任务详情支持截止时间、优先级、重复、最多五个提醒、标签和备注；可用一句话填写标题与时间。
+- 卡片圆角 0–20、三档密度和展开动画可调，适配系统明暗与辅助功能偏好；任务与外观纳入本地备份。
+- 修复刘海收起交接时使用旧窗口尺寸的问题，保持紧凑内容的布局稳定。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 141。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版使用冻结输入执行定向功能、原生窗口和安装包检查。真实通知送达、完整多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能验收仍待完成。待办保存在本机；没有新增云同步。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.1/NotchCalendar-3.2.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.1/NotchCalendar-3.2.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.1/SHA256SUMS.txt)
+
+## 3.2.1: Companion tasks and a saved desktop position
+
+- Click your companion to toggle a native translucent task panel. Move, resize or pin it above other windows.
+- Drag the companion to keep it there across relaunches. Return it to the notch from its menu, or restore automatic return after dragging.
+- Organize four task states, categories and subtasks, edit inline, undo changes, and filter today, the next three days or overdue tasks.
+- Set due dates, priorities, repeat rules, up to five alerts, tags and notes. A sentence can fill in a title and time.
+- Adjust card corners from 0 to 20, three density settings and expansion animations. Respect system appearance/accessibility and include tasks and preferences in local backups.
+- Keep compact content at its measured size during the notch's collapse handoff.
+
+macOS 15+, universal Apple silicon/Intel, build 141. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted functional, native-window and package checks use frozen inputs. Actual notification delivery, full multi-display, sleep/wake, VoiceOver, physical Intel and sustained-performance acceptance remain pending. Tasks stay local; cloud sync was not added.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.1/NotchCalendar-3.2.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.1/NotchCalendar-3.2.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.1/SHA256SUMS.txt)
+
 # Notch Calendar 3.2.0
 
 ## 3.2.0：一句话安排与更精致的刘海体验

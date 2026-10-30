@@ -2,8 +2,23 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.2.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.2.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.2.1: Companion tasks and a saved desktop position
+
+- Click your companion to toggle a native translucent task panel. Move, resize or pin it above other windows.
+- Drag the companion to keep it there across relaunches. Return it to the notch from its menu, or restore automatic return after dragging.
+- Organize four task states, categories and subtasks, edit inline, undo changes, and filter today, the next three days or overdue tasks.
+- Set due dates, priorities, repeat rules, up to five alerts, tags and notes. A sentence can fill in a title and time.
+- Adjust card corners from 0 to 20, three density settings and expansion animations. Respect system appearance/accessibility and include tasks and preferences in local backups.
+- Keep compact content at its measured size during the notch's collapse handoff.
+
+macOS 15+, universal Apple silicon/Intel, build 141. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted functional, native-window and package checks use frozen inputs. Actual notification delivery, full multi-display, sleep/wake, VoiceOver, physical Intel and sustained-performance acceptance remain pending. Tasks stay local; cloud sync was not added.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.1/NotchCalendar-3.2.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.1/NotchCalendar-3.2.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.1/SHA256SUMS.txt)
 
 ## 3.2.0: Sentence scheduling and a refined notch experience
 
