@@ -2,8 +2,22 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.2.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.2.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.2.4: More breathing room and smoother retraction
+
+- Apply safe insets across markets, calculator, notes, the tool library and settings.
+- Reduce the bottom navigation's visual footprint while retaining click targets, exposing the shell corners and a clear bottom gap.
+- Fix navigation flashes and material remnants during collapse. Shell, content and surface transitions share the commit clock, including rapid reversals.
+- Keep new blank notes editable after the first character and preserve drafts and selections.
+- Include voice scheduling, a mirror with weather, and an AI workbench combining DeepSeek Web, API chat, coding activity and quotas. Calendar writes require confirmation; camera access is optional and mirror frames are neither saved nor uploaded.
+
+macOS 15+, universal Apple silicon/Intel, build 144. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Native UI, retraction, draft retention and package checks use frozen inputs. Full multi-display, sleep/wake, VoiceOver, physical Intel, real microphone/camera and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.4/NotchCalendar-3.2.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.4/NotchCalendar-3.2.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.4/SHA256SUMS.txt)
 
 ## 3.2.3: A steadier companion on hover
 
