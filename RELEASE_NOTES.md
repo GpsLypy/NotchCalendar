@@ -1,4 +1,28 @@
-# Notch Calendar 3.2.5
+# Notch Calendar 3.2.6
+
+## 3.2.6：修复重复的菜单栏入口
+
+- 修复收纳开启时同时出现两个「…」入口：原生按钮可见时立即撤下悬浮兜底按钮。
+- 收纳面板跟随实际点击的按钮；原生入口恢复时同步交接，不再指向另一个「…」。
+- 仅在确认原生入口被隐藏后显示兜底按钮，沿用菜单栏的实际高度与原位置中心。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 146。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版检查当前系统的原生入口可见性，并执行真实 AppKit 控制器交接、点击锚点、关闭与图标像素回归及独立安装包检查。系统隐藏动作使用隔离测试替身；完整第三方隐藏兼容性、多屏、睡眠唤醒、VoiceOver、Intel 实机和持续性能未重新验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.6/NotchCalendar-3.2.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.6/NotchCalendar-3.2.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.6/SHA256SUMS.txt)
+
+## 3.2.6: Fix duplicate menu bar entries
+
+- Remove the floating fallback immediately when the native organizer entry is visible, preventing two ellipsis buttons.
+- Anchor the shelf to the button actually clicked and hand it back when the native entry returns.
+- Show a fallback only after confirming the native entry is hidden; preserve the rendered menu bar height and slot center.
+
+macOS 15+, universal Apple silicon/Intel, build 146. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release checks native entry visibility on the current system and runs AppKit controller handoff, click-anchor, dismissal, glyph pixel and independent package checks. Hiding actions use isolated test doubles; full third-party hiding compatibility, multi-display, sleep/wake, VoiceOver, physical Intel and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.6/NotchCalendar-3.2.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.6/NotchCalendar-3.2.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.6/SHA256SUMS.txt)
 
 ## 3.2.5：分屏边界与菜单栏入口修复
 

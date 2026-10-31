@@ -2,8 +2,20 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.2.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.2.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.6) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.2.6: Fix duplicate menu bar entries
+
+- Remove the floating fallback immediately when the native organizer entry is visible, preventing two ellipsis buttons.
+- Anchor the shelf to the button actually clicked and hand it back when the native entry returns.
+- Show a fallback only after confirming the native entry is hidden; preserve the rendered menu bar height and slot center.
+
+macOS 15+, universal Apple silicon/Intel, build 146. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release checks native entry visibility on the current system and runs AppKit controller handoff, click-anchor, dismissal, glyph pixel and independent package checks. Hiding actions use isolated test doubles; full third-party hiding compatibility, multi-display, sleep/wake, VoiceOver, physical Intel and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.6/NotchCalendar-3.2.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.6/NotchCalendar-3.2.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.6/SHA256SUMS.txt)
 
 ## 3.2.5: Window arrangement and menu bar fixes
 
