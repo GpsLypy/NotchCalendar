@@ -2,8 +2,23 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.2.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.6) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.2.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.7) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.2.7: Independent To-Dos and notch capsule reminders
+
+- Open To-Dos from a standalone checkmark at the top right of the desktop, or choose a cat, dog, or hidden entry.
+- Set dates, priority, recurrence, reminders, tags and notes while adding a task; press Return to save and adjust dates detected from natural language.
+- Schedule unfinished-task summaries. Both summaries and individual reminders use notch capsules, moving below the notch when its sides are occupied.
+- Click a summary to open unfinished tasks or an individual capsule to open task details. Completing, deferring, cancelling or deleting a task dismisses its reminder.
+
+Tasks and reminder preferences stay on this Mac and support local backup. Capsules require the app to remain running and do not require system notification permission; punctual delivery during sleep or while the app is closed is not guaranteed.
+
+macOS 15+, universal Apple silicon/Intel, build 147. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs To-Do persistence, entry, composer, summary, individual reminder and native capsule regressions plus independent package checks. Both capsule types were exercised on the current Mac; multi-display, sleep/wake, VoiceOver, physical Intel and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.7/NotchCalendar-3.2.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.7/NotchCalendar-3.2.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.7/SHA256SUMS.txt)
 
 ## 3.2.6: Fix duplicate menu bar entries
 

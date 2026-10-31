@@ -1,4 +1,34 @@
-# Notch Calendar 3.2.6
+# Notch Calendar 3.2.7
+
+## 3.2.7：独立待办与刘海胶囊提醒
+
+- 新增独立待办入口，默认显示在桌面右上角，也可选择小猫、小狗或隐藏入口。
+- 新建待办可直接填写时间、优先级、重复、提醒、标签与备注；回车保存，一句话识别日期后仍可调整。
+- 新增定时汇总未完成待办；汇总和单条到点提醒共用刘海胶囊。刘海两侧被占用时，胶囊显示在刘海下方。
+- 点击汇总打开未完成列表，点击单条提醒打开任务详情；完成、暂缓、取消或删除后同步收起提醒。
+
+待办与提醒设置保存在本机，支持备份。刘海胶囊需要应用保持运行，无需系统通知权限；休眠或退出期间无法保证准时提醒。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 147。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行待办存储、入口、添加、汇总、单条提醒与原生胶囊回归，并检查通用安装包。当前 Mac 已实测两种胶囊提醒；多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能未重新验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.7/NotchCalendar-3.2.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.7/NotchCalendar-3.2.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.7/SHA256SUMS.txt)
+
+## 3.2.7: Independent To-Dos and notch capsule reminders
+
+- Open To-Dos from a standalone checkmark at the top right of the desktop, or choose a cat, dog, or hidden entry.
+- Set dates, priority, recurrence, reminders, tags and notes while adding a task; press Return to save and adjust dates detected from natural language.
+- Schedule unfinished-task summaries. Both summaries and individual reminders use notch capsules, moving below the notch when its sides are occupied.
+- Click a summary to open unfinished tasks or an individual capsule to open task details. Completing, deferring, cancelling or deleting a task dismisses its reminder.
+
+Tasks and reminder preferences stay on this Mac and support local backup. Capsules require the app to remain running and do not require system notification permission; punctual delivery during sleep or while the app is closed is not guaranteed.
+
+macOS 15+, universal Apple silicon/Intel, build 147. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs To-Do persistence, entry, composer, summary, individual reminder and native capsule regressions plus independent package checks. Both capsule types were exercised on the current Mac; multi-display, sleep/wake, VoiceOver, physical Intel and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.7/NotchCalendar-3.2.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.7/NotchCalendar-3.2.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.7/SHA256SUMS.txt)
 
 ## 3.2.6：修复重复的菜单栏入口
 
