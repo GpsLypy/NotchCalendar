@@ -2,8 +2,21 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.2.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.2.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.2.5: Window arrangement and menu bar fixes
+
+- Keep window arrangement zones and labels inside the panel edges with consistent padding.
+- Reset retained scaling when switching from a wide panel, keeping visible zones and drop targets aligned.
+- Keep the menu bar organizer entry in its original slot and return after a temporary obstruction.
+- Center the three dots horizontally and vertically at different menu bar heights, and preserve the native entry icon.
+
+macOS 15+, universal Apple silicon/Intel, build 145. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs focused geometry, native panel transitions, drop target and icon pixel checks plus independent package verification. Full physical multi-display dragging, system menu bar hiding compatibility, sleep/wake, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.5/NotchCalendar-3.2.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.5/NotchCalendar-3.2.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.5/SHA256SUMS.txt)
 
 ## 3.2.4: More breathing room and smoother retraction
 

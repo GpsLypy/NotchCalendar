@@ -1,4 +1,30 @@
-# Notch Calendar 3.2.4
+# Notch Calendar 3.2.5
+
+## 3.2.5：分屏边界与菜单栏入口修复
+
+- 修复分屏面板两侧选区溢出，选区和文字按外壳边界留出一致间距。
+- 修复从宽面板进入分屏时残留缩放、拖放位置不一致的问题，切换后恢复正确尺寸与落点。
+- 修复菜单栏「…」点击后跳到刘海旁的问题，优先保持原位置，临时被占用后可回到原位。
+- 修复菜单栏「…」偏上，三个圆点在不同菜单栏高度下保持水平、垂直居中，并保留原生入口图标。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 145。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行分屏几何、原生面板切换、落点和图标像素居中测试及独立安装包检查。完整多屏拖窗、系统菜单栏隐藏兼容性、睡眠唤醒、VoiceOver、Intel 实机和持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.5/NotchCalendar-3.2.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.5/NotchCalendar-3.2.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.5/SHA256SUMS.txt)
+
+## 3.2.5: Window arrangement and menu bar fixes
+
+- Keep window arrangement zones and labels inside the panel edges with consistent padding.
+- Reset retained scaling when switching from a wide panel, keeping visible zones and drop targets aligned.
+- Keep the menu bar organizer entry in its original slot and return after a temporary obstruction.
+- Center the three dots horizontally and vertically at different menu bar heights, and preserve the native entry icon.
+
+macOS 15+, universal Apple silicon/Intel, build 145. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs focused geometry, native panel transitions, drop target and icon pixel checks plus independent package verification. Full physical multi-display dragging, system menu bar hiding compatibility, sleep/wake, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.5/NotchCalendar-3.2.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.5/NotchCalendar-3.2.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.5/SHA256SUMS.txt)
 
 ## 3.2.4：更舒展的界面，更平稳的收起
 
