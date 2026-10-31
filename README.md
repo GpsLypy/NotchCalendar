@@ -2,8 +2,20 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.2.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.7) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.2.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.8) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.2.8：翻译栏对称与专注页留白
+
+- 翻译语言选择器改为等宽胶囊，围绕交换按钮紧凑居中，修复间隔过大和左右不对称。
+- 拉开专注统计、时长选项和开始按钮之间的距离，随窗口高度调整留白，操作按钮完整可见。
+- 小尺寸计时圆环调整文字留白，完整显示倒计时和准备状态。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 148。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行翻译与专注页的定向回归及原生布局检查，并独立核验通用安装包。多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能未重新验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.8/NotchCalendar-3.2.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.8/NotchCalendar-3.2.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.8/SHA256SUMS.txt)
 
 ## 3.2.7：独立待办与刘海胶囊提醒
 

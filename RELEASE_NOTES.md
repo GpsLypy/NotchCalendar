@@ -1,4 +1,28 @@
-# Notch Calendar 3.2.7
+# Notch Calendar 3.2.8
+
+## 3.2.8：翻译栏对称与专注页留白
+
+- 翻译语言选择器改为等宽胶囊，围绕交换按钮紧凑居中，修复间隔过大和左右不对称。
+- 拉开专注统计、时长选项和开始按钮之间的距离，随窗口高度调整留白，操作按钮完整可见。
+- 小尺寸计时圆环调整文字留白，完整显示倒计时和准备状态。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 148。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行翻译与专注页的定向回归及原生布局检查，并独立核验通用安装包。多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能未重新验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.8/NotchCalendar-3.2.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.8/NotchCalendar-3.2.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.8/SHA256SUMS.txt)
+
+## 3.2.8: Balanced translation controls and more room for Focus
+
+- Center equal-width language capsules around the swap button, fixing excessive gaps and uneven alignment.
+- Add space between Focus totals, duration choices and Start, adapting to window height while keeping actions visible.
+- Adjust text padding in small timer rings to show the complete countdown and ready state.
+
+macOS 15+, universal Apple silicon/Intel, build 148. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs targeted translation and Focus regressions, native layout checks and independent universal-package verification. Multi-display, sleep/wake, VoiceOver, physical Intel and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.8/NotchCalendar-3.2.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.8/NotchCalendar-3.2.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.2.8/SHA256SUMS.txt)
 
 ## 3.2.7：独立待办与刘海胶囊提醒
 
