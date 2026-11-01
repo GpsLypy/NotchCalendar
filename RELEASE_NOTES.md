@@ -1,4 +1,28 @@
-# Notch Calendar 3.3.3
+# Notch Calendar 3.3.5
+
+## 3.3.5：剪贴板内存与收起态性能优化
+
+- 图片历史恢复只加载索引，列表按显示尺寸生成缩略图，收起后释放图片缓存。
+- 预览与复制时按需读取原图；复制保留原始图片质量，原图不可用时保留剪贴板现有内容。
+- 优化编程动态彩色描边的动画驱动，降低刘海收起时的 CPU 消耗，并在不可见时停止动画。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 155。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+验证覆盖剪贴板迁移、持久化、原图复制、缩略图与原生展开/收起，以及描边和音乐动画的定向回归与通用安装包。剪贴板独立模块的 16.8 MiB 图片历史样本中，恢复内存增量中位数由 17.83 MiB 降至 0.70 MiB；不代表整机应用总内存降幅。已知旧基线两项交互测试仍失败，一次编程动态诊断唤醒率超出预算；完整硬件、多屏、休眠唤醒、VoiceOver、Intel 实机和持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/SHA256SUMS.txt)
+
+## 3.3.5: Clipboard memory and compact-mode performance
+
+- Restore image-history metadata without retaining all original images. Load display-sized thumbnails and release image caches when collapsed.
+- Read original images for preview or copying. Preserve original copy quality and keep the existing pasteboard when an original is unavailable.
+- Move the coding activity spectral rim to compositor animation, reduce CPU work while collapsed and stop motion when hidden.
+
+macOS 15+, universal Apple silicon/Intel, build 155. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Validation covers clipboard migration, persistence, original copying, thumbnails, native expansion/collapse, selected rim/music regressions and universal packaging. An isolated clipboard fixture with 16.8 MiB of images reduced median restore memory growth from 17.83 MiB to 0.70 MiB; this is not a whole-app memory claim. Two interaction tests also fail on the old baseline, and one coding diagnostic exceeded its wakeup budget. Full hardware, multi-display, sleep/wake, VoiceOver, physical Intel and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/SHA256SUMS.txt)
 
 ## 3.3.3：欢迎动画安装包瘦身
 

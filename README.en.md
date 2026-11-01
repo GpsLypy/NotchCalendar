@@ -2,8 +2,20 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.3.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.3.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.5: Clipboard memory and compact-mode performance
+
+- Restore image-history metadata without retaining all original images. Load display-sized thumbnails and release image caches when collapsed.
+- Read original images for preview or copying. Preserve original copy quality and keep the existing pasteboard when an original is unavailable.
+- Move the coding activity spectral rim to compositor animation, reduce CPU work while collapsed and stop motion when hidden.
+
+macOS 15+, universal Apple silicon/Intel, build 155. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Validation covers clipboard migration, persistence, original copying, thumbnails, native expansion/collapse, selected rim/music regressions and universal packaging. An isolated clipboard fixture with 16.8 MiB of images reduced median restore memory growth from 17.83 MiB to 0.70 MiB; this is not a whole-app memory claim. Two interaction tests also fail on the old baseline, and one coding diagnostic exceeded its wakeup budget. Full hardware, multi-display, sleep/wake, VoiceOver, physical Intel and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/SHA256SUMS.txt)
 
 ## 3.3.3: A smaller welcome download
 

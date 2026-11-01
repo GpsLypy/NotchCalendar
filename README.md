@@ -2,7 +2,20 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.3.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.3.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.5) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+
+
+## 3.3.5：剪贴板内存与收起态性能优化
+
+- 图片历史恢复只加载索引，列表按显示尺寸生成缩略图，收起后释放图片缓存。
+- 预览与复制时按需读取原图；复制保留原始图片质量，原图不可用时保留剪贴板现有内容。
+- 优化编程动态彩色描边的动画驱动，降低刘海收起时的 CPU 消耗，并在不可见时停止动画。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 155。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+验证覆盖剪贴板迁移、持久化、原图复制、缩略图与原生展开/收起，以及描边和音乐动画的定向回归与通用安装包。剪贴板独立模块的 16.8 MiB 图片历史样本中，恢复内存增量中位数由 17.83 MiB 降至 0.70 MiB；不代表整机应用总内存降幅。已知旧基线两项交互测试仍失败，一次编程动态诊断唤醒率超出预算；完整硬件、多屏、休眠唤醒、VoiceOver、Intel 实机和持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/SHA256SUMS.txt)
 
 
 ## 3.3.3：欢迎动画安装包瘦身
