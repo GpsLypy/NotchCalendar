@@ -1,4 +1,28 @@
-# Notch Calendar 3.2.9
+# Notch Calendar 3.3.0
+
+## 3.3.0：修复隔空投送拖放无响应
+
+- 修复文件拖到隔空投送浮层后松手无响应的问题，接收区域覆盖整个浮层。
+- 悬停时显示「松开以隔空投送」，松手后打开 macOS 系统接收人窗口；原文件保留在原位置。
+- 补回 3.2.9 正式包遗漏的接收层修复，并将修复源码与本版安装包绑定，保留日历直达待办、连续开关和紧凑布局等既有改进。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 150。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版执行完整刘海窗口的原生拖放、文件与待办定向回归，并独立核验通用安装包。相同接收层修复已在本机安装的 3.2.9 本地修复版确认可打开系统接收人窗口；该实测不等同于 3.3.0 安装后验收。跨设备接收、多屏、睡眠唤醒、VoiceOver、Intel 实机与持续性能未重新验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.0/NotchCalendar-3.3.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.0/NotchCalendar-3.3.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.0/SHA256SUMS.txt)
+
+## 3.3.0: Restore responsive AirDrop dragging
+
+- Fix dropping a file onto the floating AirDrop target producing no response. The native receiver covers the entire floating target.
+- Show Release to AirDrop while hovering, then open the macOS recipient chooser after release. Original files stay in place.
+- Restore the receiver fix omitted from the 3.2.9 package and bind it to this release's frozen inputs. Retain Calendar-to-Todo navigation, repeated toggling and compact layouts.
+
+macOS 15+, universal Apple silicon/Intel, build 150. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs full-notch native drag, Files and Todo regressions plus independent universal-package verification. The same receiver fix opened the real macOS chooser in the installed 3.2.9 local repair; that check is not installed 3.3.0 acceptance. Cross-device reception, multi-display, sleep/wake, VoiceOver, physical Intel and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.0/NotchCalendar-3.3.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.0/NotchCalendar-3.3.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.0/SHA256SUMS.txt)
 
 ## 3.2.9：日历直达待办与按钮开关修复
 

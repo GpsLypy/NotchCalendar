@@ -2,8 +2,20 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.2.9](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.2.9) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.3.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.0: Restore responsive AirDrop dragging
+
+- Fix dropping a file onto the floating AirDrop target producing no response. The native receiver covers the entire floating target.
+- Show Release to AirDrop while hovering, then open the macOS recipient chooser after release. Original files stay in place.
+- Restore the receiver fix omitted from the 3.2.9 package and bind it to this release's frozen inputs. Retain Calendar-to-Todo navigation, repeated toggling and compact layouts.
+
+macOS 15+, universal Apple silicon/Intel, build 150. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release runs full-notch native drag, Files and Todo regressions plus independent universal-package verification. The same receiver fix opened the real macOS chooser in the installed 3.2.9 local repair; that check is not installed 3.3.0 acceptance. Cross-device reception, multi-display, sleep/wake, VoiceOver, physical Intel and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.0/NotchCalendar-3.3.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.0/NotchCalendar-3.3.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.0/SHA256SUMS.txt)
 
 ## 3.2.9: Calendar-to-Todo navigation and reliable toggling
 
