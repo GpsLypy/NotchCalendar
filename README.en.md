@@ -2,8 +2,21 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.3.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.3.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.6) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.6: Refined Todo controls and reminders
+
+- Compact task details and summary settings, with calendar and hour/minute selection. A new deadline defaults to today at 5 pm.
+- Fix reminder previews being cancelled by the notch collapse animation. New deadlines enable an on-time reminder by default, which can be turned off.
+- Refine dates, status tabs, buttons and input guidance in both desktop and notch Todo views. Default to Work and remove duplicate detail actions, extra arrows and Todo undo.
+- Adapt hint text to available space, with two lines in narrow windows. Keep unfinished drafts when collapsed.
+
+macOS 15+, universal Apple silicon/Intel, build 156. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Validation covers Todo state and persistence, time selection, individual and summary reminders, native desktop/notch interactions and universal packaging. Reminders require the app to remain running and may be delayed during sleep, screen lock or other activity. Full hardware, multi-display, VoiceOver, physical Intel and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/NotchCalendar-3.3.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/NotchCalendar-3.3.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/SHA256SUMS.txt)
 
 ## 3.3.5: Clipboard memory and compact-mode performance
 

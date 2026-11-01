@@ -2,8 +2,21 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.3.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.5) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.3.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.6) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.6：待办界面与提醒优化
+
+- 收紧任务详情与汇总提醒面板，日期和小时、分钟可直接选择；新增截止时间默认当天 17:00。
+- 修复提醒预览被收起动画取消的问题；新设置截止时间时默认准点提醒，可手动关闭。
+- 桌面与刘海待办同步优化日期、四状态导航、按钮与输入提示；分类默认「工作」，移除重复详情入口、多余箭头和撤销功能。
+- 输入提示按空间调整字号，窄窗口可完整显示两行；收起后保留未发送草稿。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 156。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版验证待办状态与保存、时间选择、任务与汇总提醒、桌面及真实刘海原生交互，并核验通用安装包。提醒需要应用保持运行；休眠、锁屏或其他功能占用时可能延迟。完整硬件、多屏、VoiceOver、Intel 实机和持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/NotchCalendar-3.3.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/NotchCalendar-3.3.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/SHA256SUMS.txt)
 
 ## 3.3.5：剪贴板内存与收起态性能优化
 

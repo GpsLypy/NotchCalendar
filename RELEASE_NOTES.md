@@ -1,4 +1,30 @@
-# Notch Calendar 3.3.5
+# Notch Calendar 3.3.6
+
+## 3.3.6：待办界面与提醒优化
+
+- 收紧任务详情与汇总提醒面板，日期和小时、分钟可直接选择；新增截止时间默认当天 17:00。
+- 修复提醒预览被收起动画取消的问题；新设置截止时间时默认准点提醒，可手动关闭。
+- 桌面与刘海待办同步优化日期、四状态导航、按钮与输入提示；分类默认「工作」，移除重复详情入口、多余箭头和撤销功能。
+- 输入提示按空间调整字号，窄窗口可完整显示两行；收起后保留未发送草稿。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 156。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版验证待办状态与保存、时间选择、任务与汇总提醒、桌面及真实刘海原生交互，并核验通用安装包。提醒需要应用保持运行；休眠、锁屏或其他功能占用时可能延迟。完整硬件、多屏、VoiceOver、Intel 实机和持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/NotchCalendar-3.3.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/NotchCalendar-3.3.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/SHA256SUMS.txt)
+
+## 3.3.6: Refined Todo controls and reminders
+
+- Compact task details and summary settings, with calendar and hour/minute selection. A new deadline defaults to today at 5 pm.
+- Fix reminder previews being cancelled by the notch collapse animation. New deadlines enable an on-time reminder by default, which can be turned off.
+- Refine dates, status tabs, buttons and input guidance in both desktop and notch Todo views. Default to Work and remove duplicate detail actions, extra arrows and Todo undo.
+- Adapt hint text to available space, with two lines in narrow windows. Keep unfinished drafts when collapsed.
+
+macOS 15+, universal Apple silicon/Intel, build 156. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Validation covers Todo state and persistence, time selection, individual and summary reminders, native desktop/notch interactions and universal packaging. Reminders require the app to remain running and may be delayed during sleep, screen lock or other activity. Full hardware, multi-display, VoiceOver, physical Intel and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/NotchCalendar-3.3.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/NotchCalendar-3.3.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.6/SHA256SUMS.txt)
 
 ## 3.3.5：剪贴板内存与收起态性能优化
 
