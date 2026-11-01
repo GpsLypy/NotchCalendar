@@ -2,8 +2,21 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.3.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.3.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.2: A new welcome inside the notch
+
+- Open the welcome from the actual screen edge, with transparent surroundings, a starfield, colorful text and a light reveal inside the notch.
+- Introduce Calendar, Todo, Mirror, Capture, menu bar organization, window layouts and Files using current native interfaces.
+- Drive scene motion with the display refresh, decode demo images in advance and recapture native interactions continuously for smoother transitions and task movement.
+- Pause, revisit chapters or skip; keyboard navigation and Reduce Motion remain available. Finish with “Welcome to your trial. Wishing you joy every day.”
+
+macOS 15+, universal Apple silicon/Intel, build 152. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Validation covers Chinese and English native welcome windows, keyboard and pause interactions, a complete WindowServer recording and universal packaging. Local recording does not guarantee every device's frame rate. Installed-device, multi-display, sleep/wake, VoiceOver speech, physical Intel and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.2/NotchCalendar-3.3.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.2/NotchCalendar-3.3.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.2/SHA256SUMS.txt)
 
 ## 3.3.1: Fix notch Todo details and click response
 

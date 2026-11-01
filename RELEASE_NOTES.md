@@ -1,4 +1,30 @@
-# Notch Calendar 3.3.1
+# Notch Calendar 3.3.2
+
+## 3.3.2：全新刘海欢迎动画
+
+- 欢迎介绍直接从屏幕顶部的真实贴边刘海展开，外部透明，内部使用星空、彩色文字与光幕揭开效果。
+- 通过当前原生界面介绍日历、待办、小镜子、截屏、菜单栏收纳、窗口分屏与文件功能。
+- 场景动画按屏幕刷新节奏推进；提前解码演示图片，重新连续采集原生操作，让转场与待办补位更流畅。
+- 保留暂停、上一幕、章节跳转和跳过，支持键盘与减少动态效果。最后一幕为「欢迎试用，祝你开心每一天」。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 152。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版验证中英文原生欢迎窗口、键盘与暂停交互、完整窗口录屏及通用安装包。录屏为本机验证，不代表所有设备帧率保证；安装后实机、多屏、睡眠唤醒、VoiceOver 语音、Intel 实机与持续性能未重新验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.2/NotchCalendar-3.3.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.2/NotchCalendar-3.3.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.2/SHA256SUMS.txt)
+
+## 3.3.2: A new welcome inside the notch
+
+- Open the welcome from the actual screen edge, with transparent surroundings, a starfield, colorful text and a light reveal inside the notch.
+- Introduce Calendar, Todo, Mirror, Capture, menu bar organization, window layouts and Files using current native interfaces.
+- Drive scene motion with the display refresh, decode demo images in advance and recapture native interactions continuously for smoother transitions and task movement.
+- Pause, revisit chapters or skip; keyboard navigation and Reduce Motion remain available. Finish with “Welcome to your trial. Wishing you joy every day.”
+
+macOS 15+, universal Apple silicon/Intel, build 152. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Validation covers Chinese and English native welcome windows, keyboard and pause interactions, a complete WindowServer recording and universal packaging. Local recording does not guarantee every device's frame rate. Installed-device, multi-display, sleep/wake, VoiceOver speech, physical Intel and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.2/NotchCalendar-3.3.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.2/NotchCalendar-3.3.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.2/SHA256SUMS.txt)
 
 ## 3.3.1：修复刘海待办详情与点击响应
 
