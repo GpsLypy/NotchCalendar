@@ -2,8 +2,20 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.3.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.3.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.3：欢迎动画安装包瘦身
+
+- 欢迎演示素材从 13.1 MB 缩小至 1.48 MB，使用系统原生支持的无损 WebP 动画保存重复区域。
+- 保留全部原生操作帧、播放时间与 Retina 显示精度；逐帧核对 macOS 原生解码后的像素一致性。
+- 动画仍按屏幕刷新节奏推进，后台提前解码，保持星空、彩色文案与真实功能演示。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 153。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版验证中英文原生欢迎窗口、全部压缩帧的原生解码、完整窗口录屏及通用安装包。安装后实机、多屏、睡眠唤醒、VoiceOver 语音、Intel 实机与持续性能未重新验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.3/NotchCalendar-3.3.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.3/NotchCalendar-3.3.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.3/SHA256SUMS.txt)
 
 ## 3.3.2：全新刘海欢迎动画
 
