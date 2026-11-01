@@ -2,8 +2,20 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.3.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.0) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.3.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.1：修复刘海待办详情与点击响应
+
+- 待办详情改为按钮旁的原生浮层，打开时刘海窗口保持原位，避免大弹窗造成错位。
+- 修复关闭详情后下一次点击失效，详情与「···」完整按钮区域均可点击；支持取消、Esc、显式保存和切换页面时关闭。
+- 同步最新文件页面紧凑布局与路径控件尺寸，并保留 3.3.0 的隔空投送接收层修复。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 151。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本版从当前完整工作区冻结构建输入，执行真实刘海窗口、待办详情与原生菜单、文件拖放和通用安装包定向验证。安装后实机、多屏、睡眠唤醒、VoiceOver、Intel 实机、跨设备接收与持续性能未重新验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.1/NotchCalendar-3.3.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.1/NotchCalendar-3.3.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.1/SHA256SUMS.txt)
 
 ## 3.3.0：修复隔空投送拖放无响应
 

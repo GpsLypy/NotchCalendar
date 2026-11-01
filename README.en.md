@@ -2,8 +2,20 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.3.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.3.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.1: Fix notch Todo details and click response
+
+- Open task details in a native popover beside its button, keeping the notch window in place.
+- Fix the next click becoming unresponsive after closing details. The entire details and more-action buttons accept clicks; Cancel, Escape, explicit Save and page changes dismiss the editor correctly.
+- Include the latest compact Files layout and path controls, while retaining the 3.3.0 AirDrop receiver fix.
+
+macOS 15+, universal Apple silicon/Intel, build 151. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+This release freezes all current workspace build inputs and runs targeted real-notch, Todo editor/native-menu, file-drag and universal-package validation. Installed-device, multi-display, sleep/wake, VoiceOver, physical Intel, cross-device reception and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.1/NotchCalendar-3.3.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.1/NotchCalendar-3.3.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.1/SHA256SUMS.txt)
 
 ## 3.3.0: Restore responsive AirDrop dragging
 
