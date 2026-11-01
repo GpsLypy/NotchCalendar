@@ -2,8 +2,23 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.3.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.6) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.3.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.7) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.7：待办准时提醒与汇总修复
+
+- 设定截止时间默认准点提醒，手动关闭后保存；旧版仅设日期的任务也采用准点默认。
+- 修复专注计时、待处理打卡导致待办不提醒的问题；刘海两侧被占用时，在摄像头下方显示提醒胶囊。
+- 同一时刻到期的多项任务合并提醒，其他时刻依次展示；汇总默认每天，包含所有未完成任务并显示逾期数量。
+- 汇总按设定时刻触发，修改时间后重新排期；刘海内对号正确开关桌面待办浮窗，保留刘海与草稿。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 157。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+提醒需要应用保持运行；展开面板、睡眠或锁屏时最多延迟 30 分钟，超时不补发。旧汇总设置迁移为每天，保留开关与时间，之后可手动选择仅工作日或关闭。旧版空提醒列表无法区分默认未开启与手动关闭；升级后按准点默认，今后的手动关闭会保存。
+
+定向验证覆盖待办计划、持久化、原生提醒队列与占位布局，并核验通用安装包。完整硬件、多屏、VoiceOver、Intel 实机和持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.7/NotchCalendar-3.3.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.7/NotchCalendar-3.3.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.7/SHA256SUMS.txt)
 
 ## 3.3.6：待办界面与提醒优化
 
@@ -30,6 +45,19 @@ macOS 15+，Apple 芯片与 Intel 通用包，build 155。ad-hoc 签名，未进
 
 [DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/SHA256SUMS.txt)
 
+## 3.3.4：优化版重新发行
+
+- 重新构建当前优化版的 Apple 芯片与 Intel 通用安装包。
+- 保留约 1.48 MB 的无损欢迎演示素材、全部原生操作帧与原始播放时间。
+- 保留后台内存位图预解码，让星空、彩色文字、转场与真实功能演示流畅播放。
+
+运行功能代码与 3.3.3 一致，本次更新版本号、构建号及发行资料。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 154。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本次重新验证版本升级引导、原生素材解码及通用安装包。相同运行代码的中英文欢迎、完整原生录屏及像素核对沿用最近一次已验证证据。安装后实机、多屏、睡眠唤醒、VoiceOver 语音、Intel 实机与持续性能未重新验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.4/NotchCalendar-3.3.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.4/NotchCalendar-3.3.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.4/SHA256SUMS.txt)
 
 ## 3.3.3：欢迎动画安装包瘦身
 

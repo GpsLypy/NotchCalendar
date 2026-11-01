@@ -1,4 +1,34 @@
-# Notch Calendar 3.3.6
+# Notch Calendar 3.3.7
+
+## 3.3.7：待办准时提醒与汇总修复
+
+- 设定截止时间默认准点提醒，手动关闭后保存；旧版仅设日期的任务也采用准点默认。
+- 修复专注计时、待处理打卡导致待办不提醒的问题；刘海两侧被占用时，在摄像头下方显示提醒胶囊。
+- 同一时刻到期的多项任务合并提醒，其他时刻依次展示；汇总默认每天，包含所有未完成任务并显示逾期数量。
+- 汇总按设定时刻触发，修改时间后重新排期；刘海内对号正确开关桌面待办浮窗，保留刘海与草稿。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 157。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+提醒需要应用保持运行；展开面板、睡眠或锁屏时最多延迟 30 分钟，超时不补发。旧汇总设置迁移为每天，保留开关与时间，之后可手动选择仅工作日或关闭。旧版空提醒列表无法区分默认未开启与手动关闭；升级后按准点默认，今后的手动关闭会保存。
+
+定向验证覆盖待办计划、持久化、原生提醒队列与占位布局，并核验通用安装包。完整硬件、多屏、VoiceOver、Intel 实机和持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.7/NotchCalendar-3.3.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.7/NotchCalendar-3.3.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.7/SHA256SUMS.txt)
+
+## 3.3.7: Reliable Todo deadlines and daily summaries
+
+- Enable on-time reminders when a deadline is set, including older dated tasks without a reminder selection. Save explicit opt-outs.
+- Deliver Todo reminders during focus sessions and pending check-ins. Use a capsule below the camera when the notch shoulders are occupied.
+- Combine tasks with the same reminder time and queue other times. Default summaries to every day, including all unfinished tasks and an overdue count.
+- Trigger summaries at the selected time and reschedule after time edits. Make the notch checkmark toggle desktop Todos while preserving the notch and draft.
+
+macOS 15+, universal Apple silicon/Intel, build 157. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Reminders require the app to remain running. Expanded panels, sleep or screen lock can delay delivery for up to 30 minutes. Older summaries migrate to daily while retaining their enabled state and time; weekdays and off remain selectable. Older empty reminder selections cannot distinguish an implicit default from an intentional opt-out; they adopt on-time reminders, and future opt-outs are saved.
+
+Targeted validation covers Todo scheduling, persistence, native reminder queues and occupied-notch placement, plus universal packaging. Full hardware, multi-display, VoiceOver, physical Intel and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.7/NotchCalendar-3.3.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.7/NotchCalendar-3.3.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.7/SHA256SUMS.txt)
 
 ## 3.3.6：待办界面与提醒优化
 
@@ -49,6 +79,34 @@ macOS 15+, universal Apple silicon/Intel, build 155. Ad-hoc signed without Devel
 Validation covers clipboard migration, persistence, original copying, thumbnails, native expansion/collapse, selected rim/music regressions and universal packaging. An isolated clipboard fixture with 16.8 MiB of images reduced median restore memory growth from 17.83 MiB to 0.70 MiB; this is not a whole-app memory claim. Two interaction tests also fail on the old baseline, and one coding diagnostic exceeded its wakeup budget. Full hardware, multi-display, sleep/wake, VoiceOver, physical Intel and sustained performance acceptance remain pending.
 
 [DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/NotchCalendar-3.3.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.5/SHA256SUMS.txt)
+
+## 3.3.4：优化版重新发行
+
+- 重新构建当前优化版的 Apple 芯片与 Intel 通用安装包。
+- 保留约 1.48 MB 的无损欢迎演示素材、全部原生操作帧与原始播放时间。
+- 保留后台内存位图预解码，让星空、彩色文字、转场与真实功能演示流畅播放。
+
+运行功能代码与 3.3.3 一致，本次更新版本号、构建号及发行资料。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 154。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+本次重新验证版本升级引导、原生素材解码及通用安装包。相同运行代码的中英文欢迎、完整原生录屏及像素核对沿用最近一次已验证证据。安装后实机、多屏、睡眠唤醒、VoiceOver 语音、Intel 实机与持续性能未重新验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.4/NotchCalendar-3.3.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.4/NotchCalendar-3.3.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.4/SHA256SUMS.txt)
+
+## 3.3.4: Optimized package reissue
+
+- Rebuild the current optimized universal package for Apple silicon and Intel.
+- Keep approximately 1.48 MB of lossless welcome media, all native operation frames and original playback timestamps.
+- Keep background decoding into memory bitmaps for smooth starfield, text, transitions and native feature demos.
+
+Runtime feature code matches 3.3.3; this release updates version labels, build labels and distribution documents.
+
+macOS 15+, universal Apple silicon/Intel, build 154. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Version-upgrade onboarding, native media decoding and universal packaging are verified again. Recent Chinese/English welcome, full native recording and pixel-equality evidence is reused for identical runtime code. Installed-device, multi-display, sleep/wake, VoiceOver speech, physical Intel and sustained performance were not revalidated.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.4/NotchCalendar-3.3.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.4/NotchCalendar-3.3.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.4/SHA256SUMS.txt)
 
 ## 3.3.3：欢迎动画安装包瘦身
 
