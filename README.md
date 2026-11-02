@@ -2,8 +2,21 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.3.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.7) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.3.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.8) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.8：待办分类、截图历史与菜单栏优化
+
+- 待办支持删除整个分类及其中所有状态的任务和子任务，操作前展示数量并二次确认；未分类可单独清空，空分类也可从分类菜单删除。
+- 截图与录屏历史自动移除已删除或移走的文件，打开历史时同步刷新；隐藏后停止监听，多个窗口分别管理可见状态。
+- 编程动态与 AI 用量在未保存开关设置时默认启用，保留用户手动关闭的选择。
+- 菜单栏收纳条缩小图标与按钮间距，隐藏横向滚动条，保留键盘导航和溢出访问。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 158。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+删除分类会永久删除其中的任务和子任务，无法撤销。定向回归与通用安装包核验单独记录；完整硬件、多屏、VoiceOver、Intel 实机及持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/NotchCalendar-3.3.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/NotchCalendar-3.3.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/SHA256SUMS.txt)
 
 ## 3.3.7：待办准时提醒与汇总修复
 

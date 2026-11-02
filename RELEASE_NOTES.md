@@ -1,4 +1,30 @@
-# Notch Calendar 3.3.7
+# Notch Calendar 3.3.8
+
+## 3.3.8：待办分类、截图历史与菜单栏优化
+
+- 待办支持删除整个分类及其中所有状态的任务和子任务，操作前展示数量并二次确认；未分类可单独清空，空分类也可从分类菜单删除。
+- 截图与录屏历史自动移除已删除或移走的文件，打开历史时同步刷新；隐藏后停止监听，多个窗口分别管理可见状态。
+- 编程动态与 AI 用量在未保存开关设置时默认启用，保留用户手动关闭的选择。
+- 菜单栏收纳条缩小图标与按钮间距，隐藏横向滚动条，保留键盘导航和溢出访问。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 158。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+删除分类会永久删除其中的任务和子任务，无法撤销。定向回归与通用安装包核验单独记录；完整硬件、多屏、VoiceOver、Intel 实机及持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/NotchCalendar-3.3.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/NotchCalendar-3.3.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/SHA256SUMS.txt)
+
+## 3.3.8: Todo categories, capture history and menu bar refinements
+
+- Delete a Todo category and its tasks and subtasks across all statuses after reviewing the count and confirming. Clear unsorted tasks separately and delete empty categories from the category menu.
+- Remove deleted or moved screenshots and recordings from history automatically. Reconcile on opening, stop monitoring while hidden, and track visibility separately for each window.
+- Enable coding activity and AI usage by default when no toggle preference exists, while retaining explicit opt-outs.
+- Make the menu bar shelf more compact with smaller icons and spacing. Hide horizontal scroll bars while keeping keyboard navigation and overflow access.
+
+macOS 15+, universal Apple silicon/Intel, build 158. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Deleting a category permanently removes its tasks and subtasks and cannot be undone. Targeted regression and universal package verification are recorded separately. Full hardware, multi-display, VoiceOver, physical Intel and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/NotchCalendar-3.3.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/NotchCalendar-3.3.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/SHA256SUMS.txt)
 
 ## 3.3.7：待办准时提醒与汇总修复
 

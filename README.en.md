@@ -2,8 +2,21 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.3.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.7) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.3.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.8) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.8: Todo categories, capture history and menu bar refinements
+
+- Delete a Todo category and its tasks and subtasks across all statuses after reviewing the count and confirming. Clear unsorted tasks separately and delete empty categories from the category menu.
+- Remove deleted or moved screenshots and recordings from history automatically. Reconcile on opening, stop monitoring while hidden, and track visibility separately for each window.
+- Enable coding activity and AI usage by default when no toggle preference exists, while retaining explicit opt-outs.
+- Make the menu bar shelf more compact with smaller icons and spacing. Hide horizontal scroll bars while keeping keyboard navigation and overflow access.
+
+macOS 15+, universal Apple silicon/Intel, build 158. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Deleting a category permanently removes its tasks and subtasks and cannot be undone. Targeted regression and universal package verification are recorded separately. Full hardware, multi-display, VoiceOver, physical Intel and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/NotchCalendar-3.3.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/NotchCalendar-3.3.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.8/SHA256SUMS.txt)
 
 ## 3.3.7: Reliable Todo deadlines and daily summaries
 
