@@ -2,8 +2,22 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.3.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.8) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.3.9](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.9) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+
+## 3.3.9: Two-finger navigation, Todo sorting and workspace tools
+
+- Swipe horizontally with two fingers across the expanded notch to switch tools in your custom order. Show a one-time hint on first opening, preserve content scrolling, and prevent momentum or hover from changing the selection again.
+- Reorder Todo categories by dragging or moving them up and down. Persist one order across the desktop panel, notch and workspace, including Unsorted.
+- Choose Todo hours and minutes from compact native scrolling lists instead of long menus.
+- Toggle the desktop Todo entry immediately with a click, including rapid successive clicks, while keeping dragging separate from activation.
+- Open Todo and screenshot/recording tools from the workspace sidebar or ⌘7 / ⌘8, sharing the existing tasks, capture history and recording state.
+
+macOS 15+, universal Apple silicon/Intel, build 159. Ad-hoc signed without Developer ID signing or Apple notarization; quit the old app and replace it manually using the DMG.
+
+Targeted regression and universal package verification are recorded separately. Physical trackpad feel, full hardware, multi-display, VoiceOver, physical Intel and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.9/NotchCalendar-3.3.9-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.9/NotchCalendar-3.3.9-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.9/SHA256SUMS.txt)
 
 ## 3.3.8: Todo categories, capture history and menu bar refinements
 
