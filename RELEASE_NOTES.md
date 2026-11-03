@@ -1,4 +1,32 @@
-# Notch Calendar 3.3.9
+# Notch Calendar 3.3.10
+
+## 3.3.10：待办日历与统计、自定义入口和切换优化
+
+- 待办新增任务、日历与统计视图：搜索标题、分类、标签、备注和子任务，可按截止时间、优先级或创建时间排序。
+- 日历支持周/月切换，按完成日期或截止日期回看任务；统计展示本周、本月和分类完成进度。旧任务保留未知的历史时间，不补造记录。
+- 设置合并为「待办与小伴侣」，可选对号、小伴侣、自定义图片或隐藏桌面入口；图片本机导入，支持替换、移除和备份恢复。
+- 优化双指切换与页面保留：切回便笺保留编辑内容、选区和撤销，隐藏编辑器停止接收输入；截屏等紧凑页面按内容调整高度。
+- 修复切换工具后重新展开刘海时的动画衔接，首次展开过程中的高度更新不再打断当前动画。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 160。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换安装。
+
+定向回归与通用安装包核验单独记录。真实触控板手感、完整硬件、多屏、VoiceOver、Intel 实机与持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.10/NotchCalendar-3.3.10-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.10/NotchCalendar-3.3.10-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.10/SHA256SUMS.txt)
+
+## 3.3.10: Todo calendar and statistics, custom entry images, smoother navigation
+
+- Todo gains task, calendar and statistics views, search across task details and subtasks, and sorting by due date, priority or creation time.
+- Browse weekly/monthly calendars by completion or due date, with weekly, monthly and category progress. Legacy tasks keep unknown historical timestamps.
+- Unified Todo & Companion settings offer checkmark, companion, custom image or hidden desktop entries. Import, replace, remove and back up images locally.
+- Retained pages preserve scratchpad text, selection and undo when switching back; hidden editors stop accepting input. Compact command pages fit their content.
+- Fix reopening animation continuity after tool changes; height updates during the initial reveal preserve the running animation.
+
+macOS 15+, universal Apple silicon and Intel package, build 160. Ad-hoc signed, without Developer ID signing or Apple notarization. Quit the old app and replace it manually using the DMG.
+
+Targeted regressions and package checks are recorded separately. Physical trackpad, full hardware, multiple displays, VoiceOver, Intel device and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.10/NotchCalendar-3.3.10-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.10/NotchCalendar-3.3.10-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.3.10/SHA256SUMS.txt)
 
 ## 3.3.9：双指切换、待办排序与工作台新入口
 
