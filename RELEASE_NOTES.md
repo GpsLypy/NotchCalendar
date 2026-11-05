@@ -1,4 +1,36 @@
-# Notch Calendar 3.3.10
+# superNotch 3.6.0
+
+## 3.6.0：superNotch、个人助理与安装引导
+
+- 应用名称、图标、工作台和设置统一为 superNotch，保留已有日历、待办、授权和更新通道。
+- 新增个人助理、会后跟进与项目报告，可导入材料、生成待办草稿，并在确认后添加待办或日程；支持文件与关注任务，能力按需开启。
+- AI 助理组件独立下载、校验和安装，主应用保持轻量；当前执行组件适用于 Apple 芯片，Intel 可使用原生日历、待办和普通模型聊天。
+- 优化 AI 用量与编程动态的紧凑展示、助理活动提示、悬停描边和灯光设置，保留用户已有选择。
+- 调整待办面板、专注、音乐歌词、行情、剪贴板、开发工具与设置的排版和操作反馈，改进切页与编辑状态保留。
+- 优化授权恢复与领码入口、首次默认配置；待办支持自定义标题，打卡提醒采用刘海通知胶囊。
+- DMG 新增中英文「安装说明.txt」，说明首次打开、系统拦截、隔离属性命令及旧版应用路径。
+
+macOS 15+，Apple 芯片与 Intel 通用主应用，build 168。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；请退出旧应用后使用 DMG 手动替换。助理需要配置可用模型及安装配套组件，写入待办或日程需要用户确认。
+
+本版执行冻结源码定向回归与通用安装包核验；完整硬件、多显示器、VoiceOver、Intel 实机、在线模型质量与持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/NotchCalendar-3.6.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/NotchCalendar-3.6.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/SHA256SUMS.txt)
+
+## 3.6.0: superNotch, personal assistant and installation guide
+
+- Adopt the superNotch name and icon across the app, workspace and Settings while retaining existing data, licenses and update compatibility.
+- Add a personal assistant, meeting follow-ups and project reports, with imported materials, Todo drafts and calendar drafts confirmed before saving. Enable file and watch capabilities as needed.
+- Download, verify and install the optional AI assistant component separately. Its current execution component supports Apple silicon; Intel retains the native calendar, Todos and regular model chat.
+- Refine compact AI usage, coding activity, assistant status, hover outlines and lighting settings while respecting saved preferences.
+- Improve Todo panels, focus, lyrics, markets, clipboard, developer tools and Settings, including navigation and retained editing state.
+- Improve license recovery and claim access, initial defaults, custom Todo headings and notch check-in notifications.
+- Include a bilingual installation guide in the DMG with first-launch help, quarantine commands and legacy app paths.
+
+macOS 15+, universal Apple silicon/Intel main app, build 168. Ad-hoc signed, without Developer ID signing or Apple notarization. Quit the previous app and replace it manually through the DMG. Assistant execution requires a configured model and its optional component; Todo and calendar writes require confirmation.
+
+Frozen-source targeted regressions and universal package verification are recorded for this release. Full hardware, multiple displays, VoiceOver, physical Intel, online-model quality and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/NotchCalendar-3.6.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/NotchCalendar-3.6.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/SHA256SUMS.txt)
 
 ## 3.3.10：待办日历与统计、自定义入口和切换优化
 

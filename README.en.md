@@ -1,9 +1,37 @@
-# Notch Calendar
+# superNotch
 
-Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor, quick tools and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
+Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 3.3.10](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.10) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 3.6.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.6.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## Installation and first launch
+
+Open the DMG, drag the app into Applications, wait for the copy to finish, then launch it from Applications. New packages include a bilingual `安装说明.txt` that you can read before opening the app.
+
+The current manual-install build is not notarized by Apple. If macOS blocks the first launch of an official download, try System Settings → Privacy & Security → Open Anyway. If download quarantine still blocks a verified official package, run this in Terminal:
+
+```sh
+sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
+```
+
+Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
+
+
+## 3.6.0: superNotch, personal assistant and installation guide
+
+- Adopt the superNotch name and icon across the app, workspace and Settings while retaining existing data, licenses and update compatibility.
+- Add a personal assistant, meeting follow-ups and project reports, with imported materials, Todo drafts and calendar drafts confirmed before saving. Enable file and watch capabilities as needed.
+- Download, verify and install the optional AI assistant component separately. Its current execution component supports Apple silicon; Intel retains the native calendar, Todos and regular model chat.
+- Refine compact AI usage, coding activity, assistant status, hover outlines and lighting settings while respecting saved preferences.
+- Improve Todo panels, focus, lyrics, markets, clipboard, developer tools and Settings, including navigation and retained editing state.
+- Improve license recovery and claim access, initial defaults, custom Todo headings and notch check-in notifications.
+- Include a bilingual installation guide in the DMG with first-launch help, quarantine commands and legacy app paths.
+
+macOS 15+, universal Apple silicon/Intel main app, build 168. Ad-hoc signed, without Developer ID signing or Apple notarization. Quit the previous app and replace it manually through the DMG. Assistant execution requires a configured model and its optional component; Todo and calendar writes require confirmation.
+
+Frozen-source targeted regressions and universal package verification are recorded for this release. Full hardware, multiple displays, VoiceOver, physical Intel, online-model quality and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/NotchCalendar-3.6.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/NotchCalendar-3.6.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/SHA256SUMS.txt)
 
 ## 3.3.10: Todo calendar and statistics, custom entry images, smoother navigation
 

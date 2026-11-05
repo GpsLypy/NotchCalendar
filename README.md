@@ -1,9 +1,37 @@
-# Notch Calendar
+# superNotch
 
-从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具、系统监控与便捷工具等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
+从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 3.3.10](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.3.10) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 3.6.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v3.6.0) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
+## 安装与首次打开
+
+打开 DMG，将应用拖入 Applications（应用程序），等待复制完成后从「应用程序」启动。新版安装包内附「安装说明.txt」，无需启动应用即可查阅。
+
+当前手动安装版尚未经过 Apple 公证。确认下载来自官方发布页后，若首次打开被拦截，可先尝试「系统设置 → 隐私与安全性 → 仍要打开」。若仍因下载隔离而无法打开，确认官方安装包校验通过后，在终端执行：
+
+```sh
+sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
+```
+
+输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
+
+
+## 3.6.0：superNotch、个人助理与安装引导
+
+- 应用名称、图标、工作台和设置统一为 superNotch，保留已有日历、待办、授权和更新通道。
+- 新增个人助理、会后跟进与项目报告，可导入材料、生成待办草稿，并在确认后添加待办或日程；支持文件与关注任务，能力按需开启。
+- AI 助理组件独立下载、校验和安装，主应用保持轻量；当前执行组件适用于 Apple 芯片，Intel 可使用原生日历、待办和普通模型聊天。
+- 优化 AI 用量与编程动态的紧凑展示、助理活动提示、悬停描边和灯光设置，保留用户已有选择。
+- 调整待办面板、专注、音乐歌词、行情、剪贴板、开发工具与设置的排版和操作反馈，改进切页与编辑状态保留。
+- 优化授权恢复与领码入口、首次默认配置；待办支持自定义标题，打卡提醒采用刘海通知胶囊。
+- DMG 新增中英文「安装说明.txt」，说明首次打开、系统拦截、隔离属性命令及旧版应用路径。
+
+macOS 15+，Apple 芯片与 Intel 通用主应用，build 168。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；请退出旧应用后使用 DMG 手动替换。助理需要配置可用模型及安装配套组件，写入待办或日程需要用户确认。
+
+本版执行冻结源码定向回归与通用安装包核验；完整硬件、多显示器、VoiceOver、Intel 实机、在线模型质量与持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/NotchCalendar-3.6.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/NotchCalendar-3.6.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v3.6.0/SHA256SUMS.txt)
 
 ## 3.3.10：待办日历与统计、自定义入口和切换优化
 
