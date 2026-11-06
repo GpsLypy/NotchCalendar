@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.0.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,21 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.0.1: Copy and edit note cards, refined Todo and compact layouts
+
+- Switch Scratchpad between list and grid layouts. Every card has Copy and Edit actions; Edit selects the exact source text and takes keyboard focus. Preserve Unicode, duplicate text, multiline commands, autosave and undo, and return to the grid when done.
+- Add on-demand Todo search and filters, synchronized pinning controls, and independent task/category title visibility while preserving stored content.
+- Refine custom companion image sizing, desktop and notch Todo entries, and repeated interactions.
+- Improve activity overflow, press feedback, hit areas and compact coding usage. Fix state updates when the overflow menu closes.
+- Refine compact Calendar, Clipboard, Developer Tools, System Monitor and assistant layouts, retaining the shared toolbar and native editor state.
+- Include the current SuperNotch icon, grouped settings, cards and controls. Default lighting uses two colors while preserving saved preferences.
+
+macOS 15+, universal Apple silicon/Intel main app, build 170. Ad-hoc signed, without Developer ID signing or Apple notarization. Quit the previous app and replace it manually using the DMG; a bilingual installation guide is included. The optional assistant execution component currently supports Apple silicon; configure your own model and confirm Todo/calendar drafts before saving.
+
+Fresh targeted regressions and universal package verification are recorded separately. Complete UI, hardware, multiple displays, VoiceOver, physical Intel, live services and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.1/NotchCalendar-4.0.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.1/NotchCalendar-4.0.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.1/SHA256SUMS.txt)
 
 ## 4.0.0: Rounded controls and a refined notch toolbar
 

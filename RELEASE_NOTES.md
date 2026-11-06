@@ -1,4 +1,34 @@
-# superNotch 4.0.0
+# SuperNotch 4.0.1
+
+## 4.0.1：便笺方格可复制编辑，待办和紧凑布局更新
+
+- 便笺支持列表与方格切换，每张方格提供复制和编辑按钮；编辑直接定位原文并取得键盘焦点，保留中文、Emoji、重复内容、多行命令、自动保存和撤销，完成后返回方格。
+- 待办新增按需搜索与筛选、同步的常驻开关，以及任务标题和分类标题的独立显示设置；隐藏标题时保留原始数据。
+- 优化小伴侣自定义图片尺寸、桌面待办入口与刘海入口的展示和连续操作。
+- 调整活动胶囊的多活动溢出、按压反馈、点击区域与编程额度布局；修复溢出菜单关闭时的状态更新时机。
+- 改进日历、剪贴板、开发工具、系统监控与助理在紧凑窗口中的排版，保留完整共享工具栏与原有编辑状态。
+- 同步当前 SuperNotch 图标、设置分组、卡片和按钮视觉；默认灯光采用双色，保留已保存的用户选择。
+
+macOS 15+，Apple 芯片与 Intel 通用主应用，build 170。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换。DMG 内附中英文安装说明。AI 助理执行组件按需安装，当前适用于 Apple 芯片；模型需要自行配置，待办和日程草稿需确认后写入。
+
+本版执行最新冻结源码的定向回归与通用安装包核验；完整界面回归、硬件、多显示器、VoiceOver、Intel 实机、在线服务和持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.1/NotchCalendar-4.0.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.1/NotchCalendar-4.0.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.1/SHA256SUMS.txt)
+
+## 4.0.1: Copy and edit note cards, refined Todo and compact layouts
+
+- Switch Scratchpad between list and grid layouts. Every card has Copy and Edit actions; Edit selects the exact source text and takes keyboard focus. Preserve Unicode, duplicate text, multiline commands, autosave and undo, and return to the grid when done.
+- Add on-demand Todo search and filters, synchronized pinning controls, and independent task/category title visibility while preserving stored content.
+- Refine custom companion image sizing, desktop and notch Todo entries, and repeated interactions.
+- Improve activity overflow, press feedback, hit areas and compact coding usage. Fix state updates when the overflow menu closes.
+- Refine compact Calendar, Clipboard, Developer Tools, System Monitor and assistant layouts, retaining the shared toolbar and native editor state.
+- Include the current SuperNotch icon, grouped settings, cards and controls. Default lighting uses two colors while preserving saved preferences.
+
+macOS 15+, universal Apple silicon/Intel main app, build 170. Ad-hoc signed, without Developer ID signing or Apple notarization. Quit the previous app and replace it manually using the DMG; a bilingual installation guide is included. The optional assistant execution component currently supports Apple silicon; configure your own model and confirm Todo/calendar drafts before saving.
+
+Fresh targeted regressions and universal package verification are recorded separately. Complete UI, hardware, multiple displays, VoiceOver, physical Intel, live services and sustained performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.1/NotchCalendar-4.0.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.1/NotchCalendar-4.0.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.1/SHA256SUMS.txt)
 
 ## 4.0.0：统一圆角与更清爽的刘海工具栏
 
