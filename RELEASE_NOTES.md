@@ -1,4 +1,30 @@
-# SuperNotch 4.0.2
+# SuperNotch 4.0.3
+
+## 4.0.3：双指切换稳定性与独立便签
+
+- 修正双指横向切换时邻页偶闪、快速反向跳位和面板整体漂移，重点改善系统监控与便签之间的切换。
+- 便签支持独立卡片的新增、编辑、复制、删除与撤销，列表和方格共用内容；保留旧便签文本、自动保存与备份恢复。
+- 系统监控重新显示时保留内存和磁盘读数，减少内容跳变。
+- 项目报告支持使用已配置模型整理中文提交说明、单独查看历史报告，并改善长内容与 PDF 分页。
+
+macOS 15+，Apple 芯片与 Intel 通用主应用，build 172。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换。DMG 内附中英文安装说明。可选 AI 助理执行组件当前适用于 Apple 芯片。
+
+本版针对冻结源码重新执行相关回归与通用安装包核验。物理触控板、多显示器、VoiceOver、Intel 实机及持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.3/NotchCalendar-4.0.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.3/NotchCalendar-4.0.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.3/SHA256SUMS.txt)
+
+## 4.0.3: Stable two-finger switching and independent scratchpad cards
+
+- Fix intermittent adjacent-page flashes, jumps on rapid reversal and panel drift during horizontal two-finger switching, particularly between System Monitor and Scratchpad.
+- Add independent scratchpad cards with creation, editing, copying, deletion and undo. List and grid share the same content, preserving legacy text, autosave and backup restoration.
+- Retain memory and disk readings when System Monitor becomes visible again to reduce content jumps.
+- Let project reports use your configured model to write commit descriptions in Chinese, provide a dedicated report-history view, and improve long-content and PDF pagination.
+
+macOS 15+, universal Apple silicon/Intel main app, build 172. Ad-hoc signed, without Developer ID signing or Apple notarization. Quit the previous app and replace it manually using the DMG; a bilingual installation guide is included. The optional AI assistant execution component currently supports Apple silicon.
+
+Related regression tests and universal-package checks are rerun against this release's frozen source. Physical trackpad, multiple displays, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.3/NotchCalendar-4.0.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.3/NotchCalendar-4.0.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.3/SHA256SUMS.txt)
 
 ## 4.0.2：待办常驻、图片缩放与提醒默认值修正
 

@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.0.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.0.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,19 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.0.3：双指切换稳定性与独立便签
+
+- 修正双指横向切换时邻页偶闪、快速反向跳位和面板整体漂移，重点改善系统监控与便签之间的切换。
+- 便签支持独立卡片的新增、编辑、复制、删除与撤销，列表和方格共用内容；保留旧便签文本、自动保存与备份恢复。
+- 系统监控重新显示时保留内存和磁盘读数，减少内容跳变。
+- 项目报告支持使用已配置模型整理中文提交说明、单独查看历史报告，并改善长内容与 PDF 分页。
+
+macOS 15+，Apple 芯片与 Intel 通用主应用，build 172。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换。DMG 内附中英文安装说明。可选 AI 助理执行组件当前适用于 Apple 芯片。
+
+本版针对冻结源码重新执行相关回归与通用安装包核验。物理触控板、多显示器、VoiceOver、Intel 实机及持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.3/NotchCalendar-4.0.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.3/NotchCalendar-4.0.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.3/SHA256SUMS.txt)
 
 ## 4.0.2：待办常驻、图片缩放与提醒默认值修正
 
