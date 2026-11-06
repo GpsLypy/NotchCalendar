@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.0.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,19 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.0.2: Todo residency, image scaling and reminder defaults
+
+- Hidden Todo task and category titles consistently display `****` while preserving stored content.
+- Enabling notch residency from the desktop immediately positions the Todo card below its resident entry. The entry opens only on click; hovering no longer opens it.
+- Remove the blue rectangular backdrop from custom desktop images and preserve transparency. Expand image scaling to 100%–1000%.
+- Default water reminders to 10 minutes and movement reminders to 30 minutes, preserving valid saved preferences.
+
+macOS 15+, universal Apple silicon/Intel main app, build 171. Ad-hoc signed, without Developer ID signing or Apple notarization. Quit the previous app and replace it manually using the DMG; a bilingual installation guide is included. The optional AI assistant execution component currently supports Apple silicon.
+
+Regression tests were skipped at the project owner's explicit request. This release performs build, package-integrity and publication/download verification only; no functional, UI, hardware or performance regression pass is claimed.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.2/NotchCalendar-4.0.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.2/NotchCalendar-4.0.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.2/SHA256SUMS.txt)
 
 ## 4.0.1: Copy and edit note cards, refined Todo and compact layouts
 

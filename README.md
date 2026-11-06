@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.0.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.0.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,19 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.0.2：待办常驻、图片缩放与提醒默认值修正
+
+- 待办隐藏任务或分类标题时统一显示 `****`，保留原始内容。
+- 从桌面开启刘海常驻后，待办卡片立即定位到常驻入口下方；常驻图标仅点击展开，鼠标移过不再自动打开。
+- 自定义桌面图片移除蓝色矩形底框，保留图片透明区域；缩放范围扩大到 100%–1000%。
+- 喝水提醒默认每 10 分钟一次，舒展提醒默认每 30 分钟一次，保留已保存的有效用户设置。
+
+macOS 15+，Apple 芯片与 Intel 通用主应用，build 171。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换。DMG 内附中英文安装说明。可选 AI 助理执行组件当前适用于 Apple 芯片。
+
+按项目所有者要求，本次跳过回归测试，直接构建打包；仅执行安装包完整性及发布下载核验，不声明功能、界面、硬件或性能回归通过。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.2/NotchCalendar-4.0.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.2/NotchCalendar-4.0.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.2/SHA256SUMS.txt)
 
 ## 4.0.1：便笺方格可复制编辑，待办和紧凑布局更新
 
