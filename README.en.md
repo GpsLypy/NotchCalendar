@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.0.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.0.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,20 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.0.5: Shake to reveal File Tray, with a discoverable guide
+
+- Hold files or folders in Finder and shake the pointer back and forth to reveal a tray beside it. Keep holding, drag into the tray, then release to collect them.
+- Reveal the tray without activating superNotch or taking keyboard focus. Only a fresh file drag can trigger it, once per drag; ordinary pointer motion, window dragging and text dragging are ignored.
+- Add a default-on shake preference, a direct Open action and a three-step collection, selection and batch-drag guide under Settings → Data & Files → File Tray. Settings search now finds File Tray and shake.
+- Add Open floating File Tray to the Window menu. Keep the existing Files page, add, paste, grid and list controls.
+- Closing the panel retains this session's references; quitting clears them. Original files stay in place.
+
+macOS 15+, universal Apple silicon/Intel main app, build 174. Ad-hoc signed, without Developer ID signing or Apple notarization. The DMG includes a bilingual installation guide. The optional AI execution component currently supports Apple silicon.
+
+This release validates gesture decisions, drag-session boundaries, panel placement and focus, settings guidance, existing tray behavior and universal packaging. End-to-end physical Finder shake-and-drop, physical trackpad, multiple displays, VoiceOver, physical Intel and sustained performance still need manual acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.5/NotchCalendar-4.0.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.5/NotchCalendar-4.0.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.5/SHA256SUMS.txt)
 
 ## 4.0.4: File Tray, music shortcuts and interaction refinements
 

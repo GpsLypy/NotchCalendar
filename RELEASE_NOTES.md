@@ -1,4 +1,32 @@
-# SuperNotch 4.0.4
+# SuperNotch 4.0.5
+
+## 4.0.5：文件暂存摇晃唤出与使用引导
+
+- 拖住 Finder 中的文件或文件夹并快速来回晃动鼠标，暂存窗会出现在指针旁；保持按住，将文件拖进窗口后松手即可收集。
+- 摇晃唤出保留当前应用与键盘焦点；仅识别当前文件拖动，一次拖动只唤出一次，避免普通移动鼠标、拖动窗口或文字时误弹出。
+- 「设置 → 数据与文件 → 文件暂存」新增默认开启的摇晃开关、直接打开按钮和收集、选择、批量拖出的三步说明；设置搜索支持「暂存」「摇晃」「悬浮」。
+- 「窗口」菜单新增打开悬浮暂存窗入口；原有刘海文件页入口、添加、粘贴、网格和列表操作继续可用。
+- 关闭浮窗保留本次暂存，退出应用清空暂存引用；移出与清空不会删除原文件。
+
+macOS 15+，Apple 芯片与 Intel 通用主应用，build 174。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证。DMG 内附中英文安装说明；可选 AI 助理执行组件当前适用于 Apple 芯片。
+
+本版验证手势判定、拖拽会话边界、浮窗定位与焦点、设置说明及现有暂存行为，并核验通用安装包。真实 Finder 连续摇晃拖放、物理触控板、多显示器、VoiceOver、Intel 实机及持续性能仍待人工验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.5/NotchCalendar-4.0.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.5/NotchCalendar-4.0.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.5/SHA256SUMS.txt)
+
+## 4.0.5: Shake to reveal File Tray, with a discoverable guide
+
+- Hold files or folders in Finder and shake the pointer back and forth to reveal a tray beside it. Keep holding, drag into the tray, then release to collect them.
+- Reveal the tray without activating superNotch or taking keyboard focus. Only a fresh file drag can trigger it, once per drag; ordinary pointer motion, window dragging and text dragging are ignored.
+- Add a default-on shake preference, a direct Open action and a three-step collection, selection and batch-drag guide under Settings → Data & Files → File Tray. Settings search now finds File Tray and shake.
+- Add Open floating File Tray to the Window menu. Keep the existing Files page, add, paste, grid and list controls.
+- Closing the panel retains this session's references; quitting clears them. Original files stay in place.
+
+macOS 15+, universal Apple silicon/Intel main app, build 174. Ad-hoc signed, without Developer ID signing or Apple notarization. The DMG includes a bilingual installation guide. The optional AI execution component currently supports Apple silicon.
+
+This release validates gesture decisions, drag-session boundaries, panel placement and focus, settings guidance, existing tray behavior and universal packaging. End-to-end physical Finder shake-and-drop, physical trackpad, multiple displays, VoiceOver, physical Intel and sustained performance still need manual acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.5/NotchCalendar-4.0.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.5/NotchCalendar-4.0.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.5/SHA256SUMS.txt)
 
 ## 4.0.4：文件托盘、音乐快捷入口与交互细节打磨
 
