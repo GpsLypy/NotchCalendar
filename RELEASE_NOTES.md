@@ -1,4 +1,26 @@
-# SuperNotch 4.0.5
+# SuperNotch 4.1.0
+
+## 4.1.0：授权指引与桌面文件暂存
+
+- 授权页新增显眼的「本机安装标识」卡片：购买、领码和激活页均可直接复制，并提示连同付款凭证发给作者；读取失败时提供重试和求助资料入口。
+- 文件暂存新增桌面收起入口与独立工作区页面，改善打开、收起及定位体验；保留拖住文件摇晃唤出、批量拖出和本次会话暂存。
+- 更新后首次进入「今天」可查看本机版本更新卡片，关闭后可从「近期更新」重新打开。
+- 改善提醒交互与布局、显示器恢复和刘海窗口状态衔接。
+
+macOS 15+，Apple 芯片与 Intel，build 175。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用原有授权、便签和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.0/NotchCalendar-4.1.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.0/NotchCalendar-4.1.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.0/SHA256SUMS.txt)
+
+## 4.1.0: Clearer activation guidance and desktop File Tray
+
+- A visible installation ID card offers direct copying in every purchase, code-request and activation journey, with receipt instructions and recovery help when the ID is unavailable.
+- File Tray gains a desktop handle and a dedicated workspace page, with improved open, minimize and placement behavior. Shake to reveal, batch dragging and session-only collection remain available.
+- The Today workspace shows the installed version's release card after an update, with a Recent updates entry to reopen it.
+- Refines reminder interactions and layout, display recovery and notch window transitions.
+
+macOS 15+, Apple silicon and Intel, build 175. CNY 9.90 once, lifetime updates, no subscription. Ad-hoc signed, not Developer ID signed or notarized. Quit the previous app, drag the app from the DMG into Applications and restart. Existing licenses, notes and settings remain when app data is kept.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.0/NotchCalendar-4.1.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.0/NotchCalendar-4.1.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.0/SHA256SUMS.txt)
 
 ## 4.0.5：文件暂存摇晃唤出与使用引导
 

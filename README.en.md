@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.0.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.1.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.1.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,17 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.1.0: Clearer activation guidance and desktop File Tray
+
+- A visible installation ID card offers direct copying in every purchase, code-request and activation journey, with receipt instructions and recovery help when the ID is unavailable.
+- File Tray gains a desktop handle and a dedicated workspace page, with improved open, minimize and placement behavior. Shake to reveal, batch dragging and session-only collection remain available.
+- The Today workspace shows the installed version's release card after an update, with a Recent updates entry to reopen it.
+- Refines reminder interactions and layout, display recovery and notch window transitions.
+
+macOS 15+, Apple silicon and Intel, build 175. CNY 9.90 once, lifetime updates, no subscription. Ad-hoc signed, not Developer ID signed or notarized. Quit the previous app, drag the app from the DMG into Applications and restart. Existing licenses, notes and settings remain when app data is kept.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.0/NotchCalendar-4.1.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.0/NotchCalendar-4.1.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.0/SHA256SUMS.txt)
 
 ## 4.0.5: Shake to reveal File Tray, with a discoverable guide
 
