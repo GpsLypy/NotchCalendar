@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.0.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.0.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,21 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.0.4: File Tray, music shortcuts and interaction refinements
+
+- Add a session-only File Tray for collecting file references across folders, selecting in grid or list, copying or dragging batches, and continuing in a shared floating panel. Removing or clearing references keeps the original files intact.
+- Configure favorite music apps and a Shortcuts entry on the idle music page, preserving saved order and an intentionally empty list. Entries explicitly open an app or run the selected shortcut; they never start the camera automatically.
+- Show coding activity and quota in one compact capsule. Low quota uses the same amber/red warnings as details, exhausted and unavailable remain distinct, and active task counts are corrected.
+- Add subtle hover, press and keyboard-focus feedback to focus suggestions and check-in reminders without moving buttons. Reduce Motion disables button transitions.
+- Cancel and retry update downloads with unfinished-file cleanup. AI usage adapts to narrow panels, and refreshing keeps toolbar controls in place.
+- Improve settings search and Return navigation, pinned clipboard ordering, copy and music-command feedback. Confirm task deletion, focus reset and tray clearing; reveal bookmark actions in long lists and start editing newly created timestamp notes.
+
+macOS 15+, universal Apple silicon/Intel main app, build 173. Ad-hoc signed, without Developer ID signing or Apple notarization. Quit the previous app and replace it manually using the DMG; a bilingual installation guide is included. The optional AI assistant execution component currently supports Apple silicon.
+
+Related regression tests and universal-package checks are rerun against this release's frozen source. Physical trackpad, multiple displays, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/NotchCalendar-4.0.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/NotchCalendar-4.0.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/SHA256SUMS.txt)
 
 ## 4.0.3: Stable two-finger switching and independent scratchpad cards
 

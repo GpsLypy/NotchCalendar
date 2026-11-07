@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.0.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.0.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.0.4) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,21 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.0.4：文件托盘、音乐快捷入口与交互细节打磨
+
+- 新增本次会话的文件托盘，可跨文件夹收集文件引用，使用网格或列表多选、批量复制与拖出，并通过独立浮窗继续操作；移除或清空托盘不会删除原文件。
+- 音乐空闲页支持配置常用音乐应用与快捷指令入口，保留已保存的顺序和空列表；点击入口打开应用或运行指定快捷指令，不会自动开启摄像头。
+- 编程动态采用单个紧凑胶囊并内嵌额度；低额度提示与详情页统一为黄色／红色，区分未知与已用完，修正活跃任务数量显示。
+- 专注建议和签到提醒增加轻微悬停、按压及键盘焦点反馈，按钮保持原位；减少动态效果时关闭按钮过渡。
+- 软件更新下载支持取消与重新下载，清理未完成文件；AI 用量页优化窄面板排布，刷新等待不再挤动工具按钮。
+- 改善设置搜索和 Return 操作、置顶剪贴板顺序、复制与音乐操作反馈；待办删除、专注重置和托盘清空增加确认，长书签操作自动定位，便签新增后立即进入编辑。
+
+macOS 15+，Apple 芯片与 Intel 通用主应用，build 173。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换。DMG 内附中英文安装说明。可选 AI 助理执行组件当前适用于 Apple 芯片。
+
+本版针对冻结源码重新执行相关回归与通用安装包核验。物理触控板、多显示器、VoiceOver、Intel 实机及持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/NotchCalendar-4.0.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/NotchCalendar-4.0.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/SHA256SUMS.txt)
 
 ## 4.0.3：双指切换稳定性与独立便签
 

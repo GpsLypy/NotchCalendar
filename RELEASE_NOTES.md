@@ -1,4 +1,34 @@
-# SuperNotch 4.0.3
+# SuperNotch 4.0.4
+
+## 4.0.4：文件托盘、音乐快捷入口与交互细节打磨
+
+- 新增本次会话的文件托盘，可跨文件夹收集文件引用，使用网格或列表多选、批量复制与拖出，并通过独立浮窗继续操作；移除或清空托盘不会删除原文件。
+- 音乐空闲页支持配置常用音乐应用与快捷指令入口，保留已保存的顺序和空列表；点击入口打开应用或运行指定快捷指令，不会自动开启摄像头。
+- 编程动态采用单个紧凑胶囊并内嵌额度；低额度提示与详情页统一为黄色／红色，区分未知与已用完，修正活跃任务数量显示。
+- 专注建议和签到提醒增加轻微悬停、按压及键盘焦点反馈，按钮保持原位；减少动态效果时关闭按钮过渡。
+- 软件更新下载支持取消与重新下载，清理未完成文件；AI 用量页优化窄面板排布，刷新等待不再挤动工具按钮。
+- 改善设置搜索和 Return 操作、置顶剪贴板顺序、复制与音乐操作反馈；待办删除、专注重置和托盘清空增加确认，长书签操作自动定位，便签新增后立即进入编辑。
+
+macOS 15+，Apple 芯片与 Intel 通用主应用，build 173。ad-hoc 签名，未进行 Developer ID 签名或 Apple 公证；退出旧应用后使用 DMG 手动替换。DMG 内附中英文安装说明。可选 AI 助理执行组件当前适用于 Apple 芯片。
+
+本版针对冻结源码重新执行相关回归与通用安装包核验。物理触控板、多显示器、VoiceOver、Intel 实机及持续性能验收仍待完成。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/NotchCalendar-4.0.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/NotchCalendar-4.0.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/SHA256SUMS.txt)
+
+## 4.0.4: File Tray, music shortcuts and interaction refinements
+
+- Add a session-only File Tray for collecting file references across folders, selecting in grid or list, copying or dragging batches, and continuing in a shared floating panel. Removing or clearing references keeps the original files intact.
+- Configure favorite music apps and a Shortcuts entry on the idle music page, preserving saved order and an intentionally empty list. Entries explicitly open an app or run the selected shortcut; they never start the camera automatically.
+- Show coding activity and quota in one compact capsule. Low quota uses the same amber/red warnings as details, exhausted and unavailable remain distinct, and active task counts are corrected.
+- Add subtle hover, press and keyboard-focus feedback to focus suggestions and check-in reminders without moving buttons. Reduce Motion disables button transitions.
+- Cancel and retry update downloads with unfinished-file cleanup. AI usage adapts to narrow panels, and refreshing keeps toolbar controls in place.
+- Improve settings search and Return navigation, pinned clipboard ordering, copy and music-command feedback. Confirm task deletion, focus reset and tray clearing; reveal bookmark actions in long lists and start editing newly created timestamp notes.
+
+macOS 15+, universal Apple silicon/Intel main app, build 173. Ad-hoc signed, without Developer ID signing or Apple notarization. Quit the previous app and replace it manually using the DMG; a bilingual installation guide is included. The optional AI assistant execution component currently supports Apple silicon.
+
+Related regression tests and universal-package checks are rerun against this release's frozen source. Physical trackpad, multiple displays, VoiceOver, physical Intel and sustained-performance acceptance remain pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/NotchCalendar-4.0.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/NotchCalendar-4.0.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.0.4/SHA256SUMS.txt)
 
 ## 4.0.3：双指切换稳定性与独立便签
 
