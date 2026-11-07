@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.1.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.1.0) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.1.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.1.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,17 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.1.1：贴边暂存抽屉与可移动入口
+
+- 文件暂存默认在屏幕右上侧露出细边，鼠标移上去滑出托盘图标、「暂存」标签和文件数量；移开后自动收回，点击才打开暂存窗。
+- 设置支持「横条 / 侧边标签」两种桌面入口。横条缩短为原来的三分之一；两种入口均支持拖动并记住位置，保留之前选定的位置。
+- 侧边入口打开暂存窗时优先向左展开；关闭、Escape 或摇晃唤出后的收起保留文件与选择。空置时隐藏数量角标，减少动态效果时关闭滑动动画。
+- 入口适配浅色和深色外观，完善中英文设置、使用说明、键盘与辅助功能操作；不再为了定位入口轮询菜单栏电池位置。
+
+macOS 15+，Apple 芯片与 Intel，build 176。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用原有授权、便签和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/NotchCalendar-4.1.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/NotchCalendar-4.1.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/SHA256SUMS.txt)
 
 ## 4.1.0：授权指引与桌面文件暂存
 

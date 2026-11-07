@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.1.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.1.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.1.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.1.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,17 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.1.1: Edge drawer and movable File Tray entry
+
+- File Tray rests as a thin edge at the upper-right of the screen. Hover to slide out the tray icon, label and file count; move away to retract it, or click to open the tray.
+- Choose a horizontal bar or side tab in settings. The bar is one third of its previous width; both entries can be dragged and remember their position, including existing custom placement.
+- A side entry opens the tray beside it, preferring the left. Closing, Escape and minimizing after shake reveal preserve files and selection. Empty trays omit the count badge; Reduce Motion disables sliding.
+- Refines light/dark appearance, Chinese/English guidance, keyboard and accessibility actions. Positioning no longer polls the menu bar battery.
+
+macOS 15+, Apple silicon and Intel, build 176. CNY 9.90 once, lifetime updates, no subscription. Ad-hoc signed, not Developer ID signed or notarized. Quit the previous app, drag the app from the DMG into Applications and restart. Existing licenses, notes and settings remain when app data is kept.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/NotchCalendar-4.1.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/NotchCalendar-4.1.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/SHA256SUMS.txt)
 
 ## 4.1.0: Clearer activation guidance and desktop File Tray
 

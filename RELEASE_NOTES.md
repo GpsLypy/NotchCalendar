@@ -1,4 +1,26 @@
-# SuperNotch 4.1.0
+# superNotch 4.1.1
+
+## 4.1.1：贴边暂存抽屉与可移动入口
+
+- 文件暂存默认在屏幕右上侧露出细边，鼠标移上去滑出托盘图标、「暂存」标签和文件数量；移开后自动收回，点击才打开暂存窗。
+- 设置支持「横条 / 侧边标签」两种桌面入口。横条缩短为原来的三分之一；两种入口均支持拖动并记住位置，保留之前选定的位置。
+- 侧边入口打开暂存窗时优先向左展开；关闭、Escape 或摇晃唤出后的收起保留文件与选择。空置时隐藏数量角标，减少动态效果时关闭滑动动画。
+- 入口适配浅色和深色外观，完善中英文设置、使用说明、键盘与辅助功能操作；不再为了定位入口轮询菜单栏电池位置。
+
+macOS 15+，Apple 芯片与 Intel，build 176。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用原有授权、便签和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/NotchCalendar-4.1.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/NotchCalendar-4.1.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/SHA256SUMS.txt)
+
+## 4.1.1: Edge drawer and movable File Tray entry
+
+- File Tray rests as a thin edge at the upper-right of the screen. Hover to slide out the tray icon, label and file count; move away to retract it, or click to open the tray.
+- Choose a horizontal bar or side tab in settings. The bar is one third of its previous width; both entries can be dragged and remember their position, including existing custom placement.
+- A side entry opens the tray beside it, preferring the left. Closing, Escape and minimizing after shake reveal preserve files and selection. Empty trays omit the count badge; Reduce Motion disables sliding.
+- Refines light/dark appearance, Chinese/English guidance, keyboard and accessibility actions. Positioning no longer polls the menu bar battery.
+
+macOS 15+, Apple silicon and Intel, build 176. CNY 9.90 once, lifetime updates, no subscription. Ad-hoc signed, not Developer ID signed or notarized. Quit the previous app, drag the app from the DMG into Applications and restart. Existing licenses, notes and settings remain when app data is kept.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/NotchCalendar-4.1.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/NotchCalendar-4.1.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.1/SHA256SUMS.txt)
 
 ## 4.1.0：授权指引与桌面文件暂存
 
