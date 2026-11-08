@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.1.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.1.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.1.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.1.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,17 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.1.2：切页亮度一致与授权指引
+
+- 双指切换刘海页面时，预览与切换到位后的亮度保持一致，减少按钮、图标和内容突然变亮。
+- 页面来回切换时保留文件图标、图片缩略图与助理标识，减少重复加载和入场闪动。
+- 授权购买页在价格旁直接展示微信付款码，付款入口更容易找到。
+- 授权读取失败时提供钥匙串访问、解锁、重启及本机文件恢复指引，并保留作者求助入口。
+
+macOS 15+，Apple 芯片与 Intel，build 177，2026-11-08。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用原有授权、便签和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.2/NotchCalendar-4.1.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.2/NotchCalendar-4.1.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.2/SHA256SUMS.txt)
 
 ## 4.1.1：贴边暂存抽屉与可移动入口
 

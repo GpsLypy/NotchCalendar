@@ -1,4 +1,26 @@
-# superNotch 4.1.1
+# superNotch 4.1.2
+
+## 4.1.2：切页亮度一致与授权指引
+
+- 双指切换刘海页面时，预览与切换到位后的亮度保持一致，减少按钮、图标和内容突然变亮。
+- 页面来回切换时保留文件图标、图片缩略图与助理标识，减少重复加载和入场闪动。
+- 授权购买页在价格旁直接展示微信付款码，付款入口更容易找到。
+- 授权读取失败时提供钥匙串访问、解锁、重启及本机文件恢复指引，并保留作者求助入口。
+
+macOS 15+，Apple 芯片与 Intel，build 177，2026-11-08。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用原有授权、便签和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.2/NotchCalendar-4.1.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.2/NotchCalendar-4.1.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.2/SHA256SUMS.txt)
+
+## 4.1.2: Consistent swipe appearance and activation guidance
+
+- Keep notch page previews and settled pages at a consistent brightness, reducing sudden brightening of controls, icons and content.
+- Retain file icons, image thumbnails and the assistant mark when switching pages, reducing repeated loading and entrance flashes.
+- Show the WeChat payment code beside the purchase price so it is easier to find.
+- Add clearer Keychain access, unlock, restart and local license recovery guidance, with a direct route to contact the author.
+
+macOS 15+, Apple silicon and Intel, build 177, 2026-11-08. CNY 9.90 once, lifetime updates, no subscription. Ad-hoc signed, not Developer ID signed or notarized. Quit the previous app, drag the app from the DMG into Applications and restart. Existing licenses, notes and settings remain when app data is kept.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.2/NotchCalendar-4.1.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.2/NotchCalendar-4.1.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.1.2/SHA256SUMS.txt)
 
 ## 4.1.1：贴边暂存抽屉与可移动入口
 
