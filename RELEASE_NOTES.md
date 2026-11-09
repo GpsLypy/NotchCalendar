@@ -1,4 +1,28 @@
-# superNotch 4.2.0
+# superNotch 4.2.1
+
+## 4.2.1：待办界面自定义与抽屉添加
+
+- 新增待办界面自定义，可选择显示的工具、内容模块和状态，并调整顺序；桌面、刘海和工作台分别保存。
+- 默认使用列表视图，可随时切换四象限；日历和统计增加返回待办入口，保留当前筛选。
+- 快速添加改为底部抽屉，点击加号展开或收起，也可用红色取消按钮和 Escape 关闭；保留未提交草稿。
+- 顶部工具采用圆角按钮与紫色点击反馈；新增图标悬停说明，添加选项排列更紧凑，分类入口更清晰。
+- 修正汇总提醒首次点击响应和弹出箭头位置；更多菜单只补充当前隐藏的入口，分组加号在悬停时显示。
+
+macOS 15+，Apple 芯片与 Intel，build 179，2026-11-09。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用原有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.1/NotchCalendar-4.2.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.1/NotchCalendar-4.2.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.1/SHA256SUMS.txt)
+
+## 4.2.1: Custom Todo layouts and drawer entry
+
+- Customize visible tools, content modules and statuses, including their order, independently for the desktop, notch and workspace.
+- Start in list view and switch to quadrants when needed. Calendar and statistics now return to tasks while retaining the current filters.
+- Add tasks in a bottom drawer. Click the plus again, the red cancel control or Escape to close it without losing the draft.
+- Use rounded toolbar buttons with violet feedback and hover descriptions. Compact option icons and a clearer category selector simplify quick entry.
+- Improve first-click summary-reminder response and popover alignment. More only lists hidden actions, and group add buttons appear on hover.
+
+macOS 15+, Apple silicon and Intel, build 179, 2026-11-09. CNY 9.90 once, lifetime updates, no subscription. Ad-hoc signed, not Developer ID signed or notarized. Quit the previous app, drag the app from the DMG into Applications and restart. Existing licenses, tasks and settings remain when app data is kept.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.1/NotchCalendar-4.2.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.1/NotchCalendar-4.2.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.1/SHA256SUMS.txt)
 
 ## 4.2.0：待办四象限与下一件事
 

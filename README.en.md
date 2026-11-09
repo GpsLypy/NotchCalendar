@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.2.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.2.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -17,17 +17,17 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
 
-## 4.2.0: Todo quadrants and the next task
+## 4.2.1: Custom Todo layouts and drawer entry
 
-- Organize tasks by importance and urgency in four quadrants. Tasks without importance stay in Unsorted; urgency can follow the due date or be set manually.
-- Group and collapse categories within each quadrant, add tasks directly, and move tasks by dragging or using the menu, with undo.
-- Manage a persistent tag library including empty tags, pinning, ordering, renaming and deletion; combine a category with a tag filter.
-- Choose one next task shared by the desktop, workspace and notch. The resident entry can open or complete it directly.
-- Improve compact Todo layouts and hidden-title privacy while preserving existing tasks, categories, reminders and backup compatibility.
+- Customize visible tools, content modules and statuses, including their order, independently for the desktop, notch and workspace.
+- Start in list view and switch to quadrants when needed. Calendar and statistics now return to tasks while retaining the current filters.
+- Add tasks in a bottom drawer. Click the plus again, the red cancel control or Escape to close it without losing the draft.
+- Use rounded toolbar buttons with violet feedback and hover descriptions. Compact option icons and a clearer category selector simplify quick entry.
+- Improve first-click summary-reminder response and popover alignment. More only lists hidden actions, and group add buttons appear on hover.
 
-macOS 15+, Apple silicon and Intel, build 178, 2026-11-09. CNY 9.90 once, lifetime updates, no subscription. Ad-hoc signed, not Developer ID signed or notarized. Quit the previous app, drag the app from the DMG into Applications and restart. Existing licenses, tasks and settings remain when app data is kept.
+macOS 15+, Apple silicon and Intel, build 179, 2026-11-09. CNY 9.90 once, lifetime updates, no subscription. Ad-hoc signed, not Developer ID signed or notarized. Quit the previous app, drag the app from the DMG into Applications and restart. Existing licenses, tasks and settings remain when app data is kept.
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.0/NotchCalendar-4.2.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.0/NotchCalendar-4.2.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.0/SHA256SUMS.txt)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.1/NotchCalendar-4.2.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.1/NotchCalendar-4.2.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.1/SHA256SUMS.txt)
 
 ## 4.1.2: Consistent swipe appearance and activation guidance
 
