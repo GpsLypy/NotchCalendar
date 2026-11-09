@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.1.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.1.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.2.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.0) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,18 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.2.0：待办四象限与下一件事
+
+- 新增待办四象限，按重要性与紧急程度整理任务；未设置重要性的任务保留在「待整理」，支持自动或手动判断紧急程度。
+- 象限内可按分类分组、折叠和直接新增；支持拖动任务切换分类与象限，或通过菜单移动，并可撤销。
+- 新增独立标签管理：保留空标签，支持置顶、排序、重命名和删除；分类与标签可组合筛选。
+- 将一项任务设为「下一件事」，在桌面、工作台和刘海同步查看；常驻入口可直接完成或打开任务。
+- 优化小尺寸待办排布和隐藏标题时的隐私展示，保留已有任务、分类、提醒与备份兼容性。
+
+macOS 15+，Apple 芯片与 Intel，build 178，2026-11-09。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用原有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.0/NotchCalendar-4.2.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.0/NotchCalendar-4.2.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.0/SHA256SUMS.txt)
 
 ## 4.1.2：切页亮度一致与授权指引
 
