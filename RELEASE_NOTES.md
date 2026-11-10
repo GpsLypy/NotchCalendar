@@ -1,4 +1,26 @@
-# superNotch 4.2.5
+# superNotch 4.2.6
+
+## 4.2.6：待办列表计算优化
+
+- 同一轮渲染只生成一次可见待办并按分类分组，减少列表布局时反复过滤和排序。
+- 一次计算窄窗口的四象限数量，减少切换窗口尺寸时的重复工作。
+- 增加默认关闭、按需启用的性能诊断，便于排查间歇性录入卡顿；不记录待办内容。
+
+持续高 CPU 卡死的原始触发条件仍未复现，本次优化不等同于已解决所有卡死。
+
+macOS 15+，Apple 芯片与 Intel，build 186，2026-11-10。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入“应用程序”替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+## 4.2.6: Reduce repeated Todo list calculations
+
+- Filter and sort visible tasks once per render, then group them by category for list layout.
+- Calculate narrow-window quadrant counts together to reduce repeated work during resizing.
+- Add optional performance diagnostics, disabled by default, to investigate intermittent input stalls without recording task content.
+
+The original sustained high-CPU hang has not been reproduced. These optimizations do not establish that all hangs are resolved.
+
+macOS 15+, universal Apple silicon/Intel, build 186, 2026-11-10. Ad-hoc signed; no Developer ID signature or Apple notarization. Quit the old app and replace it manually using the DMG; retain application data to keep your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.6/NotchCalendar-4.2.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.6/NotchCalendar-4.2.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.6/SHA256SUMS.txt)
 
 ## 4.2.5：待办标题弹窗与性能优化
 

@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.2.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.5) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.2.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.6) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,18 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.2.6：待办列表计算优化
+
+- 同一轮渲染只生成一次可见待办并按分类分组，减少列表布局时反复过滤和排序。
+- 一次计算窄窗口的四象限数量，减少切换窗口尺寸时的重复工作。
+- 增加默认关闭、按需启用的性能诊断，便于排查间歇性录入卡顿；不记录待办内容。
+
+持续高 CPU 卡死的原始触发条件仍未复现，本次优化不等同于已解决所有卡死。
+
+macOS 15+，Apple 芯片与 Intel，build 186，2026-11-10。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入“应用程序”替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.6/NotchCalendar-4.2.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.6/NotchCalendar-4.2.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.6/SHA256SUMS.txt)
 
 ## 4.2.5：待办标题弹窗与性能优化
 
