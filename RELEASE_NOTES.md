@@ -1,4 +1,28 @@
-# superNotch 4.2.4
+# superNotch 4.2.5
+
+## 4.2.5：待办标题弹窗与性能优化
+
+- 任务和子任务标题统一使用编辑弹窗，修复双击标题及“编辑标题”仍进入行内编辑的问题。
+- 居中显示任务行的更多操作图标；未判断重要性或不紧急时隐藏对应标识，减少空白占用。
+- 缩小录入草稿的界面订阅范围并缓存解析结果，减少输入时对任务列表的重复刷新。
+- 避免重复发布相同的待办窗口可见状态，缓存语言资源查询，减少任务行和菜单构建开销。
+
+已捕获旧版持续高 CPU 与内存增长，但触发条件尚未稳定复现；本次为针对性性能优化，不能视为已彻底修复所有卡死情况。
+
+macOS 15+，Apple 芯片与 Intel，build 185，2026-11-10。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入“应用程序”替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+## 4.2.5: Todo title dialogs and performance improvements
+
+- Use edit dialogs for task and subtask titles, resolving competing inline editing when double-clicking titles or choosing Edit title.
+- Center the task action icon and hide unset importance and nonurgent badges to save space.
+- Limit draft observation to the composer and cache parsed input, reducing task-list refreshes while typing.
+- Avoid publishing unchanged Todo window visibility and cache language bundles to reduce row and menu construction work.
+
+A sustained high-CPU and memory-growth issue was captured in the previous version, but its trigger has not been reproduced reliably. These targeted optimizations do not establish that every hang is resolved.
+
+macOS 15+, universal Apple silicon/Intel, build 185, 2026-11-10. Ad-hoc signed; no Developer ID signature or Apple notarization. Quit the old app and replace it manually using the DMG; retain application data to keep your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.5/NotchCalendar-4.2.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.5/NotchCalendar-4.2.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.5/SHA256SUMS.txt)
 
 ## 4.2.4：待办编辑与规划标识
 
