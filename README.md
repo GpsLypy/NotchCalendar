@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.2.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.6) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.2.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.7) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,20 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.2.7：性能与稳定性修复
+
+- 优化 AI 流式回复处理并限制会话和请求体大小，减少长对话卡顿；截断响应正确显示为未完成。
+- 减少大待办列表保存时的重复编码；达到容量后仍可完成重复任务，腾出空间后补建下一次。
+- 修复授权恢复后的待办提醒、损坏笔记与收藏被后续操作覆盖的问题，保留原数据以便恢复。
+- 合并文件目录与日历的连续刷新，取消不再需要的扫描；空闲时停止编码胶囊外层的周期刷新。
+- 修复待办菜单边角点击、窗口缩放期间底部导航，以及聊天清空确认期间意外收起；补齐 JSON 编辑器的 Cmd-Return 操作。
+
+本次完成代码审计、边界回归和原生交互复查。受控短时资源测量不能证明长期无泄漏，历史间歇性持续高 CPU 的原始触发仍未复现。
+
+macOS 15+，Apple 芯片与 Intel，build 187，2026-11-11。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入“应用程序”替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.7/NotchCalendar-4.2.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.7/NotchCalendar-4.2.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.7/SHA256SUMS.txt)
 
 ## 4.2.6：待办列表计算优化
 

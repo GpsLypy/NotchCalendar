@@ -1,4 +1,30 @@
-# superNotch 4.2.6
+# superNotch 4.2.7
+
+## 4.2.7：性能与稳定性修复
+
+- 优化 AI 流式回复处理并限制会话和请求体大小，减少长对话卡顿；截断响应正确显示为未完成。
+- 减少大待办列表保存时的重复编码；达到容量后仍可完成重复任务，腾出空间后补建下一次。
+- 修复授权恢复后的待办提醒、损坏笔记与收藏被后续操作覆盖的问题，保留原数据以便恢复。
+- 合并文件目录与日历的连续刷新，取消不再需要的扫描；空闲时停止编码胶囊外层的周期刷新。
+- 修复待办菜单边角点击、窗口缩放期间底部导航，以及聊天清空确认期间意外收起；补齐 JSON 编辑器的 Cmd-Return 操作。
+
+本次完成代码审计、边界回归和原生交互复查。受控短时资源测量不能证明长期无泄漏，历史间歇性持续高 CPU 的原始触发仍未复现。
+
+macOS 15+，Apple 芯片与 Intel，build 187，2026-11-11。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入“应用程序”替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+## 4.2.7: Performance and stability fixes
+
+- Process streamed AI replies in bounded chunks and cap conversations and request bodies; truncated replies remain incomplete.
+- Reduce repeated serialization for large Todo lists. Complete recurring tasks at capacity and create the next occurrence when space becomes available.
+- Restore Todo reminders after access resumes; preserve unreadable notes and saved articles instead of overwriting their original data.
+- Coalesce file and calendar refreshes, cancel unused scans, and stop periodic compact coding updates while idle.
+- Fix Todo menu corner clicks, navigation during window resizing, premature collapse during chat cleanup confirmation, and Cmd-Return in the JSON editor.
+
+Validated with code review, boundary regression and native interaction checks. Controlled short resource samples do not establish long-term leak freedom. The original intermittent sustained high-CPU hang has not been reproduced.
+
+macOS 15+, universal Apple silicon/Intel, build 187, 2026-11-11. Ad-hoc signed; no Developer ID signature or Apple notarization. Quit the old app and replace it manually using the DMG; retain application data to keep your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.7/NotchCalendar-4.2.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.7/NotchCalendar-4.2.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.7/SHA256SUMS.txt)
 
 ## 4.2.6：待办列表计算优化
 
