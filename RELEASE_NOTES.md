@@ -1,4 +1,24 @@
-# superNotch 4.2.2
+# superNotch 4.2.3
+
+## 4.2.3：待办菜单栏入口与统一入口设置
+
+- 新增菜单栏待办入口，与桌面共用所选的对号、小伴侣或自定义图片，无需重复选择外观。
+- 在「更多 → 入口设置」统一选择刘海常驻、菜单栏和桌面。桌面与菜单栏可同时显示；开启刘海常驻会关闭另外两处入口，开启桌面或菜单栏会退出刘海常驻。
+- 切换入口保留任务、草稿、提醒与图片；入口位置选择支持重启保存及本地备份恢复。
+
+macOS 15+，Apple 芯片与 Intel，build 183，2026-11-10。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/NotchCalendar-4.2.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/NotchCalendar-4.2.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/SHA256SUMS.txt)
+
+## 4.2.3: Todo menu bar entry and unified entry settings
+
+- Add a Todo menu bar entry that shares the selected checkmark, companion, or custom image with the desktop. Choose the appearance once.
+- Group notch residency, menu bar and desktop visibility in More → Entry settings. Desktop and menu bar can appear together; notch residency turns both off, and enabling either exits notch residency.
+- Preserve tasks, drafts, reminders and custom images when switching entries. Save location choices across restarts and local backup restoration.
+
+macOS 15+, universal Apple silicon/Intel, build 183, 2026-11-10. ¥9.9 one-time purchase including future updates, without a subscription. Ad-hoc signed; no Developer ID signature or Apple notarization. Quit the old app and replace it manually using the DMG; retain application data to keep your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/NotchCalendar-4.2.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/NotchCalendar-4.2.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/SHA256SUMS.txt)
 
 ## 4.2.2：编程完成自动收起与日历提醒事项
 

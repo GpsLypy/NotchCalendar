@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.2.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.2.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,16 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.2.3：待办菜单栏入口与统一入口设置
+
+- 新增菜单栏待办入口，与桌面共用所选的对号、小伴侣或自定义图片，无需重复选择外观。
+- 在「更多 → 入口设置」统一选择刘海常驻、菜单栏和桌面。桌面与菜单栏可同时显示；开启刘海常驻会关闭另外两处入口，开启桌面或菜单栏会退出刘海常驻。
+- 切换入口保留任务、草稿、提醒与图片；入口位置选择支持重启保存及本地备份恢复。
+
+macOS 15+，Apple 芯片与 Intel，build 183，2026-11-10。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/NotchCalendar-4.2.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/NotchCalendar-4.2.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/SHA256SUMS.txt)
 
 ## 4.2.2：编程完成自动收起与日历提醒事项
 

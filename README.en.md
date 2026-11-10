@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.2.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.2.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,16 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.2.3: Todo menu bar entry and unified entry settings
+
+- Add a Todo menu bar entry that shares the selected checkmark, companion, or custom image with the desktop. Choose the appearance once.
+- Group notch residency, menu bar and desktop visibility in More → Entry settings. Desktop and menu bar can appear together; notch residency turns both off, and enabling either exits notch residency.
+- Preserve tasks, drafts, reminders and custom images when switching entries. Save location choices across restarts and local backup restoration.
+
+macOS 15+, universal Apple silicon/Intel, build 183, 2026-11-10. ¥9.9 one-time purchase including future updates, without a subscription. Ad-hoc signed; no Developer ID signature or Apple notarization. Quit the old app and replace it manually using the DMG; retain application data to keep your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/NotchCalendar-4.2.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/NotchCalendar-4.2.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.3/SHA256SUMS.txt)
 
 ## 4.2.2: Coding completion dismissal and calendar reminders
 
