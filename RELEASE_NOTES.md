@@ -1,4 +1,26 @@
-# superNotch 4.2.1
+# superNotch 4.2.2
+
+## 4.2.2：编程完成自动收起与日历提醒事项
+
+- 编程任务完成后，刘海胶囊保留 5 秒再自动收起；进行中和待回复任务继续显示，完成记录可回到编程动态页查看。空闲时额度不再单独占用刘海。
+- 日历可在授权后显示系统提醒事项，并选择提醒列表；只读取带日期的未完成提醒，不修改系统提醒事项。
+- 改善待办菜单、弹出面板的开关与 Escape 关闭行为，统一按钮点击反馈和悬停说明。
+- 简体中文界面下改善中文歌词显示，保留歌词原文、时间轴及日文和韩文内容。
+
+macOS 15+，Apple 芯片与 Intel，build 180，2026-11-10。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.2/NotchCalendar-4.2.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.2/NotchCalendar-4.2.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.2/SHA256SUMS.txt)
+
+## 4.2.2: Coding completion dismissal and calendar reminders
+
+- Dismiss the coding capsule automatically five seconds after completion. Running tasks and tasks awaiting input remain visible; completion history stays in Coding Activity. Quotas no longer occupy the notch on their own while idle.
+- Show scheduled, incomplete Apple Reminders alongside calendar events after permission is granted, with reminder-list selection. Reminders are read only and remain on this Mac.
+- Improve To-Do menu feedback, popover toggling, Escape dismissal and hover help.
+- Improve Chinese lyrics in the Simplified Chinese interface while preserving original text, timing, Japanese and Korean content.
+
+macOS 15+, universal Apple silicon/Intel, build 180, 2026-11-10. ¥9.9 one-time purchase including future updates, without a subscription. Ad-hoc signed; no Developer ID signature or Apple notarization. Quit the old app and replace it manually using the DMG; retain application data to keep your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.2/NotchCalendar-4.2.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.2/NotchCalendar-4.2.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.2/SHA256SUMS.txt)
 
 ## 4.2.1：待办界面自定义与抽屉添加
 

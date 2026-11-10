@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.2.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.2.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,17 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.2.2：编程完成自动收起与日历提醒事项
+
+- 编程任务完成后，刘海胶囊保留 5 秒再自动收起；进行中和待回复任务继续显示，完成记录可回到编程动态页查看。空闲时额度不再单独占用刘海。
+- 日历可在授权后显示系统提醒事项，并选择提醒列表；只读取带日期的未完成提醒，不修改系统提醒事项。
+- 改善待办菜单、弹出面板的开关与 Escape 关闭行为，统一按钮点击反馈和悬停说明。
+- 简体中文界面下改善中文歌词显示，保留歌词原文、时间轴及日文和韩文内容。
+
+macOS 15+，Apple 芯片与 Intel，build 180，2026-11-10。¥9.9 一次买断，含未来更新，无订阅。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入「应用程序」替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.2/NotchCalendar-4.2.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.2/NotchCalendar-4.2.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.2/SHA256SUMS.txt)
 
 ## 4.2.1：待办界面自定义与抽屉添加
 
