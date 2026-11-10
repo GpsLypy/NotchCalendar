@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.2.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.2.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.4) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,18 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.2.4：待办编辑与规划标识
+
+- 列表和四象限任务行显示重要性与紧急程度，支持直接修改；自动判断带“自动”标识，红旗优先级保持独立。
+- 分类标题可双击弹窗改名；移到分类菜单可新建分类。截止时间展示完整年月日和时间，并支持直接弹窗修改。
+- 新增任务支持多行备注，标签与备注相邻放在选项末尾；切换视图保留草稿，编辑弹窗更紧凑。
+- 恢复分类与任务的悬停加号，改善子任务创建、菜单文案与按钮对齐；修复从刘海常驻切回桌面入口后图标不显示。
+- 系统监视器中间可添加最多 3 个应用快捷入口，点击打开活动监视器、Wireshark 等本机软件。
+
+macOS 15+，Apple 芯片与 Intel，build 184，2026-11-10。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入“应用程序”替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.4/NotchCalendar-4.2.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.4/NotchCalendar-4.2.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.4/SHA256SUMS.txt)
 
 ## 4.2.3：待办菜单栏入口与统一入口设置
 

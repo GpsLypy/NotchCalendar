@@ -1,4 +1,26 @@
-# superNotch 4.2.3
+# superNotch 4.2.4
+
+## 4.2.4：待办编辑与规划标识
+
+- 列表和四象限任务行显示重要性与紧急程度，支持直接修改；自动判断带“自动”标识，红旗优先级保持独立。
+- 分类标题可双击弹窗改名；移到分类菜单可新建分类。截止时间展示完整年月日和时间，并支持直接弹窗修改。
+- 新增任务支持多行备注，标签与备注相邻放在选项末尾；切换视图保留草稿，编辑弹窗更紧凑。
+- 恢复分类与任务的悬停加号，改善子任务创建、菜单文案与按钮对齐；修复从刘海常驻切回桌面入口后图标不显示。
+- 系统监视器中间可添加最多 3 个应用快捷入口，点击打开活动监视器、Wireshark 等本机软件。
+
+macOS 15+，Apple 芯片与 Intel，build 184，2026-11-10。沿用 ad-hoc 签名与手动安装，未进行 Developer ID 签名或 Apple 公证。退出旧版，将 DMG 中应用拖入“应用程序”替换并重新启动；保留应用数据时沿用已有授权、待办和设置。
+
+## 4.2.4: Clear Todo planning and compact editing
+
+- Show importance and urgency on task rows in lists and quadrants, with direct editing and an Auto label for due-date inference. Flag priority stays independent.
+- Double-click category headings to rename them in a dialog, create categories while moving tasks, and display/edit complete due dates including the year.
+- Add multiline notes to task creation, place tags and notes last, preserve drafts across view switches, and use more compact edit dialogs.
+- Restore hover add controls for tasks and subtasks, improve menu wording and row alignment, and restore the desktop entry after leaving notch residency.
+- Add up to three application shortcuts in System Monitor to open installed apps such as Activity Monitor or Wireshark.
+
+macOS 15+, universal Apple silicon/Intel, build 184, 2026-11-10. Ad-hoc signed; no Developer ID signature or Apple notarization. Quit the old app and replace it manually using the DMG; retain application data to keep your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.4/NotchCalendar-4.2.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.4/NotchCalendar-4.2.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.4/SHA256SUMS.txt)
 
 ## 4.2.3：待办菜单栏入口与统一入口设置
 

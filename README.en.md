@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.2.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.2.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,18 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.2.4: Clear Todo planning and compact editing
+
+- Show importance and urgency on task rows in lists and quadrants, with direct editing and an Auto label for due-date inference. Flag priority stays independent.
+- Double-click category headings to rename them in a dialog, create categories while moving tasks, and display/edit complete due dates including the year.
+- Add multiline notes to task creation, place tags and notes last, preserve drafts across view switches, and use more compact edit dialogs.
+- Restore hover add controls for tasks and subtasks, improve menu wording and row alignment, and restore the desktop entry after leaving notch residency.
+- Add up to three application shortcuts in System Monitor to open installed apps such as Activity Monitor or Wireshark.
+
+macOS 15+, universal Apple silicon/Intel, build 184, 2026-11-10. Ad-hoc signed; no Developer ID signature or Apple notarization. Quit the old app and replace it manually using the DMG; retain application data to keep your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.4/NotchCalendar-4.2.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.4/NotchCalendar-4.2.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.4/SHA256SUMS.txt)
 
 ## 4.2.3: Todo menu bar entry and unified entry settings
 
