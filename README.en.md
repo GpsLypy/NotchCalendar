@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.2.11](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.11) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.2.12](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.12) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,18 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.2.12: Todo settings click handling
+
+- Adjust mouse-event forwarding between Todo More and settings to prevent a dismissal click from reopening the previous menu.
+- Resolve the current native menu button for every click after popover or toolbar changes.
+- Handle quick click releases when switching to settings, while retaining click-to-close and Escape cancellation.
+
+Functional and UI regression checks were skipped at the owner's request. Universal build and package integrity checks are separate from interaction acceptance.
+
+macOS 15+, Apple silicon and Intel, build 192, 2026-11-12. Ad-hoc signed and not notarized; install manually by quitting the old app and replacing it from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/NotchCalendar-4.2.12-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/NotchCalendar-4.2.12-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/SHA256SUMS.txt)
 
 ## 4.2.11: Todo settings and menu fixes
 

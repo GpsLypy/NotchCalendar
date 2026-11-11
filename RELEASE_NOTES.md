@@ -1,4 +1,28 @@
-# superNotch 4.2.11
+# superNotch 4.2.12
+
+## 4.2.12：待办设置点击修正
+
+- 调整待办“更多”与设置之间的鼠标事件转交，防止菜单关闭点击再次触发原菜单。
+- 每次点击重新定位当前原生菜单按钮，避免设置弹窗关闭或顶部按钮变化后复用旧目标。
+- 补充快速点击释放的设置切换处理，保留再次点击收起与 Escape 取消。
+
+按所有者要求，本版跳过功能与界面回归；仅完成通用构建及安装包完整性核验，不宣称已完成实际交互验收。
+
+macOS 15+，Apple 芯片与 Intel，build 192，2026-11-12。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/NotchCalendar-4.2.12-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/NotchCalendar-4.2.12-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/SHA256SUMS.txt)
+
+## 4.2.12: Todo settings click handling
+
+- Adjust mouse-event forwarding between Todo More and settings to prevent a dismissal click from reopening the previous menu.
+- Resolve the current native menu button for every click after popover or toolbar changes.
+- Handle quick click releases when switching to settings, while retaining click-to-close and Escape cancellation.
+
+Functional and UI regression checks were skipped at the owner's request. Universal build and package integrity checks are separate from interaction acceptance.
+
+macOS 15+, Apple silicon and Intel, build 192, 2026-11-12. Ad-hoc signed and not notarized; install manually by quitting the old app and replacing it from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/NotchCalendar-4.2.12-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/NotchCalendar-4.2.12-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/SHA256SUMS.txt)
 
 ## 4.2.11：待办设置整理与菜单修复
 

@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.2.11](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.11) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.2.12](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.12) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,18 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.2.12：待办设置点击修正
+
+- 调整待办“更多”与设置之间的鼠标事件转交，防止菜单关闭点击再次触发原菜单。
+- 每次点击重新定位当前原生菜单按钮，避免设置弹窗关闭或顶部按钮变化后复用旧目标。
+- 补充快速点击释放的设置切换处理，保留再次点击收起与 Escape 取消。
+
+按所有者要求，本版跳过功能与界面回归；仅完成通用构建及安装包完整性核验，不宣称已完成实际交互验收。
+
+macOS 15+，Apple 芯片与 Intel，build 192，2026-11-12。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/NotchCalendar-4.2.12-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/NotchCalendar-4.2.12-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.12/SHA256SUMS.txt)
 
 ## 4.2.11：待办设置整理与菜单修复
 
