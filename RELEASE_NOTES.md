@@ -1,4 +1,32 @@
-# superNotch 4.2.10
+# superNotch 4.2.11
+
+## 4.2.11：待办设置整理与菜单修复
+
+- 修复待办先打开“更多”再点击齿轮时设置不能正常打开的问题，保留再次点击收起和 Escape 取消行为。
+- 待办界面设置分为“顶部按钮 / 页面内容 / 显示选项”，移除简洁及完整布局预设，说明统一称为按钮。
+- 删除与更多重复的入口、桌面浮窗和外观配置项；已显示与收在更多中的按钮分组呈现，仅已显示按钮提供排序。
+- 视图菜单对勾统一对齐，分组选项明确为“象限内按分类分组”；刘海、桌面与工作台同步调整。
+- 调整无物理刘海屏幕的音乐胶囊宽度与两侧留白，音乐和常驻待办并存时保留一致的内容宽度。
+
+针对本次改动执行原生交互与偏好回归，并核验通用安装包。物理触控板、多显示器和长期性能仍待实际验收。
+
+macOS 15+，Apple 芯片与 Intel，build 191，2026-11-11。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.11/NotchCalendar-4.2.11-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.11/NotchCalendar-4.2.11-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.11/SHA256SUMS.txt)
+
+## 4.2.11: Todo settings and menu fixes
+
+- Fix opening Todo settings after More, while retaining click-to-close and Escape cancellation.
+- Organize interface settings into Toolbar buttons, Page content and Display options; remove the Simple and Full layout presets.
+- Remove duplicate entry, floating-window and appearance choices from toolbar customization. Separate visible buttons from those in More, with ordering controls for visible choices.
+- Align native view-menu checks and clarify Group by category within quadrants. Apply the same changes in the notch, desktop and workspace.
+- Refine the music capsule width and side spacing on displays without a physical notch, preserving its content width alongside resident Todo.
+
+Focused native interaction and preference regression checks accompany universal package verification. Physical trackpad, multi-display and long-term performance acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 191, 2026-11-11. Ad-hoc signed and not notarized; install manually by quitting the old app and replacing it from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.11/NotchCalendar-4.2.11-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.11/NotchCalendar-4.2.11-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.11/SHA256SUMS.txt)
 
 ## 4.2.10：鼠标滚轮导航与紧凑待办
 
