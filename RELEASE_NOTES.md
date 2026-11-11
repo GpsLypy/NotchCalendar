@@ -1,4 +1,30 @@
-# superNotch 4.2.9
+# superNotch 4.2.10
+
+## 4.2.10：鼠标滚轮导航与紧凑待办
+
+- 在展开刘海的非滚动内容区域使用鼠标滚轮切换工具，保留列表、编辑器与原生滚动区的滚动行为。
+- 刘海、桌面和工作台待办共用保存后的显示设置；备注图标与正文对齐，标签与备注同行，日期与提醒放在下方。
+- 桌面待办采用分类分栏与全宽象限，限制卡片宽度，精简列表、象限与输入区的重要／紧急控件，保留任务数据、归类菜单和拖动操作。
+- 调整无物理刘海屏幕上音乐胶囊与常驻待办并存时的布局、点击区域和紧凑状态边框。
+
+按发布要求，本版跳过新的回归测试；已完成通用安装包完整性核验。鼠标滚轮、物理触控板和多显示器实际体验仍待验收。
+
+macOS 15+，Apple 芯片与 Intel，build 190，2026-11-11。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.10/NotchCalendar-4.2.10-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.10/NotchCalendar-4.2.10-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.10/SHA256SUMS.txt)
+
+## 4.2.10: Mouse-wheel navigation and compact Todo layouts
+
+- Switch tools with the mouse wheel over non-scrolling content in the expanded notch, preserving native list and editor scrolling.
+- Share saved Todo display preferences across the notch, desktop and workspace. Align note icons with their text, place tags beside notes, and keep dates and reminders below.
+- Use category columns and full-width desktop quadrants, cap card widths, and remove redundant importance/urgency controls while retaining task data, classification menus and drag interactions.
+- Improve music and resident Todo layout, hit areas and compact outlines on displays without a physical notch.
+
+New regression tests were skipped at the owner's request; universal package integrity was verified. Physical mouse-wheel, trackpad and multi-display acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 190, 2026-11-11. Ad-hoc signed and not notarized; install manually by quitting the old app and replacing it from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.10/NotchCalendar-4.2.10-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.10/NotchCalendar-4.2.10-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.10/SHA256SUMS.txt)
 
 ## 4.2.9：待办添加按钮更清晰
 

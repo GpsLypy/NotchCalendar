@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.2.9](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.9) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.2.10](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.10) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,19 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.2.10：鼠标滚轮导航与紧凑待办
+
+- 在展开刘海的非滚动内容区域使用鼠标滚轮切换工具，保留列表、编辑器与原生滚动区的滚动行为。
+- 刘海、桌面和工作台待办共用保存后的显示设置；备注图标与正文对齐，标签与备注同行，日期与提醒放在下方。
+- 桌面待办采用分类分栏与全宽象限，限制卡片宽度，精简列表、象限与输入区的重要／紧急控件，保留任务数据、归类菜单和拖动操作。
+- 调整无物理刘海屏幕上音乐胶囊与常驻待办并存时的布局、点击区域和紧凑状态边框。
+
+按发布要求，本版跳过新的回归测试；已完成通用安装包完整性核验。鼠标滚轮、物理触控板和多显示器实际体验仍待验收。
+
+macOS 15+，Apple 芯片与 Intel，build 190，2026-11-11。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.10/NotchCalendar-4.2.10-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.10/NotchCalendar-4.2.10-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.10/SHA256SUMS.txt)
 
 ## 4.2.9：待办添加按钮更清晰
 
