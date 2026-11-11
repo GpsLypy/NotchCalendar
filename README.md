@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.2.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.7) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.2.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.8) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,15 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.2.8：待办滚动与胶囊优化
+
+- 大分类按需加载待办，优化小分类滚动时的行复用与提示处理；切换加载方式保留子任务状态及草稿。
+- 改善外接显示器音乐胶囊中的转盘、歌词与律动展示，并调整编程状态胶囊布局。
+
+根据发布要求，本版未进行新的完整回归；真实触控板及外接显示器仍需实际验收。macOS 15+，Apple 芯片与 Intel，build 188；ad-hoc 签名，未公证，需手动安装。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.8/NotchCalendar-4.2.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.8/NotchCalendar-4.2.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.8/SHA256SUMS.txt)
 
 ## 4.2.7：性能与稳定性修复
 

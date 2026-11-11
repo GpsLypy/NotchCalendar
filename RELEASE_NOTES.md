@@ -1,4 +1,22 @@
-# superNotch 4.2.7
+# superNotch 4.2.8
+
+## 4.2.8：待办滚动与胶囊优化
+
+- 大分类按需加载待办，优化小分类滚动时的行复用与提示处理；切换加载方式保留子任务状态及草稿。
+- 改善外接显示器音乐胶囊中的转盘、歌词与律动展示，并调整编程状态胶囊布局。
+
+根据发布要求，本版未进行新的完整回归；真实触控板及外接显示器仍需实际验收。macOS 15+，Apple 芯片与 Intel，build 188；ad-hoc 签名，未公证，需手动安装。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.8/NotchCalendar-4.2.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.8/NotchCalendar-4.2.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.8/SHA256SUMS.txt)
+
+## 4.2.8: Todo scrolling and compact activities
+
+- Load large Todo categories on demand, reuse rows in small categories, and preserve subtask state and drafts when the loading strategy changes.
+- Improve the external-display music capsule and the compact coding activity layout.
+
+A new full regression was skipped at the owner's request. Physical trackpad and external-display acceptance remain pending. macOS 15+, Apple silicon and Intel, build 188; ad-hoc signed and not notarized, with manual installation.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.8/NotchCalendar-4.2.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.8/NotchCalendar-4.2.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.8/SHA256SUMS.txt)
 
 ## 4.2.7：性能与稳定性修复
 
