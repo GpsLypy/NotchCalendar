@@ -1,4 +1,22 @@
-# superNotch 4.2.8
+# superNotch 4.2.9
+
+## 4.2.9：待办添加按钮更清晰
+
+- 修复列表滚动时后方复选框透过绿色“＋”、造成图标重叠的问题。
+- 按钮底色随深浅色切换，保留原有位置、大小、草稿恢复与点击反馈。
+
+macOS 15+，Apple 芯片与 Intel，build 189，2026-11-11。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.9/NotchCalendar-4.2.9-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.9/NotchCalendar-4.2.9-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.9/SHA256SUMS.txt)
+
+## 4.2.9: A clearer Todo add button
+
+- Fix checkboxes showing through the floating green plus as task rows scroll behind it.
+- Adapt the opaque button background to light and dark appearances while preserving its position, size, draft restoration and interaction feedback.
+
+macOS 15+, Apple silicon and Intel, build 189, 2026-11-11. Ad-hoc signed and not notarized; install manually by quitting the old app and replacing it from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.9/NotchCalendar-4.2.9-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.9/NotchCalendar-4.2.9-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.2.9/SHA256SUMS.txt)
 
 ## 4.2.8：待办滚动与胶囊优化
 
