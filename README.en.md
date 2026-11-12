@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.3.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,21 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.1: Screenshot editing and movable pins
+
+- Route area, window and screen screenshots through one editor with crop, shapes, arrows, pen, mosaic, text, undo, pin and translation tools.
+- Add Edit to screenshot history, saving a separate image while preserving the original. Cancelling does not save or copy.
+- Fix pinned screenshots that could not move: drag either the header or image, including while another app is active.
+- Fix the crash after granting recording transcription permission, preserving recording and transcription results.
+- Reduce the notch capture panel height and nested surfaces; refine sections and controls in files, notes, recording and tools.
+- Preserve aspect ratio and original pixel dimensions for window and screen images; prevent late capture results from opening an editor during shutdown.
+
+Functional and UI regression is skipped at the owner's request. Universal build, package integrity and publication checks are performed separately; they do not establish interaction acceptance.
+
+macOS 15+, Apple silicon and Intel, build 194, 2026-11-13. Ad-hoc signed and not notarized; install manually by quitting the old app and replacing it from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/NotchCalendar-4.3.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/NotchCalendar-4.3.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/SHA256SUMS.txt)
 
 ## 4.3.0: A unified interface with clear sections
 

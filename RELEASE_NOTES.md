@@ -1,4 +1,34 @@
-# superNotch 4.3.0
+# superNotch 4.3.1
+
+## 4.3.1：截图编辑与贴图拖动修复
+
+- 区域、窗口和屏幕截图统一进入编辑器，支持裁剪、矩形、圆形、箭头、画笔、马赛克、文字、撤销、贴图和翻译。
+- 截图历史增加“编辑”入口，修改后另存新图片并保留原图；取消编辑不保存、不复制。
+- 修复置顶贴图无法拖动的问题，标题栏和图片都可移动，切到其他应用后也可直接拖动。
+- 修复开启录音转写授权后的崩溃，继续保留录音和转写结果。
+- 精简刘海截图面板，移除重复套层、减少高度；整理文件架、便笺、录音和工具页的分区与控件样式。
+- 窗口和整屏截图按原比例编辑并保留原始像素尺寸；退出时阻止迟到的采集继续弹出编辑窗口。
+
+按所有者要求，本次跳过功能与界面回归，仅完成通用构建、安装包完整性和发布核验；不将打包结果视为实际交互验收。
+
+macOS 15+，Apple 芯片与 Intel，build 194，2026-11-13。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/NotchCalendar-4.3.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/NotchCalendar-4.3.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/SHA256SUMS.txt)
+
+## 4.3.1: Screenshot editing and movable pins
+
+- Route area, window and screen screenshots through one editor with crop, shapes, arrows, pen, mosaic, text, undo, pin and translation tools.
+- Add Edit to screenshot history, saving a separate image while preserving the original. Cancelling does not save or copy.
+- Fix pinned screenshots that could not move: drag either the header or image, including while another app is active.
+- Fix the crash after granting recording transcription permission, preserving recording and transcription results.
+- Reduce the notch capture panel height and nested surfaces; refine sections and controls in files, notes, recording and tools.
+- Preserve aspect ratio and original pixel dimensions for window and screen images; prevent late capture results from opening an editor during shutdown.
+
+Functional and UI regression is skipped at the owner's request. Universal build, package integrity and publication checks are performed separately; they do not establish interaction acceptance.
+
+macOS 15+, Apple silicon and Intel, build 194, 2026-11-13. Ad-hoc signed and not notarized; install manually by quitting the old app and replacing it from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/NotchCalendar-4.3.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/NotchCalendar-4.3.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/SHA256SUMS.txt)
 
 ## 4.3.0：统一界面，清楚分区
 

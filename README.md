@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.3.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.0) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.1) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,21 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.1：截图编辑与贴图拖动修复
+
+- 区域、窗口和屏幕截图统一进入编辑器，支持裁剪、矩形、圆形、箭头、画笔、马赛克、文字、撤销、贴图和翻译。
+- 截图历史增加“编辑”入口，修改后另存新图片并保留原图；取消编辑不保存、不复制。
+- 修复置顶贴图无法拖动的问题，标题栏和图片都可移动，切到其他应用后也可直接拖动。
+- 修复开启录音转写授权后的崩溃，继续保留录音和转写结果。
+- 精简刘海截图面板，移除重复套层、减少高度；整理文件架、便笺、录音和工具页的分区与控件样式。
+- 窗口和整屏截图按原比例编辑并保留原始像素尺寸；退出时阻止迟到的采集继续弹出编辑窗口。
+
+按所有者要求，本次跳过功能与界面回归，仅完成通用构建、安装包完整性和发布核验；不将打包结果视为实际交互验收。
+
+macOS 15+，Apple 芯片与 Intel，build 194，2026-11-13。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/NotchCalendar-4.3.1-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/NotchCalendar-4.3.1-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.1/SHA256SUMS.txt)
 
 ## 4.3.0：统一界面，清楚分区
 
