@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.3.1](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.1) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,22 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.2: Live recording transcription and playback
+
+- Add real-time on-device transcription with live text, elapsed time and input levels while recording, before a 45-second archive segment closes.
+- Simplify recording into one card, with duration, character count and transcript after completion; browse history separately.
+- Add in-app playback, pause, seeking and audio-source switching, plus transcript and minutes copy/export.
+- Generate minutes on request using the configured model, with overview, key points and action items. Audio files remain local.
+- Fix system-language selection incorrectly choosing English; change the language and retry existing recordings while retaining useful text and audio on failure.
+- Remove nested recording icons and cramped timer labels in the notch; use clear microphone and stop controls and reopen the active recording.
+- Add recording and minutes completion notifications with duration and character count when notifications are already authorized; click to open that recording.
+
+Transcription requires on-device Speech support and permission; minutes require a configured model connection. Selected version-specific tests and package checks precede publication. Human speech accuracy, system notification banners, live AI services and physical-device experience remain unverified.
+
+macOS 15+, Apple silicon and Intel, build 195, 2026-11-13. Ad-hoc signed and not notarized; install manually by quitting the old app and replacing it from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.2/NotchCalendar-4.3.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.2/NotchCalendar-4.3.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.2/SHA256SUMS.txt)
 
 ## 4.3.1: Screenshot editing and movable pins
 

@@ -1,4 +1,36 @@
-# superNotch 4.3.1
+# superNotch 4.3.2
+
+## 4.3.2：实时录音转写与回听
+
+- 录音转写新增本机实时识别，录音时即可看到文字、计时和真实输入电平，无需等待 45 秒文件分段结束。
+- 录音页面改为单层卡片，结束后集中查看时长、字数和文字记录，历史录音独立浏览。
+- 新增应用内回听、暂停、进度定位和音源切换；可复制或导出全文与纪要。
+- 新增按需生成纪要，明确点击后使用已配置模型整理概要、要点和待办，录音文件保留本机。
+- 修正跟随系统语言时误选英文识别的问题；旧录音可选择中文重新转写，失败时保留已有文字与音频。
+- 修复刘海录音图标重复套圈和计时挤出，使用清楚的麦克风与停止按钮，点击返回当前录音。
+- 增加录音及纪要完成通知，在已有通知授权时显示时长和字数，点击打开对应录音。
+
+转写需要本机 Speech 支持和授权；纪要需要已配置的模型连接。发布前执行本版定向测试和安装包核验；真人语音识别准确率、系统通知横幅、真实 AI 服务和物理设备体验尚未完成现场验收。
+
+macOS 15+，Apple 芯片与 Intel，build 195，2026-11-13。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.2/NotchCalendar-4.3.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.2/NotchCalendar-4.3.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.2/SHA256SUMS.txt)
+
+## 4.3.2: Live recording transcription and playback
+
+- Add real-time on-device transcription with live text, elapsed time and input levels while recording, before a 45-second archive segment closes.
+- Simplify recording into one card, with duration, character count and transcript after completion; browse history separately.
+- Add in-app playback, pause, seeking and audio-source switching, plus transcript and minutes copy/export.
+- Generate minutes on request using the configured model, with overview, key points and action items. Audio files remain local.
+- Fix system-language selection incorrectly choosing English; change the language and retry existing recordings while retaining useful text and audio on failure.
+- Remove nested recording icons and cramped timer labels in the notch; use clear microphone and stop controls and reopen the active recording.
+- Add recording and minutes completion notifications with duration and character count when notifications are already authorized; click to open that recording.
+
+Transcription requires on-device Speech support and permission; minutes require a configured model connection. Selected version-specific tests and package checks precede publication. Human speech accuracy, system notification banners, live AI services and physical-device experience remain unverified.
+
+macOS 15+, Apple silicon and Intel, build 195, 2026-11-13. Ad-hoc signed and not notarized; install manually by quitting the old app and replacing it from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.2/NotchCalendar-4.3.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.2/NotchCalendar-4.3.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.2/SHA256SUMS.txt)
 
 ## 4.3.1：截图编辑与贴图拖动修复
 
