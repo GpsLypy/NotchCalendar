@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.2.12](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.12) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.0) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,20 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.0: A unified interface with clear sections
+
+- Unify colors, headings, spacing, grouped surfaces and sidebar selection across the workspace, calendar, notes, news, tools and Settings.
+- Organize Today into distinct sections for the schedule, quick access, daily rhythm and available time.
+- Group the Focus task, timer and duration controls, adapting context and history to the window width.
+- Separate AI coding tasks and remaining quotas, with clearer task status, model and time hierarchy.
+- Refine narrow and wide layouts in Chinese and English while preserving native input state, task paging, privacy and return navigation.
+
+Targeted native interaction and package integrity are validated separately. Physical-notch, external-display, VoiceOver and long-term performance acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 193, 2026-11-12. Ad-hoc signed and not notarized; install manually by quitting the old app and replacing it from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.0/NotchCalendar-4.3.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.0/NotchCalendar-4.3.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.0/SHA256SUMS.txt)
 
 ## 4.2.12: Todo settings click handling
 

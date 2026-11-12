@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.2.12](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.2.12) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.0](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.0) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,20 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.0：统一界面，清楚分区
+
+- 统一工作台、日历、便笺、资讯、工具与设置的配色、标题、间距、分组容器和侧栏选中样式。
+- 重排今天页，将日程、快速入口、节奏记录与时间规划分为清楚的独立区域。
+- 调整专注页，将任务、计时器和时长操作组合展示，并根据窗口宽度重排统计与历史。
+- 将 AI 编程任务与剩余额度拆分为独立面板，改善任务状态、模型与时间的信息层级。
+- 改善宽窄窗口与中英文布局，保留缩放时的原生输入状态、任务翻页、隐私和返回操作。
+
+定向原生交互与安装包完整性分别验证。物理刘海、外接显示器、VoiceOver 和长期性能验收仍待完成。
+
+macOS 15+，Apple 芯片与 Intel，build 193，2026-11-12。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.0/NotchCalendar-4.3.0-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.0/NotchCalendar-4.3.0-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.0/SHA256SUMS.txt)
 
 ## 4.2.12：待办设置点击修正
 
