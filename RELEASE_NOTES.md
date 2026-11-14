@@ -1,4 +1,36 @@
-# superNotch 4.3.2
+# superNotch 4.3.3
+
+## 4.3.3：常驻周报通知与日常体验修复
+
+- 项目周报生成完成后显示刘海常驻卡片，查看对应报告或手动移除后才消失，重启后继续保留。
+- 新消息与待办、贴心提醒在同组卡片中叠放，支持展开、滚动和缓慢收拢；移除提醒仍保留报告。
+- 对话历史新增逐条删除和确认/取消，修复短窗口下的历史滚动，并将右侧粗滚动槽改为细覆盖式滚动条。
+- 降低菜单栏收纳的后台扫描频率，补齐图标点击兼容处理并改善残留提示框。
+- 录音文件在外部删除后同步更新历史，避免保留无法播放的记录。
+- 同步桌面与刘海待办的备注/标签显示设置，区分不同专注时长的颜色。
+- 调整音乐页与圆角播放控件，优化翻译操作按钮，工具菜单改为单层锤子入口。
+
+本版按所有者要求跳过功能回归；完成通用构建和静态安装包核验，不将此前本地测试记为本版回归通过。
+
+macOS 15+，Apple 芯片与 Intel，build 196，2026-11-14。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/NotchCalendar-4.3.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/NotchCalendar-4.3.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/SHA256SUMS.txt)
+
+## 4.3.3: Persistent report notifications and everyday fixes
+
+- Show a persistent notch card when a project report completes. Keep it across restarts until opened or explicitly removed.
+- Stack new results with Todo and Care reminders, with expansion, scrolling and gradual folding. Dismissing a card keeps the report.
+- Add per-conversation deletion with confirmation and cancellation, restore history scrolling in short windows, and use a slim overlay scrollbar.
+- Reduce menu-bar organizer background scans and improve icon activation compatibility and lingering tooltips.
+- Refresh recording history when audio files are deleted externally, avoiding unplayable entries.
+- Synchronize Todo notes/tags settings between desktop and notch views and distinguish focus durations with color.
+- Refine the music page and rounded playback controls, clarify translation actions, and simplify the tools menu to one hammer entry.
+
+Functional regression is skipped at the owner's request. Universal build and static package checks are performed; earlier local tests are not counted as this release's regression result.
+
+macOS 15+, Apple silicon and Intel, build 196, 2026-11-14. Ad-hoc signed and not notarized; quit the old app and install manually from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/NotchCalendar-4.3.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/NotchCalendar-4.3.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/SHA256SUMS.txt)
 
 ## 4.3.2：实时录音转写与回听
 

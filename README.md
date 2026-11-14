@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.3.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.2) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,22 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.3：常驻周报通知与日常体验修复
+
+- 项目周报生成完成后显示刘海常驻卡片，查看对应报告或手动移除后才消失，重启后继续保留。
+- 新消息与待办、贴心提醒在同组卡片中叠放，支持展开、滚动和缓慢收拢；移除提醒仍保留报告。
+- 对话历史新增逐条删除和确认/取消，修复短窗口下的历史滚动，并将右侧粗滚动槽改为细覆盖式滚动条。
+- 降低菜单栏收纳的后台扫描频率，补齐图标点击兼容处理并改善残留提示框。
+- 录音文件在外部删除后同步更新历史，避免保留无法播放的记录。
+- 同步桌面与刘海待办的备注/标签显示设置，区分不同专注时长的颜色。
+- 调整音乐页与圆角播放控件，优化翻译操作按钮，工具菜单改为单层锤子入口。
+
+本版按所有者要求跳过功能回归；完成通用构建和静态安装包核验，不将此前本地测试记为本版回归通过。
+
+macOS 15+，Apple 芯片与 Intel，build 196，2026-11-14。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/NotchCalendar-4.3.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/NotchCalendar-4.3.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/SHA256SUMS.txt)
 
 ## 4.3.2：实时录音转写与回听
 

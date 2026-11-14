@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.3.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.2) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,22 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.3: Persistent report notifications and everyday fixes
+
+- Show a persistent notch card when a project report completes. Keep it across restarts until opened or explicitly removed.
+- Stack new results with Todo and Care reminders, with expansion, scrolling and gradual folding. Dismissing a card keeps the report.
+- Add per-conversation deletion with confirmation and cancellation, restore history scrolling in short windows, and use a slim overlay scrollbar.
+- Reduce menu-bar organizer background scans and improve icon activation compatibility and lingering tooltips.
+- Refresh recording history when audio files are deleted externally, avoiding unplayable entries.
+- Synchronize Todo notes/tags settings between desktop and notch views and distinguish focus durations with color.
+- Refine the music page and rounded playback controls, clarify translation actions, and simplify the tools menu to one hammer entry.
+
+Functional regression is skipped at the owner's request. Universal build and static package checks are performed; earlier local tests are not counted as this release's regression result.
+
+macOS 15+, Apple silicon and Intel, build 196, 2026-11-14. Ad-hoc signed and not notarized; quit the old app and install manually from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/NotchCalendar-4.3.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/NotchCalendar-4.3.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.3/SHA256SUMS.txt)
 
 ## 4.3.2: Live recording transcription and playback
 
