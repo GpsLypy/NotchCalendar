@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.3.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.3) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,20 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.4: Menu-bar stability fix
+
+- Fix an unexpected quit during menu-bar organizer background refresh when application IDs are duplicated.
+- Use a consistent scan snapshot for the organizer list, activation and ordering, preventing duplicate entries from disrupting collection and reordering.
+- Remove duplicate IDs when saving the order while retaining positions for temporarily absent apps.
+
+- Let the personal assistant find and open installed local applications on an explicit request, with ambiguity resolution and actual launch results.
+
+Functional regression is skipped at the owner's request. Universal build and static package checks are performed; earlier local tests are not counted as this release's regression result.
+
+macOS 15+, Apple silicon and Intel, build 197, 2026-11-14. Ad-hoc signed and not notarized; quit the old app and install manually from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/NotchCalendar-4.3.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/NotchCalendar-4.3.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/SHA256SUMS.txt)
 
 ## 4.3.3: Persistent report notifications and everyday fixes
 

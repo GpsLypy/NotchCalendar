@@ -1,4 +1,32 @@
-# superNotch 4.3.3
+# superNotch 4.3.4
+
+## 4.3.4：菜单栏稳定性修复
+
+- 修复菜单栏整理在后台刷新时，因重复应用 ID 导致应用意外退出的问题。
+- 统一菜单栏列表、激活记录与排序使用的扫描结果，避免重复条目影响收纳和手动排序。
+- 保存排序时去除重复 ID，并保留暂时退出应用的位置。
+
+- 个人助理可查找并在明确请求后打开本机已安装应用，支持名称歧义确认和真实启动结果反馈。
+
+本版按所有者要求跳过功能回归；完成通用构建和静态安装包核验，不将此前本地测试记为本版回归通过。
+
+macOS 15+，Apple 芯片与 Intel，build 197，2026-11-14。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/NotchCalendar-4.3.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/NotchCalendar-4.3.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/SHA256SUMS.txt)
+
+## 4.3.4: Menu-bar stability fix
+
+- Fix an unexpected quit during menu-bar organizer background refresh when application IDs are duplicated.
+- Use a consistent scan snapshot for the organizer list, activation and ordering, preventing duplicate entries from disrupting collection and reordering.
+- Remove duplicate IDs when saving the order while retaining positions for temporarily absent apps.
+
+- Let the personal assistant find and open installed local applications on an explicit request, with ambiguity resolution and actual launch results.
+
+Functional regression is skipped at the owner's request. Universal build and static package checks are performed; earlier local tests are not counted as this release's regression result.
+
+macOS 15+, Apple silicon and Intel, build 197, 2026-11-14. Ad-hoc signed and not notarized; quit the old app and install manually from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/NotchCalendar-4.3.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/NotchCalendar-4.3.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/SHA256SUMS.txt)
 
 ## 4.3.3：常驻周报通知与日常体验修复
 

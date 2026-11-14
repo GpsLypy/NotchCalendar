@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.3.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.3) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.4) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,20 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.4：菜单栏稳定性修复
+
+- 修复菜单栏整理在后台刷新时，因重复应用 ID 导致应用意外退出的问题。
+- 统一菜单栏列表、激活记录与排序使用的扫描结果，避免重复条目影响收纳和手动排序。
+- 保存排序时去除重复 ID，并保留暂时退出应用的位置。
+
+- 个人助理可查找并在明确请求后打开本机已安装应用，支持名称歧义确认和真实启动结果反馈。
+
+本版按所有者要求跳过功能回归；完成通用构建和静态安装包核验，不将此前本地测试记为本版回归通过。
+
+macOS 15+，Apple 芯片与 Intel，build 197，2026-11-14。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/NotchCalendar-4.3.4-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/NotchCalendar-4.3.4-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.4/SHA256SUMS.txt)
 
 ## 4.3.3：常驻周报通知与日常体验修复
 
