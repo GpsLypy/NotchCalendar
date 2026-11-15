@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.3.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.5) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.6) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,16 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.6：贴边与权限交互修复
+
+- 修复音乐背景与外层遮罩分别裁切导致的左上角黑边，统一封面渐变与底色轮廓，改善屏幕上沿衔接。
+- 统一悬停模式下各工具的鼠标移出收回行为，身份验证器、待办、专注等页面不再因工具类型自动保持展开；固定和系统交互期间仍保留面板。
+- 未获辅助功能权限时跳过外部点击的系统控件读取，避免拒绝授权后再次触发检查；全局键盘监听仅在已授权时启用，权限变更后自动调整。
+
+macOS 15+，Apple 芯片与 Intel，build 199，2026-11-15。ad-hoc 签名、未公证，需手动安装。完整实机显示、授权弹窗和外接屏验收仍待补齐。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/NotchCalendar-4.3.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/NotchCalendar-4.3.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/SHA256SUMS.txt)
 
 ## 4.3.5：原生菜单栏与本地身份验证器
 

@@ -1,4 +1,24 @@
-# superNotch 4.3.5
+# superNotch 4.3.6
+
+## 4.3.6：贴边与权限交互修复
+
+- 修复音乐背景与外层遮罩分别裁切导致的左上角黑边，统一封面渐变与底色轮廓，改善屏幕上沿衔接。
+- 统一悬停模式下各工具的鼠标移出收回行为，身份验证器、待办、专注等页面不再因工具类型自动保持展开；固定和系统交互期间仍保留面板。
+- 未获辅助功能权限时跳过外部点击的系统控件读取，避免拒绝授权后再次触发检查；全局键盘监听仅在已授权时启用，权限变更后自动调整。
+
+macOS 15+，Apple 芯片与 Intel，build 199，2026-11-15。ad-hoc 签名、未公证，需手动安装。完整实机显示、授权弹窗和外接屏验收仍待补齐。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/NotchCalendar-4.3.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/NotchCalendar-4.3.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/SHA256SUMS.txt)
+
+## 4.3.6: Screen-edge and permission interaction fixes
+
+- Share one native mask between music artwork and the panel surface to remove the separate upper-left black fringe and refine screen-edge coverage.
+- Retract ordinary tools consistently on pointer exit in hover mode, including Authenticator, Todo and Focus, while preserving pinned panels and active system interactions.
+- Skip Accessibility hit tests when permission is unavailable and register global keyboard monitoring only after access is granted, preventing denied background checks from repeatedly triggering authorization. Refresh monitoring after permission changes.
+
+macOS 15+, Apple silicon and Intel, build 199, 2026-11-15. Ad-hoc signed and not notarized; install manually. Full live display, system permission dialog and external-display acceptance remains pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/NotchCalendar-4.3.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/NotchCalendar-4.3.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/SHA256SUMS.txt)
 
 ## 4.3.5：原生菜单栏与本地身份验证器
 

@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.3.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.6) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,16 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.6: Screen-edge and permission interaction fixes
+
+- Share one native mask between music artwork and the panel surface to remove the separate upper-left black fringe and refine screen-edge coverage.
+- Retract ordinary tools consistently on pointer exit in hover mode, including Authenticator, Todo and Focus, while preserving pinned panels and active system interactions.
+- Skip Accessibility hit tests when permission is unavailable and register global keyboard monitoring only after access is granted, preventing denied background checks from repeatedly triggering authorization. Refresh monitoring after permission changes.
+
+macOS 15+, Apple silicon and Intel, build 199, 2026-11-15. Ad-hoc signed and not notarized; install manually. Full live display, system permission dialog and external-display acceptance remains pending.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/NotchCalendar-4.3.6-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/NotchCalendar-4.3.6-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.6/SHA256SUMS.txt)
 
 ## 4.3.5: Native menu bar and local authenticator
 
