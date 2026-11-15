@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.3.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.4) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.5) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,24 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.5：原生菜单栏与本地身份验证器
+
+- 新增本地 TOTP 身份验证器，支持手动密钥、otpauth 链接、二维码图片和屏幕二维码导入，提供倒计时与一键复制。
+- 验证器凭据加密保存在本机，通过系统身份验证解锁；离开页面、休眠或锁屏后自动锁定，复制的验证码到时清理。
+- 菜单栏收纳默认使用原生完整展开，保留收纳选择与管理界面，直接操作应用原生菜单。
+- 修复展开后点击普通窗口仍不收起、快速开关状态错乱和长按关闭后重新打开的问题；菜单栏使用期间刘海及提醒浮层临时让位，收起后恢复。
+- 接入 PermissionFlow，统一系统权限申请与恢复引导；高级说明默认收起，点击后查看。
+- 关于页面新增开源项目致谢与许可说明。
+- 个人助理新增正常退出本机应用，保留应用的保存和确认对话框，并反馈实际退出结果。
+- 改善音乐封面背景的覆盖范围与贴边高亮细节。
+- 修正日历来源文字在浅色、深色和增强对比度模式下的可读性，按实际内容背景校正颜色。
+
+完成后台回归、Apple 芯片与 Intel 通用构建及静态安装包核验。菜单栏外部点击收起已由所有者在本机实际确认；外接显示器、完整硬件矩阵及长期性能验收仍待补齐。
+
+macOS 15+，Apple 芯片与 Intel，build 198，2026-11-15。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/NotchCalendar-4.3.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/NotchCalendar-4.3.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/SHA256SUMS.txt)
 
 ## 4.3.4：菜单栏稳定性修复
 

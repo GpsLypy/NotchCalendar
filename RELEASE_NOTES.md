@@ -1,4 +1,40 @@
-# superNotch 4.3.4
+# superNotch 4.3.5
+
+## 4.3.5：原生菜单栏与本地身份验证器
+
+- 新增本地 TOTP 身份验证器，支持手动密钥、otpauth 链接、二维码图片和屏幕二维码导入，提供倒计时与一键复制。
+- 验证器凭据加密保存在本机，通过系统身份验证解锁；离开页面、休眠或锁屏后自动锁定，复制的验证码到时清理。
+- 菜单栏收纳默认使用原生完整展开，保留收纳选择与管理界面，直接操作应用原生菜单。
+- 修复展开后点击普通窗口仍不收起、快速开关状态错乱和长按关闭后重新打开的问题；菜单栏使用期间刘海及提醒浮层临时让位，收起后恢复。
+- 接入 PermissionFlow，统一系统权限申请与恢复引导；高级说明默认收起，点击后查看。
+- 关于页面新增开源项目致谢与许可说明。
+- 个人助理新增正常退出本机应用，保留应用的保存和确认对话框，并反馈实际退出结果。
+- 改善音乐封面背景的覆盖范围与贴边高亮细节。
+- 修正日历来源文字在浅色、深色和增强对比度模式下的可读性，按实际内容背景校正颜色。
+
+完成后台回归、Apple 芯片与 Intel 通用构建及静态安装包核验。菜单栏外部点击收起已由所有者在本机实际确认；外接显示器、完整硬件矩阵及长期性能验收仍待补齐。
+
+macOS 15+，Apple 芯片与 Intel，build 198，2026-11-15。ad-hoc 签名，未公证，需手动安装。退出旧版后拖入“应用程序”替换；保留应用数据时沿用已有授权、待办和设置。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/NotchCalendar-4.3.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/NotchCalendar-4.3.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/SHA256SUMS.txt)
+
+## 4.3.5: Native menu bar and local authenticator
+
+- Add a local TOTP authenticator with manual secrets, otpauth links, QR images and screen QR import, countdowns and one-click copying.
+- Encrypt authenticator credentials locally and unlock with system authentication. Lock when leaving the view, sleeping or locking the Mac, and clear copied codes after a short interval.
+- Make native full menu-bar expansion the default, retaining collection choices and management while opening original application menus.
+- Fix outside-window clicks leaving the menu bar open, rapid-toggle races and reopening after a held Close click. Temporarily yield notch and reminder overlays to the native menu bar and restore them afterward.
+- Integrate PermissionFlow for consistent system permission requests and recovery guidance, with advanced details collapsed until opened.
+- Add open-source acknowledgements and license notices to About.
+- Let the personal assistant request normal application termination, preserve save and confirmation dialogs, and report the actual outcome.
+- Refine music artwork background coverage and screen-edge highlights.
+- Correct calendar source-label readability in light, dark and Increase Contrast appearances against the actual content surfaces.
+
+Background regression, universal Apple silicon/Intel builds and static package checks are completed. The owner confirmed outside-click menu-bar dismissal on this Mac; the full device matrix, external displays and long-term performance acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 198, 2026-11-15. Ad-hoc signed and not notarized; quit the old app and install manually from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/NotchCalendar-4.3.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/NotchCalendar-4.3.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/SHA256SUMS.txt)
 
 ## 4.3.4：菜单栏稳定性修复
 

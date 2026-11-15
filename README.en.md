@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.3.4](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.4) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.5](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.5) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,24 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.5: Native menu bar and local authenticator
+
+- Add a local TOTP authenticator with manual secrets, otpauth links, QR images and screen QR import, countdowns and one-click copying.
+- Encrypt authenticator credentials locally and unlock with system authentication. Lock when leaving the view, sleeping or locking the Mac, and clear copied codes after a short interval.
+- Make native full menu-bar expansion the default, retaining collection choices and management while opening original application menus.
+- Fix outside-window clicks leaving the menu bar open, rapid-toggle races and reopening after a held Close click. Temporarily yield notch and reminder overlays to the native menu bar and restore them afterward.
+- Integrate PermissionFlow for consistent system permission requests and recovery guidance, with advanced details collapsed until opened.
+- Add open-source acknowledgements and license notices to About.
+- Let the personal assistant request normal application termination, preserve save and confirmation dialogs, and report the actual outcome.
+- Refine music artwork background coverage and screen-edge highlights.
+- Correct calendar source-label readability in light, dark and Increase Contrast appearances against the actual content surfaces.
+
+Background regression, universal Apple silicon/Intel builds and static package checks are completed. The owner confirmed outside-click menu-bar dismissal on this Mac; the full device matrix, external displays and long-term performance acceptance remain pending.
+
+macOS 15+, Apple silicon and Intel, build 198, 2026-11-15. Ad-hoc signed and not notarized; quit the old app and install manually from the DMG. Retain application data to preserve your license, tasks and settings.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/NotchCalendar-4.3.5-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/NotchCalendar-4.3.5-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.5/SHA256SUMS.txt)
 
 ## 4.3.4: Menu-bar stability fix
 
