@@ -1,4 +1,24 @@
-# superNotch 4.3.6
+# superNotch 4.3.7
+
+## 4.3.7：修复辅助功能检测引发的闪退
+
+- 修复菜单栏后台辅助功能命中检测可能进入自身界面、触发主线程检查并导致应用闪退的问题。
+- 统一在主线程执行系统级命中检测，外部应用属性查询继续在后台处理，并拦截本进程控件的后台读取。
+- 保留辅助功能授权检查、取消与超时保护，改善与其他应用同时运行时的稳定性。
+
+macOS 15+，Apple 芯片与 Intel，build 200，2026-11-16。ad-hoc 签名、未公证，需手动安装。同花顺共存场景、完整原生交互、外接屏及长期性能仍待实机验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/NotchCalendar-4.3.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/NotchCalendar-4.3.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/SHA256SUMS.txt)
+
+## 4.3.7: Accessibility crash fix
+
+- Fix a crash where background menu bar Accessibility hit testing could re-enter the app’s own views and violate main-thread isolation.
+- Run system-wide hit tests on the main actor, keep external app attribute queries in the background, and prevent background reads of local controls.
+- Preserve permission checks, cancellation and timeout protection for more reliable operation alongside other apps.
+
+macOS 15+, Apple silicon and Intel, build 200, 2026-11-16. Ad-hoc signed and not notarized; install manually. Tonghuashun coexistence, full native interactions, external displays and long-running performance still await device acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/NotchCalendar-4.3.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/NotchCalendar-4.3.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/SHA256SUMS.txt)
 
 ## 4.3.6：贴边与权限交互修复
 

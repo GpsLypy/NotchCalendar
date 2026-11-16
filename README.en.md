@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.3.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.6) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.7) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,16 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.7: Accessibility crash fix
+
+- Fix a crash where background menu bar Accessibility hit testing could re-enter the app’s own views and violate main-thread isolation.
+- Run system-wide hit tests on the main actor, keep external app attribute queries in the background, and prevent background reads of local controls.
+- Preserve permission checks, cancellation and timeout protection for more reliable operation alongside other apps.
+
+macOS 15+, Apple silicon and Intel, build 200, 2026-11-16. Ad-hoc signed and not notarized; install manually. Tonghuashun coexistence, full native interactions, external displays and long-running performance still await device acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/NotchCalendar-4.3.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/NotchCalendar-4.3.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/SHA256SUMS.txt)
 
 ## 4.3.6: Screen-edge and permission interaction fixes
 

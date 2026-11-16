@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.3.6](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.6) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.7) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,16 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.7：修复辅助功能检测引发的闪退
+
+- 修复菜单栏后台辅助功能命中检测可能进入自身界面、触发主线程检查并导致应用闪退的问题。
+- 统一在主线程执行系统级命中检测，外部应用属性查询继续在后台处理，并拦截本进程控件的后台读取。
+- 保留辅助功能授权检查、取消与超时保护，改善与其他应用同时运行时的稳定性。
+
+macOS 15+，Apple 芯片与 Intel，build 200，2026-11-16。ad-hoc 签名、未公证，需手动安装。同花顺共存场景、完整原生交互、外接屏及长期性能仍待实机验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/NotchCalendar-4.3.7-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/NotchCalendar-4.3.7-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.7/SHA256SUMS.txt)
 
 ## 4.3.6：贴边与权限交互修复
 
