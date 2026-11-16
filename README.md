@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.3.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.7) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.8) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,17 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.8：时钟点击与剪贴板刷新优化
+
+- 菜单栏收纳期间，鼠标靠近时钟时提前解除限制，改善快速点击时钟打开通知中心的响应。
+- 时钟位置查询移至后台，并在系统暂时读不到位置时保留兼容处理，避免同步辅助功能查询阻塞鼠标事件。
+- 剪贴板卡片改为显示“刚刚／几分钟前／几小时前”，页面可见时共用每分钟刷新，隐藏后停止，重新打开立即更新。
+- 悬停剪贴板时间文字可查看准确复制时间。
+
+macOS 15+，Apple 芯片与 Intel，build 201，2026-11-16。ad-hoc 签名、未公证，需手动安装。通知中心真实点击、完整原生交互、外接屏及长期性能仍待实机验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/NotchCalendar-4.3.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/NotchCalendar-4.3.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/SHA256SUMS.txt)
 
 ## 4.3.7：修复辅助功能检测引发的闪退
 

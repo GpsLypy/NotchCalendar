@@ -1,4 +1,26 @@
-# superNotch 4.3.7
+# superNotch 4.3.8
+
+## 4.3.8：时钟点击与剪贴板刷新优化
+
+- 菜单栏收纳期间，鼠标靠近时钟时提前解除限制，改善快速点击时钟打开通知中心的响应。
+- 时钟位置查询移至后台，并在系统暂时读不到位置时保留兼容处理，避免同步辅助功能查询阻塞鼠标事件。
+- 剪贴板卡片改为显示“刚刚／几分钟前／几小时前”，页面可见时共用每分钟刷新，隐藏后停止，重新打开立即更新。
+- 悬停剪贴板时间文字可查看准确复制时间。
+
+macOS 15+，Apple 芯片与 Intel，build 201，2026-11-16。ad-hoc 签名、未公证，需手动安装。通知中心真实点击、完整原生交互、外接屏及长期性能仍待实机验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/NotchCalendar-4.3.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/NotchCalendar-4.3.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/SHA256SUMS.txt)
+
+## 4.3.8: Clock interaction and clipboard refresh improvements
+
+- Release menu-bar restrictions as the pointer approaches the clock to improve Notification Center response to quick clicks.
+- Discover clock bounds in the background and handle temporarily missing bounds without synchronous Accessibility queries on the input thread.
+- Show clipboard ages in minutes or hours, with one shared minute refresh while the page is visible; pause when hidden and refresh immediately on return.
+- Hover over a clipboard age to see the exact copy date and time.
+
+macOS 15+, Apple silicon and Intel, build 201, 2026-11-16. Ad-hoc signed and not notarized; install manually. Live Notification Center clicks, full native interactions, external displays and sustained performance still await device acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/NotchCalendar-4.3.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/NotchCalendar-4.3.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/SHA256SUMS.txt)
 
 ## 4.3.7：修复辅助功能检测引发的闪退
 

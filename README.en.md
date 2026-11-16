@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.3.7](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.7) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.8) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,17 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.8: Clock interaction and clipboard refresh improvements
+
+- Release menu-bar restrictions as the pointer approaches the clock to improve Notification Center response to quick clicks.
+- Discover clock bounds in the background and handle temporarily missing bounds without synchronous Accessibility queries on the input thread.
+- Show clipboard ages in minutes or hours, with one shared minute refresh while the page is visible; pause when hidden and refresh immediately on return.
+- Hover over a clipboard age to see the exact copy date and time.
+
+macOS 15+, Apple silicon and Intel, build 201, 2026-11-16. Ad-hoc signed and not notarized; install manually. Live Notification Center clicks, full native interactions, external displays and sustained performance still await device acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/NotchCalendar-4.3.8-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/NotchCalendar-4.3.8-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.8/SHA256SUMS.txt)
 
 ## 4.3.7: Accessibility crash fix
 
