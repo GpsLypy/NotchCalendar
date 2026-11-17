@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.3.9](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.9) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.10](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.10) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,19 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.10: Notch page switching improvements
+
+- Add a local MCP connection in Settings → AI connections so compatible local Agents can query, add, edit and complete tasks.
+- Supply required assistant execution-event fields so the execution panorama can decode actual call outcomes.
+- Use the same panel background across notch pages, removing the music artwork tint and its brief carryover when switching away.
+- Pause AI usage and coding activity clocks on hidden pages, and reuse the existing Todo clock for its date heading.
+- Hide native content after its exit animation while retaining drafts, selection and undo history for the next visit.
+- Cache compact coding-status text widths to reduce repeated measurements during pointer movement and layout queries.
+
+macOS 15+, universal for Apple silicon and Intel, build 203, 2026-11-17. Ad-hoc signed and not notarized; install manually. Device CPU improvements, native interactions, external displays and sustained operation still require acceptance testing.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/NotchCalendar-4.3.10-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/NotchCalendar-4.3.10-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/SHA256SUMS.txt)
 
 ## 4.3.9: Background performance and assistant capabilities
 

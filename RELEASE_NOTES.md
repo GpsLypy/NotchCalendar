@@ -1,4 +1,30 @@
-# superNotch 4.3.9
+# superNotch 4.3.10
+
+## 4.3.10：刘海页面切换优化
+
+- 新增本地 MCP 入口，可在「设置 → AI 连接」启用，让支持 MCP 的本机 Agent 查询、添加、修改和完成待办。
+- 修复助理执行事件的必要字段，改善全景执行图对实际调用结果的读取。
+- 音乐页改用与其他刘海功能页一致的面板背景，移除封面染色，避免切走后短暂残留背景。
+- AI 用量与编码活动页隐藏后停止定时刷新；待办日期共用现有时钟，减少重复更新。
+- 原生内容页在退场动画结束后隐藏，重新打开时保留草稿、选择和撤销记录。
+- 缓存紧凑编码状态的文字宽度，减少鼠标移动时重复测量和布局查询。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 203，2026-11-17。ad-hoc 签名、未公证，需手动安装。实机 CPU 改善幅度、原生交互、外接屏及长期运行仍待验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/NotchCalendar-4.3.10-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/NotchCalendar-4.3.10-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/SHA256SUMS.txt)
+
+## 4.3.10: Notch page switching improvements
+
+- Add a local MCP connection in Settings → AI connections so compatible local Agents can query, add, edit and complete tasks.
+- Supply required assistant execution-event fields so the execution panorama can decode actual call outcomes.
+- Use the same panel background across notch pages, removing the music artwork tint and its brief carryover when switching away.
+- Pause AI usage and coding activity clocks on hidden pages, and reuse the existing Todo clock for its date heading.
+- Hide native content after its exit animation while retaining drafts, selection and undo history for the next visit.
+- Cache compact coding-status text widths to reduce repeated measurements during pointer movement and layout queries.
+
+macOS 15+, universal for Apple silicon and Intel, build 203, 2026-11-17. Ad-hoc signed and not notarized; install manually. Device CPU improvements, native interactions, external displays and sustained operation still require acceptance testing.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/NotchCalendar-4.3.10-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/NotchCalendar-4.3.10-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/SHA256SUMS.txt)
 
 ## 4.3.9：后台性能与助理能力更新
 

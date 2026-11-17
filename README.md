@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.3.9](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.9) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.10](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.10) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,19 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.10：刘海页面切换优化
+
+- 新增本地 MCP 入口，可在「设置 → AI 连接」启用，让支持 MCP 的本机 Agent 查询、添加、修改和完成待办。
+- 修复助理执行事件的必要字段，改善全景执行图对实际调用结果的读取。
+- 音乐页改用与其他刘海功能页一致的面板背景，移除封面染色，避免切走后短暂残留背景。
+- AI 用量与编码活动页隐藏后停止定时刷新；待办日期共用现有时钟，减少重复更新。
+- 原生内容页在退场动画结束后隐藏，重新打开时保留草稿、选择和撤销记录。
+- 缓存紧凑编码状态的文字宽度，减少鼠标移动时重复测量和布局查询。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 203，2026-11-17。ad-hoc 签名、未公证，需手动安装。实机 CPU 改善幅度、原生交互、外接屏及长期运行仍待验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/NotchCalendar-4.3.10-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/NotchCalendar-4.3.10-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.10/SHA256SUMS.txt)
 
 ## 4.3.9：后台性能与助理能力更新
 
