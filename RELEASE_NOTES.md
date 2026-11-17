@@ -1,4 +1,32 @@
-# superNotch 4.3.8
+# superNotch 4.3.9
+
+## 4.3.9：后台性能与助理能力更新
+
+- 新增自定义远程 MCP 服务，可发现工具、逐项授权，并在执行前确认需要批准的调用。
+- 更新配套 AI 组件至 r2，补齐 MCP 与浏览器依赖；升级后需在助理组件面板安装新版组件。
+- 新增 Skill 的 ZIP、文件夹及 HTTPS 正文导入，支持完整资源、修订保存和按需加载。
+- 技能脚本经确认后作为独立任务运行，支持状态、取消、日志与产物检查；应用重启后不自动重跑。
+- 内置 MoneyPrinter 技能入口和素材凭据管理；完整视频生成仍需网络、Pexels Key 与实际验收。
+- 进一步降低菜单栏后台辅助功能查询频率，并补充默认关闭的 CPU 与隐藏页面布局诊断。
+- 调整紧凑文件页的隔空投送入口位置，保留更多文件浏览空间。
+
+macOS 15+，Apple 芯片与 Intel 主应用通用包，build 202，2026-11-17。ad-hoc 签名、未公证，需手动安装。助理新功能需配置模型和兼容的可选 AI 组件；组件当前提供 Apple 芯片版。完整视频生成、原生交互、外接屏及长期运行仍有待实机验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.9/NotchCalendar-4.3.9-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.9/NotchCalendar-4.3.9-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.9/SHA256SUMS.txt)
+
+## 4.3.9: Background performance and assistant capabilities
+
+- Add custom remote MCP services with tool discovery, individual permissions and confirmation for approved calls.
+- Update the companion AI component to r2 with MCP and browser dependencies; install the new component from the assistant panel after upgrading.
+- Import Skills from ZIP archives, folders or HTTPS text, retaining complete resources, revisions and on-demand guidance.
+- Run confirmed skill scripts as independent jobs with status, cancellation, logs and artifact checks; interrupted jobs are not replayed after restart.
+- Add a bundled MoneyPrinter Skill entry and material-service credentials; complete video generation still requires network access, a Pexels key and real acceptance testing.
+- Reduce idle menu-bar Accessibility queries and add opt-in CPU and hidden-page layout diagnostics, disabled by default.
+- Move AirDrop controls in compact file views to leave more space for browsing.
+
+macOS 15+, universal main app for Apple silicon and Intel, build 202, 2026-11-17. Ad-hoc signed and not notarized; install manually. New assistant features require a configured model and a compatible optional AI component, currently supplied for Apple silicon. Complete video generation, native interactions, external displays and sustained operation still require device acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.9/NotchCalendar-4.3.9-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.9/NotchCalendar-4.3.9-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.9/SHA256SUMS.txt)
 
 ## 4.3.8：时钟点击与剪贴板刷新优化
 

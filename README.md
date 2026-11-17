@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.3.8](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.8) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.9](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.9) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,20 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.9：后台性能与助理能力更新
+
+- 新增自定义远程 MCP 服务，可发现工具、逐项授权，并在执行前确认需要批准的调用。
+- 更新配套 AI 组件至 r2，补齐 MCP 与浏览器依赖；升级后需在助理组件面板安装新版组件。
+- 新增 Skill 的 ZIP、文件夹及 HTTPS 正文导入，支持完整资源、修订保存和按需加载。
+- 技能脚本经确认后作为独立任务运行，支持状态、取消、日志与产物检查；应用重启后不自动重跑。
+- 内置 MoneyPrinter 技能入口和素材凭据管理；完整视频生成仍需网络、Pexels Key 与实际验收。
+- 进一步降低菜单栏后台辅助功能查询频率，并补充默认关闭的 CPU 与隐藏页面布局诊断。
+- 调整紧凑文件页的隔空投送入口位置，保留更多文件浏览空间。
+
+macOS 15+，Apple 芯片与 Intel 主应用通用包，build 202，2026-11-17。ad-hoc 签名、未公证，需手动安装。助理新功能需配置模型和兼容的可选 AI 组件；组件当前提供 Apple 芯片版。完整视频生成、原生交互、外接屏及长期运行仍有待实机验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.9/NotchCalendar-4.3.9-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.9/NotchCalendar-4.3.9-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.9/SHA256SUMS.txt)
 
 ## 4.3.8：时钟点击与剪贴板刷新优化
 
