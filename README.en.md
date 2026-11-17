@@ -20,6 +20,7 @@ Enter your Mac administrator password and press Return; Terminal shows no charac
 ## 4.3.9: Background performance and assistant capabilities
 
 - Add custom remote MCP services with tool discovery, individual permissions and confirmation for approved calls.
+- Add an Agent execution panorama showing observed model/tool calls, native approvals, script jobs, artifact verification, timing and local history.
 - Update the companion AI component to r2 with MCP and browser dependencies; install the new component from the assistant panel after upgrading.
 - Import Skills from ZIP archives, folders or HTTPS text, retaining complete resources, revisions and on-demand guidance.
 - Run confirmed skill scripts as independent jobs with status, cancellation, logs and artifact checks; interrupted jobs are not replayed after restart.
