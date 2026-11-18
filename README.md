@@ -2,7 +2,7 @@
 
 从 Mac 刘海展开日历、专注、音乐、文件、便笺、AI 聊天、开发工具与系统监控等功能；通过可搜索的功能库切换，完整工作台和设置支持浅色、深色与可选毛玻璃材质。
 
-[English](README.en.md) · [下载 4.3.10](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.10) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [下载 4.3.11](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.11) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## 安装与首次打开
 
@@ -16,6 +16,19 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。然后从「应用程序」重新打开。旧版名称为 `Notch Calendar.app` 时，将命令中的路径改为 `"/Applications/Notch Calendar.app"`。若提示「已损坏」，请先重新下载并核对发布页的 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
+
+## 4.3.11：专注布局与翻译服务更新
+
+- 专注页标题与详情居中，适度增加右侧四行的间距，保留原有模式与开始按钮样式。
+- 整理刘海今日、便笺、AI、录制与常用工具页面的宽窄布局和内容层级。
+- 翻译新增金山、百度与阿里官网入口，可选择保留或关闭；支持网页缩放、独立窗口和外部浏览器打开。
+- 支持用户自行配置百度、阿里官方翻译 API，凭证保存在本机；图片识字继续使用本机 OCR。
+- 全局指针监听初始化失败时保留悬停展开能力，遵循已保存的悬停或点击偏好。
+- 保留 4.3.10 的本地 MCP、助理执行记录与隐藏页面刷新优化。
+
+macOS 15+，Apple 芯片与 Intel 通用包，build 204，2026-11-18。ad-hoc 签名、未公证，需手动安装。第三方翻译需网络及供应商账号或 API 凭证；网页登录、真实 API、原生交互、外接屏及长期性能仍待实机验收。
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/NotchCalendar-4.3.11-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/NotchCalendar-4.3.11-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/SHA256SUMS.txt)
 
 ## 4.3.10：刘海页面切换优化
 

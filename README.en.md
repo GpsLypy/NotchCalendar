@@ -2,7 +2,7 @@
 
 Open your calendar, focus timer, music, files, scratchpad, AI chat, developer tools, system monitor and more from the Mac notch. Switch through a searchable Tool Library; the full workspace and Settings offer light and dark appearances with an optional translucent glass material.
 
-[简体中文](README.md) · [Download 4.3.10](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.10) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Download 4.3.11](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.11) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 ## Installation and first launch
 
@@ -16,6 +16,19 @@ sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
 
 Enter your Mac administrator password and press Return; Terminal shows no characters while you type. Then reopen the app from Applications. For older releases named `Notch Calendar.app`, use `"/Applications/Notch Calendar.app"` as the path. If macOS says the app is damaged, download it again and check the release's `SHA256SUMS.txt` first. [Apple's opening guidance](https://support.apple.com/en-us/102445).
 
+
+## 4.3.11: Focus layout and translation services
+
+- Center the Focus heading and details, with slightly more space between the four control rows while retaining existing button styles.
+- Refine narrow and wide layouts across Today, notes, AI, recording and utility pages.
+- Add Kingsoft, Baidu and Alibaba translation websites with selectable entries, page zoom, separate windows and external-browser access.
+- Support user-configured official Baidu and Alibaba translation APIs with credentials stored locally; image text recognition continues to use on-device OCR.
+- Preserve hover expansion when the global pointer monitor cannot initialize, respecting the saved hover or click preference.
+- Retain the local MCP connection, assistant execution records and hidden-page refresh improvements from 4.3.10.
+
+macOS 15+, universal for Apple silicon and Intel, build 204, 2026-11-18. Ad-hoc signed and not notarized; install manually. Third-party translation requires network access and provider accounts or API credentials. Website login, live APIs, native interactions, external displays and sustained performance still require device acceptance.
+
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/NotchCalendar-4.3.11-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/NotchCalendar-4.3.11-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/SHA256SUMS.txt)
 
 ## 4.3.10: Notch page switching improvements
 
