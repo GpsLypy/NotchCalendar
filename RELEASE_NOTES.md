@@ -1,27 +1,27 @@
-# superNotch 4.3.11
+# superNotch 4.3.12
 
-## 4.3.11：专注布局与翻译服务更新
+## 4.3.12：切页布局优化与网络详情
 
-- 专注页标题与详情居中，适度增加右侧四行的间距，保留原有模式与开始按钮样式。
-- 整理刘海今日、便笺、AI、录制与常用工具页面的宽窄布局和内容层级。
-- 翻译新增金山、百度与阿里官网入口，可选择保留或关闭；支持网页缩放、独立窗口和外部浏览器打开。
-- 支持用户自行配置百度、阿里官方翻译 API，凭证保存在本机；图片识字继续使用本机 OCR。
-- 全局指针监听初始化失败时保留悬停展开能力，遵循已保存的悬停或点击偏好。
-- 保留 4.3.10 的本地 MCP、助理执行记录与隐藏页面刷新优化。
+- 优化刘海展开、切页和调整尺寸时的布局处理，减少重复同步布局与外壳遮罩重建。
+- 优化系统监控卡片测量和剪贴板相对时间格式化的重复开销。
+- 系统监控新增网络详情：本机地址、接口信息，以及可用的 Wi-Fi 连接参数；可自行开启公网 IP 与地区查询。
+- 调整系统监控在较小窗口中的卡片与快捷入口布局。
+- 修复“仅点击展开”模式启动后刘海点击入口可能无响应的问题。
+- 改善端口管理面板的收起行为：移出面板或点击外部可收起，确认操作期间保持打开。
 
-macOS 15+，Apple 芯片与 Intel 通用包，build 204，2026-11-18。ad-hoc 签名、未公证，需手动安装。第三方翻译需网络及供应商账号或 API 凭证；网页登录、真实 API、原生交互、外接屏及长期性能仍待实机验收。
+macOS 15+，Apple 芯片与 Intel 通用包，build 205，2026-11-18。ad-hoc 签名、未公证，需手动安装。公网 IP 查询默认关闭，开启后使用第三方网络服务；Wi-Fi 参数视系统与硬件可用性显示。本版未进行同场景优化前后 CPU 对照，原生交互、外接屏及长期性能仍待实机验收。
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/NotchCalendar-4.3.11-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/NotchCalendar-4.3.11-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/SHA256SUMS.txt)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.12/NotchCalendar-4.3.12-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.12/NotchCalendar-4.3.12-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.12/SHA256SUMS.txt)
 
-## 4.3.11: Focus layout and translation services
+## 4.3.12: Page-layout optimizations and network details
 
-- Center the Focus heading and details, with slightly more space between the four control rows while retaining existing button styles.
-- Refine narrow and wide layouts across Today, notes, AI, recording and utility pages.
-- Add Kingsoft, Baidu and Alibaba translation websites with selectable entries, page zoom, separate windows and external-browser access.
-- Support user-configured official Baidu and Alibaba translation APIs with credentials stored locally; image text recognition continues to use on-device OCR.
-- Preserve hover expansion when the global pointer monitor cannot initialize, respecting the saved hover or click preference.
-- Retain the local MCP connection, assistant execution records and hidden-page refresh improvements from 4.3.10.
+- Optimize layout work when opening the notch, switching pages, and resizing, reducing redundant synchronous layouts and shell-mask rebuilding.
+- Reduce repeated system-monitor card measurements and clipboard relative-time formatting.
+- Add network details to System Monitor, including local addresses, interface information, and available Wi-Fi connection details. Public IP and region lookup can be enabled separately.
+- Refine System Monitor cards and shortcuts for smaller windows.
+- Fix the notch click target occasionally failing to respond after launch in click-only mode.
+- Improve Port Management dismissal when moving the pointer away or clicking outside, while keeping confirmation actions open.
 
-macOS 15+, universal for Apple silicon and Intel, build 204, 2026-11-18. Ad-hoc signed and not notarized; install manually. Third-party translation requires network access and provider accounts or API credentials. Website login, live APIs, native interactions, external displays and sustained performance still require device acceptance.
+macOS 15+, universal for Apple silicon and Intel, build 205, 2026-11-18. Ad-hoc signed and not notarized; install manually. Public IP lookup is off by default and uses third-party services when enabled. Wi-Fi details depend on system and hardware availability. No controlled before-and-after CPU comparison was performed; native interactions, external displays and sustained performance still require device acceptance.
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/NotchCalendar-4.3.11-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/NotchCalendar-4.3.11-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/SHA256SUMS.txt)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.12/NotchCalendar-4.3.12-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.12/NotchCalendar-4.3.12-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.12/SHA256SUMS.txt)

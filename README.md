@@ -4,7 +4,7 @@
 
 从 Mac 顶部展开日历、专注、待办、文件、便笺、音乐、翻译、AI 和常用工具。轻量操作留在刘海里，需要更多空间时继续使用完整工作台。
 
-[English](README.en.md) · [官网](https://sweetchoice.cn/item/notchcalendar) · [下载 4.3.11](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.11) · [更新说明](RELEASE_NOTES.md) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [官网](https://sweetchoice.cn/item/notchcalendar) · [下载 4.3.12](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.12) · [更新说明](RELEASE_NOTES.md) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 macOS 15+ · Apple 芯片与 Intel · 简体中文 / English · 7 天试用 · ¥9.9 永久买断
 
@@ -39,11 +39,11 @@ macOS 15+ · Apple 芯片与 Intel · 简体中文 / English · 7 天试用 · �
 - **采集与监控**：截图、录屏和会议录音转写，查看 CPU、内存、磁盘与网络状态。
 - **按习惯调整**：浅色或深色工作台、可选半透明材质，自定义刘海尺寸、搜索功能库和显示屏。
 
-## 最新版本：4.3.11
+## 最新版本：4.3.12
 
-build 204 · 2026-11-18。调整专注页留白与内容布局，新增可选翻译网站和官方 API 服务，并在指针监听初始化失败时保留悬停展开能力。包含 4.3.10 的本地 MCP 与隐藏页面刷新优化。
+build 205 · 2026-11-18。减少刘海切页与调整尺寸时的重复布局，优化系统监控和剪贴板重复开销；新增网络详情及可选公网 IP 查询，改善启动后点击展开与端口面板收起行为。
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/NotchCalendar-4.3.11-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/NotchCalendar-4.3.11-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.11/SHA256SUMS.txt) · [历史版本](https://github.com/GpsLypy/NotchCalendar/releases)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.12/NotchCalendar-4.3.12-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.12/NotchCalendar-4.3.12-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.12/SHA256SUMS.txt) · [历史版本](https://github.com/GpsLypy/NotchCalendar/releases)
 
 ## 安装与首次打开
 
