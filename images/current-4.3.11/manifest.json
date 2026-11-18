@@ -1,0 +1,158 @@
+{
+  "captured": "2026-11-18",
+  "appVersion": "4.3.11",
+  "panels": [
+    {
+      "file": "calculator.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "287c2814c47e8a3dd4f2e246b1b275e2657b93613f8975b247e86a1a83cc4bfb",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "calendar.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "3a358631390894564eef97f25008bf7316120d49eb7978cf679cbe9463fbb984",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "capture.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "a25d0a95a7c32bc26591d04b1d8f6fb20dbc2011cbde7c79f380be21eda1082f",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "clipboard.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "180a5bc088e9be8592755912008c323062f30e1657edd05b5414909caae0046f",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "developerTools.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "d2f2bc30998a4098a7e1fc287561d6595339b93666cb92c40f3b6c32859a388a",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "files.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "651b7b5b380223277f8f6fe93228089435315d15716079ee6bd7112768137a58",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "focus.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "fa49c5ba73d6c1e34fb6f3b3eaaa7b29f61c3846912577658efb04fe7b971677",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "music.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "6ca144942f9badfcd7b265857588a7bca19c6ec5a4fb8ac626dca8edad496721",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "scratchpad.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "650e6ac69f523aa434efe0d1d449da7c5b2c555fed859e5450a1dbfcccb00fd1",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "systemMonitor.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "23b499cd457bc56349cdb4f05cd9a22d8c0f23f804d41f3bcb729d03e6fb9877",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "todo.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "994017ec7cccd89bf35425ceb3e58bd6eadf589d09a3e47e8813e4203d7c1c63",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "translation.png",
+      "source": "Tests/NotchCalendarTests/ProductScreenshotExportTests.swift",
+      "sourceSHA256": "dac56ccfd7340076a68db2e142c463f321f0cb247f1a78eac60b63ddd2a710c2",
+      "sha256": "54a049937632c68e6d9fa36f04772861d6ce405d93e2d7540a0f8b0eb2c30a62",
+      "width": 1440,
+      "height": 760,
+      "renderer": "Production NotchExpandedActivityView, detached NSHostingView, no NSWindow",
+      "data": "Isolated synthetic fixtures. No real calendar, clipboard, account, device, or network service.",
+      "websiteDesktop": "Existing reviewed desktop background composited with the current native panel; not a full-screen live capture."
+    },
+    {
+      "file": "aiUsage.png",
+      "source": "Tests/NotchCalendarTests/ApprovedAIContentRenderTests.swift",
+      "sourceSHA256": "c93a62e52ede473a0adf54e0dcac31f957641824866679e2a4416f91752dd5ae",
+      "sha256": "23c47a086b3d623c2b3a05260260cf39267375fe5fc60a37d65e25514bc1e04b",
+      "width": 1296,
+      "height": 552,
+      "renderer": "Production AI component only, detached NSHostingView, no outer notch toolbar",
+      "data": "Synthetic task and account fixtures; no real account quotas."
+    },
+    {
+      "file": "ai-capabilities.png",
+      "source": "Tests/NotchCalendarTests/ApprovedAIContentRenderTests.swift",
+      "sourceSHA256": "c93a62e52ede473a0adf54e0dcac31f957641824866679e2a4416f91752dd5ae",
+      "sha256": "b1ca3504f15de4affe384ddd84d1f43f947352f075ed1b1176b5b4187d4f1f55",
+      "width": 1296,
+      "height": 552,
+      "renderer": "Production AI component only, detached NSHostingView, no outer notch toolbar",
+      "data": "Synthetic task and account fixtures; no real account quotas."
+    }
+  ]
+}
