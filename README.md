@@ -1,10 +1,10 @@
-# superNotch
+# NotchCalendar
 
 **把常用工具留在刘海边，把注意力留给手头的事。**
 
 从 Mac 顶部展开日历、专注、待办、文件、便笺、音乐、翻译、AI 和常用工具。轻量操作留在刘海里，需要更多空间时继续使用完整工作台。
 
-[English](README.en.md) · [官网](https://sweetchoice.cn/item/notchcalendar) · [下载 4.3.15](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.15) · [更新说明](RELEASE_NOTES.md) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [官网](https://sweetchoice.cn/item/notchcalendar) · [下载 4.3.16](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.16) · [更新说明](RELEASE_NOTES.md) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 macOS 15+ · Apple 芯片与 Intel · 简体中文 / English · 7 天试用 · ¥9.9 永久买断
 
@@ -39,11 +39,11 @@ macOS 15+ · Apple 芯片与 Intel · 简体中文 / English · 7 天试用 · �
 - **采集与监控**：截图、录屏和会议录音转写，查看 CPU、内存、磁盘与网络状态。
 - **按习惯调整**：浅色或深色工作台、可选半透明材质，自定义刘海尺寸、搜索功能库和显示屏。
 
-## 最新版本：4.3.15
+## 最新版本：4.3.16
 
 重绘刘海小伴侣，调整 AI 工作台标签顺序，并更新智能助理的任务界面。支持 macOS 15 及以上，适用 Apple 芯片与 Intel。
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.15/NotchCalendar-4.3.15-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.15/NotchCalendar-4.3.15-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.15/SHA256SUMS.txt) · [历史版本](https://github.com/GpsLypy/NotchCalendar/releases)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.16/NotchCalendar-4.3.16-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.16/NotchCalendar-4.3.16-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.16/SHA256SUMS.txt) · [历史版本](https://github.com/GpsLypy/NotchCalendar/releases)
 
 ## 安装与首次打开
 
