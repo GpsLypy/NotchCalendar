@@ -4,7 +4,7 @@
 
 从 Mac 顶部展开日历、专注、待办、文件、便笺、音乐、翻译、AI 和常用工具。轻量操作留在刘海里，需要更多空间时继续使用完整工作台。
 
-[English](README.en.md) · [官网](https://sweetchoice.cn/item/notchcalendar) · [下载 4.3.19](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.19) · [更新说明](RELEASE_NOTES.md) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [官网](https://sweetchoice.cn/item/notchcalendar) · [下载 4.3.20](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.20) · [更新说明](RELEASE_NOTES.md) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 macOS 15+ · Apple 芯片与 Intel · 简体中文 / English · 7 天试用 · ¥9.9 永久买断
 
@@ -39,15 +39,15 @@ macOS 15+ · Apple 芯片与 Intel · 简体中文 / English · 7 天试用 · �
 - **采集与监控**：截图、录屏和会议录音转写，查看 CPU、内存、磁盘与网络状态。
 - **按习惯调整**：浅色或深色工作台、可选半透明材质，自定义刘海尺寸、搜索功能库和显示屏。
 
-## 最新版本：4.3.19
+## 最新版本：4.3.20
 
-修复鼠标移入菜单栏下方的待办按钮时，待办消失并意外展开菜单栏的问题。保留刘海命令「允许并记住」和滚动截图功能。支持 macOS 15 及以上，适用 Apple 芯片与 Intel。
+统一官网与应用内更新包的应用名称为 NotchCalendar.app，升级后不再变回 superNotch。保留待办悬停修复、刘海命令「允许并记住」与滚动截图。支持 macOS 15 及以上，适用 Apple 芯片与 Intel。
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.19/NotchCalendar-4.3.19-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.19/NotchCalendar-4.3.19-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.19/SHA256SUMS.txt) · [历史版本](https://github.com/GpsLypy/NotchCalendar/releases)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.20/NotchCalendar-4.3.20-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.20/NotchCalendar-4.3.20-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.20/SHA256SUMS.txt) · [历史版本](https://github.com/GpsLypy/NotchCalendar/releases)
 
 ## 安装与首次打开
 
-从[官网](https://sweetchoice.cn/item/notchcalendar)下载安装包，将 `NotchCalendar.app` 拖入 Applications（应用程序），等待复制完成后从「应用程序」启动。安装包内附「安装说明.txt」。GitHub 的兼容 DMG 内应用名为 `superNotch.app`。
+从[官网](https://sweetchoice.cn/item/notchcalendar)下载安装包，将 `NotchCalendar.app` 拖入 Applications（应用程序），等待复制完成后从「应用程序」启动。安装包内附「安装说明.txt」。官网与应用内检查更新使用同一份 DMG，里面均为 `NotchCalendar.app`。
 
 当前手动安装版采用 ad-hoc 签名，尚未经过 Apple 公证。确认来自官方发布页并核对校验值后，若首次打开被拦截，先尝试「系统设置 → 隐私与安全性 → 仍要打开」。若下载隔离仍阻止打开，可在终端执行：
 
