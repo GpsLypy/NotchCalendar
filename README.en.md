@@ -4,7 +4,7 @@
 
 Calendar, focus, tasks, files, notes, music, translation, AI and everyday tools in a native macOS workspace. Open the notch panel, switch tools, and continue in the full workspace when you need more room.
 
-[简体中文](README.md) · [Website](https://sweetchoice.cn/item/notchcalendar) · [Download 4.3.21](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.21) · [Release notes](RELEASE_NOTES.md) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Website](https://sweetchoice.cn/item/notchcalendar) · [Download 4.3.22](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.22) · [Release notes](RELEASE_NOTES.md) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 macOS 15+ · Apple silicon & Intel · 简体中文 / English · 7-day trial · CNY 9.90 lifetime license
 
@@ -39,11 +39,11 @@ The last two images show AI page content without the outer notch toolbar. [Image
 - **Capture and monitor:** screenshots, recording and meeting transcription; CPU, memory, disk and network information.
 - **Make it yours:** light or dark workspace, optional translucent materials, adjustable notch size, searchable tool library and display selection.
 
-## Latest release: 4.3.21
+## Latest release: 4.3.22
 
-Uses NotchCalendar.app in both website and in-app update installers, preventing the old superNotch name from returning after an update. Includes the Todo hover fix, remembered command approvals and scrolling screenshots. Requires macOS 15 or later and supports Apple silicon and Intel.
+The notch’s Keep Awake menu can keep the display on while connected to power and pause the rule on battery. Closed-lid operation requires a Developer ID build with approval for the background helper. This ad-hoc build supports macOS 15 or later on Apple silicon and Intel.
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.21/NotchCalendar-4.3.21-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.21/NotchCalendar-4.3.21-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.21/SHA256SUMS.txt) · [All releases](https://github.com/GpsLypy/NotchCalendar/releases)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.22/NotchCalendar-4.3.22-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.22/NotchCalendar-4.3.22-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.22/SHA256SUMS.txt) · [All releases](https://github.com/GpsLypy/NotchCalendar/releases)
 
 ## Install and first launch
 
