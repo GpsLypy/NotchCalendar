@@ -4,7 +4,7 @@
 
 Calendar, focus, tasks, files, notes, music, translation, AI and everyday tools in a native macOS workspace. Open the notch panel, switch tools, and continue in the full workspace when you need more room.
 
-[简体中文](README.md) · [Website](https://sweetchoice.cn/item/notchcalendar) · [Download 4.3.16](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.16) · [Release notes](RELEASE_NOTES.md) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Website](https://sweetchoice.cn/item/notchcalendar) · [Download 4.3.19](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.19) · [Release notes](RELEASE_NOTES.md) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 macOS 15+ · Apple silicon & Intel · 简体中文 / English · 7-day trial · CNY 9.90 lifetime license
 
@@ -39,23 +39,23 @@ The last two images show AI page content without the outer notch toolbar. [Image
 - **Capture and monitor:** screenshots, recording and meeting transcription; CPU, memory, disk and network information.
 - **Make it yours:** light or dark workspace, optional translucent materials, adjustable notch size, searchable tool library and display selection.
 
-## Latest release: 4.3.16
+## Latest release: 4.3.19
 
-This update redesigns the Notch Companion, reorders the AI Workbench tabs, and refreshes the Assistant task interface. Requires macOS 15 or later and supports Apple silicon and Intel.
+Fixes Todo controls disappearing and the menu bar unexpectedly expanding when hovering below the menu bar. Includes remembered command approvals and scrolling screenshots. Requires macOS 15 or later and supports Apple silicon and Intel.
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.16/NotchCalendar-4.3.16-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.16/NotchCalendar-4.3.16-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.16/SHA256SUMS.txt) · [All releases](https://github.com/GpsLypy/NotchCalendar/releases)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.19/NotchCalendar-4.3.19-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.19/NotchCalendar-4.3.19-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.19/SHA256SUMS.txt) · [All releases](https://github.com/GpsLypy/NotchCalendar/releases)
 
 ## Install and first launch
 
-Open the DMG, drag superNotch into Applications, wait for copying to finish, then launch it from Applications. The package includes installation instructions.
+Download the DMG from the [website](https://sweetchoice.cn/item/notchcalendar), drag `NotchCalendar.app` into Applications, then open it from Applications. The package includes installation instructions. The GitHub compatibility DMG contains an app named `superNotch.app`.
 
 The manual distribution is ad-hoc signed and has not been notarized by Apple. After confirming the official download and checksum, use System Settings → Privacy & Security → Open Anyway if macOS blocks the first launch. If download quarantine still prevents opening, run:
 
 ```sh
-sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
+sudo xattr -rd com.apple.quarantine "/Applications/NotchCalendar.app"
 ```
 
-Enter your Mac administrator password; Terminal does not show characters as you type. For the older app name, use `/Applications/Notch Calendar.app`. If macOS reports damage, download the official package again and verify `SHA256SUMS.txt`. [Apple's guidance](https://support.apple.com/en-us/102445).
+Enter your Mac administrator password; Terminal does not show characters as you type. For installations named `superNotch.app` or `Notch Calendar.app`, use the corresponding path in Applications. If macOS reports damage, download the package again. Verify GitHub assets using the `SHA256SUMS.txt` from the release. [Apple's guidance](https://support.apple.com/en-us/102445).
 
 ## License, privacy and permissions
 

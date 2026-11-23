@@ -4,7 +4,7 @@
 
 从 Mac 顶部展开日历、专注、待办、文件、便笺、音乐、翻译、AI 和常用工具。轻量操作留在刘海里，需要更多空间时继续使用完整工作台。
 
-[English](README.en.md) · [官网](https://sweetchoice.cn/item/notchcalendar) · [下载 4.3.16](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.16) · [更新说明](RELEASE_NOTES.md) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
+[English](README.en.md) · [官网](https://sweetchoice.cn/item/notchcalendar) · [下载 4.3.19](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.3.19) · [更新说明](RELEASE_NOTES.md) · [反馈问题](https://github.com/GpsLypy/NotchCalendar/issues)
 
 macOS 15+ · Apple 芯片与 Intel · 简体中文 / English · 7 天试用 · ¥9.9 永久买断
 
@@ -39,23 +39,23 @@ macOS 15+ · Apple 芯片与 Intel · 简体中文 / English · 7 天试用 · �
 - **采集与监控**：截图、录屏和会议录音转写，查看 CPU、内存、磁盘与网络状态。
 - **按习惯调整**：浅色或深色工作台、可选半透明材质，自定义刘海尺寸、搜索功能库和显示屏。
 
-## 最新版本：4.3.16
+## 最新版本：4.3.19
 
-重绘刘海小伴侣，调整 AI 工作台标签顺序，并更新智能助理的任务界面。支持 macOS 15 及以上，适用 Apple 芯片与 Intel。
+修复鼠标移入菜单栏下方的待办按钮时，待办消失并意外展开菜单栏的问题。保留刘海命令「允许并记住」和滚动截图功能。支持 macOS 15 及以上，适用 Apple 芯片与 Intel。
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.16/NotchCalendar-4.3.16-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.16/NotchCalendar-4.3.16-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.16/SHA256SUMS.txt) · [历史版本](https://github.com/GpsLypy/NotchCalendar/releases)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.19/NotchCalendar-4.3.19-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.19/NotchCalendar-4.3.19-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.3.19/SHA256SUMS.txt) · [历史版本](https://github.com/GpsLypy/NotchCalendar/releases)
 
 ## 安装与首次打开
 
-打开 DMG，将应用拖入 Applications（应用程序），等待复制完成后从「应用程序」启动。安装包内附「安装说明.txt」，无需启动应用即可查阅。
+从[官网](https://sweetchoice.cn/item/notchcalendar)下载安装包，将 `NotchCalendar.app` 拖入 Applications（应用程序），等待复制完成后从「应用程序」启动。安装包内附「安装说明.txt」。GitHub 的兼容 DMG 内应用名为 `superNotch.app`。
 
 当前手动安装版采用 ad-hoc 签名，尚未经过 Apple 公证。确认来自官方发布页并核对校验值后，若首次打开被拦截，先尝试「系统设置 → 隐私与安全性 → 仍要打开」。若下载隔离仍阻止打开，可在终端执行：
 
 ```sh
-sudo xattr -rd com.apple.quarantine "/Applications/superNotch.app"
+sudo xattr -rd com.apple.quarantine "/Applications/NotchCalendar.app"
 ```
 
-输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。旧版名称为 `Notch Calendar.app` 时，将路径改为 `/Applications/Notch Calendar.app`。若提示「已损坏」，请重新下载官方安装包并核对 `SHA256SUMS.txt`。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
+输入 Mac 管理员密码并按回车；输入时不显示字符是正常现象。应用名为 `superNotch.app` 或 `Notch Calendar.app` 时，请使用「应用程序」中对应的实际路径。若提示「已损坏」，请重新下载。GitHub 附件可使用发布页上的 `SHA256SUMS.txt` 核对。[Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
 
 ## 授权、隐私与权限
 
