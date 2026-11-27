@@ -1,19 +1,17 @@
-# NotchCalendar 4.4.2
+# NotchCalendar 4.4.3
 
 ## 简体中文
 
-- 计算器采用炭黑、灰色和橙色配色。
-- JSON 工具点击顶部的格式化、压缩或校验即可执行，输入和输出区域更高。
-- 刘海截屏的区域、窗口、屏幕、滚动截图和识别文字按钮采用独立配色。
-- 刘海收起时，独立的音乐按钮只显示唱片，减少占用空间。
+- 刘海日程改为两列列表，左侧显示起止时间，右侧显示标题和地点。日程直接沿用刘海底色，提醒事项入口移到标题右侧。
+- 计算器恢复原有面板底色，保留灰色和橙色按键。
+- 修正刘海分享菜单在使用隔空投送时可能触发的闪退。
 
 支持 macOS 15 及以上、Apple 芯片与 Intel Mac。本版使用临时签名，请手动覆盖安装。
 
 ## English
 
-- The calculator uses a charcoal, gray, and orange palette.
-- Run Format, Compact, or Validate directly from the JSON toolbar, with more room for input and output.
-- The notch screenshot panel gives each of its five capture actions a distinct color.
-- The standalone music button shows a compact record when the notch is collapsed.
+- Notch agenda rows now show start and end times on the left, with titles and locations on the right. The rows use the notch background, and the Reminders action sits in the heading.
+- The calculator uses the original panel background with gray and orange keys.
+- Fix a potential crash in the notch share menu when using AirDrop.
 
 Supports macOS 15 or later on Apple silicon and Intel Macs. This ad-hoc signed build requires manual installation.

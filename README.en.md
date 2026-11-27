@@ -4,7 +4,7 @@
 
 Calendar, focus, tasks, files, notes, music, translation, AI and everyday tools in a native macOS workspace. Open the notch panel, switch tools, and continue in the full workspace when you need more room.
 
-[简体中文](README.md) · [Website](https://sweetchoice.cn/item/notchcalendar) · [Download 4.4.2](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.4.2) · [Release notes](RELEASE_NOTES.md) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
+[简体中文](README.md) · [Website](https://sweetchoice.cn/item/notchcalendar) · [Download 4.4.3](https://github.com/GpsLypy/NotchCalendar/releases/tag/v4.4.3) · [Release notes](RELEASE_NOTES.md) · [Report an issue](https://github.com/GpsLypy/NotchCalendar/issues)
 
 macOS 15+ · Apple silicon & Intel · 简体中文 / English · 7-day trial · CNY 9.90 lifetime license
 
@@ -39,11 +39,11 @@ The last two images show AI page content without the outer notch toolbar. [Image
 - **Capture and monitor:** screenshots, recording and meeting transcription; CPU, memory, disk and network information.
 - **Make it yours:** light or dark workspace, optional translucent materials, adjustable notch size, searchable tool library and display selection.
 
-## Latest release: 4.4.2
+## Latest release: 4.4.3
 
-The calculator uses a charcoal, gray, and orange palette.
+Notch agenda rows now show start and end times on the left, with titles and locations on the right. The rows use the notch background, and the Reminders action sits in the heading.
 
-[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.4.2/NotchCalendar-4.4.2-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.4.2/NotchCalendar-4.4.2-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.4.2/SHA256SUMS.txt) · [All releases](https://github.com/GpsLypy/NotchCalendar/releases)
+[DMG](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.4.3/NotchCalendar-4.4.3-macos.dmg) · [ZIP](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.4.3/NotchCalendar-4.4.3-macos.zip) · [SHA-256](https://github.com/GpsLypy/NotchCalendar/releases/download/v4.4.3/SHA256SUMS.txt) · [All releases](https://github.com/GpsLypy/NotchCalendar/releases)
 
 ## Install and first launch
 
